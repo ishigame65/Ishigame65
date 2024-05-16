@@ -120,11 +120,6 @@ td, th {
 img.icon {
 	margin:0;
 }
-/*
-	margin:0;
-	padding: 0.5em 1em;
-	ling-height: 31px;
-*/
 blockquote {
 	margin: 5px 20px;
 	padding: 0.5em 0.1em;
@@ -132,10 +127,7 @@ blockquote {
 	color: #868666;
 	border-left: 4px solid #A6A666;
 }
-/*
-	margin-right:0px;
 
-*/
 @media (max-width: 670px) { /* 670 */
 	header img {
 		display: none;
@@ -145,7 +137,10 @@ blockquote {
 		text-align: center;
 	}
 	header nav a {
+		/*
+		*/
 		font-size: 14px;
+		color: red;
 	}
 	main {
 		padding: 60px 0;	/* 上下、左右 */
