@@ -1,0 +1,159 @@
+@charset "utf-8";
+* {
+	margin: 0;
+	padding: 0;
+}
+header {
+	/*
+	max-width: 880px;
+	*/
+	width: 100%;
+	margin-left: auto;	/* 左右autoで中央表示 */
+	margin-right: auto;	/* 左右autoで中央表示 */
+	height: 45px;	/*56*/
+	box-shadow: 0 0 10px #dddddd;
+	background-color: white;
+	position: fixed;
+	top: 0;
+}
+header nav {
+	float: right;		/* 右端配置 */
+	margin-right: 30px;
+}
+header img {
+	float: left;	/* 左端配置 */
+	height: 40px;
+	margin-top: 5px;	/*8*/
+	margin-left: 30px;
+}
+.clear {
+	clear: both;	/* 配置指定（回り込み）解除 */
+}
+header nav a {
+	margin-left: 3px;
+	font-size: 16px;
+	padding: 10px 10px;	/* 上下、左右 16px 5px */
+	line-height: 45px;	/*56*/
+	color: #5a5c5f;	/* #5a5c5f */
+	text-decoration: none;
+}
+header nav a:hover {
+	background-color: #d2e1ff;	/* e2f1ff */
+	transition: background-color 0.5s;	/* アニメーション */
+}
+main {
+	/*
+	max-width: 880px;
+	width: 100%;
+	*/
+	margin-left: auto;	/* 左右autoで中央表示 */
+	margin-right: auto;	/* 左右autoで中央表示 */
+	padding: 70px 30px 20px;	/* 上、左右、下 90px 30px 60px */
+	color: #5a5c5f;
+	background-color: #f8f8f8;	/*add*/
+}
+footer {
+	/*
+	max-width: 880px;
+	*/
+	padding: 0 30px;	/*0 30px*/
+	margin-left: auto;	/* 左右autoで中央表示 */
+	margin-right: auto;	/* 左右autoで中央表示 */
+	height: 40px;	/*120px*/
+	background-color: #afaaa4;	/* cfcac4 <= 2f3a44*/
+	color: #383838;	/*e8e8e8*/
+	padding-top: 10px;
+}
+footer img {
+	margin: 0 12px;
+}
+.footer-left {
+	float: left;
+}
+.footer-left p {
+	margin-bottom: 8px;
+}
+.footer-right {
+	float: right;
+	padding-top: 5px;	/*50px*/
+}
+.title {
+	margin-bottom: 15px;
+}
+.text {
+	margin-bottom: 20px;
+	margin-left: 20px;
+	width: 90%;
+}
+.indent {
+	margin-left: 20px;
+}
+.plist {
+	margin-left: 50px;
+	margin-top: -10px;	/* -20 */
+}
+ul {
+	margin-left: 30px;
+}
+img {
+	margin-right: 10px;
+}
+table {
+	border-collapse: collapse;
+}
+td, th {
+	border: solid 1px #333333;
+	padding: 0px 10px;
+}
+.breadcrumb {
+	margin-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;	
+	align-items:center;
+}
+.breadcrumb li:not(:last-of-type)::after {
+	content: "›";
+	margin: 0 .6em; /* 記号の左右の余白 */
+	color: #777; /* 記号の色 */
+}
+img.icon {
+	margin:0;
+}
+/*
+	margin:0;
+	padding: 0.5em 1em;
+	ling-height: 31px;
+*/
+blockquote {
+	margin: 5px 20px;
+	padding: 0.5em 0.1em;
+	text-indent: 1em;
+	color: #868666;
+	border-left: 4px solid #A6A666;
+}
+/*
+	margin-right:0px;
+
+*/
+@media (max-width: 670px) { /* 670 */
+	header img {
+		display: none;
+	}
+	header nav {
+		float: none;	/* float無効化 */
+		text-align: center;
+	}
+	header nav a {
+		font-size: 14px;
+	}
+	main {
+		padding: 60px 0;	/* 上下、左右 */
+	}
+	main p {
+		font-size: 13px;
+	}
+	.footer-right {
+		padding-top: 0px;	/*20px*/
+	}
+}
