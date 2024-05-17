@@ -41,7 +41,7 @@ header nav a:hover {
 main {
 	margin-left: auto;	/* 左右autoで中央表示 */
 	margin-right: auto;	/* 左右autoで中央表示 */
-	padding: 70px 30px 1px;	/* 上、左右、下 90px 30px 60px */
+	padding: 70px 30px 30px;	/* 上、左右、下 70px 30px 1px */
 	color: #5a5c5f;
 	background-color: #f8f8f8;	/*f8f8f8*/
 }
@@ -50,7 +50,7 @@ footer {
 	margin-left: auto;	/* 左右autoで中央表示 */
 	margin-right: auto;	/* 左右autoで中央表示 */
 	height: 40px;
-	background-color: #afaaa4;
+	background-color: #cfcac4;	/*afaaa4*/
 	color: #383838;
 }
 footer img {
@@ -59,13 +59,18 @@ footer img {
 .footer-left {
 	float: left;
 }
-.footer-left p {
-	margin-bottom: 8px;
+.footer-center {
+	margin-left: 20px;
+	float: left;
+	padding-top: 9px;
+}
+.footer-center a {
+	color: #5a5c5f;	/* #5a5c5f */
+	text-decoration: none;
 }
 .footer-right {
 	float: right;
 	padding-top: 9px;
-
 }
 .title {
 	margin-bottom: 15px;
@@ -135,12 +140,9 @@ blockquote img {
 		font-size: 14px;
 	}
 	main {
-		padding: 60px 10px 1px;	/* 上、左右、下 */
+		padding: 60px 10px 10px;	/* 上、左右、下 */
 	}
 	main p, ul {
-		/*
-		font-size: 13px;
-		*/
 		font-size: 14px;
 	}
 	main img {
