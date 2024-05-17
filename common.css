@@ -4,9 +4,6 @@
 	padding: 0;
 }
 header {
-	/*
-	max-width: 880px;
-	*/
 	width: 100%;
 	margin-left: auto;	/* 左右autoで中央表示 */
 	margin-right: auto;	/* 左右autoで中央表示 */
@@ -42,10 +39,6 @@ header nav a:hover {
 	transition: background-color 0.5s;	/* アニメーション */
 }
 main {
-	/*
-	max-width: 880px;
-	width: 100%;
-	*/
 	margin-left: auto;	/* 左右autoで中央表示 */
 	margin-right: auto;	/* 左右autoで中央表示 */
 	padding: 70px 30px 1px;	/* 上、左右、下 90px 30px 60px */
@@ -53,19 +46,12 @@ main {
 	background-color: #f8f8f8;	/*f8f8f8*/
 }
 footer {
-	/*
-	max-width: 880px;
-	*/
 	padding: 7px 25px;	/* 0 30px*/
 	margin-left: auto;	/* 左右autoで中央表示 */
 	margin-right: auto;	/* 左右autoで中央表示 */
 	height: 40px;
 	background-color: #afaaa4;
 	color: #383838;
-	/*
-	padding-top: 10px;
-	padding-bottom: -20px;
-	*/
 }
 footer img {
 	margin: 5px 12px;
@@ -87,9 +73,6 @@ footer img {
 .text {
 	margin-bottom: 20px;
 	margin-left: 20px;
-	/*
-	width: 90%;
-	*/
 	margin-right: 10px;
 }
 .indent {
@@ -102,9 +85,6 @@ footer img {
 	margin-bottom: 10px;	/* -10px */
 }
 ul {
-	/*
-	margin-top: 30px;
-	*/
 	margin-left: 30px;
 	margin-right: 10px;
 }
@@ -134,11 +114,6 @@ img.icon {
 	margin:0;
 }
 blockquote {
-	/*
-	display: flex;
-	margin: 5px 20px;
-	padding: 0.5em 0.1em;
-	*/
 	margin: 8px 15px 0;
 	padding: 0.3em 0.1em;
 	text-indent: 1em;
@@ -151,31 +126,25 @@ blockquote img {
 @media (max-width: 670px) {
 	header img {
 		display: none;
-		/*
-		*/
 	}
 	header nav {
 		float: none;	/* float無効化 */
 		text-align: center;
 	}
 	header nav a {
-		/*
-		font-size: 14px;
-		*/
 		font-size: 14px;
 	}
 	main {
 		padding: 60px 10px 1px;	/* 上、左右、下 */
 	}
 	main p, ul {
+		/*
 		font-size: 13px;
+		*/
+		font-size: 14px;
 	}
 	main img {
 		max-width: 100%;
 	}
-	/*
-	.indent {
-		max-width: 100%;
-	}
-	*/
+
 }
