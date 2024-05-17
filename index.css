@@ -94,24 +94,22 @@ main img {
         font-size: 26px;    /*add*/
     }
 }
-@media (max-width: 670px) { /*670*/
+@media (max-width: 670px) {
 	.main-visual {
-		padding-top: 240px;
+		padding-top: 180px;
 		padding-bottom: 50px;
 	}	
 	.top-title {
 		/*
 		color: red;
 		*/
-		font-size: 36px;
+		font-size: 30px;
 	}
     .top-subtitle {
-        font-size: 22px;    /*add*/
+        font-size: 18px;
     }
-	/*
 	main img {
 		width: 252px;
         height: 162px;
 	}
-	*/
 }

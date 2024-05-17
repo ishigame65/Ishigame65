@@ -10,7 +10,7 @@ header {
 	width: 100%;
 	margin-left: auto;	/* 左右autoで中央表示 */
 	margin-right: auto;	/* 左右autoで中央表示 */
-	height: 45px;	/*56*/
+	height: 45px;
 	box-shadow: 0 0 10px #dddddd;
 	background-color: white;
 	position: fixed;
@@ -23,7 +23,7 @@ header nav {
 header img {
 	float: left;	/* 左端配置 */
 	height: 40px;
-	margin-top: 5px;	/*8*/
+	margin-top: 5px;
 	margin-left: 30px;
 }
 .clear {
@@ -48,24 +48,27 @@ main {
 	*/
 	margin-left: auto;	/* 左右autoで中央表示 */
 	margin-right: auto;	/* 左右autoで中央表示 */
-	padding: 70px 30px 20px;	/* 上、左右、下 90px 30px 60px */
+	padding: 70px 30px 1px;	/* 上、左右、下 90px 30px 60px */
 	color: #5a5c5f;
-	background-color: #f8f8f8;	/*add*/
+	background-color: #f8f8f8;	/*f8f8f8*/
 }
 footer {
 	/*
 	max-width: 880px;
 	*/
-	padding: 0 30px;	/*0 30px*/
+	padding: 7px 25px;	/* 0 30px*/
 	margin-left: auto;	/* 左右autoで中央表示 */
 	margin-right: auto;	/* 左右autoで中央表示 */
-	height: 40px;	/*120px*/
-	background-color: #afaaa4;	/* cfcac4 <= 2f3a44*/
-	color: #383838;	/*e8e8e8*/
+	height: 40px;
+	background-color: #afaaa4;
+	color: #383838;
+	/*
 	padding-top: 10px;
+	padding-bottom: -20px;
+	*/
 }
 footer img {
-	margin: 0 12px;
+	margin: 5px 12px;
 }
 .footer-left {
 	float: left;
@@ -75,7 +78,8 @@ footer img {
 }
 .footer-right {
 	float: right;
-	padding-top: 5px;	/*50px*/
+	padding-top: 9px;
+
 }
 .title {
 	margin-bottom: 15px;
@@ -83,17 +87,26 @@ footer img {
 .text {
 	margin-bottom: 20px;
 	margin-left: 20px;
+	/*
 	width: 90%;
+	*/
+	margin-right: 10px;
 }
 .indent {
 	margin-left: 20px;
+	max-width: 90%;
 }
 .plist {
 	margin-left: 50px;
-	margin-top: -10px;	/* -20 */
+	margin-top: -10px;	/* -10px */
+	margin-bottom: 10px;	/* -10px */
 }
 ul {
+	/*
+	margin-top: 30px;
+	*/
 	margin-left: 30px;
+	margin-right: 10px;
 }
 img {
 	margin-right: 10px;
@@ -121,16 +134,25 @@ img.icon {
 	margin:0;
 }
 blockquote {
+	/*
+	display: flex;
 	margin: 5px 20px;
 	padding: 0.5em 0.1em;
+	*/
+	margin: 8px 15px 0;
+	padding: 0.3em 0.1em;
 	text-indent: 1em;
 	color: #868666;
 	border-left: 4px solid #A6A666;
 }
-
-@media (max-width: 670px) { /* 670 */
+blockquote img {
+	margin-right: 4px;
+}
+@media (max-width: 670px) {
 	header img {
 		display: none;
+		/*
+		*/
 	}
 	header nav {
 		float: none;	/* float無効化 */
@@ -138,17 +160,22 @@ blockquote {
 	}
 	header nav a {
 		/*
+		font-size: 14px;
 		*/
 		font-size: 14px;
-		color: red;
 	}
 	main {
-		padding: 60px 0;	/* 上下、左右 */
+		padding: 60px 10px 1px;	/* 上、左右、下 */
 	}
-	main p {
+	main p, ul {
 		font-size: 13px;
 	}
-	.footer-right {
-		padding-top: 0px;	/*20px*/
+	main img {
+		max-width: 100%;
 	}
+	/*
+	.indent {
+		max-width: 100%;
+	}
+	*/
 }
