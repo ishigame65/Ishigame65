@@ -27,10 +27,6 @@ main {
     background-color: #f8f8f8;
 }
 main img {
-	/*
-	width: 280px;
-	height: 180px;
-	*/
 	margin-bottom: 0px;
 	box-shadow: 2px 2px 4px #b7b7b7;	/* 影付け */
 	border-radius: 10px;		/* 角丸 */
@@ -49,14 +45,11 @@ main img {
 	content:"";
 	display: inline-block;
 	z-index:2;
-	background:#000;/*好みの色に変えてください。*/
+	background:#000;
 	opacity:0;
 	transition:0.3s;
 }
 .image_link:after{
-	/*
-	content:"Click for AI-generated image";
-	*/
 	content:"AIに描いてもらう";
 	display: inline-block;
 	color:olive;
@@ -67,10 +60,6 @@ main img {
 	position:absolute;
 	top:0%;
 	left:28%;
-	/*
-	left:50%;
-	margin-left:-120px;
-	*/
 	margin-top:-1.5em;
 	opacity:0;
 	z-index:3;
@@ -86,23 +75,16 @@ main img {
 }
 
 @media (max-width: 1024px) {
-	.main-visual {
-	}
-	.top-title {
-	}
     .top-subtitle {
-        font-size: 26px;    /*add*/
+        font-size: 26px;
     }
 }
 @media (max-width: 670px) {
 	.main-visual {
-		padding-top: 180px;
-		padding-bottom: 50px;
+		padding-top: 180px;	/*180px*/
+		padding-bottom: 50px;	/*50px*/
 	}	
 	.top-title {
-		/*
-		color: red;
-		*/
 		font-size: 30px;
 	}
     .top-subtitle {
