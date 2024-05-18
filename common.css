@@ -59,18 +59,13 @@ footer img {
 .footer-left {
 	float: left;
 }
-.mail-text a {
+.footer-center a {
 	float: left;
 	margin-left: 20px;
 	padding-top: 9px;
 	color: #5a5c5f;
 	text-decoration: none;
 }
-/*
-.mail-icon {
-	display: none;
-}
-*/
 .footer-right {
 	float: right;
 	padding-top: 9px;
@@ -92,6 +87,16 @@ dl dd {
 	margin-right: 10px;
 	margin-top: 4px;
 	margin-bottom: 6px;
+}
+dl dd li {
+	margin-left: -25px;
+	margin-right: -10px;
+}
+dl dd li:before {
+	color: #9FCFFF;
+	content: "●";
+	margin-left: -20px;
+	margin-right: 6px;
 }
 .indent {
 	margin-left: 20px;
@@ -137,6 +142,9 @@ blockquote {
 	text-indent: 1em;
 	color: #868666;
 	border-left: 4px solid #A6A666;
+	/*
+	*/
+	font-size: 13px;
 }
 blockquote img {
 	margin-right: 4px;
@@ -162,7 +170,7 @@ blockquote img {
 		max-width: 100%;
 	}
 	/*
-	.mail-text {
+	.footer-center {
 		display: none;
 	}
 	.mail-icon {
