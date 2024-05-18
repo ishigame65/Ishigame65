@@ -66,9 +66,11 @@ footer img {
 	color: #5a5c5f;
 	text-decoration: none;
 }
+/*
 .mail-icon {
 	display: none;
 }
+*/
 .footer-right {
 	float: right;
 	padding-top: 9px;
@@ -159,6 +161,7 @@ blockquote img {
 	main img {
 		max-width: 100%;
 	}
+	/*
 	.mail-text {
 		display: none;
 	}
@@ -166,4 +169,5 @@ blockquote img {
 		float: left;
 		display: block;
 	}
+	*/
 }
