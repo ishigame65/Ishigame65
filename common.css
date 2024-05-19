@@ -142,8 +142,6 @@ blockquote {
 	text-indent: 1em;
 	color: #868666;
 	border-left: 4px solid #A6A666;
-	/*
-	*/
 	font-size: 13px;
 }
 blockquote img {
@@ -169,13 +167,10 @@ blockquote img {
 	main img {
 		max-width: 100%;
 	}
-	/*
-	.footer-center {
-		display: none;
+	.footer-center a {
+		font-size: 14px;
 	}
-	.mail-icon {
-		float: left;
-		display: block;
+	.footer-right {
+		font-size: 14px;
 	}
-	*/
 }

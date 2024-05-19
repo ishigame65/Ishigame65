@@ -38,6 +38,13 @@
 }
 @media (max-width: 670px) {
 	.menu-card {
+		/*
 		width: 100%;
+		*/
+		width: 50%;
+	}
+	.menu-card-inner {
+		padding: 12px 12px 5px;		/* 上下、左右 25px 30px */
+		margin: 0 6px;
 	}
 }
