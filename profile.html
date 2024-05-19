@@ -23,11 +23,17 @@
 	font-size: 11px;
 }
 .mini-photo img {
+	float: left;
 	width:120px;
 	height:120px;
 }
+.mini-photo .desc {
+	font-size: 14px;
+	padding-top: 10px;
+}
 </style>
 <body>
+
 <header>
 	<a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a>
 	<nav>
@@ -38,6 +44,7 @@
 	</nav>
 	<div class="clear"></div>
 </header>
+
 <main>
 	<div class="me"><img src="img/me.png" width=85 height=100></div>
 	<h2 class="title">飼育係</h2>
@@ -73,11 +80,21 @@
 		<ul>
 		<li>行ったことのない場所に行って景色を見る、最近は近場が多い<br>
 		<div class="mini-photo">
-		<img src="img/pchina1.jpg"><img src="img/psaitama1.jpg"><img src="img/pturkey.jpg"><img src="img/pitaly1.jpg"><img src="img/pthai1.jpg">
+			<img id="tpic" src="img/pchina1.jpg" onclick="tselect()">
+			<div class="desc" id="ttext">dummy</div>
+			<div class="clear"></div>
 		</div></li>
 		<li>自転車で温泉に行って汗だくで帰り、シャワーを浴びてビールを飲む<br>
 		<div class="mini-photo">
-		<img src="img/bike1.jpg"><img src="img/bike2.jpg">
+			<img id="bpic" src="img/bike1.jpg" onclick="bselect()">
+			<div class="desc" id="btext">dummy</div>
+			<div class="clear"></div>
+		</div></li>
+		<li>何かを作る<br>
+		<div class="mini-photo">
+			<img id="mpic" src="img/brick1.jpg" onclick="mselect()">
+			<div class="desc" id="mtext">dummy</div>
+			<div class="clear"></div>
 		</div></li>
 		</ul></dd>
 	<dt>連絡先</dt>
@@ -85,6 +102,7 @@
 	</dd>
 	</dl>
 </main>
+
 <footer>
 	<div class="footer-left">
 	<a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="Instagram" width=32 height=32></a>
@@ -93,5 +111,56 @@
 	<div class="footer-right">&copy; 2024 Ishigame65.</div>
 	<div class="clear"></div>
 </footer>
+
+<script>
+var tsrc = new Array("pchina1.jpg","psaitama1.jpg","pturkey.jpg","pitaly1.jpg","pthai1.jpg");
+var tdsc = new Array(
+"神戸から船で渡った上海",
+"春日部の地下神殿",
+"トルコの黒海沿岸",
+"アルベロベッロのトゥルッリ",
+"アユタヤ遺跡の近く")
+var tindex = -1
+function tselect(){
+	do {
+		index = Math.floor(Math.random()*tsrc.length)
+	} while (index == tindex);
+	document.getElementById("tpic").src="img/" + tsrc[index];
+	document.getElementById("ttext").textContent=tdsc[index];
+	tindex = index
+}
+var bsrc = new Array("bike1.jpg","bike2.jpg");
+var bdsc = new Array(
+"おそらく半世紀近く前から立っているキカイダーとクロモリ1号（イタ車カンパ仕様）", 
+"道端のコスモスとクロモリ2号（パナソニックWレバー仕様）")
+var bindex = -1
+function bselect(){
+	do {
+		index = Math.floor(Math.random()*bsrc.length)
+	} while (index == bindex);
+	document.getElementById("bpic").src="img/" + bsrc[index];
+	document.getElementById("btext").textContent=bdsc[index];
+	bindex = index
+}
+var msrc = new Array("brick1.jpg","miniature1.jpg");
+var mdsc = new Array(
+"花壇のレンガ積み（途中からモルタルで作った偽レンガ）", 
+"小さなもの")
+var mindex = -1
+function mselect(){
+	do {
+		index = Math.floor(Math.random()*msrc.length)
+	} while (index == mindex);
+	document.getElementById("mpic").src="img/" + msrc[index];
+	document.getElementById("mtext").textContent=mdsc[index];
+	mindex = index
+}
+window.onload = function() {
+	tselect()
+	bselect()
+	mselect()
+}
+</script>
+
 </body>
 </html>
