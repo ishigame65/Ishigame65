@@ -1,34 +1,34 @@
 @charset "utf-8";
 .menu-card {
 	width: 33%;
-	margin-top: 25px;	/*35*/
 }
 .menu-card a {
-	color: #5a5c5f;	
+	color: white;
 	text-decoration: none;
 }
 .menu-card a:hover {
-	color: #5a5ccf;	
+	color: lightskyblue;	
 }
 .menu-card-inner {
-	padding: 20px 25px 10px;		/* 上下、左右 25px 30px */
-	background-color: #d9dee2;	/*dbe0e4*/
-	border-radius: 7px;		/* 角丸 */
-	box-shadow: 1px 1px 4px #d2d4d6;	/* 影付け */
+	padding: 20px 20px 3px;
+	margin: 10px;
+	background-color: #B0B0B0;
+	background-color: gray;
+	border-radius: 8px;
+	box-shadow: 1px 1px 4px #d2d4d6;
 	text-align: center;
-	margin: 0 10px; /*0 20px*/
 }
 .menu-image {
+	margin: 0px;
 	width: 100%;
-	margin-bottom: 5px;    /*10<=20*/
-	border-radius: 5px;		/* 角丸 */
+	border-radius: 5px;	
 }
 .menu-title {
-    margin-bottom: 0px; /*8*/
+    margin-bottom: 0px;
 }
 .menu-card-wrapper {
-	display: flex;	/* Flexboxで横並び */
-	flex-wrap: wrap;	/* 要素幅に合わせて適宜折り返し */
+	display: flex;
+	flex-wrap: wrap;
 }
 
 @media (max-width: 1024px) {
@@ -38,13 +38,13 @@
 }
 @media (max-width: 670px) {
 	.menu-card {
-		/*
-		width: 100%;
-		*/
 		width: 50%;
 	}
 	.menu-card-inner {
-		padding: 12px 12px 5px;		/* 上下、左右 25px 30px */
-		margin: 0 6px;
+		padding: 10px 10px 2px;
+		margin: 5px;
+	}
+	.menu-title {		
+		font-size: 14px;
 	}
 }

@@ -78,6 +78,13 @@ footer img {
 	margin-left: 20px;
 	margin-right: 10px;
 }
+.minitextboxarea {
+	display: inline-block;
+	font-size: 13px;
+	background-color: #f8dff8;
+	margin: 3px 25px 5px;
+	padding: 2px 8px;
+}
 dl dt {
 	margin-top: 8px;
 }
@@ -109,22 +116,39 @@ dl dd li:before {
 	margin-top: -10px;	/* -10px */
 	margin-bottom: 10px;	/* -10px */
 }
-ul {
+main ul {
 	margin-left: 30px;
 	margin-right: 10px;
 }
-img {
+main img {
 	margin-left: 8px;
 	margin-right: 8px;
 	border-radius:15px;
 }
-table {
+main table {
 	border-collapse: collapse;
 }
-td, th {
+main td, th {
 	border: solid 1px #333333;
 	padding: 0px 10px;
 }
+/* 画像にテキストを重ねる
+.pack {
+	position: relative;
+}
+.pack div {
+	position: absolute;
+	top:50%;
+	left: 50%;
+	-ms-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	color: #fff;
+	font-size: 1.8rem;
+	margin: 0!important;
+	padding: 0!important;
+}
+*/
 .breadcrumb {
 	margin-top: 20px;
 	display: flex;
@@ -159,7 +183,7 @@ blockquote img {
 		display: none;
 	}
 	header nav {
-		float: none;	/* float無効化 */
+		float: none;
 		text-align: center;
 	}
 	header nav a {
@@ -174,11 +198,9 @@ blockquote img {
 	main img {
 		max-width: 100%;
 	}
-	/*
-	dl dd {
-		margin-left: 20px;
+	main .title {
+		font-size: 18px;
 	}
-	*/
 	.footer-center a {
 		font-size: 14px;
 	}
