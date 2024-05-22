@@ -7,8 +7,10 @@
 	<title>Ishigame65 | 経緯と方針</title>
 	<link rel="shortcut icon" href="img/kame.ico">
 	<link rel="stylesheet" href="common.css">
+	<link rel="stylesheet" href="popup.css">
 </head>
 <body>
+
 <header>
 	<a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a>
 	<nav>
@@ -19,15 +21,17 @@
 	</nav>
 	<div class="clear"></div>
 </header>
+
 <main>
 	<h2 class="title">経緯</h2>
-    <p class="text">イシガメ（日本石亀）を飼うのは、想像以上に手間が掛かる。</p>
+    <p class="text">イシガメ（日本石亀）を飼うのは、想像以上に手間が掛かる。</p>	
     <p class="text">一番大変なのは水質の維持。
     イシガメは陸地よりも水中にいる時間の方が長く、水中で餌を食べ、よく排泄する。
     亀専用の人工飼料を与えるが、どうしても食べる量より多く与えて食べ残りが発生してしまう。
-    最初は屋内のコンテナボックス（545x379x178）で飼っていたが、
+    最初は屋内の<a href="" class="popup-open" data-modal-btn="modal01">薄型コンテナボックス</a>で飼っていたが、
 	食べ残した餌と排せつ物ですぐに水が汚れ、毎日の水替えがけっこう大変だった。
-    その後、より大きなコンテナボックス（660x440x320）に変え、水量を多くして自製の外部濾過器を設置したところ、
+    その後、<a href="" class="popup-open" data-modal-btn="modal02">より大きなコンテナボックス</a>に変え、
+	水量を多くして自製の外部濾過器を設置したところ、
     水替えをしなくても水質を維持できるようになったが、夜中の水中ポンプの動作音が気になった。</p>
     <p class="text">次に問題になったのはイシガメの越冬と旅行だった。
     イシガメを屋内の水槽で飼う場合は冬眠しないため、
@@ -46,7 +50,40 @@
     <p class="text">冬は落ち葉を投入して水中冬眠させる。</p>
     <p class="text">まずは水質に敏感なヌマエビが繁殖する環境を作ることが大事である。
     ヌマエビが繁殖する環境ならメダカやタニシも繁殖し、イシガメも快適に暮らせるはず。</p>
+	<div class="popup-wrap" data-modal-cont="modal01">
+	  <div class="popup-back"></div>
+	  <div class="popup-inner">
+		<span class="popup-close"></span>
+		<div class="popup-contents">
+			<img src="img/igbox1.jpg">
+			<p class="popup-text">
+			コンテナボックスの蓋中央をくり抜いてワイヤーネットを取り付けた（マス目に合わせた切り込みに嵌め込んでグルーガンで接着）
+			<ul class="marker01">
+			<li>コンテナボックス#22（545x379x178）
+			<li>ワイヤーネット29.5×44cm、8x12マス（100均）
+			<ul>
+			</p>
+		</div>
+	  </div>
+	</div>
+	<div class="popup-wrap" data-modal-cont="modal02">
+	  <div class="popup-back"></div>
+	  <div class="popup-inner">
+		<span class="popup-close"></span>
+		<div class="popup-contents">
+			<img src="img/igbox2.jpg">
+			<p class="popup-text">
+			コンテナボックスの蓋中央をくり抜いてワイヤーネットを取り付けた（マス目に合わせた切り込みに嵌め込んでグルーガンで接着）
+			<ul class="marker01">
+			<li>コンテナボックス ロックス660L（660x440x320）
+			<li>ワイヤーネット36.5×47.5cm、10x13マス（100均）
+			<ul>
+			</p>
+		</div>
+	  </div>
+	</div>
 </main>
+
 <footer>
 	<div class="footer-left">
 	<a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="Instagram" width=32 height=32></a>
@@ -55,5 +92,11 @@
 	<div class="footer-right">&copy; 2024 Ishigame65.</div>
 	<div class="clear"></div>
 </footer>
+
+<script src="popup.js"></script>
+
 </body>
 </html>
+<!--
+ロックス660L、660x440x320
+-->

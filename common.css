@@ -80,15 +80,15 @@ footer img {
 }
 dl dt {
 	margin-top: 8px;
-	/*
-	margin-left: 20px;
-	*/
 }
 dl dd {
-	margin-left: 25px;
+	margin-left: 20px;
 	margin-right: 10px;
 	margin-top: 4px;
 	margin-bottom: 6px;
+}
+dl dd ul {
+	list-style-type: none;
 }
 dl dd li {
 	margin-left: -25px;
@@ -97,7 +97,7 @@ dl dd li {
 dl dd li:before {
 	color: #9FCFFF;
 	content: "●";
-	margin-left: -20px;
+	margin-left: -10px;
 	margin-right: 6px;
 }
 .indent {
@@ -172,9 +172,11 @@ blockquote img {
 	main img {
 		max-width: 100%;
 	}
+	/*
 	dl dd {
-		margin-left: 22px;
+		margin-left: 20px;
 	}
+	*/
 	.footer-center a {
 		font-size: 14px;
 	}
