@@ -3,7 +3,7 @@
 	background-image: url("img/igcg1.png");
     background-repeat: no-repeat;
     background-position: bottom center;
-	padding-top: 360px;
+	padding-top: 300px;	/*360px*/
 	padding-bottom: 120px;
 	background-size: contain;
     background-color: #f8f8f8;
@@ -11,13 +11,13 @@
 	text-align: center;
 }
 .top-title {
-	font-size: 54px;
+	font-size: 54px;	/*54px*/
 	/*opacity: 0.5;*/	/* 不透明度 */
 }
 .top-subtitle {
-	font-size: 26px;
-    margin-top: 20px;
-	margin-bottom: 10px;
+	font-size: 26px;	/*26px*/
+    margin-top: 25px;	/*20px*/
+	margin-bottom: 10px;	/*10px*/
 	/*opacity: 0.5;*/	/* 不透明度 */
 }
 main {
@@ -76,19 +76,19 @@ main img {
 
 @media (max-width: 1024px) {
     .top-subtitle {
-        font-size: 26px;
+        font-size: 26px;	/*26px*/
     }
 }
 @media (max-width: 670px) {
 	.main-visual {
-		padding-top: 180px;	/*180px*/
-		padding-bottom: 50px;	/*50px*/
+		padding-top: 170px;	/*180px*/
+		padding-bottom: 40px;	/*50px*/
 	}	
 	.top-title {
-		font-size: 30px;
+		font-size: 28px;	/*30px*/
 	}
     .top-subtitle {
-        font-size: 18px;
+        font-size: 17px;	/*18px*/
     }
 	main img {
 		width: 252px;
