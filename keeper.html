@@ -16,6 +16,8 @@ main img {
 }
 .me {
 	float: right;
+	<!--
+	-->
 	margin-right: 10px;
 	margin-top: 15px;
 	text-align: center;
@@ -57,9 +59,6 @@ main img {
 	font-size: 13px;
 	text-align: center;
 	overflow: hidden;
-	<!--
-	background-color: red;
-	-->
 }
 .flowtext p {
 	display: inline-block;
@@ -71,6 +70,28 @@ main img {
 @keyframes scroll01{
 	0% { transform: translateX(0)}
 	100% { transform: translateX(-100%)}
+}
+@media (max-width: 670px) {
+	.me img {
+		width:90px;
+		height:90px;
+		border-radius: 45px;
+	}
+	.flowtext {
+		width: 90px;
+		font-size: 12px;
+	}
+	#map {
+		width: 140px;
+	}
+		<!--
+	.text dl a {
+		margin-bottom: 20px;
+		margin-left: 20px;
+		margin-right: 10px;
+		font-size: 9px;
+	}
+		-->
 }
 </style>
 <body>
@@ -86,18 +107,21 @@ main img {
 	<div class="clear"></div>
 </header>
 <main>
-	<div class="me"><img id="mpic" src="img/me01.jpg" onclick="mselect()">
+	<div class="me">
+		<img id="mpic" src="img/me01.jpg" onclick="mselect()">
 		<a href="profile.html">profile</a>
 		<div class="flowtext"><p>あまり似ていないのは生成AIのせい</p></div>
-		</div>
+	</div>
 	<h2 class="title">飼育係</h2>
+	<p class="text">
 	<dl>
 	<dt>現住所</dt>
-	<dd><img src="img/here.png">埼玉<div class="source">出典：<a href="https://maps.gsi.go.jp/">国土地理院ウェブサイト</a></div></dd>
+	<dd><img id="map" src="img/here.png">埼玉<div class="source">出典：<a href="https://maps.gsi.go.jp/">国土地理院ウェブサイト</a></div></dd>
 	<dt>連絡先</dt>
-	<dd><div class="mailto"><a href="mailto:moriuchi@ymail.ne.jp"><img src="img/mail.png">moriuchi@ymail.ne.jp（森内）</a></div>
+	<dd><div class="mailto"><a href="mailto:moriuchi@ymail.ne.jp"><img src="img/mail.png">moriuchi@ymail.ne.jp 森内</a></div>
 	</dd>
 	</dl>
+	</p>
 </main>
 
 <footer>

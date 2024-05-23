@@ -89,7 +89,7 @@ dl dt {
 	margin-top: 8px;
 }
 dl dd {
-	margin-left: 20px;
+	margin-left: 10px;	/*20*/
 	margin-right: 10px;
 	margin-top: 4px;
 	margin-bottom: 6px;
@@ -132,23 +132,6 @@ main td, th {
 	border: solid 1px #333333;
 	padding: 0px 10px;
 }
-/* 画像にテキストを重ねる
-.pack {
-	position: relative;
-}
-.pack div {
-	position: absolute;
-	top:50%;
-	left: 50%;
-	-ms-transform: translate(-50%,-50%);
-	-webkit-transform: translate(-50%,-50%);
-	transform: translate(-50%,-50%);
-	color: #fff;
-	font-size: 1.8rem;
-	margin: 0!important;
-	padding: 0!important;
-}
-*/
 .breadcrumb {
 	margin-top: 20px;
 	display: flex;
