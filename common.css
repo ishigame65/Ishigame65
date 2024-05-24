@@ -179,7 +179,10 @@ blockquote img {
 		font-size: 14px;
 	}
 	main img {
+		/*
 		max-width: 100%;
+		*/
+		max-width: 95%;
 	}
 	main .title {
 		font-size: 18px;
