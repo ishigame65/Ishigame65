@@ -180,9 +180,9 @@ blockquote img {
 	}
 	main img {
 		/*
-		max-width: 100%;
-		*/
 		max-width: 95%;
+		*/
+		max-width: 100%;
 	}
 	main .title {
 		font-size: 18px;
