@@ -32,6 +32,7 @@ main img {
 	border-radius: 10px;		/* 角丸 */
 }
 .image_link{
+    margin-top: 35px;	/*add*/
 	display: inline-block;
 	position: relative;
 	text-align: center;
