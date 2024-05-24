@@ -100,4 +100,8 @@ main img {
 		width: 252px;
         height: 162px;
 	}
+	main video {
+		width: 252px;
+        height: 162px;
+	}
 }
