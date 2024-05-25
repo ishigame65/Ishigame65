@@ -22,20 +22,13 @@
 	<div class="clear"></div>
 </header>
 
-<div class="main-visual">
-  <h1 class="top-title">Ishigame65</h1>
-  <h2 class="top-subtitle">イシガメが快適に暮らす環境を作る</h2>
-</div>
-
 <main>
+	<h1>Ishigame65</h1>
+	<h2>イシガメが快適に暮らす環境を作る</h2>
     <p>
     <video src="img/igwm01.mp4" controls muted autoplay playsinline loop></video>
     </p>
-    <div class="image_link">
-    <img id="mypic" src="img/ig0.jpg" width="512" height="384" onclick="select_random()">
-    </div>
-    <br>
-    <div id="mytext" onclick="select_random()">　 </div>
+
 </main>
 
 <footer>
@@ -46,20 +39,6 @@
 	<div class="footer-right">&copy; 2024 Ishigame65.</div>
 	<div class="clear"></div>
 </footer>
-
-<script>
-var pics_src = new Array("igClaudeMonet.jpg","igKatsushikaHokusai.jpg","igPabloPicasso.jpg","igVanGogh.jpg");
-var pics_dsc = new Array("Claude Monet", "Katsushika Hokusai", "Pablo Picasso", "Van Gogh")
-var pre_index = -1
-function select_random(){
-	do {
-		index = Math.floor(Math.random()*pics_src.length)
-	} while (index == pre_index);
-	document.getElementById("mypic").src="img/" + pics_src[index];
-	document.getElementById("mytext").textContent="inspired by " + pics_dsc[index];
-	pre_index = index
-}
-</script>
 
 </body>
 </html>

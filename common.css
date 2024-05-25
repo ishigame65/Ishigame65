@@ -12,6 +12,7 @@ header {
 	background-color: white;
 	position: fixed;
 	top: 0;
+    z-index:99;
 }
 header nav {
 	float: right;		/* 右端配置 */
@@ -179,14 +180,19 @@ blockquote img {
 		font-size: 14px;
 	}
 	main img {
-		/*
-		max-width: 95%;
-		*/
 		max-width: 100%;
 	}
 	main .title {
 		font-size: 18px;
 	}
+    .text {
+        /*
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 10px;
+        */
+        margin-left: 12px;
+    }
 	.footer-center a {
 		font-size: 14px;
 	}

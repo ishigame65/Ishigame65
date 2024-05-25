@@ -1,50 +1,116 @@
 @charset "utf-8";
-.menu-card {
-	width: 33%;
-}
-.menu-card a {
-	color: white;
-	text-decoration: none;
-}
-.menu-card a:hover {
-	color: lightskyblue;	
-}
-.menu-card-inner {
-	padding: 20px 20px 3px;
-	margin: 10px;
-	background-color: #B0B0B0;
-	background-color: gray;
-	border-radius: 8px;
-	box-shadow: 1px 1px 4px #d2d4d6;
+.overlap {
 	text-align: center;
+    position: relative;
 }
-.menu-image {
-	margin: 0px;
-	width: 100%;
-	border-radius: 5px;	
+.overlap a {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: #A0A0FF;
 }
-.menu-title {
-    margin-bottom: 0px;
+.overlap img {
+    pointer-events: none;
+    z-index: -1;
 }
-.menu-card-wrapper {
-	display: flex;
-	flex-wrap: wrap;
+.overlap #col1 {
+    color: steelblue;
 }
-
+.overlap #col2 {
+    color: pink;
+}
+#filter {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    bottom: 0;
+    left: -350px;
+    margin: auto;
+    z-index: 1;
+}
+#cage {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    bottom: 0;
+    left: 320px;
+    margin: auto;
+    z-index: 2;
+}
+#feeder {
+    position: absolute;
+    top: 74px;
+    right: 0;
+    bottom: 0;
+    left: 80px;
+    margin: auto;
+    z-index: 3;
+}
+#pond {
+    position: absolute;
+    top: 135px;
+    right: 0;
+    bottom: 0;
+    left: -420px;
+    margin: auto;
+    z-index: 4;
+    /*
+    background-color: red;
+    */
+}
+#plant {
+    position: absolute;
+    top: 180px;
+    right: 0;
+    bottom: 0;
+    left: -120px;
+    margin: auto;
+    z-index: 5;
+}
+#dish {
+    position: absolute;
+    top: 272px;
+    right: 0;
+    bottom: 0;
+    left: 165px;
+    margin: auto;
+    z-index: 6;
+    /*
+    background-color: yellow;
+    */
+}
+/*
 @media (max-width: 1024px) {
-	.menu-card {
-		width: 50%;
-	}
 }
+*/
 @media (max-width: 670px) {
-	.menu-card {
-		width: 50%;
+    main {
+        font-size: 14px;
+    }
+	.overlap img {
+		width: 260px;
 	}
-	.menu-card-inner {
-		padding: 10px 10px 2px;
-		margin: 5px;
+	#filter {
+		top: 5px;
+		left: -215px;
 	}
-	.menu-title {		
-		font-size: 14px;
+	#cage {
+		top: 22px;
+		left: 180px;
+	}
+	#feeder {
+		top: 50px;
+		left: 90px;
+	}
+	#pond {
+		top: 70px;
+		left: -250px;
+	}
+	#plant {
+		top: 95px;
+		left: -50px;
+	}
+	#dish {
+		top: 140px;
+		left: 100px;
 	}
 }
