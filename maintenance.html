@@ -7,7 +7,9 @@
 	<title>Ishigame65 | 日々の管理</title>
 	<link rel="shortcut icon" href="img/kame.ico">
 	<link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="image_link.css">
 </head>
+
 <body>
 <header>
 	<a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a>
@@ -26,14 +28,19 @@
     <img src="img/igwatertest1.jpg" align="left">
 	硝酸塩・亜硝酸塩・総硬度・炭酸塩硬度・pH値・塩素および二酸化炭素を測ることができる。
 	アンモニア→亜硝酸塩→硝酸塩というバクテリアによる生物濾過と水草による硝酸塩の吸収がうまく機能しているかどうかが分かり、
-	換水の必要性を判断できる。<br clear="left">
+	換水の必要性を判断できる。<br clear="both">
 	</p>
-    <p class="text"><img src="img/igheight1.jpg" align="right">
+    <div class="image_link">
+    <img id="mypic" src="img/ig0.jpg" width="384" height="288" onclick="select_random()">
+    <br>
+    <div id="mytext" onclick="select_random()">　 </div>
+    </div>
+    <p class="text">
 	この飼育環境ではイシガメがどのくらい餌を食べているのかを把握できない。
     餌が足りているのか単に捕まえられないのか分からないが、他の同居人たちが極端に減っている様子はない。
     給餌器から投下された人工飼料はイシガメより先にメダカがかじっている。
-    念のため食欲旺盛な夏場はときどき屋内の水槽に連れてきて餌を与えている。	
-	また、たまに身体測定をしている。<br clear="right"></p>
+    念のため食欲旺盛な夏場はときどき屋内の水槽に連れてきて餌を与えている。
+    <br clear="right"></p>
 	<p class="text">
 	<img src="img/igfood1.jpg" align="left">
 	<div class="minitextboxarea">
@@ -51,14 +58,16 @@
 	もっと大きく成長してから与えるのが良さそう。eは今のところ見向きもしない。
 	なお、人工飼料より食いつきが良いのは蝶の幼虫で、
 	中でもアオムシは大好物らしく人工飼料を食べた後でも直ぐに食いついている。
-	<br clear="left">
-	</p>
+	<br clear="both"></p>
+    <p class="text"><img src="img/igheight1.jpg" align="right">
+	たまに身体測定をしている。
+	<br clear="right"></p>
     <p class="text">冬が近づいてきたら池に落ち葉を投入して冬眠環境を準備する。
     我が家のイシガメは12月に入ってから冬眠して2月の終わりごろに目覚めたようだ。冬眠前後は1カ月近くほとんど餌を食べない。
     イシガメの冬眠とともにメダカとヌマエビとタニシも見えなくなったので心配したが、
     春になったら復活して数も増えて動き回っている。</p>
-    <p class="text"><img src="img/igw01d.jpg" align="right">
-	イシガメ、メダカ、ヌマエビ、タニシが仲良く暮らす安定した環境を維持できているようだ。<br clear="right"></p>
+    <p class="text"><img src="img/igw01d.jpg" align="left">
+	イシガメ、メダカ、ヌマエビ、タニシが仲良く暮らす安定した環境を維持できているようだ。<br clear="both"></p>
 </main>
 <footer>
 	<div class="footer-left">
@@ -68,5 +77,20 @@
 	<div class="footer-right">&copy; 2024 Ishigame65.</div>
 	<div class="clear"></div>
 </footer>
+
+<script>
+var pics_src = new Array("igClaudeMonet.jpg","igKatsushikaHokusai.jpg","igPabloPicasso.jpg","igVanGogh.jpg");
+var pics_dsc = new Array("Claude Monet", "Katsushika Hokusai", "Pablo Picasso", "Van Gogh")
+var pre_index = -1
+function select_random(){
+	do {
+		index = Math.floor(Math.random()*pics_src.length)
+	} while (index == pre_index);
+	document.getElementById("mypic").src="img/" + pics_src[index];
+	document.getElementById("mytext").textContent="inspired by " + pics_dsc[index];
+	pre_index = index
+}
+</script>
+
 </body>
 </html>
