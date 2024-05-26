@@ -1,4 +1,6 @@
 @charset "utf-8";
+/*
+*/
 * {
 	margin: 0;
 	padding: 0;
@@ -42,9 +44,12 @@ header nav a:hover {
 main {
 	margin-left: auto;	/* 左右autoで中央表示 */
 	margin-right: auto;	/* 左右autoで中央表示 */
-	padding: 70px 30px 30px;	/* 上、左右、下 70px 30px 1px */
+	/* padding 上、左右、下 */
+	padding: 70px 30px 30px;
+	padding: 65px 20px 15px;
 	color: #5a5c5f;
-	background-color: #f8f8f8;	/*f8f8f8*/
+	background-color: #f8f8f8;
+	background-color: cyan;
 }
 footer {
 	padding: 7px 17px;	/* 7px 25px*/
@@ -79,13 +84,6 @@ footer img {
 	margin-left: 20px;
 	margin-right: 10px;
 }
-.minitextboxarea {
-	display: inline-block;
-	font-size: 13px;
-	background-color: #f8dff8;
-	margin: 3px 25px 5px;
-	padding: 2px 8px;
-}
 dl dt {
 	margin-top: 8px;
 }
@@ -108,15 +106,17 @@ dl dd li:before {
 	margin-left: -10px;
 	margin-right: 6px;
 }
+/*
 .indent {
 	margin-left: 20px;
 	max-width: 90%;
 }
 .plist {
 	margin-left: 50px;
-	margin-top: -10px;	/* -10px */
-	margin-bottom: 10px;	/* -10px */
+	margin-top: -10px;
+	margin-bottom: 10px;
 }
+*/
 main ul {
 	margin-left: 30px;
 	margin-right: 10px;
@@ -148,9 +148,12 @@ b {
 	margin: 0 .6em; /* 記号の左右の余白 */
 	color: #777; /* 記号の色 */
 }
+
+/*
 img.icon {
 	margin:0;
 }
+*/
 blockquote {
 	margin: 8px 15px 0;
 	padding: 0.3em 0.1em;

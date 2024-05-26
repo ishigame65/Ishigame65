@@ -10,7 +10,9 @@
 }
 .overlap img {
     pointer-events: none;
+	/*
     z-index: -1;
+	*/
 }
 .overlap #col1 {
     color: steelblue;
@@ -91,7 +93,11 @@
 	}
 	#filter {
 		top: 5px;
+		/*
 		left: -215px;
+		*/
+		left: -115px;
+		font-size: 14px;
 		font-size: 14px;
 	}
 	#cage {
@@ -106,7 +112,10 @@
 	}
 	#pond {
 		top: 70px;
+		/*
 		left: -250px;
+		*/
+		left: -150px;
 		font-size: 14px;
 	}
 	#plant {
