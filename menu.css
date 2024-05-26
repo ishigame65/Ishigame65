@@ -86,11 +86,10 @@
 */
 @media (max-width: 670px) {
 		/*
-    main {
-        font-size: 14px;
-        font-size: 13px;
-    }
 		*/
+    main {
+		font-size: 12px;
+    }
 	.overlap img {
 		width: 260px;
 	}
@@ -98,42 +97,28 @@
 		top: 5px;
 		left: -215px;
 		/*
-		font-size: 14px;
 		font-size: 12px;
 		*/
-		font-size: 12px;
 	}
-	/*
-	#filter a {
-		font-size: 12px;
-	}
-	*/
 	#cage {
 		top: 22px;
 		left: 180px;
-		font-size: 14px;
 	}
 	#feeder {
 		top: 50px;
 		left: 90px;
-		font-size: 14px;
 	}
 	#pond {
 		font-size: 13px;
 		top: 70px;
 		left: -250px;
-		/*
-		font-size: 14px;
-		*/
 	}
 	#plant {
 		top: 95px;
 		left: -50px;
-		font-size: 14px;
 	}
 	#dish {
 		top: 140px;
 		left: 100px;
-		font-size: 14px;
 	}
 }
