@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+blockquote {
+	margin: 8px 15px 0;
+	padding: 0.3em 0.1em;
+	text-indent: 1em;
+	color: #868666;
+	border-left: 4px solid #A6A666;
+	font-size: 13px;
+}
+main img {
+	border-radius: 0;
+}
+blockquote img {
+	margin-right: 4px;
+}

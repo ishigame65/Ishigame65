@@ -45,7 +45,9 @@ main {
 	margin-left: auto;	/* 左右autoで中央表示 */
 	margin-right: auto;	/* 左右autoで中央表示 */
 	/* padding 上、左右、下 */
+	/*
 	padding: 70px 30px 30px;
+	*/
 	padding: 65px 20px 15px;
 	color: #5a5c5f;
 	background-color: #f8f8f8;
@@ -98,6 +100,8 @@ dl dd {
 dl dd ul {
 	list-style-type: none;
 }
+/*
+*/
 dl dd li {
 	margin-left: -25px;
 	margin-right: -10px;
@@ -108,17 +112,17 @@ dl dd li:before {
 	margin-left: -10px;
 	margin-right: 6px;
 }
-/*
 .indent {
 	margin-left: 20px;
 	max-width: 90%;
 }
+/*
+*/
 .plist {
 	margin-left: 50px;
 	margin-top: -10px;
 	margin-bottom: 10px;
 }
-*/
 main ul {
 	margin-left: 30px;
 	margin-right: 10px;
@@ -151,22 +155,11 @@ b {
 	color: #777; /* 記号の色 */
 }
 
-/*
 img.icon {
 	margin:0;
+	border-radius: 0;
 }
-*/
-blockquote {
-	margin: 8px 15px 0;
-	padding: 0.3em 0.1em;
-	text-indent: 1em;
-	color: #868666;
-	border-left: 4px solid #A6A666;
-	font-size: 13px;
-}
-blockquote img {
-	margin-right: 4px;
-}
+
 @media (max-width: 670px) {
 	header img {
 		display: none;
@@ -183,6 +176,9 @@ blockquote img {
 	}
 	main p, ul {
 		font-size: 14px;
+		/*
+		color: blue;
+		*/
 	}
 	main img {
 		max-width: 100%;
@@ -191,12 +187,11 @@ blockquote img {
 		font-size: 18px;
 	}
     .text {
-        /*
-        margin-bottom: 20px;
-        margin-left: 20px;
-        margin-right: 10px;
-        */
-        margin-left: 12px;
+        margin-left: 11px;
+		/*
+		font-size: 14px;
+		color: red;
+		*/
     }
 	.footer-center a {
 		font-size: 14px;

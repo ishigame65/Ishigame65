@@ -1,0 +1,38 @@
+@charset "utf-8";
+.overlap {
+	text-align: center;
+    position: relative;
+}
+.overlap a {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: #A0A0FF;
+}
+.overlap img {
+    pointer-events: none;
+}
+#higuchi {
+	font-size:18px;
+    color: red;
+    position: absolute;
+    top: 67px;
+    right: 0;
+    bottom: 0;
+    left: 113px;
+    margin: auto;
+    z-index: 1;
+}
+@media (max-width: 670px) {
+	/*
+	*/
+    main {
+		font-size: 12px;
+    }
+	.overlap img {
+		width: 200px;
+	}
+	#higuchi {
+		top: 5px;
+		left: -215px;
+	}
+}
