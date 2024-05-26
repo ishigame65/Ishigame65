@@ -20,7 +20,7 @@
 .overlap #col2 {
     color: pink;
 }
-#filter2 {
+#filter {
     position: absolute;
     top: 30px;
     right: 0;
@@ -91,7 +91,7 @@
 	.overlap img {
 		width: 260px;
 	}
-	#filter2 {
+	#filter {
 		top: 5px;
 		/*
 		left: -115px;
