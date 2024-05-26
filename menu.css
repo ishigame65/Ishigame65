@@ -86,19 +86,21 @@
 */
 @media (max-width: 670px) {
     main {
+		/*
         font-size: 14px;
+		*/
+        font-size: 13px;
     }
 	.overlap img {
 		width: 260px;
 	}
 	#filter {
 		top: 5px;
-		/*
-		left: -115px;
-		*/
 		left: -215px;
+		/*
 		font-size: 14px;
 		font-size: 12px;
+		*/
 		color: red
 	}
 	#cage {
@@ -113,11 +115,10 @@
 	}
 	#pond {
 		top: 70px;
-		/*
-		left: -150px;
-		*/
 		left: -250px;
+		/*
 		font-size: 14px;
+		*/
 	}
 	#plant {
 		top: 95px;
