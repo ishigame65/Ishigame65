@@ -20,7 +20,7 @@
 .overlap #col2 {
     color: pink;
 }
-#filter {
+#filter2 {
     position: absolute;
     top: 30px;
     right: 0;
@@ -91,12 +91,12 @@
 	.overlap img {
 		width: 260px;
 	}
-	#filter {
+	#filter2 {
 		top: 5px;
 		/*
-		left: -215px;
-		*/
 		left: -115px;
+		*/
+		left: -215px;
 		font-size: 14px;
 		font-size: 14px;
 	}
@@ -113,9 +113,9 @@
 	#pond {
 		top: 70px;
 		/*
-		left: -250px;
-		*/
 		left: -150px;
+		*/
+		left: -250px;
 		font-size: 14px;
 	}
 	#plant {
