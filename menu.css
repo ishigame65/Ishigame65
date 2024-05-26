@@ -10,9 +10,6 @@
 }
 .overlap img {
     pointer-events: none;
-	/*
-    z-index: -1;
-	*/
 }
 .overlap #col1 {
     color: steelblue;
@@ -55,9 +52,6 @@
     left: -420px;
     margin: auto;
     z-index: 4;
-    /*
-    background-color: red;
-    */
 }
 #plant {
     position: absolute;
@@ -76,17 +70,10 @@
     left: 165px;
     margin: auto;
     z-index: 6;
-    /*
-    background-color: yellow;
-    */
 }
-/*
-@media (max-width: 1024px) {
-}
-*/
 @media (max-width: 670px) {
-		/*
-		*/
+	/*
+	*/
     main {
 		font-size: 12px;
     }
@@ -96,9 +83,6 @@
 	#filter {
 		top: 5px;
 		left: -215px;
-		/*
-		font-size: 12px;
-		*/
 	}
 	#cage {
 		top: 22px;
