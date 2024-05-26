@@ -9,7 +9,22 @@
 	<link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="image_link.css">
 </head>
-
+<style>
+@media (max-width: 670px) {
+	img#watertest {
+		width: 150px;
+	}
+	img#food {
+		width: 94%;
+	}
+	img#height {
+		width: 150px;
+	}
+	img#uwater {
+		width: 94%;
+	}
+}
+</style>
 <body>
 <header>
 	<a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a>
@@ -25,13 +40,13 @@
     <h2 class="title">日々の管理</h2>
     <p class="text">雨の降らない日が続いて池の水が減ってきたら、雨水タンクの水かカルキ抜きした水道水を補充している。</p>
     <p class="text">環境変化に敏感なヌマエビが元気なので大丈夫と考えているが、定期的にテトラの水質検査試験紙「テスト6in1」で水質をチェックしている。<br>
-    <img src="img/igwatertest1.jpg" align="left">
+    <img id="watertest" src="img/igwatertest1.jpg" align="left">
 	硝酸塩・亜硝酸塩・総硬度・炭酸塩硬度・pH値・塩素および二酸化炭素を測ることができる。
 	アンモニア→亜硝酸塩→硝酸塩というバクテリアによる生物濾過と水草による硝酸塩の吸収がうまく機能しているかどうかが分かり、
 	換水の必要性を判断できる。<br clear="both">
 	</p>
     <div class="image_link">
-    <img id="mypic" src="img/ig0.jpg" width="384" height="288" onclick="select_random()">
+    <img id="mypic" src="img/ig0.jpg" width="384" onclick="select_random()">
     <br>
     <div id="mytext" onclick="select_random()">　 </div>
     </div>
@@ -42,7 +57,7 @@
     念のため食欲旺盛な夏場はときどき屋内の水槽に連れてきて餌を与えている。
     <br clear="right"></p>
 	<p class="text">
-	<img src="img/igfood1.jpg" align="left">
+	<img id="food" src="img/igfood1.jpg" align="left">
 	<div class="minitextboxarea">
 	a. キョーリン カメのエサ<br>
 	b. ダイソー カメのエサ<br>
@@ -59,14 +74,14 @@
 	なお、人工飼料より食いつきが良いのは蝶の幼虫で、
 	中でもアオムシは大好物らしく人工飼料を食べた後でも直ぐに食いついている。
 	<br clear="both"></p>
-    <p class="text"><img src="img/igheight1.jpg" align="right">
+    <p class="text"><img id="height" src="img/igheight1.jpg" align="right">
 	たまに身体測定をしている。
 	<br clear="right"></p>
     <p class="text">冬が近づいてきたら池に落ち葉を投入して冬眠環境を準備する。
     我が家のイシガメは12月に入ってから冬眠して2月の終わりごろに目覚めたようだ。冬眠前後は1カ月近くほとんど餌を食べない。
     イシガメの冬眠とともにメダカとヌマエビとタニシも見えなくなったので心配したが、
     春になったら復活して数も増えて動き回っている。</p>
-    <p class="text"><img src="img/igw01d.jpg" align="left">
+    <p class="text"><img id="uwater" src="img/igw01d.jpg" align="left">
 	イシガメ、メダカ、ヌマエビ、タニシが仲良く暮らす安定した環境を維持できているようだ。<br clear="both"></p>
 </main>
 <footer>
@@ -87,7 +102,7 @@ function select_random(){
 		index = Math.floor(Math.random()*pics_src.length)
 	} while (index == pre_index);
 	document.getElementById("mypic").src="img/" + pics_src[index];
-	document.getElementById("mytext").textContent="inspired by " + pics_dsc[index];
+	document.getElementById("mytext").textContent=pics_dsc[index] + " style";
 	pre_index = index
 }
 </script>

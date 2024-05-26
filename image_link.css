@@ -2,7 +2,6 @@
 
 .image_link{
     float: right;
-	margin-left: 15px;
 	display: inline-block;
 	position: relative;
 	text-align: center;
@@ -46,5 +45,15 @@
 }
 
 @media (max-width: 670px) {
-
+	.image_link img{
+		width: 200px;
+		height: auto;
+	}
+	.image_link:after{
+		font-size:12px;
+		height: auto;
+	}
+	#mytext {
+		font-size:12px;
+	}
 }

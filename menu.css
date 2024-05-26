@@ -92,25 +92,31 @@
 	#filter {
 		top: 5px;
 		left: -215px;
+		font-size: 14px;
 	}
 	#cage {
 		top: 22px;
 		left: 180px;
+		font-size: 14px;
 	}
 	#feeder {
 		top: 50px;
 		left: 90px;
+		font-size: 14px;
 	}
 	#pond {
 		top: 70px;
 		left: -250px;
+		font-size: 14px;
 	}
 	#plant {
 		top: 95px;
 		left: -50px;
+		font-size: 14px;
 	}
 	#dish {
 		top: 140px;
 		left: 100px;
+		font-size: 14px;
 	}
 }
