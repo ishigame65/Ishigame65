@@ -85,12 +85,12 @@
 }
 */
 @media (max-width: 670px) {
-    main {
 		/*
+    main {
         font-size: 14px;
-		*/
         font-size: 13px;
     }
+		*/
 	.overlap img {
 		width: 260px;
 	}
