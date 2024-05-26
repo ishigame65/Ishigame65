@@ -95,13 +95,14 @@
 		width: 260px;
 	}
 	#filter {
-		font-size: 13px;
 		top: 5px;
 		left: -215px;
 		/*
 		font-size: 14px;
 		font-size: 12px;
 		*/
+	}
+	#filter a {
 		font-size: 13px;
 	}
 	#cage {
