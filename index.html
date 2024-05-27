@@ -24,20 +24,17 @@
 	</nav>
 	<div class="clear"></div>
 </header>
-
 <main>
 	<h1>Ishigame65</h1>
 	<h2>イシガメが快適に暮らす環境を作る</h2>
-    <video src="img/igwm01.mp4" controls muted autoplay playsinline loop></video>
-    <p>
-    </p>
-	<!--
-	<h3>癒し映像</h3>
+    <video id="movie" src="img/igwm01.mp4" controls muted autoplay playsinline loop></video>
 	<p>
-	（準備中）
-    </p>
-	-->
+	1 minute gallery<br>
+	<img src="img/igwm02p.jpg" width="192" onclick="setmovie('img/igwm02s.mp4')">
+	<img src="img/igwm01p.jpg" width="192" onclick="setmovie('img/igwm01s.mp4')">
+	</p>
 	<div class="contents">
+		<hr>
 		<h3>近くのカメ（外部サイト）</h3>
 		<div class="overlap">
 			<img src="img/smap1.png">
@@ -62,6 +59,13 @@
 	<div class="footer-right">&copy; 2024 Ishigame65.</div>
 	<div class="clear"></div>
 </footer>
+
+<script>
+function setmovie(moviefile){
+	tag = document.getElementById("movie")
+	tag.src=moviefile;
+}
+</script>
 
 </body>
 </html>
