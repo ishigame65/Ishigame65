@@ -71,14 +71,6 @@
     margin: auto;
     z-index: 6;
 }
-/*
-a {
-    cursor: pointer;
-    text-decoration: underline;
-    text-decoration-color: #A0A0FF;
-    text-decoration-color: red;
-}
-*/
 @media (max-width: 670px) {
 	/*
 	*/

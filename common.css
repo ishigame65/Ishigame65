@@ -1,6 +1,4 @@
 @charset "utf-8";
-/*
-*/
 * {
 	margin: 0;
 	padding: 0;
@@ -9,6 +7,10 @@ a {
     cursor: pointer;
     text-decoration: underline;
     text-decoration-color: #A0A0FF;
+    color: steelblue;
+	/*
+	text-decoration-color: orange;
+	*/
 }
 header {
 	width: 100%;
