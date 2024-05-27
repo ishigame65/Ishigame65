@@ -54,8 +54,9 @@ main {
 	/* padding 上、左右、下 */
 	/*
 	padding: 70px 30px 30px;
-	*/
 	padding: 65px 20px 15px;
+	*/
+	padding: 55px 20px 15px;
 	color: #5a5c5f;
 	background-color: #f8f8f8;
 	/*
@@ -148,22 +149,36 @@ main td, th {
 	border: solid 1px #333333;
 	padding: 0px 10px;
 }
+b {
+	color: Tomato;
+}
 .breadcrumb {
-	margin-top: 20px;
+	margin-left: 8px;
+	margin-top: 0px;
+	margin-bottom: 10px;
 	display: flex;
 	flex-wrap: wrap;
 	list-style: none;	
 	align-items:center;
-}
-b {
-	color: Tomato;
+	font-size: 14px;
+	color: #5a5c5f;
 }
 .breadcrumb li:not(:last-of-type)::after {
+	/*
+	content: ">";
+	margin: 0 .2em;
+	*/
 	content: "›";
-	margin: 0 .6em; /* 記号の左右の余白 */
-	color: #777; /* 記号の色 */
+	margin: 0 .4em;
+	color: #777;
+	font-weight: bold;
 }
-
+.breadcrumb a {
+	/*
+	color: red;
+	text-decoration: none;
+	*/
+}
 img.icon {
 	margin:0;
 	border-radius: 0;
@@ -182,15 +197,12 @@ img.icon {
 	}
 	main {
 		/* 上、左右、下 */
+		/*
 		padding: 60px 10px 10px;
+		*/
+		padding: 53px 10px 8px;
 		font-size: 14px;
 	}
-	/*
-	main p, ul {
-		font-size: 14px;
-		color: blue;
-	}
-	*/
 	main img {
 		max-width: 100%;
 	}
@@ -209,5 +221,8 @@ img.icon {
 	}
 	.footer-right {
 		font-size: 14px;
+	}
+	.breadcrumb {
+		font-size: 11px;
 	}
 }
