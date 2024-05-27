@@ -183,13 +183,14 @@ img.icon {
 	main {
 		/* 上、左右、下 */
 		padding: 60px 10px 10px;
+		font-size: 14px;
 	}
+	/*
 	main p, ul {
 		font-size: 14px;
-		/*
 		color: blue;
-		*/
 	}
+	*/
 	main img {
 		max-width: 100%;
 	}
