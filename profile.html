@@ -29,7 +29,10 @@ main img {
 }
 .mini-photo .desc {
 	font-size: 14px;
-	padding-top: 10px;
+	padding-top: 8px;
+}
+.mini-photo li {
+	padding-top: 2px;
 }
 .block {
 	display: inline-block;
@@ -48,9 +51,13 @@ main img {
 		height:100px;
 		border-radius:9px;
 	}
-	.mini-photo .desc, .mini-photo li {
+	.mini-photo .desc {
 		font-size: 12px;
-		padding-top: 5px;
+		padding-top: 3px;
+	}
+	.mini-photo li {
+		font-size: 12px;
+		padding-top: 2px;
 	}
 	.offer {
 		font-size: 12px;
@@ -171,12 +178,14 @@ function tselect(){
 	document.getElementById("ttext").innerHTML=tdsc[index];
 	tindex = index
 }
-var bsrc = new Array("bike1.jpg","bike2.jpg");
+var bsrc = new Array("bike1.jpg","bike2.jpg","bike3.jpg");
 var bdsc = new Array(
 "半世紀前から立っているであろうキカイダーとクロモリ1号"
 +"<ul><li>クロモリ1号はイタ車カンパ仕様</li></ul>", 
 "道端のコスモスとクロモリ2号"
-+"<ul><li>クロモリ2号はパナソニックWレバー仕様</li></ul>")
++"<ul><li>クロモリ2号はパナソニックWレバー仕様</li></ul>",
+"日帰りで行った温泉で最も遠いのは群馬県の伊香保温泉"
++"<ul><li>この時の帰路は輪行だったので汗だくになっていない</li></ul>")
 var bindex = -1
 function bselect(){
 	do {
