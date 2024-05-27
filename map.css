@@ -13,6 +13,7 @@
 }
 #higuchi {
 	font-size:20px;
+	font-weight: bold;
     color: tomato;
     position: absolute;
     top: 66px;
