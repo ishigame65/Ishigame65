@@ -5,6 +5,11 @@
 	margin: 0;
 	padding: 0;
 }
+a {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: #A0A0FF;
+}
 header {
 	width: 100%;
 	margin-left: auto;	/* 左右autoで中央表示 */
@@ -116,14 +121,16 @@ dl dd li:before {
 	margin-left: 20px;
 	max-width: 90%;
 }
-/*
-*/
 .plist {
+	/*
 	margin-left: 50px;
+	*/
 	margin-top: -10px;
 	margin-bottom: 10px;
 }
 main ul {
+	/*
+	*/
 	margin-left: 30px;
 	margin-right: 10px;
 }
@@ -172,7 +179,8 @@ img.icon {
 		font-size: 14px;
 	}
 	main {
-		padding: 60px 10px 10px;	/* 上、左右、下 */
+		/* 上、左右、下 */
+		padding: 60px 10px 10px;
 	}
 	main p, ul {
 		font-size: 14px;

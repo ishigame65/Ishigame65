@@ -12,13 +12,13 @@
     pointer-events: none;
 }
 #higuchi {
-	font-size:18px;
-    color: red;
+	font-size:20px;
+    color: tomato;
     position: absolute;
-    top: 67px;
+    top: 66px;
     right: 0;
     bottom: 0;
-    left: 113px;
+    left: 115px;
     margin: auto;
     z-index: 1;
 }
@@ -32,7 +32,8 @@
 		width: 200px;
 	}
 	#higuchi {
-		top: 5px;
-		left: -215px;
+		font-size: 14px;
+		top: 36px;
+		left: 68px;
 	}
 }

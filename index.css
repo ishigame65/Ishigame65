@@ -2,14 +2,10 @@
 
 main {
 	/* 上、左右、下 */
-	/*
-	padding: 70px 30px 10px;
-	*/
 	padding: 70px 15px 10px;
 	color: #5a5c5f;
 	text-align: center;
     background-color: #f8f8f8;
-    background-color: yellow;
 }
 main video {
 	margin-bottom: 10px;
@@ -31,28 +27,13 @@ main img {
 .contents {
 	display: inline-block;
 	text-align: left;
-	/*
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-	*/
-	background-color: cyan;
 }
-dl dd li {	
-	margin-left: 0;
-	margin-right: 0;
+.text ol {
+	margin-left: 20px;
 }
 @media (max-width: 670px) {
-	.contents {
-		/* 上、左右、下 */
-		margin-right: auto;
-	}
 	main video {
-		width: 80%;
-		/*
-		margin-right: 10px;
-		margin-left: 0;
-		*/
+		width: 90%;
 	}
 	main h1 {
         font-size: 13px;
@@ -62,7 +43,11 @@ dl dd li {
         font-size: 15px;
 		margin-bottom: 5px;
 	}
+	.icon {
+		width: 15px;
+	}
 }
 /*
+.text ol {
 	display: none;
 */
