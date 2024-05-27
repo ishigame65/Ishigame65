@@ -38,6 +38,10 @@ main img {
 	main video {
 		width: 90%;
 	}
+	.gallery img {
+		width: 128px;
+		margin: 2px 5px 5px;
+	}
 	main h1 {
         font-size: 13px;
 		/*opacity: 0.5;*/	/* 不透明度 */
