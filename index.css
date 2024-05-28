@@ -20,6 +20,10 @@ main h2 {
 	font-size: 22px;
 	margin-bottom: 10px;
 }
+main h3 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 main img {
 	margin-bottom: 10px;
 	/*
@@ -31,8 +35,13 @@ main img {
 	display: inline-block;
 	text-align: left;
 }
-.text ol {
+.text blockquote {
+	margin-top: 10px;
 	margin-left: 20px;
+	font-size: 15px;
+}
+dl dd {
+	font-size: 15px;
 }
 @media (max-width: 670px) {
 	main video {
@@ -53,8 +62,10 @@ main img {
 	.icon {
 		width: 15px;
 	}
+	dl dd {
+		font-size: 11px;
+	}
+	.text blockquote {
+		font-size: 11px;
+	}
 }
-/*
-.text ol {
-	display: none;
-*/

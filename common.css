@@ -88,6 +88,9 @@ footer img {
 	float: right;
 	padding-top: 9px;
 }
+.footer-right a {
+	text-decoration: none;
+}
 .title {
 	margin-bottom: 15px;
 }
@@ -100,7 +103,7 @@ dl dt {
 	margin-top: 8px;
 }
 dl dd {
-	margin-left: 10px;	/*20*/
+	margin-left: 10px;
 	margin-right: 10px;
 	margin-top: 4px;
 	margin-bottom: 6px;
