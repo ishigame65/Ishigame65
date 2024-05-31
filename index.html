@@ -7,8 +7,6 @@
 	<title>Ishigame65 | トップ</title>
 	<link rel="shortcut icon" href="img/kame.ico">
 	<link rel="stylesheet" href="common.css">
-	<!--
-	-->
 	<link rel="stylesheet" href="index.css">
 	<link rel="stylesheet" href="map.css">
 </head>
@@ -30,9 +28,6 @@
     <video id="movie" src="img/igwm01.mp4" controls muted autoplay playsinline loop></video>
 	<p class="gallery">
 		1 minute gallery<br>
-		<!--
-		<img src="img/igwm02p.jpg" width="192" onclick="setmovie('img/igwm02s.mp4')">
-		-->
 		<img src="img/igwm02p.jpg" width="192" onclick="setmovie('img/igwm02s.mp4')">
 		<img src="img/igwm03p.jpg" width="192" onclick="setmovie('img/igwm03s.mp4')">		
 		<img src="img/igwm01p.jpg" width="192" onclick="setmovie('img/igwm01s.mp4')">
@@ -49,9 +44,7 @@
 		<div class="text">
 			<!--
 			-->
-			<div align="right">
-			<a id="clear" href="javascript:map_clear()">Clear</a>
-			</div>
+			<div align="right"><a id="clear" href="javascript:map_clear()">Clear</a></div>
 			<blockquote>
 			下線部で場所表示、<img class="icon" src="img/extlink.png" width="20">で外部サイトに移動
 			</blockquote>
@@ -79,18 +72,6 @@ function setmovie(moviefile){
 	tag = document.getElementById("movie");
 	tag.src=moviefile;
 }
-function map_display(target){
-	markers = document.getElementById('markers');
-	tags = markers.children;
-	for (let i = 0; i < tags.length; i++) {
-		tags[i].style.visibility='hidden';
-	}
-	tag = document.getElementById(target);
-	tag.style.visibility='visible';
-	ctag = document.getElementById('clear');
-	ctag.style.visibility='visible';
-	return false;
-}
 function map_clear(){
 	/*
 	alert("bbb")
@@ -102,6 +83,21 @@ function map_clear(){
 	}
 	ctag = document.getElementById('clear');
 	ctag.style.visibility='hidden';
+	return false;
+}
+function map_display(target){
+	/*
+	markers = document.getElementById('markers');
+	tags = markers.children;
+	for (let i = 0; i < tags.length; i++) {
+		tags[i].style.visibility='hidden';
+	}
+	ctag = document.getElementById('clear');
+	ctag.style.visibility='visible';
+	*/
+	map_clear();
+	tag = document.getElementById(target);
+	tag.style.visibility='visible';
 	return false;
 }
 </script>

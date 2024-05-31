@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+main {
+	color: #5a5c5f;
+	text-align: center;
+}
+.contents {
+	display: inline-block;
+	text-align: left;
+	/*
+	background-color: orange;
+	*/
+}
+.overlap {
+	text-align: center;
+    position: relative;
+}
+.overlap img {
+	border-radius: 15px;
+	/*
+	margin-bottom: -20px;
+	*/
+	/*こうしないと大きな余白ができてしまう*/
+}
+.text img {
+	border-radius: 5px;
+	margin-left: 3px;
+	margin-right: 0;
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+}
+#markers {
+	font-size:20px;
+	font-weight: bold;
+    color: deepskyblue;
+	visibility: hidden;
+}
+#miyagi1 {
+    position:absolute; top: 6px; right:0; bottom:0; left: 365px; margin:auto; z-index:1; }
+#miyagi2 {
+    position:absolute; top: 10px; right:0; bottom:0; left: 344px; margin:auto; z-index:1; }
+#chiba1 {
+    position:absolute; top: 117px; right:0; bottom:0; left: 313px; margin:auto; z-index:1; }
+#shiga1 {
+    position:absolute; top: 124px; right:0; bottom:0; left: 56px; margin:auto; z-index:1; }
+#kochi1 {
+    position:absolute; top: 216px; right:0; bottom:0; left: -160px; margin:auto; z-index:1; }
+#miyazaki1 {
+    position:absolute; top: 212px; right:0; bottom:0; left: -240px; margin:auto; z-index:1; }
+#oita1 {
+    position:absolute; top: 181px; right:0; bottom:0; left: -247px; margin:auto; z-index:1; }
+#miyazaki2 {
+    position:absolute; top: 217px; right:0; bottom:0; left: -268px; margin:auto; z-index:1; }
+#oita2 {
+    position:absolute; top: 190px; right:0; bottom:0; left: -272px; margin:auto; z-index:1; }
+#kagoshima1 {
+    position:absolute; top: 262px; right:0; bottom:0; left: -279px; margin:auto; z-index:1; }
+#fukuoka1 {
+    position:absolute; top: 185px; right:0; bottom:0; left: -286px; margin:auto; z-index:1; }
+#saga1 {
+    position:absolute; top: 194px; right:0; bottom:0; left: -350px; margin:auto; z-index:1; }
+#nagasaki1 {
+    position:absolute; top: 192px; right:0; bottom:0; left: -375px; margin:auto; z-index:1; }
+
+
+#clear{
+    color: steelblue;
+	text-decoration: none;
+	visibility: hidden;
+}
+@media (max-width: 670px) {
+    main {
+		font-size: 12px;
+    }
+	.overlap img {
+		border-radius: 8px;
+		width: 200px;
+	}
+	.text img {
+		border-radius: 3px;
+		margin-left: 3px;
+		margin-right: 0;
+		width: 80px;
+		height: 80px;
+	}
+	#markers {
+		font-size:16px;
+	}
+	
+	#miyagi1 {
+		position:absolute; top: 0px; right:0; bottom:0; left: 182px; margin:auto; z-index:1; }
+	#miyagi2 {
+		position:absolute; top: 0px; right:0; bottom:0; left: 173px; margin:auto; z-index:1; }
+	#chiba1 {
+		position:absolute; top: 53px; right:0; bottom:0; left: 157px; margin:auto; z-index:1; }
+	#shiga1 {
+		position:absolute; top: 57px; right:0; bottom:0; left: 28px; margin:auto; z-index:1; }
+	#kochi1 {
+		position:absolute; top: 104px; right:0; bottom:0; left: -80px; margin:auto; z-index:1; }
+	#miyazaki1 {
+		position:absolute; top: 103px; right:0; bottom:0; left: -120px; margin:auto; z-index:1; }
+	#oita1 {
+		position:absolute; top: 88px; right:0; bottom:0; left: -124px; margin:auto; z-index:1; }
+	#miyazaki2 {
+		position:absolute; top: 105px; right:0; bottom:0; left: -134px; margin:auto; z-index:1; }
+	#oita2 {
+		position:absolute; top: 92px; right:0; bottom:0; left: -138px; margin:auto; z-index:1; }
+	#kagoshima1 {
+		position:absolute; top: 128px; right:0; bottom:0; left: -140px; margin:auto; z-index:1; }
+	#fukuoka1 {
+		position:absolute; top: 90px; right:0; bottom:0; left: -144px; margin:auto; z-index:1; }
+	#saga1 {
+		position:absolute; top: 94px; right:0; bottom:0; left: -177px; margin:auto; z-index:1; }
+	#nagasaki1 {
+		position:absolute; top: 92px; right:0; bottom:0; left: -186px; margin:auto; z-index:1; }
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<meta name="description" content="Ishigame65の走行経路ページ">
+	<title>Ishigame65 | その他</title>
+	<link rel="shortcut icon" href="img/kame.ico">
+	<link rel="stylesheet" href="common.css">
+	<link rel="stylesheet" href="bikemap.css">
+</head>
+
+<body>
+<header>
+	<a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a>
+	<nav>
+		<a href="index.html">Top</a>
+		<a href="intro.html">経緯と方針</a>
+		<a href="menu.html">飼育環境</a>
+		<a href="maintenance.html">日々の管理</a>
+	</nav>
+	<div class="clear"></div>
+</header>
+<main>
+	<ul class="breadcrumb">
+		<li><a href="index.html">Top</a></li>
+		<li><a href="keeper.html">飼育係</a></li>
+		<li><a href="profile.html">プロフィール</a></li>
+		<li>走行経路</li>
+	</ul>
+	<div class="contents">
+	<h2 class="title">走行経路</h2>
+	<div class="overlap">
+		<img src="img/bkmap1.png">
+		<div id="markers">
+			<div id="miyagi1">★</div><div id="miyagi2">★</div>
+			<div id="chiba1">★</div><div id="shiga1">★</div><div id="kochi1">★</div>
+			<div id="miyazaki1">★</div><div id="miyazaki2">★</div>
+			<div id="oita1">★</div><div id="oita2">★</div>
+			<div id="kagoshima1">★</div><div id="fukuoka1">★</div>
+			<div id="saga1">★</div><div id="nagasaki1">★</div>
+		</div>
+	</div>
+	<div class="text">
+		<!--
+		-->
+		<div align="right"><a id="clear" href="javascript:map_clear()">Clear</a></div>
+		<a href="javascript:map_display('miyagi1')"><img src="img/bkmmiyagi1.jpg" width=100></a>
+		<a href="javascript:map_display('miyagi2')"><img src="img/bkmmiyagi2.jpg" width=100></a>
+		<a href="javascript:map_display('chiba1')"><img src="img/bkmchiba1.jpg" width=100></a>
+		<a href="javascript:map_display('shiga1')"><img src="img/bkmshiga1.jpg" width=100></a>
+		<a href="javascript:map_display('kochi1')"><img src="img/bkmkochi1.jpg" height=100></a>
+		<a href="javascript:map_display('miyazaki1')"><img src="img/bkmmiyazaki1.jpg" width=100></a>
+		<a href="javascript:map_display('oita1')"><img src="img/bkmoita1.jpg" width=100></a>
+		<a href="javascript:map_display('miyazaki2')"><img src="img/bkmmiyazaki2.jpg" width=100></a>
+		<a href="javascript:map_display('oita2')"><img src="img/bkmoita2.jpg" width=100></a>
+		<a href="javascript:map_display('kagoshima1')"><img src="img/bkmkagoshima1.jpg" width=100></a>
+		<a href="javascript:map_display('fukuoka1')"><img src="img/bkmfukuoka1.jpg" height=100></a>
+		<a href="javascript:map_display('saga1')"><img src="img/bkmsaga1.jpg" width=100></a>
+		<a href="javascript:map_display('nagasaki1')"><img src="img/bkmnagasaki1.jpg" height=100></a>
+	</div>
+
+	<ul>
+	<li><a href='bike1.html'>クロモリ1号</a></li>
+	<li><a href='bike2.html'>クロモリ2号</a></li>
+	</ul>
+    <!--
+	
+	-->
+	</div>
+</main>
+<footer>
+	<div class="footer-left">
+	<a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="Instagram" width=32 height=32></a>
+	</div>
+	<div class="footer-center"><a href="keeper.html"><b>飼育係</b></a></div>
+	<div class="footer-right"><a href="copyright.html">&copy; 2024 Ishigame65.</a></div>
+	<div class="clear"></div>
+</footer>
+
+<script>
+function map_clear(){
+	/*
+	alert("bbb")
+	*/
+	markers = document.getElementById('markers');
+	tags = markers.children;
+	for (let i = 0; i < tags.length; i++) {
+		tags[i].style.visibility='hidden';
+	}
+	ctag = document.getElementById('clear');
+	ctag.style.visibility='hidden';
+	return false;
+}
+function map_display(target){
+	map_clear();
+	tag = document.getElementById(target);
+	tag.style.visibility='visible';
+	return false;
+}
+</script>
+
+</body>
+</html>
