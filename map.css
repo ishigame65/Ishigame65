@@ -19,9 +19,7 @@
 #markers {
 	font-size:20px;
 	font-weight: bold;
-    color: tomato;
-	/*
-	*/
+    color: tomato;	/* #FF6347 */
 	visibility: hidden;
 }
 #higuchi {

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<meta name="description" content="Ishigame65のクロモリ2号ページ">
+	<title>Ishigame65 | その他</title>
+	<link rel="shortcut icon" href="img/kame.ico">
+	<link rel="stylesheet" href="common.css">
+	<link rel="stylesheet" href="print3d.css">
+</head>
+
+<style>
+.bkcanvas {
+	position: relative;
+	float: left;
+	width: 320px;
+	height: 190px;
+	margin-right: 30px;
+}
+.bkcanvas img {
+	width: 320px;	/* 640 x 380 */
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.bkselect {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+.bkselect a {
+	font-size: 14px;
+	margin-bottom: 2px;
+}
+#bkreset {
+	clear:both;
+	margin-top: -30px;
+	margin-left: 260px;
+}
+.bkdescript {
+	position: relative;
+	visibility: hidden;
+	margin-top: 10px;
+	height: 42px;
+}
+.bkdescript div {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.bkdescript img {
+	display: inline-block;
+	width: 24px;
+	margin-bottom: -2px;
+}
+@media (max-width: 670px) {
+	.bkcanvas {
+		float: none;
+		/* 640 x 380 */
+		width: 288px;
+		height: 171px;
+	}
+	.bkcanvas img {
+		width: 288px;
+		<!--
+		-->
+	}
+	.bkselect {
+		margin-top: 10px;
+		margin-left: 15px;
+		display: block;
+	}
+	.bkselect a {
+		display: inline-block;
+		font-size: 12px;
+		margin-left: 10px;
+		margin-bottom: 5px;
+	}
+	#bkreset {
+		margin-top: 0;
+	}
+}
+</style>
+
+<body>
+<header>
+	<a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a>
+	<nav>
+		<a href="index.html">Top</a>
+		<a href="intro.html">経緯と方針</a>
+		<a href="menu.html">飼育環境</a>
+		<a href="maintenance.html">日々の管理</a>
+	</nav>
+	<div class="clear"></div>
+</header>
+<main>
+	<ul class="breadcrumb">
+		<li><a href="index.html">Top</a></li>
+		<li><a href="keeper.html">飼育係</a></li>
+		<li><a href="profile.html">プロフィール</a></li>
+		<li>クロモリ2号</li>
+	</ul>
+	<h2 class="title">クロモリ2号</h2>
+	<div class="bkcanvas">
+		<!-- z-index未指定のため順序が重要 -->
+		<img id="bkspoke" src="img/bkspoke.png">
+		<img id="bkhub" src="img/bkhub.png">
+		<img id="bksprocket" src="img/bksprocket.png">
+		<img id="bkrim" src="img/bkrim.png">
+		<img id="bktire" src="img/bktire.png">
+		<img id="bkpillar" src="img/bkpillar.png">
+		<img id="bkframe" src="img/bkframe.png">
+		<img id="bksaddle" src="img/bksaddle.png">
+		<img id="bkcompo" src="img/bkcompo.png">
+		<img id="bkpedal" src="img/bkpedal.png">
+		<img id="bkstem" src="img/bkstem.png">
+		<img id="bkhandle" src="img/bkhandle.png">
+		<img id="bkwlever" src="img/bkwlever.png">
+	</div>
+	<div class="bkselect">
+		<a href="javascript:bike_on('bkframe')">フレーム</a>
+		<a href="javascript:bike_on('bkcompo')">コンポーネント</a>
+		<a href="javascript:bike_on('bkhub')">ハブ</a>
+		<a href="javascript:bike_on('bkspoke')">スポーク</a>
+		<a href="javascript:bike_on('bkrim')">リム</a>
+		<a href="javascript:bike_on('bktire')">タイヤ</a>
+		<a href="javascript:bike_on('bkpillar')">シートポスト</a>
+		<a href="javascript:bike_on('bkstem')">ステム</a>
+		<a href="javascript:bike_on('bkhandle')">ハンドルバー</a>
+		<a href="javascript:bike_on('bkpedal')">ペダル</a>
+		<a href="javascript:bike_on('bksaddle')">サドル</a>
+		<!--
+		<a href="javascript:bike_on('bkwlever')">Wレバー</a>
+		-->
+	</div>
+	<div id="bkreset">
+		<a href="javascript:bike_reset()">Reset</a>
+	</div>
+	<div class="bkdescript">
+		<div class="text" id="bkframed">Panasonic（パナソニック）<img src="img/flagjp.png"></div>
+		<div class="text" id="bkcompod">Shimano（シマノ）<img src="img/flagjp.png"></div>
+		<div class="text" id="bkhubd">Shimano（シマノ）<img src="img/flagjp.png"></div>
+		<div class="text" id="bkspoked">DT Swiss<img src="img/flagch.png"></div>
+		<div class="text" id="bkrimd">DT Swiss<img src="img/flagch.png"></div>
+		<div class="text" id="bktired">Vittoria<img src="img/flagit.png"></div>
+		<div class="text" id="bkpillard">Nitto（日東）<img src="img/flagjp.png"></div>
+		<div class="text" id="bkstemd">Nitto（日東）<img src="img/flagjp.png"></div>
+		<div class="text" id="bkhandled">Nitto（日東）<img src="img/flagjp.png"></div>
+		<div class="text" id="bkpedald">MKS（三ヶ島製作所）<img src="img/flagjp.png"></div>
+		<div class="text" id="bksaddled">Selle Italia<img src="img/flagit.png"></div>
+		<div class="text" id="bkwleverd">Shimano（シマノ）<img src="img/flagjp.png"></div>
+	</div>
+</main>
+<footer>
+	<div class="footer-left">
+	<a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="Instagram" width=32 height=32></a>
+	</div>
+	<div class="footer-center"><a href="keeper.html"><b>飼育係</b></a></div>
+	<div class="footer-right"><a href="copyright.html">&copy; 2024 Ishigame65.</a></div>
+	<div class="clear"></div>
+</footer>
+
+<script>
+function bike_foggy(){
+	markers = document.getElementsByClassName('bkcanvas');
+	tags = markers[0].children;
+	for (let i = 0; i < tags.length; i++) {
+		tags[i].style.opacity = 0.2;
+		tags[i].style.filter = `brightness(1)`;
+	}
+}
+function bike_highlight(t){
+	tag = document.getElementById(t);
+	tag.style.opacity = 1;
+	tag.style.filter = `brightness(0.4)`;
+}
+function bike_desc_clear(){
+	bkdescript = document.getElementsByClassName('bkdescript');
+	tags = bkdescript[0].children;
+	for (let i = 0; i < tags.length; i++) {
+		tags[i].style.visibility='hidden';
+	}
+}
+function bike_desc(t){
+	tag = document.getElementById(t+"d");
+	tag.style.visibility='visible';
+}
+function bike_on(target){
+	bike_foggy();
+	bike_highlight(target);
+	bike_desc_clear();
+	bike_desc(target);
+	if (target == "bkcompo") {
+		bike_highlight('bksprocket');
+		bike_highlight('bkwlever');
+	}
+}
+function bike_reset(){
+	markers = document.getElementsByClassName('bkcanvas');
+	tags = markers[0].children;
+	for (let i = 0; i < tags.length; i++) {
+		tags[i].style.opacity = 1;
+		tags[i].style.filter = `brightness(1)`;
+	}
+	bike_desc_clear();
+}
+</script>
+
+</body>
+</html>
