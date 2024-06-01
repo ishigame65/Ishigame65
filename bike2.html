@@ -37,22 +37,17 @@
 	clear:both;
 	margin-top: -30px;
 	margin-left: 260px;
+	margin-bottom: 0;
 }
-.bkdescript {
-	position: relative;
-	visibility: hidden;
-	margin-top: 10px;
-	height: 54px;
-}
-.bkdescript div {
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-.bkdescript img {
+#note img {
 	display: inline-block;
 	width: 24px;
 	margin-bottom: -2px;
+}
+main hr {
+	/*
+	*/
+	margin-top: 5px;
 }
 @media (max-width: 670px) {
 	.bkcanvas {
@@ -63,8 +58,6 @@
 	}
 	.bkcanvas img {
 		width: 288px;
-		<!--
-		-->
 	}
 	.bkselect {
 		margin-top: 10px;
@@ -102,6 +95,10 @@
 		<li>クロモリ2号</li>
 	</ul>
 	<h2 class="title">クロモリ2号</h2>
+	<p class="text">
+	予算の関係でクロモリ1号より価格帯を落としたパーツで組み上げた（お店で組んでもらった）。
+	懐古趣味的な見た目の美しさと、忙しく変速せずにゆったりと走る言い訳のため、シフター（変速機）はWレバーとした。
+	</p>
 	<div class="bkcanvas">
 		<!-- z-index未指定のため順序が重要 -->
 		<img id="bkspoke" src="img/bkspoke.png">
@@ -137,20 +134,17 @@
 	<div id="bkreset">
 		<a href="javascript:bike_reset()">Reset</a>
 	</div>
-	<div class="bkdescript">
-		<div class="text" id="bkframed">Panasonic（パナソニック）<img src="img/flagjp.png"></div>
-		<div class="text" id="bkcompod">Shimano（シマノ）<img src="img/flagjp.png"></div>
-		<div class="text" id="bkhubd">Shimano（シマノ）<img src="img/flagjp.png"></div>
-		<div class="text" id="bkspoked">DT Swiss<img src="img/flagch.png"></div>
-		<div class="text" id="bkrimd">DT Swiss<img src="img/flagch.png"></div>
-		<div class="text" id="bktired">Vittoria<img src="img/flagit.png"></div>
-		<div class="text" id="bkpillard">Nitto（日東）<img src="img/flagjp.png"></div>
-		<div class="text" id="bkstemd">Nitto（日東）<img src="img/flagjp.png"></div>
-		<div class="text" id="bkhandled">Nitto（日東）<img src="img/flagjp.png"></div>
-		<div class="text" id="bkpedald">MKS（三ヶ島製作所）<img src="img/flagjp.png"></div>
-		<div class="text" id="bksaddled">Selle Italia<img src="img/flagit.png"></div>
-		<div class="text" id="bkwleverd">Shimano（シマノ）<img src="img/flagjp.png"></div>
-	</div>
+	<p id="note" class="text"></p>
+	<p class="text">
+	<ul>
+		<li>リムとスポークがスイス製でタイヤがイタリア製だが、それ以外の全パーツは日本製。
+		日本が誇るモノづくりの力を信じ、安価でも精度は落とさないことを期待した。</li>
+		<li>絶滅危惧種のWレバーは選択肢が少なく、結果的に憧れのDura-Aceグレードとなった。</li>
+		<li>機能的・性能的には変速し易い今どきのシフターの方が上だが、
+	最初に買ったツーリング車がWレバー＆トゥークリップ・ストラップ仕様だったこともあり、違和感なく走っている。</li>
+	</ul>
+	</p>
+	<hr>
 	<ul>
 	<li><a href='bike1.html'>クロモリ1号</a></li>
 	<li><a href='bikemap.html'>走行経路</a></li>
@@ -166,6 +160,19 @@
 </footer>
 
 <script>
+var notes = {
+	bkframe:'Panasonic（パナソニック）<img src="img/flagjp.png">',
+	bkcompo:'Shimano（シマノ）<img src="img/flagjp.png">',
+	bkhub:'Shimano（シマノ）<img src="img/flagjp.png">',
+	bkspoke:'DT Swiss<img src="img/flagch.png">',
+	bkrim:'DT Swiss<img src="img/flagch.png">',
+	bktire:'Vittoria<img src="img/flagit.png">',
+	bkpillar:'Nitto（日東）<img src="img/flagjp.png">',
+	bkstem:'Nitto（日東）<img src="img/flagjp.png">',
+	bkhandle:'Nitto（日東）<img src="img/flagjp.png">',
+	bkpedal:'MKS（三ヶ島製作所）<img src="img/flagjp.png">',
+	bksaddle:'Selle Italia<img src="img/flagit.png"><br> → GORIX<img src="img/flagjp.png">',
+	bkwlever:'Shimano（シマノ）<img src="img/flagjp.png">' };
 function bike_foggy(){
 	markers = document.getElementsByClassName('bkcanvas');
 	tags = markers[0].children;
@@ -179,22 +186,10 @@ function bike_highlight(t){
 	tag.style.opacity = 1;
 	tag.style.filter = `brightness(0.4)`;
 }
-function bike_desc_clear(){
-	bkdescript = document.getElementsByClassName('bkdescript');
-	tags = bkdescript[0].children;
-	for (let i = 0; i < tags.length; i++) {
-		tags[i].style.visibility='hidden';
-	}
-}
-function bike_desc(t){
-	tag = document.getElementById(t+"d");
-	tag.style.visibility='visible';
-}
 function bike_on(target){
 	bike_foggy();
 	bike_highlight(target);
-	bike_desc_clear();
-	bike_desc(target);
+	document.getElementById("note").innerHTML=notes[target];
 	if (target == "bkcompo") {
 		bike_highlight('bksprocket');
 		bike_highlight('bkwlever');
@@ -207,7 +202,7 @@ function bike_reset(){
 		tags[i].style.opacity = 1;
 		tags[i].style.filter = `brightness(1)`;
 	}
-	bike_desc_clear();
+	document.getElementById("note").innerHTML="";
 }
 </script>
 

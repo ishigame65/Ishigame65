@@ -37,22 +37,17 @@
 	clear:both;
 	margin-top: -30px;
 	margin-left: 260px;
+	margin-bottom: 0;
 }
-.bkdescript {
-	position: relative;
-	visibility: hidden;
-	margin-top: 10px;
-	height: 54px;
-}
-.bkdescript div {
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-.bkdescript img {
+#note img {
 	display: inline-block;
 	width: 24px;
 	margin-bottom: -2px;
+}
+main hr {
+	/*
+	*/
+	margin-top: 5px;
 }
 @media (max-width: 670px) {
 	.bkcanvas {
@@ -63,8 +58,6 @@
 	}
 	.bkcanvas img {
 		width: 288px;
-		<!--
-		-->
 	}
 	.bkselect {
 		margin-top: 10px;
@@ -102,6 +95,10 @@
 		<li>クロモリ1号</li>
 	</ul>
 	<h2 class="title">クロモリ1号</h2>
+	<p class="text">
+	クロモリは最新のカーボンでもアルミでもチタンでもなく、Cr-Mo（クロムとモリブデン）を配合した鉄でできたフレームのロードバイクを意味する。
+	チューブ全体が細身でトップチューブが地面と平行（ホリゾンタルフレーム）という伝統的なデザインであり、見た目が美しい。
+	</p>
 	<div class="bkcanvas">
 		<!-- z-index未指定のため順序が重要 -->
 		<img id="bkspoke" src="img/bkspoke.png">
@@ -133,19 +130,20 @@
 	<div id="bkreset">
 		<a href="javascript:bike_reset()">Reset</a>
 	</div>
-	<div class="bkdescript">
-		<div class="text" id="bkframed">Colnago<img src="img/flagit.png"></div>
-		<div class="text" id="bkcompod">Campanolo<img src="img/flagit.png"></div>
-		<div class="text" id="bkhubd">Campanolo<img src="img/flagit.png"></div>
-		<div class="text" id="bkspoked">DT Swiss<img src="img/flagch.png"></div>
-		<div class="text" id="bkrimd">Mavic<img src="img/flagfr.png"></div>
-		<div class="text" id="bktired">Continental<img src="img/flagde.png"><br> → Panaracer（パナレーサー）<img src="img/flagjp.png"></div>
-		<div class="text" id="bkpillard">Campanolo<img src="img/flagit.png"></div>
-		<div class="text" id="bkstemd">ITM<img src="img/flagit.png"></div>
-		<div class="text" id="bkhandled">ITM<img src="img/flagit.png"></div>
-		<div class="text" id="bkpedald">Shimano（シマノ）<img src="img/flagjp.png"></div>
-		<div class="text" id="bksaddled">Selle Italia<img src="img/flagit.png"></div>
-	</div>
+	<p id="note" class="text"></p>
+	<p class="text">
+	<h3>クロモリ1号を組んで頂いた自転車屋</h3>
+	<ul>
+		<li><a href="https://ameblo.jp/power-coop/">PowerCoop（さいたま市）<img class="icon" src="img/extlink.png" width="24"></a>（外部サイト）</li>
+		<li>当時遠方に住んでいたため東京出張のついでに寄らせていただき、全パーツを指定して注文した。</li>
+		<li>ホイールはMavicオープンプロ（リム）＋DTSwissコンペティション（スポーク）＋Campanoloコーラス（ハブ）を手組み。</li>
+		<li>クロモリであることも影響しているかもしれないが、感覚的にはガチガチではなくしなやかに仕上げて頂いてる印象で、
+		駆動系・制動系・ホイール周りを含め、すべて購入当時のままで一度も再調整していない。</li>
+		<li>他車とは何かが違っていると感じるが、素人なので具体的には全く理解できていない。
+		もしかしたら、全パーツを神業的な精度（公差0）で組み上げているのかもしれない。</li>
+	</ul>
+	</p>
+	<hr>
 	<ul>
 	<li><a href='bike2.html'>クロモリ2号</a></li>
 	<li><a href='bikemap.html'>走行経路</a></li>
@@ -161,6 +159,18 @@
 </footer>
 
 <script>
+var notes = {
+	bkframe:'Colnago<img src="img/flagit.png">',
+	bkcompo:'Campanolo<img src="img/flagit.png">',
+	bkhub:'Campanolo<img src="img/flagit.png">',
+	bkspoke:'DT Swiss<img src="img/flagch.png">',
+	bkrim:'Mavic<img src="img/flagfr.png">',
+	bktire:'Vittoria<img src="img/flagit.png"><br> → Continental<img src="img/flagde.png"><br> → Panaracer（パナレーサー）<img src="img/flagjp.png">',
+	bkpillar:'Campanolo<img src="img/flagit.png">',
+	bkstem:'ITM<img src="img/flagit.png">',
+	bkhandle:'ITM<img src="img/flagit.png">',
+	bkpedal:'Shimano（シマノ）<img src="img/flagjp.png">',
+	bksaddle:'Selle Italia<img src="img/flagit.png">' };
 function bike_foggy(){
 	markers = document.getElementsByClassName('bkcanvas');
 	tags = markers[0].children;
@@ -174,22 +184,10 @@ function bike_highlight(t){
 	tag.style.opacity = 1;
 	tag.style.filter = `brightness(0.4)`;
 }
-function bike_desc_clear(){
-	bkdescript = document.getElementsByClassName('bkdescript');
-	tags = bkdescript[0].children;
-	for (let i = 0; i < tags.length; i++) {
-		tags[i].style.visibility='hidden';
-	}
-}
-function bike_desc(t){
-	tag = document.getElementById(t+"d");
-	tag.style.visibility='visible';
-}
 function bike_on(target){
 	bike_foggy();
 	bike_highlight(target);
-	bike_desc_clear();
-	bike_desc(target);
+	document.getElementById("note").innerHTML=notes[target];
 	if (target == "bkcompo") {
 		bike_highlight('bksprocket');
 		bike_highlight('bkwlever');
@@ -202,7 +200,7 @@ function bike_reset(){
 		tags[i].style.opacity = 1;
 		tags[i].style.filter = `brightness(1)`;
 	}
-	bike_desc_clear();
+	document.getElementById("note").innerHTML="";
 }
 </script>
 
