@@ -24,11 +24,15 @@ main {
 }
 .text img {
 	border-radius: 5px;
-	margin-left: 3px;
+	margin-left: 0;
 	margin-right: 0;
-	width: 100px;
-	height: 100px;
+	width: 75px;
+	height: 75px;
 	object-fit: cover;
+}
+.scroll {
+	height: 160px;
+	overflow: auto;
 }
 #photo {
 	margin-left: 25px;
@@ -62,6 +66,14 @@ main {
     position:absolute; top: 184px; right:0; bottom:0; left: -66px; margin:auto; z-index:1; }
 #kochi1 {
     position:absolute; top: 216px; right:0; bottom:0; left: -160px; margin:auto; z-index:1; }
+#tottori1 {
+    position:absolute; top: 114px; right:0; bottom:0; left: -75px; margin:auto; z-index:1; }
+#tottori2 {
+    position:absolute; top: 113px; right:0; bottom:0; left: -133px; margin:auto; z-index:1; }
+#shimane1 {
+    position:absolute; top: 127px; right:0; bottom:0; left: -190px; margin:auto; z-index:1; }
+#shimane2 {
+    position:absolute; top: 118px; right:0; bottom:0; left: -164px; margin:auto; z-index:1; }
 #yamaguchi1 {
     position:absolute; top: 162px; right:0; bottom:0; left: -202px; margin:auto; z-index:1; }
 #oita1 {
@@ -87,11 +99,9 @@ main {
 #nagasaki1 {
     position:absolute; top: 189px; right:0; bottom:0; left: -377px; margin:auto; z-index:1; }
 
-
 #clear{
     color: steelblue;
 	text-decoration: none;
-	visibility: hidden;
 }
 @media (max-width: 670px) {
     main {
@@ -105,8 +115,15 @@ main {
 		border-radius: 3px;
 		margin-left: 3px;
 		margin-right: 0;
+		width: 50px;
+		height: 50px;
+		/*
 		width: 80px;
 		height: 80px;
+		*/
+	}
+	.scroll {
+		height: 106px;
 	}
 	#note {
 		top: 0;
@@ -136,6 +153,14 @@ main {
 		position:absolute; top: 89px; right:0; bottom:0; left: -30px; margin:auto; z-index:1; }
 	#kochi1 {
 		position:absolute; top: 104px; right:0; bottom:0; left: -80px; margin:auto; z-index:1; }
+	#tottori1 {
+		position:absolute; top: 54px; right:0; bottom:0; left: -37px; margin:auto; z-index:1; }
+	#tottori2 {
+		position:absolute; top: 52px; right:0; bottom:0; left: -66px; margin:auto; z-index:1; }
+	#shimane1 {
+		position:absolute; top: 60px; right:0; bottom:0; left: -95px; margin:auto; z-index:1; }
+	#shimane2 {
+		position:absolute; top: 54px; right:0; bottom:0; left: -84px; margin:auto; z-index:1; }
 	#yamaguchi1 {
 		position:absolute; top: 78px; right:0; bottom:0; left: -100px; margin:auto; z-index:1; }
 	#oita1 {

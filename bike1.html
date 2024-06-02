@@ -32,6 +32,13 @@
 .bkselect a {
 	font-size: 14px;
 	margin-bottom: 2px;
+	white-space: nowrap;
+}
+.bkselect img {
+	display: inline-block;
+	width: 24px;
+	margin-bottom: -2px;
+	margin-left: 1px;
 }
 #bkreset {
 	clear:both;
@@ -43,6 +50,7 @@
 	display: inline-block;
 	width: 24px;
 	margin-bottom: -2px;
+	margin-left: 2px;
 }
 main hr {
 	/*
@@ -96,9 +104,11 @@ main hr {
 	</ul>
 	<h2 class="title">クロモリ1号</h2>
 	<p class="text">
-	クロモリは最新のカーボンでもアルミでもチタンでもなく、Cr-Mo（クロムとモリブデン）を配合した鉄でできたフレームのロードバイクを意味する。
-	チューブ全体が細身でトップチューブが地面と平行（ホリゾンタルフレーム）という伝統的なデザインであり、見た目が美しい。
+	クロモリは、素材が最新のカーボンでもアルミでもチタンでもないことを強調する意図で、
+	鉄にクロムやモリブデンを添加した合金で作られたフレームの自転車を意味する。
+	全体が細身でトップチューブが地面と平行になるホリゾンタルフレームが良く似合い、その伝統的なフォルムが美しい。	
 	</p>
+	<p id="note" class="text"></p>
 	<div class="bkcanvas">
 		<!-- z-index未指定のため順序が重要 -->
 		<img id="bkspoke" src="img/bkspoke.png">
@@ -115,32 +125,28 @@ main hr {
 		<img id="bkhandle" src="img/bkhandle.png">
 	</div>
 	<div class="bkselect">
-		<a href="javascript:bike_on('bkframe')">フレーム</a>
-		<a href="javascript:bike_on('bkcompo')">コンポーネント</a>
-		<a href="javascript:bike_on('bkhub')">ハブ</a>
-		<a href="javascript:bike_on('bkspoke')">スポーク</a>
-		<a href="javascript:bike_on('bkrim')">リム</a>
-		<a href="javascript:bike_on('bktire')">タイヤ</a>
-		<a href="javascript:bike_on('bkpillar')">シートポスト</a>
-		<a href="javascript:bike_on('bkstem')">ステム</a>
-		<a href="javascript:bike_on('bkhandle')">ハンドルバー</a>
-		<a href="javascript:bike_on('bkpedal')">ペダル</a>
-		<a href="javascript:bike_on('bksaddle')">サドル</a>
+		<a href="javascript:bike_on('bkframe')">フレーム<img src="img/flagit.png"></a>
+		<a href="javascript:bike_on('bkcompo')">コンポーネント<img src="img/flagit.png"></a>
+		<a href="javascript:bike_on('bkhub')">ハブ<img src="img/flagit.png"></a>
+		<a href="javascript:bike_on('bkspoke')">スポーク<img src="img/flagch.png"></a>
+		<a href="javascript:bike_on('bkrim')">リム<img src="img/flagfr.png"></a>
+		<a href="javascript:bike_on('bktire')">タイヤ<img src="img/flagjp.png"></a>
+		<a href="javascript:bike_on('bkpillar')">シートポスト<img src="img/flagit.png"></a>
+		<a href="javascript:bike_on('bkstem')">ステム<img src="img/flagit.png"></a>
+		<a href="javascript:bike_on('bkhandle')">ハンドルバー<img src="img/flagit.png"></a>
+		<a href="javascript:bike_on('bkpedal')">ペダル<img src="img/flagjp.png"></a>
+		<a href="javascript:bike_on('bksaddle')">サドル<img src="img/flagit.png"></a>
 	</div>
-	<div id="bkreset">
-		<a href="javascript:bike_reset()">Reset</a>
-	</div>
-	<p id="note" class="text"></p>
+	<div id="bkreset"><a href="javascript:bike_reset()">Reset</a></div>
 	<p class="text">
-	<h3>クロモリ1号を組んで頂いた自転車屋</h3>
 	<ul>
-		<li><a href="https://ameblo.jp/power-coop/">PowerCoop（さいたま市）<img class="icon" src="img/extlink.png" width="24"></a>（外部サイト）</li>
-		<li>当時遠方に住んでいたため東京出張のついでに寄らせていただき、全パーツを指定して注文した。</li>
+		<li>組んで頂いた自転車屋は、さいたま市の<a href="https://ameblo.jp/power-coop/">PowerCoop<img class="icon" src="img/extlink.png" width="24"></a>（外部サイト）。
+		当時遠方に住んでいたため東京出張のついでに寄らせていただき、全パーツを指定して注文した。</li>
 		<li>ホイールはMavicオープンプロ（リム）＋DTSwissコンペティション（スポーク）＋Campanoloコーラス（ハブ）を手組み。</li>
-		<li>クロモリであることも影響しているかもしれないが、感覚的にはガチガチではなくしなやかに仕上げて頂いてる印象で、
-		駆動系・制動系・ホイール周りを含め、すべて購入当時のままで一度も再調整していない。</li>
-		<li>他車とは何かが違っていると感じるが、素人なので具体的には全く理解できていない。
-		もしかしたら、全パーツを神業的な精度（公差0）で組み上げているのかもしれない。</li>
+		<li>クロモリ素材であることも影響しているだろうが、感覚的にはガチガチではなくしなやかに仕上げて頂いてる印象で、
+		駆動系・制動系・ホイール周りは購入してから一度も調整していない。
+		他のバイクとは何かが違うと感じるが、素人なので具体的には理解できていない。
+		もしかしたら全てのパーツを神業的な精度（公差0）で組み上げているのかもしれない。</li>
 	</ul>
 	</p>
 	<hr>
@@ -165,7 +171,7 @@ var notes = {
 	bkhub:'Campanolo<img src="img/flagit.png">',
 	bkspoke:'DT Swiss<img src="img/flagch.png">',
 	bkrim:'Mavic<img src="img/flagfr.png">',
-	bktire:'Vittoria<img src="img/flagit.png"><br> → Continental<img src="img/flagde.png"><br> → Panaracer（パナレーサー）<img src="img/flagjp.png">',
+	bktire:'Vittoria<img src="img/flagit.png"> → Continental<img src="img/flagde.png"> → Panaracer（パナレーサー）<img src="img/flagjp.png">',
 	bkpillar:'Campanolo<img src="img/flagit.png">',
 	bkstem:'ITM<img src="img/flagit.png">',
 	bkhandle:'ITM<img src="img/flagit.png">',

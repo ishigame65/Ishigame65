@@ -32,6 +32,13 @@
 .bkselect a {
 	font-size: 14px;
 	margin-bottom: 2px;
+	white-space: nowrap;
+}
+.bkselect img {
+	display: inline-block;
+	width: 24px;
+	margin-bottom: -2px;
+	margin-left: 1px;
 }
 #bkreset {
 	clear:both;
@@ -43,6 +50,7 @@
 	display: inline-block;
 	width: 24px;
 	margin-bottom: -2px;
+	margin-left: 2px;
 }
 main hr {
 	/*
@@ -96,9 +104,11 @@ main hr {
 	</ul>
 	<h2 class="title">クロモリ2号</h2>
 	<p class="text">
-	予算の関係でクロモリ1号より価格帯を落としたパーツで組み上げた（お店で組んでもらった）。
-	懐古趣味的な見た目の美しさと、忙しく変速せずにゆったりと走る言い訳のため、シフター（変速機）はWレバーとした。
+	予算の関係でクロモリ1号より価格帯を落としたパーツで組み上げた。
+	懐古趣味的な美しさと、忙しく変速せずゆったり走る言い訳のため、
+	シフター（変速機）は<a href="javascript:bike_on('bkwlever')">Wレバー</a>とした。
 	</p>
+	<p id="note" class="text"></p>
 	<div class="bkcanvas">
 		<!-- z-index未指定のため順序が重要 -->
 		<img id="bkspoke" src="img/bkspoke.png">
@@ -116,32 +126,27 @@ main hr {
 		<img id="bkwlever" src="img/bkwlever.png">
 	</div>
 	<div class="bkselect">
-		<a href="javascript:bike_on('bkframe')">フレーム</a>
-		<a href="javascript:bike_on('bkcompo')">コンポーネント</a>
-		<a href="javascript:bike_on('bkhub')">ハブ</a>
-		<a href="javascript:bike_on('bkspoke')">スポーク</a>
-		<a href="javascript:bike_on('bkrim')">リム</a>
-		<a href="javascript:bike_on('bktire')">タイヤ</a>
-		<a href="javascript:bike_on('bkpillar')">シートポスト</a>
-		<a href="javascript:bike_on('bkstem')">ステム</a>
-		<a href="javascript:bike_on('bkhandle')">ハンドルバー</a>
-		<a href="javascript:bike_on('bkpedal')">ペダル</a>
-		<a href="javascript:bike_on('bksaddle')">サドル</a>
-		<!--
-		<a href="javascript:bike_on('bkwlever')">Wレバー</a>
-		-->
+		<a href="javascript:bike_on('bkframe')">フレーム<img src="img/flagjp.png"></a>
+		<a href="javascript:bike_on('bkcompo')">コンポーネント<img src="img/flagjp.png"></a>
+		<a href="javascript:bike_on('bkhub')">ハブ<img src="img/flagjp.png"></a>
+		<a href="javascript:bike_on('bkspoke')">スポーク<img src="img/flagch.png"></a>
+		<a href="javascript:bike_on('bkrim')">リム<img src="img/flagch.png"></a>
+		<a href="javascript:bike_on('bktire')">タイヤ<img src="img/flagit.png"></a>
+		<a href="javascript:bike_on('bkpillar')">シートポスト<img src="img/flagjp.png"></a>
+		<a href="javascript:bike_on('bkstem')">ステム<img src="img/flagjp.png"></a>
+		<a href="javascript:bike_on('bkhandle')">ハンドルバー<img src="img/flagjp.png"></a>
+		<a href="javascript:bike_on('bkpedal')">ペダル<img src="img/flagjp.png"></a>
+		<a href="javascript:bike_on('bksaddle')">サドル<img src="img/flagjp.png"></a>
 	</div>
-	<div id="bkreset">
-		<a href="javascript:bike_reset()">Reset</a>
-	</div>
-	<p id="note" class="text"></p>
+	<div id="bkreset"><a href="javascript:bike_reset()">Reset</a></div>
 	<p class="text">
 	<ul>
+		<li>フレームはPOS（Panasonic Order System）でサイズとカラーリングを指定。</li>
 		<li>リムとスポークがスイス製でタイヤがイタリア製だが、それ以外の全パーツは日本製。
 		日本が誇るモノづくりの力を信じ、安価でも精度は落とさないことを期待した。</li>
-		<li>絶滅危惧種のWレバーは選択肢が少なく、結果的に憧れのDura-Aceグレードとなった。</li>
-		<li>機能的・性能的には変速し易い今どきのシフターの方が上だが、
-	最初に買ったツーリング車がWレバー＆トゥークリップ・ストラップ仕様だったこともあり、違和感なく走っている。</li>
+		<li>Wレバーは絶滅危惧種で選択肢が少なく、結果的に憧れのDura-Aceグレードとなった。
+		最初のツーリング車（クロモリ0号）がWレバー＋トゥークリップ・ストラップ仕様だったこともあり、
+		違和感なく走っている。</li>
 	</ul>
 	</p>
 	<hr>
@@ -171,7 +176,7 @@ var notes = {
 	bkstem:'Nitto（日東）<img src="img/flagjp.png">',
 	bkhandle:'Nitto（日東）<img src="img/flagjp.png">',
 	bkpedal:'MKS（三ヶ島製作所）<img src="img/flagjp.png">',
-	bksaddle:'Selle Italia<img src="img/flagit.png"><br> → GORIX<img src="img/flagjp.png">',
+	bksaddle:'Selle Italia<img src="img/flagit.png"> → GORIX<img src="img/flagjp.png">',
 	bkwlever:'Shimano（シマノ）<img src="img/flagjp.png">' };
 function bike_foggy(){
 	markers = document.getElementsByClassName('bkcanvas');
