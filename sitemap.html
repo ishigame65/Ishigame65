@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<meta name="description" content="Ishigame65のサイトマップページ">
+	<title>Ishigame65 | サイトマップ</title>
+	<link rel="shortcut icon" href="img/kame.ico">
+	<link rel="stylesheet" href="common.css">
+</head>
+
+<style>
+.sitemap ul  {
+	padding-left:0;
+	list-style: none;
+}
+
+.sitemap ul li ul {
+  margin-top: .5em;
+  margin-bottom: .75em;
+  margin-left: 48px;
+}
+ 
+.sitemap ul li ul li {
+  margin-bottom: .25em;
+  position: relative;
+}
+ 
+.sitemap ul li ul li::before {
+  content: "";
+  position: absolute;
+  top: -0.5em;
+  left: -16px;
+  width: 10px;
+  height: calc(100% + .75em);
+  border-left: 1px solid #3972b2;
+}
+ 
+.sitemap ul li ul li:last-child::before {
+  height: calc(1em + .25em);
+}
+ 
+.sitemap ul li ul li::after {
+  content: "";
+  position: absolute;
+  top: .75em;
+  left: -16px;
+  width: 10px;
+  border-bottom: 1px solid #3972b2;
+}
+.extra a {
+	font-size: smaller;
+	color: darkseagreen;
+	text-decoration-color: aquamarine;
+}
+.sidenote {
+	display: inline;
+	font-size: smaller;
+	color: tomato;
+	margin-left: 20px;
+}
+@media (max-width: 670px) {
+
+	.sitemap ul li ul {
+	  margin-top: .5em;
+	  margin-bottom: .75em;
+	  margin-left: 20px;
+	}
+}
+</style>
+
+<body>
+
+<header>
+	<a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a>
+	<nav>
+		<a href="index.html">Top</a>
+		<a href="intro.html">経緯と方針</a>
+		<a href="menu.html">飼育環境</a>
+		<a href="maintenance.html">日々の管理</a>
+	</nav>
+	<div class="clear"></div>
+</header>
+
+<main>
+	<ul class="breadcrumb">
+		<li><a href="index.html">Top</a></li>
+		<li>サイトマップ</li>
+	</ul>
+	<h2 class="title">サイトマップ</h2>
+	<div class="sitemap">
+		<ul>
+		<li><a href="index.html">Ishigame65</a>
+			<ul>
+			<li><a href="intro.html">経緯と方針</a></li>
+			<li><a href="menu.html">飼育環境</a>
+				<ul>
+				<li><a href="igpond.html">人工池</a></li>
+				<li><a href="igfilter.html">外部濾過器</a></li>
+				<li><a href="igcage.html">ケージ</a></li>
+				<li><a href="igplant.html">水草</a></li>			
+				<li><a href="igfeeder.html">自動給餌器</a></li>
+				<li><a href="igdish.html">餌皿</a></li>
+				<li><a href="igcamera.html">カメカメラ</a></li>
+				</ul>
+			</li>
+			<li><a href="maintenance.html">日々の管理</a></li>
+			<li><a href="keeper.html">飼育係</a>
+				<ul>
+				<li class="extra"><a href="profile.html">プロフィール</a> <div class="sidenote">※1</div>
+					<ul>
+					<li><a href="brickmold.html">モルタルレンガ用型枠</a></li>
+					<li><a href="bike1.html">クロモリ1号</a>
+						<ul>
+						<li><a href="bikemap.html">走行経路</a></li>
+						</ul>
+					</li>
+					<li><a href="bike2.html">クロモリ2号</a></li>
+					</ul>
+				</li>
+				</ul>
+			</li>
+			<li><a href="sitemap.html">サイトマップ</a></li>
+			<li><a href="copyright.html">著作権・リンク・免責事項</a></li>
+			</ul>
+		</ul>
+	</div>
+	<div class="sidenote">※1 イシガメ飼育と関係ない個人的な趣味の内容</div>
+</main>
+
+<footer>
+	<div class="footer-left">
+	<a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="Instagram" width=32 height=32></a>
+	</div>
+	<div class="footer-center"><a href="keeper.html">飼育係</a><a href="sitemap.html"><b>サイトマップ</b></a>
+	</div>
+	<div class="footer-right"><a href="copyright.html">&copy; 2024 Ishigame65.</a></div>
+	<div class="clear"></div>
+</footer>
+</body>
+</html>
