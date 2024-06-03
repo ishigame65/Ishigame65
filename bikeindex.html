@@ -7,6 +7,7 @@
 	<title>Ishigame65 | その他</title>
 	<link rel="shortcut icon" href="img/kame.ico">
 	<link rel="stylesheet" href="common.css">
+	<link rel="stylesheet" href="popup.css">
 </head>
 
 <style>
@@ -25,6 +26,9 @@ ul {
 }
 .menu li {
 	margin-bottom: 9px;
+}
+.center {
+	text-align: center;
 }
 @media (max-width: 670px) {
 	main img {
@@ -60,7 +64,10 @@ ul {
 		<li>銀輪はたまに唄う</li>
 	</ul>
 	<h2 class="title">銀輪はたまに唄う</h2>
-
+	<p class="text">
+	クロモリ配合鉄パイプによる細身のホリゾンタルフレームに銀色の車輪を装着した自転車を美しいと感じ、
+	たまにツーリングに出かけることを楽しみにしています。
+	</p>
 	<img src="img/bksketch1.jpg">
 	<div class="menu">
 	<ul>
@@ -72,12 +79,24 @@ ul {
 	</div>
 	<div class="clear"></div>
 	<p class="text">
-	♪ 二人並んで自転車に乗れば こもれびを浴びてスポオク光る ...（ゲルニカ『銀輪は唄う』）
+	♪ 二人並んで自転車に乗れば こもれびを浴びてスポオク光る ...
+	（<a href="" class="popup-open" data-modal-btn="modal01">ゲルニカ『銀輪は唄う』</a>）
 	</p>
 	<hr>
 	<ul class="breadcrumb">
 		<li><a href="profile.html">プロフィール</a></li>
 	</ul>
+	<div class="popup-wrap" data-modal-cont="modal01"><div class="popup-back"></div>
+	  <div class="popup-inner"><span class="popup-close"></span>
+		<div class="popup-contents">
+			<div class="center">
+			<iframe width="420" height="315" src="https://www.youtube.com/embed/Y4rpRlkaY_Q" title="銀輪は唄う" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			</div>
+			<p class="popup-text">
+			ゲルニカ『銀輪は唄う』<br>
+			<div class="indent">作詞 太田螢一<br>作曲 上野耕路<br>歌唱 戸川純<br></div>
+			<div class="sidenote">※ 個人的にはオノ・ヨーコとともに再評価されても良いんじゃないかと思う</div>
+			</p></div></div></div>
 </main>
 <footer>
 	<div class="footer-left">
@@ -88,9 +107,7 @@ ul {
 	<div class="clear"></div>
 </footer>
 
-<script>
-
-</script>
+<script src="popup.js"></script>
 
 </body>
 </html>

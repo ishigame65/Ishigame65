@@ -136,6 +136,12 @@ dl dd li:before {
 	margin-left: 20px;
 	max-width: 90%;
 }
+.sidenote {
+	display: inline;
+	font-size: smaller;
+	color: tomato;
+	margin-left: 20px;
+}
 .plist {
 	/*
 	margin-left: 50px;
@@ -229,8 +235,8 @@ img.icon {
 		*/
     }
 	footer {
-		padding: 3px 8px;	/* 7px 17px*/
-		height: 67px;
+		padding: 3px 8px;	/* 3px 8px */
+		height: 67px;	/* 67px */
 	}
 	.footer-center a {
 		font-size: 14px;
