@@ -137,7 +137,10 @@ dl dd li:before {
 	max-width: 90%;
 }
 .sidenote {
+	/*
 	display: inline;
+	*/
+	display: inline-block;
 	font-size: smaller;
 	color: tomato;
 	margin-left: 20px;

@@ -123,6 +123,9 @@ ul.marker01 li:before {
 		margin-right: 10px;
 		width: 192px;
 	}
+	.popup-contents iframe {
+		width: 192px;
+	}
 	.popup-contents {
 		font-size: 13px;
 	}

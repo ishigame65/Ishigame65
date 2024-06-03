@@ -27,8 +27,10 @@ ul {
 .menu li {
 	margin-bottom: 9px;
 }
-.center {
+.youtube {
 	text-align: center;
+	width: 100%;
+	aspect-ratio: 16 / 9;	
 }
 @media (max-width: 670px) {
 	main img {
@@ -41,6 +43,10 @@ ul {
 	}
 	main a {
 		font-size: 12px;
+	}
+	.youtube iframe {
+	  width: 100%;
+	  height: 100%;
 	}
 }
 </style>
@@ -89,7 +95,7 @@ ul {
 	<div class="popup-wrap" data-modal-cont="modal01"><div class="popup-back"></div>
 	  <div class="popup-inner"><span class="popup-close"></span>
 		<div class="popup-contents">
-			<div class="center">
+			<div class="youtube">
 			<iframe width="420" height="315" src="https://www.youtube.com/embed/Y4rpRlkaY_Q" title="銀輪は唄う" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 			</div>
 			<p class="popup-text">
