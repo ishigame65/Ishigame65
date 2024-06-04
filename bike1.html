@@ -3,16 +3,19 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-	<meta name="description" content="Ishigame65のクロモリ1号ページ">
-	<title>Ishigame65 | その他</title>
+	<meta name="description" content="Ishigame65のクロモリ1号">
+	<title>クロモリ1号</title>
 	<link rel="shortcut icon" href="img/kame.ico">
 	<link rel="stylesheet" href="common.css">
-	<!--
-	<link rel="stylesheet" href="print3d.css">
-	-->
 </head>
 
 <style>
+#topimg {
+	border-radius: 3px;
+	max-width: 320px;
+	float:right;
+	margin-bottom: 10px;
+}
 .bkcanvas {
 	position: relative;
 	float: left;
@@ -63,6 +66,11 @@ main hr {
 	margin-top: 5px;
 }
 @media (max-width: 670px) {
+	#topimg {
+		border-radius: 2px;
+		max-width: 288px;
+		margin-bottom: 5px;
+	}
 	.bkcanvas {
 		float: none;
 		/* 640 x 380 */
@@ -109,11 +117,13 @@ main hr {
 		<li>クロモリ1号</li>
 	</ul>
 	<h2 class="title">クロモリ1号</h2>
+	<img id="topimg" src="img/bkc1.jpg">
 	<p class="text">
 	「クロモリ」は鉄にクロムやモリブデンを添加した合金で作られたフレームの自転車を意味し、	
 	素材が最新のカーボンでもアルミでもチタンでもないという意味も込められている。
 	全体が細身でトップチューブが地面と平行になるホリゾンタルフレームが良く似合い、その伝統的なフォルムが美しい。	
 	</p>
+	<div class="clear"></div>
 	<p id="note" class="text"></p>
 	<div class="bkcanvas">
 		<!-- z-index未指定のため順序が重要 -->
@@ -164,7 +174,9 @@ main hr {
 	<div class="footer-left">
 	<a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="Instagram" width=32 height=32></a>
 	</div>
-	<div class="footer-center"><a href="keeper.html"><b>飼育係</b></a><a href="sitemap.html">サイトマップ</a></div>
+	<div class="footer-center"><a href="keeper.html"><b>飼育係</b></a><a href="sitemap.html">サイトマップ</a>
+	<a href="search.html">検索</a>
+	</div>
 	<div class="footer-right"><a href="copyright.html">&copy; 2024 Ishigame65.</a></div>
 	<div class="clear"></div>
 </footer>
