@@ -1,4 +1,11 @@
 @charset "utf-8";
+
+/* NG
+.contents {
+	display: inline-block;
+	text-align: left;
+}
+*/
 .overlap {
 	text-align: center;
     position: relative;
@@ -15,27 +22,18 @@
 	margin-bottom: -15px;
     pointer-events: none;
 }
-
 #markers {
 	font-size:20px;
 	font-weight: bold;
     color: tomato;	/* #FF6347 */
 	visibility: hidden;
 }
-#higuchi {
-    position: absolute;
-    top: 66px;
-    right: 0;
-    bottom: 0;
-    left: 115px;
-    margin: auto;
-    z-index: 1;
-}
 #clear{
     color: steelblue;
 	text-decoration: none;
 	visibility: hidden;
 }
+
 @media (max-width: 670px) {
 	/*
 	*/
@@ -45,9 +43,7 @@
 	.overlap img {
 		width: 200px;
 	}
-	#higuchi {
-		font-size: 14px;
-		top: 36px;
-		left: 68px;
+	.icon {
+		width: 15px;
 	}
 }

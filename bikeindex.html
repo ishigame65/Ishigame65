@@ -8,10 +8,11 @@
 	<link rel="shortcut icon" href="img/kame.ico">
 	<link rel="stylesheet" href="common.css">
 	<link rel="stylesheet" href="popup.css">
+	<link rel="stylesheet" href="map.css">
 </head>
 
 <style>
-main img {
+#topimg {
 	float: left;
 	border-radius: 6px;
 	width: 300px;
@@ -32,8 +33,21 @@ ul {
 	width: 100%;
 	aspect-ratio: 16 / 9;	
 }
+.contents {
+	display: inline-block;
+	text-align: left;
+}
+#powercoop {
+    position: absolute;
+    top: 140px;
+    right: 0;
+    bottom: 0;
+    left: 190px;
+    margin: auto;
+    z-index: 1;
+}
 @media (max-width: 670px) {
-	main img {
+	#topimg {
 		border-radius: 4px;
 		width: 180px;
 		margin-right: 7px;
@@ -48,6 +62,11 @@ ul {
 	  width: 100%;
 	  height: 100%;
 	}
+	#powercoop {
+		font-size: 14px;
+		top: 80px;
+		left: 110px;
+	}	
 }
 </style>
 
@@ -74,7 +93,7 @@ ul {
 	クロモリ配合鉄パイプによる細身のホリゾンタルフレームに銀色の車輪を装着した自転車を美しいと感じ、
 	たまにツーリングに出かけることを楽しみにしています。
 	</p>
-	<img src="img/bksketch1.jpg">
+	<img id="topimg" src="img/bksketch1.jpg">
 	<div class="menu">
 	<ul>
 		<li><a href='bike1.html'>クロモリ1号</a></li>
@@ -88,6 +107,30 @@ ul {
 	♪ 二人並んで自転車に乗れば こもれびを浴びてスポオク光る ...
 	（<a href="" class="popup-open" data-modal-btn="modal01">ゲルニカ『銀輪は唄う』</a>）
 	</p>
+	<hr>
+	<div class="contents">
+		<h3>近くの銀輪（外部サイト）</h3>
+		<div class="overlap">
+			<img src="img/smap1.png">
+			<div id="markers">
+				<div id="powercoop">★</div>
+			</div>
+		</div>
+		<div class="text">
+			<!--
+			-->
+			<div align="right"><a id="clear" href="javascript:map_clear()">Clear</a></div>
+			<blockquote>
+			下線部で場所表示、<img class="icon" src="img/extlink.png" width="20">で外部サイトに移動
+			</blockquote>
+			<dl>
+			<dt><a href="javascript:map_display('powercoop')">パワーコープ（さいたま市）</a>
+			<a href="https://ameblo.jp/power-coop/"><img class="icon" src="img/extlink.png" width="24"></a></dt>
+			<dd>クロモリ1号を組んで頂きました</dd>
+			</dl>
+		</div>
+	</div>
+
 	<hr>
 	<ul class="breadcrumb">
 		<li><a href="profile.html">プロフィール</a></li>
@@ -116,6 +159,24 @@ ul {
 </footer>
 
 <script src="popup.js"></script>
+<script>
+function map_clear(){
+	markers = document.getElementById('markers');
+	tags = markers.children;
+	for (let i = 0; i < tags.length; i++) {
+		tags[i].style.visibility='hidden';
+	}
+	ctag = document.getElementById('clear');
+	ctag.style.visibility='hidden';
+	return false;
+}
+function map_display(target){
+	map_clear();
+	tag = document.getElementById(target);
+	tag.style.visibility='visible';
+	return false;
+}
+</script>
 
 </body>
 </html>

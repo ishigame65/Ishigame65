@@ -10,6 +10,26 @@
 	<link rel="stylesheet" href="index.css">
 	<link rel="stylesheet" href="map.css">
 </head>
+
+<style>
+#higuchi {
+    position: absolute;
+    top: 66px;
+    right: 0;
+    bottom: 0;
+    left: 115px;
+    margin: auto;
+    z-index: 1;
+}
+@media (max-width: 670px) {
+	#higuchi {
+		font-size: 14px;
+		top: 36px;
+		left: 68px;
+	}
+}
+</style>
+
 <body>
 
 <header>
@@ -74,10 +94,8 @@ function setmovie(moviefile){
 	tag = document.getElementById("movie");
 	tag.src=moviefile;
 }
+
 function map_clear(){
-	/*
-	alert("bbb")
-	*/
 	markers = document.getElementById('markers');
 	tags = markers.children;
 	for (let i = 0; i < tags.length; i++) {
@@ -88,15 +106,6 @@ function map_clear(){
 	return false;
 }
 function map_display(target){
-	/*
-	markers = document.getElementById('markers');
-	tags = markers.children;
-	for (let i = 0; i < tags.length; i++) {
-		tags[i].style.visibility='hidden';
-	}
-	ctag = document.getElementById('clear');
-	ctag.style.visibility='visible';
-	*/
 	map_clear();
 	tag = document.getElementById(target);
 	tag.style.visibility='visible';
