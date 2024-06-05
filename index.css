@@ -13,6 +13,9 @@ main video {
 	*/
 	margin-bottom: 5px;
 }
+.gallery img {
+	margin: 2px 3px;
+}
 main h1 {
 	display: none;
 }
@@ -49,7 +52,7 @@ dl dd {
 	}
 	.gallery img {
 		width: 128px;
-		margin: 2px 5px 5px;
+		margin: 2px 2px;
 	}
 	main h1 {
         font-size: 13px;

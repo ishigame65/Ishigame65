@@ -1,11 +1,5 @@
 @charset "utf-8";
 
-/* NG
-.contents {
-	display: inline-block;
-	text-align: left;
-}
-*/
 .overlap {
 	text-align: center;
     position: relative;
