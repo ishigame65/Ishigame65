@@ -93,7 +93,7 @@ main img {
 	</div>
 	<div class="block">
 	<dt>出身地</dt>
-	<dd><img src="img/ondo.jpg"></dd>
+	<dd><a href="kure.html"><img src="img/ondo.jpg"></a></dd>
 	</div>
 	<dt>仕事</dt>	
 	<dd>
@@ -132,7 +132,7 @@ main img {
 			<div class="desc" id="btext">dummy</div>
 			<div class="clear"></div>
 		</div></li>
-		<li>何かを作る<br>
+		<li>何かを作ったり描いたり撮ったり<br>
 		<div class="mini-photo">
 			<img id="mpic" src="img/brick1.jpg" onclick="mselect()">
 			<div class="desc" id="mtext">dummy</div>
@@ -207,13 +207,15 @@ function bselect(){
 	document.getElementById("btext").innerHTML=bdsc[index];
 	bindex = index
 }
-var msrc = new Array("brick1.jpg","miniature1.jpg","miniature2.jpg");
+var msrc = new Array("brick1.jpg","miniature1.jpg","miniature2.jpg","melon.jpg","phsaipan0.jpg");
 var mdsc = new Array(
 "花壇のレンガ積み"
 +"<ul><li>途中からモルタルで作った偽レンガ（庭から出てきた石や瓦礫を<a href='brickmold.html'>型枠</a>に入れてモルタルで固める）</li></ul>", 
 "小さなもの",
 "屋内水槽用の電源タップカバー"
-+"<ul><li>廃墟みたいと家族には概ね不評</li></ul>")
++"<ul><li>廃墟みたいと家族には概ね不評</li></ul>",
+"メロンパンナちゃん",
+"写真（→ <a href='photos.html'>他の写真</a>）")
 var mindex = -1
 function mselect(){
 	do {

@@ -37,6 +37,7 @@
 			<div id="miyagi1">★</div>
 			<div id="miyagi2">★</div>
 			<div id="chiba1">★</div>
+			<div id="chiba2">★</div>
 			<div id="shiga1">★</div>
 			<div id="kagawa1">★</div>
 			<div id="tokushima1">★</div>
@@ -83,6 +84,7 @@
 		<a href="javascript:map_display('tottori2')"><img src="img/bkmtottori2.jpg"></a>
 		<a href="javascript:map_display('tottori1')"><img src="img/bkmtottori1.jpg"></a>
 		<a href="javascript:map_display('chiba1')"><img src="img/bkmchiba1.jpg"></a>
+		<a href="javascript:map_display('chiba2')"><img src="img/bkmchiba2.jpg"></a>
 		<a href="javascript:map_display('miyagi2')"><img src="img/bkmmiyagi2.jpg"></a>
 		<a href="javascript:map_display('miyagi1')"><img src="img/bkmmiyagi1.jpg"></a>
 		</div>
@@ -112,6 +114,7 @@ var notes = {
 	miyagi1:'宮城県 石巻<ul><li>帰路は女川から輪行</li><li>嫌いな言葉：リアス式海岸</li></ul>', 
 	miyagi2:'宮城県 松島', 
 	chiba1:'千葉県 九十九里浜', 
+	chiba2:'千葉県 犬吠埼灯台', 
 	shiga1:'滋賀県 長浜<ul><li>クロモリ初号機</li><li>ブリジストンAtrantisスポルティーフ</li></ul>', 
 	kagawa1:'香川県 金刀比羅宮（こんぴらさん）', 
 	tokushima1:'徳島県 日和佐<ul><li>うみがめ博物館（うみがめ産卵場所）</li></ul>', 
@@ -133,9 +136,6 @@ var notes = {
 	saga1:'佐賀県 吉野ヶ里遺跡', 
 	nagasaki1:'長崎県 平戸<ul><li>帰路は平戸口から輪行</li><li>嫌いな言葉：リアス式海岸</li></ul>' };
 function map_clear(){
-	/*
-	alert("bbb")
-	*/
 	markers = document.getElementById('markers');
 	tags = markers.children;
 	for (let i = 0; i < tags.length; i++) {
