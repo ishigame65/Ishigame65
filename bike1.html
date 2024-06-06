@@ -7,6 +7,7 @@
 	<title>クロモリ1号</title>
 	<link rel="shortcut icon" href="img/kame.ico">
 	<link rel="stylesheet" href="common.css">
+	<link rel="stylesheet" href="popup.css">
 </head>
 
 <style>
@@ -158,8 +159,9 @@ main hr {
 	<div id="bkreset"><a href="javascript:bike_reset()">Reset</a></div>
 	<p class="text">
 	<ul>
-		<li>組んで頂いた自転車屋はさいたま市のパワーコープ。
-		当時遠方に住んでいたため東京出張のついでに寄らせていただき、全パーツを指定して注文した。</li>
+		<li>組んで頂いた自転車屋はさいたま市のパワーコープ。当時遠方に住んでいたため東京出張のついでに寄らせていただき、全パーツを指定して注文した。
+		店内に<a href="" class="popup-open" data-modal-btn="modal01">Colnagoの芸術的なフレームがいくつも吊るしてあり</a>、実際のカラーリングを確認して注文することができた。
+		</li>
 		<li>ホイールはMavicオープンプロ（リム）＋DTSwissコンペティション（スポーク）＋Campanoloコーラス（ハブ）の手組み。</li>
 		<li>クロモリ素材であることも影響しているだろうが、感覚的には（ガチガチではなく）しなやかに仕上がっている印象で、
 		駆動系・制動系・ホイール周りは購入してから一度も調整していない。
@@ -171,6 +173,11 @@ main hr {
 	<ul class="breadcrumb">
 		<li><a href="bikeindex.html">銀輪はたまに唄う</a></li>
 	</ul>
+	<div class="popup-wrap" data-modal-cont="modal01"><div class="popup-back"></div>
+	  <div class="popup-inner"><span class="popup-close"></span>
+		<div class="popup-contents">
+			<img src="img/bkpcoop1.jpg">
+			</div></div></div>
 </main>
 <footer>
 	<div class="footer-left">
@@ -182,6 +189,8 @@ main hr {
 	<div class="footer-right"><a href="copyright.html">&copy; 2024 Ishigame65.</a></div>
 	<div class="clear"></div>
 </footer>
+
+<script src="popup.js"></script>
 
 <script>
 var notes = {
