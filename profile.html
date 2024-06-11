@@ -43,6 +43,13 @@ main img {
 	content: "＊";
 	margin-left: 5px;
 }
+.sub_ul {
+	margin-left: 54px;
+	list-style-type: disc;
+}
+.sub_ul li:before {
+	content: none;
+}
 @media (max-width: 670px) {
 	.desc ul li:before {
 		margin-left: 0px;
@@ -99,7 +106,9 @@ main img {
 	<dd>
 		<ul>
 		<li>前職：コンピュータを利用して何かに役立つモノを作る</li>
-		<li>現在：フリー（晴耕雨読∵無職）</li>
+		<li>現在：フリー<!--（晴耕雨読∵無職）-->
+			<ul class="sub_ul"><li><a href="https://phototools65.pages.dev/">PhotoTools65（写真がらみの使いやすいツールを開発する）</a></li></ul>
+		</li>
 		</ul></dd>
 	<dd><p class="offer">※ お手伝いできることあればご連絡ください</p></dd>
 	<dt>資格</dt>
