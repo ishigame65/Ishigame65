@@ -42,6 +42,8 @@
   padding: 20px;  
 }
 .popup-contents {
+	overflow-y: scroll;	/* -- */
+	max-height: 420px;	/* -- */
   font-size: 14px;
 }
 .popup-contents > * + * {
