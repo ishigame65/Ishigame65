@@ -120,8 +120,6 @@ dl dd {
 dl dd ul {
 	list-style-type: none;
 }
-/*
-*/
 dl dd li {
 	margin-left: -25px;
 	margin-right: -10px;
@@ -132,10 +130,24 @@ dl dd li:before {
 	margin-left: -10px;
 	margin-right: 6px;
 }
+/*
+.text ul li {
+	color:red;
+	margin-left: 80px;
+}
+.text dl dt dd {
+	margin-left: 80px;
+}*/
 .indent {
 	margin-left: 20px;
 	max-width: 90%;
 }
+/*
+.indent ul {
+	margin-top: -15px;
+}
+*/
+/**/
 .sidenote {
 	/*
 	display: inline;
