@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<meta name="description" content="Ishigame65の経緯と方針">
+	<title>AIでカメを検出する</title>
+	<link rel="shortcut icon" href="img/kame.ico">
+	<link rel="stylesheet" href="common.css">
+	<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+<header>
+	<a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a>
+	<nav>
+		<a href="index.html"><b>Top</b></a>
+		<a href="intro.html">経緯と方針</a>
+		<a href="menu.html">飼育環境</a>
+		<a href="maintenance.html">日々の管理</a>
+	</nav>
+	<div class="clear"></div>
+</header>
+
+<main>
+	<ul class="breadcrumb">
+		<li><a href="index.html">Top</a></li>
+		<li>AIでカメを検出する</li>
+	</ul>
+	<h2 class="title">AIでカメを検出する</h2>
+	<!-- 検出映像 -->
+	<div align="center">
+	<video id="movie" src="img/igwyolo02as.mp4" controls muted autoplay playsinline loop></video>
+	</div>
+
+	<h3>はじめに（予備知識）</h3>
+    <p class="text">
+	<ul>
+	<li>物体検出を行う有名なAI深層学習モデルにYOLOがあるが、開発チームの異なる多くのバージョンが存在する。
+	<pre>
+	2015  2016  2017  2018  2019  2020  2021  2022  2023  2024
+	+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----
+	  v1       v2      v3                                        Joseph Redmon氏
+	                               v4            v7       v9     Alexey Bochkovskiy氏、Chien-Yao Wang氏チーム
+	                                v5              v8           Ultralyticsチーム
+	                                            v6               Meituanチーム
+	                                                        v10  精華大学チーム
+	</pre>
+		<ul>
+		<li>近年は主にChien-Yao Wang氏チームとUltralyticsチームが最新バージョンの公開を競っている印象がある。
+		<li>性能と使い勝手の両方において先行バージョンの良いところを取り入れる形で進化しているため、基本的に新しいバージョンほど高性能で使い勝手が良いが、
+		実用的な観点では、2020年のYOLO v5以降は使い勝手が似ており、YOLOのバージョンの違いよりも用意する学習データの違いが最終的な検出性能を左右する。
+		<li>最近のYOLOは、当初からの物体検出にとどまらず、対象物の領域検出や追跡またヒトの姿勢推定などもサポートしている。
+		</ul>
+	<li>歴代のYOLOには、MicrosoftのCOCOデータセットを学習させた学習済モデルが付属しているが、COCOデータセットにカメが含まれていないため、
+	自前でカメを学習させたモデルを作成しない限り、カメを検出することができない。
+	試しにCOCO学習済モデルで検出させるとイシガメを「bird」と誤って検出した。
+	<li>ここでは我が家のイシガメを学習させた物体検出モデルを作成して検出してみる。もしかしたらAIでカメを検出した世界初の事例かもしれない。
+	使用するAIモデルは、2023年にUltralyticsチームが公開したYOLO v8。
+	</ul>
+	</p>
+	
+	<h3>物体検出AIモデルの準備</h3>
+    <p class="text">
+	<ul>
+	<li><a href="https://github.com/ultralytics/ultralytics">Ultralytics版YOLO公式サイト</a>の記載（2024年9月時点）にしたがってインストールする。コマンド1発でインストールできる。
+	<pre>
+	pip install ultralytics
+	</pre>
+		<ul>
+		<li>2024年9月時点ではYOLO ver8.2.86がインストールされた。
+		<li>必要に応じてPython仮想環境およびPyTorch環境（CUDAを含む）を用意してからインストールする
+		（この説明文でおおよその作業内容がイメージできない場合は、計算機利用に慣れた専門家に協力を依頼するのが現実的）。
+		</ul>
+	</ul>
+	</p>
+	<!--
+	-->
+	<h3>学習データの準備</h3>
+    <p class="text">
+	<ul>
+	<li>撮影映像からフレーム画像を取り出し、対象物の映っているフレームを選別する。
+	<a href="https://phototools65.pages.dev/">PhotoTools65</a>のツール[VideoFrames]は映像からFPS値を指定して取り出したフレーム画像を連番ファイル名で保存できる。<br>
+	<img src="img/vframes1.png" class="img400">
+	<li>選別したフレーム画像から学習用画像を切り出しサイズを調整する。YOLOの学習用画像は640x640サイズにしておくのが好都合なので、
+	フレーム画像から対象物の映っている正方形領域を切り出し、切り出した画像を640x640サイズに調整する。
+	<a href="https://phototools65.pages.dev/">PhotoTools65</a>のツール[PhotoCrop]は写真または映像を指定領域で切り抜くことができるが、写真切り抜き時に元画像に上書き保存できるため効率的に切り出せる。
+	また、<a href="https://phototools65.pages.dev/">PhotoTools65</a>のツール[MultiPhotoResize]は、複数写真を指定サイズに収まるように一括でリサイズできる。<br>
+	<img src="img/pcrop1.png" class="img400">
+	<img src="img/mpresize1.png" class="img250">
+	<li>物体検出用のアノテーションを実行する。
+	専用のアノテーションツールを利用して、画像ごとに対象物の名前（実際には対象物番号）と矩形座標が書かれたラベルデータを作成する。
+	多くのアノテーションツールがあり好みで選べば良いが、YOLO形式のラベルデータを作成できるツールが便利である。
+	<li>画像とラベルを、学習用と検証用におおむね8:2の比率で分けて、以下の例に示すようなフォルダ構成で格納する。
+	画像格納フォルダパスのimagesをlabelsに置き換えるとラベル格納フォルダパスになるフォルダ構成になっていれば良い。
+	<pre>
+	C:/dev/yolo/data/
+	 +- images/
+	 |   +- train/	<- 学習用画像格納フォルダ	C:\dev\yolo\data\images\train\
+	 |   +- val/	<- 検証用画像格納フォルダ	C:\dev\yolo\data\images\val\
+	 +- labels/
+	     +- train/	<- 学習用ラベル格納フォルダ	C:\dev\yolo\data\labels\train\
+	     +- val/	<- 検証用ラベル格納フォルダ	C:\dev\yolo\data\labels\val\
+	</pre>
+	<li>学習用の設定ファイル[mydata.yaml]をテキストエディタで作成する（以下は例）。
+	<pre>
+	path: C:\dev\yolo\data				# train,val共通パス
+	train: images\train				# 学習用画像フォルダ
+	val:   images\val				# 検証用画像フォルダ
+	nc: 4						# クラス数（対象物の数）
+	names: ['turtle','fish','shrimp','snail']	# クラス名（対象物の名前）
+	</pre>
+	</ul>
+	</p>
+	<h3>学習（訓練）</h3>
+    <p class="text">
+	<ul>
+	<li><a href="https://github.com/ultralytics/ultralytics">Ultralytics版YOLO公式サイト</a>の記載（2024年9月時点）にしたがって学習（訓練）する。
+	<li>テキストエディタで訓練スクリプト[train.py]を作成する。
+	<pre>
+	from ultralytics import YOLO
+	if __name__ == '__main__':
+		model = YOLO("yolov8n.pt")
+		results = model.train(data='mydata.yaml', epochs=100, imgsz=640)
+	</pre>
+		<ul>
+		<li>YOLO v8にはサイズおよび精度の異なる5種類のモデルn,s,m,l,xがあり、この順にサイズが大きくなり処理時間が長くなる。ここでは最も小さいnモデル（yolov8n.pt）をもとに学習する。
+		<li>PC環境によっては、batchやworkersの値を明示的に指定する必要がある（例、"batch=8, workers=4"）。
+		</ul>
+	<li>訓練スクリプト[train.py]を実行する。
+	<pre>
+	python train.py
+	</pre>
+		<ul>
+		<li>yolov8n.pt が無い場合は最初に yolov8n.pt がダウンロードされる。
+		</ul>
+	<li>学習結果が runs\detect\train フォルダに格納される。
+		<ul>
+		<li>weights\last.ptが最終の学習モデル（重みデータ）で、weights\best.ptが最も精度が良かった学習モデル（重みデータ）である。
+		<li>学習状況を可視化した図 results.png が保存されている。<br>
+		<img src="img/igaitrainresult1.png" width="100%">
+			<ul>
+			<li>lossが下がって落ち着けば学習が進んで収束したことを意味し、mAPは推論精度で学習モデルの性能を表す。
+			<li>result.png以外にもAI分類モデルの性能評価指標の推移曲線が多く保存されている。
+			</ul>
+		</ul>
+	</ul>
+	</p>
+	<h3>検出（推論）</h3>
+    <p class="text">
+	<ul>
+	<li><a href="https://github.com/ultralytics/ultralytics">Ultralytics版YOLO公式サイト</a>の記載（2024年9月時点）にしたがって検出（推論）する。
+	<li>テキストエディタで推論スクリプト[detect.py]を作成する。
+	<pre>
+	from ultralytics import YOLO
+	model = YOLO('./runs/detect/train/weights/best.pt')
+	results = model("movie.mp4, save=True, conf=0.5) 
+	</pre>
+		<ul>
+		<li>最も精度が良かった学習モデル best.pt を使用して、映像ファイル movie.mp4 から検出（推論）し、信頼度スコア0.5以上の検出結果を出力する。
+		</ul>
+	<li>推論スクリプト[detect.py]を実行する。
+	<pre>
+	python detect.py
+	</pre>
+	<li>検出結果（映像）が runs\detect\predict フォルダに元映像と同じファイル名で格納される。
+	</ul>
+	</p>
+
+</main>
+
+<footer>
+	<div class="footer-left">
+	<a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="Instagram" width=32 height=32></a>
+	</div>
+	<div class="footer-center"><a href="keeper.html">飼育係</a><a href="sitemap.html">サイトマップ</a>
+	<a href="search.html">検索</a>
+	</div>
+	<div class="footer-right"><a href="copyright.html">&copy; 2024 Ishigame65.</a></div>
+	<div class="clear"></div>
+</footer>
+
+<script src="popup.js"></script>
+
+</body>
+</html>

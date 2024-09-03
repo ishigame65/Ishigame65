@@ -52,18 +52,12 @@ main {
 	margin-left: auto;	/* 左右autoで中央表示 */
 	margin-right: auto;	/* 左右autoで中央表示 */
 	/* padding 上、左右、下 */
-	/*
-	padding: 70px 30px 30px;
-	padding: 65px 20px 15px;
-	*/
 	padding: 55px 20px 15px;
 	color: #5a5c5f;
 	background-color: #f8f8f8;
-	/*
-	background-color: green;
-	*/
 }
 main hr {
+	margin-top: 5px;
 	margin-bottom: 10px;
 }
 .center {
@@ -101,12 +95,12 @@ footer img {
 	margin-bottom: 15px;
 }
 .text {
-	/*
-	margin-bottom: 20px;
-	*/
 	margin-bottom: 15px;
 	margin-left: 20px;
 	margin-right: 10px;
+}
+h3 {
+	margin-top: 10px;
 }
 dl dt {
 	margin-top: 8px;
@@ -174,6 +168,18 @@ main img {
 	margin-left: 8px;
 	margin-right: 8px;
 	border-radius:15px;
+}
+.img250 {
+	width: 250px;
+}
+.img300 {
+	width: 300px;
+}
+.img400 {
+	width: 400px;
+}
+.img500 {
+	width: 500px;
 }
 main table {
 	border-collapse: collapse;
