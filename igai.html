@@ -54,7 +54,7 @@
 	<h3>はじめに（予備知識）</h3>
     <p class="text">
 	<ul>
-	<li>物体検出を行う有名なAI深層学習モデルにYOLOがあるが、開発チームの異なる多くのバージョンが存在する。
+	<li>物体検出を行う有名なAI深層学習モデルにYOLOがあるが、YOLOには開発チームの異なる多くのバージョンが存在する。
 	<div class="box">
 	<pre>
 2015  2016  2017  2018  2019  2020  2021  2022  2023  2024
@@ -79,25 +79,7 @@
 	使用するAIモデルは、2023年にUltralyticsチームが公開したYOLO v8。
 	</ul>
 	</p>
-	
-	<h3>物体検出AIモデルの準備</h3>
-    <p class="text">
-	<ul>
-	<li><a href="https://github.com/ultralytics/ultralytics">Ultralytics版YOLO公式サイト</a>の記載（2024年9月時点）にしたがってインストールする。コマンド1発でインストールできる。
-	<div class="box">
-	<pre>
-pip install ultralytics
-	</pre>
-	</div>
-		<ul>
-		<li>2024年9月時点ではYOLO ver8.2.86がインストールされた。
-		<li>必要に応じてPython仮想環境およびPyTorch環境（CUDAを含む）を用意してからインストールする
-		（この説明文でおおよその作業内容がイメージできない場合は、計算機利用に慣れた専門家に協力を依頼するのが現実的）。
-		</ul>
-	</ul>
-	</p>
-	<!--
-	-->
+
 	<h3>学習データの準備</h3>
     <p class="text">
 	<ul>
@@ -138,6 +120,24 @@ names: ['turtle','fish','shrimp','snail']	# クラス名（対象物の名前）
 	</div>
 	</ul>
 	</p>
+	
+	<h3>物体検出AIモデルの準備</h3>
+    <p class="text">
+	<ul>
+	<li><a href="https://github.com/ultralytics/ultralytics">Ultralytics版YOLO公式サイト</a>の記載（2024年9月時点）にしたがってインストールする。コマンド1発でインストールできる。
+	<div class="box">
+	<pre>
+pip install ultralytics
+	</pre>
+	</div>
+		<ul>
+		<li>2024年9月時点ではYOLO ver8.2.86がインストールされた。
+		<li>必要に応じてPython仮想環境およびPyTorch環境（CUDAを含む）を用意してからインストールする
+		（この説明文でおおよその作業内容がイメージできない場合は、計算機利用に慣れた専門家に協力を依頼するのが現実的）。
+		</ul>
+	</ul>
+	</p>
+
 	<h3>学習（訓練）</h3>
     <p class="text">
 	<ul>
@@ -176,6 +176,7 @@ python train.py
 		</ul>
 	</ul>
 	</p>
+
 	<h3>検出（推論）</h3>
     <p class="text">
 	<ul>
