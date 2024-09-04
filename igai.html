@@ -11,8 +11,11 @@
 </head>
 
 <style>
-pre {
-	color: darkslategray;
+.box {
+	width: 100%;
+	padding: 5px;
+	border: 1px solid gray;
+	overflow-x: scroll;
 }
 @media (max-width: 670px) {
 	main video {
@@ -52,6 +55,7 @@ pre {
     <p class="text">
 	<ul>
 	<li>物体検出を行う有名なAI深層学習モデルにYOLOがあるが、開発チームの異なる多くのバージョンが存在する。
+	<div class="box">
 	<pre>
 2015  2016  2017  2018  2019  2020  2021  2022  2023  2024
 +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----
@@ -61,6 +65,7 @@ pre {
                                             v6               Meituanチーム
                                                         v10  精華大学チーム
 	</pre>
+	</div>
 		<ul>
 		<li>近年は主にChien-Yao Wang氏チームとUltralyticsチームが最新バージョンの公開を競っている印象がある。
 		<li>性能と使い勝手の両方において先行バージョンの良いところを取り入れる形で進化しているため、基本的に新しいバージョンほど高性能で使い勝手が良いが、
@@ -79,9 +84,11 @@ pre {
     <p class="text">
 	<ul>
 	<li><a href="https://github.com/ultralytics/ultralytics">Ultralytics版YOLO公式サイト</a>の記載（2024年9月時点）にしたがってインストールする。コマンド1発でインストールできる。
+	<div class="box">
 	<pre>
 pip install ultralytics
 	</pre>
+	</div>
 		<ul>
 		<li>2024年9月時点ではYOLO ver8.2.86がインストールされた。
 		<li>必要に応じてPython仮想環境およびPyTorch環境（CUDAを含む）を用意してからインストールする
@@ -108,6 +115,7 @@ pip install ultralytics
 	多くのアノテーションツールがあり好みで選べば良いが、YOLO形式のラベルデータを作成できるツールが便利である。
 	<li>画像とラベルを、学習用と検証用におおむね8:2の比率で分けて、以下の例に示すようなフォルダ構成で格納する。
 	画像格納フォルダパスのimagesをlabelsに置き換えるとラベル格納フォルダパスになるフォルダ構成になっていれば良い。
+	<div class="box">
 	<pre>
 C:/dev/yolo/data/
  +- images/
@@ -117,7 +125,9 @@ C:/dev/yolo/data/
      +- train/	<- 学習用ラベル格納フォルダ	C:\dev\yolo\data\labels\train\
      +- val/	<- 検証用ラベル格納フォルダ	C:\dev\yolo\data\labels\val\
 	</pre>
+	</div>
 	<li>学習用の設定ファイル[mydata.yaml]をテキストエディタで作成する（以下は例）。
+	<div class="box">
 	<pre>
 path: C:\dev\yolo\data				# train,val共通パス
 train: images\train				# 学習用画像フォルダ
@@ -125,6 +135,7 @@ val:   images\val				# 検証用画像フォルダ
 nc: 4						# クラス数（対象物の数）
 names: ['turtle','fish','shrimp','snail']	# クラス名（対象物の名前）
 	</pre>
+	</div>
 	</ul>
 	</p>
 	<h3>学習（訓練）</h3>
@@ -132,20 +143,24 @@ names: ['turtle','fish','shrimp','snail']	# クラス名（対象物の名前）
 	<ul>
 	<li><a href="https://github.com/ultralytics/ultralytics">Ultralytics版YOLO公式サイト</a>の記載（2024年9月時点）にしたがって学習（訓練）する。
 	<li>テキストエディタで訓練スクリプト[train.py]を作成する。
+	<div class="box">
 	<pre>
 from ultralytics import YOLO
 if __name__ == '__main__':
 	model = YOLO("yolov8n.pt")
 	results = model.train(data='mydata.yaml', epochs=100, imgsz=640)
 	</pre>
+	</div>
 		<ul>
 		<li>YOLO v8にはサイズおよび精度の異なる5種類のモデルn,s,m,l,xがあり、この順にサイズが大きくなり処理時間が長くなる。ここでは最も小さいnモデル（yolov8n.pt）をもとに学習する。
 		<li>PC環境によっては、batchやworkersの値を明示的に指定する必要がある（例、"batch=8, workers=4"）。
 		</ul>
 	<li>訓練スクリプト[train.py]を実行する。
+	<div class="box">
 	<pre>
 python train.py
 	</pre>
+	</div>
 		<ul>
 		<li>yolov8n.pt が無い場合は最初に yolov8n.pt がダウンロードされる。
 		</ul>
@@ -166,18 +181,22 @@ python train.py
 	<ul>
 	<li><a href="https://github.com/ultralytics/ultralytics">Ultralytics版YOLO公式サイト</a>の記載（2024年9月時点）にしたがって検出（推論）する。
 	<li>テキストエディタで推論スクリプト[detect.py]を作成する。
+	<div class="box">
 	<pre>
 from ultralytics import YOLO
 model = YOLO('./runs/detect/train/weights/best.pt')
 results = model("movie.mp4, save=True, conf=0.5) 
 	</pre>
+	</div>
 		<ul>
 		<li>最も精度が良かった学習モデル best.pt を使用して、映像ファイル movie.mp4 から検出（推論）し、信頼度スコア0.5以上の検出結果を出力する。
 		</ul>
 	<li>推論スクリプト[detect.py]を実行する。
+	<div class="box">
 	<pre>
 python detect.py
 	</pre>
+	</div>
 	<li>検出結果（映像）が runs\detect\predict フォルダに元映像と同じファイル名で格納される。
 	</ul>
 	</p>
