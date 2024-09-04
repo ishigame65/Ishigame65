@@ -239,9 +239,6 @@ img.icon {
 	}
 	main {
 		/* 上、左右、下 */
-		/*
-		padding: 60px 10px 10px;
-		*/
 		padding: 53px 10px 8px;
 		font-size: 14px;
 	}
@@ -253,10 +250,6 @@ img.icon {
 	}
     .text {
         margin-left: 11px;
-		/*
-		font-size: 14px;
-		color: red;
-		*/
     }
 
 	footer {

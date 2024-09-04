@@ -15,6 +15,9 @@
 	main video {
 		width: 90%;
 	}
+	pre {
+		font-size: 11pt;
+	}
 }
 </style>
 
@@ -47,13 +50,13 @@
 	<ul>
 	<li>物体検出を行う有名なAI深層学習モデルにYOLOがあるが、開発チームの異なる多くのバージョンが存在する。
 	<pre>
-	2015  2016  2017  2018  2019  2020  2021  2022  2023  2024
-	+-----+-----+-----+-----+-----+-----+-----+-----+-----+-----
-	  v1       v2      v3                                        Joseph Redmon氏
-	                               v4            v7       v9     Alexey Bochkovskiy氏、Chien-Yao Wang氏チーム
-	                                v5              v8           Ultralyticsチーム
-	                                            v6               Meituanチーム
-	                                                        v10  精華大学チーム
+2015  2016  2017  2018  2019  2020  2021  2022  2023  2024
++-----+-----+-----+-----+-----+-----+-----+-----+-----+-----
+  v1       v2      v3                                        Joseph Redmon氏
+                               v4            v7       v9     Alexey Bochkovskiy氏、Chien-Yao Wang氏チーム
+                                v5              v8           Ultralyticsチーム
+                                            v6               Meituanチーム
+                                                        v10  精華大学チーム
 	</pre>
 		<ul>
 		<li>近年は主にChien-Yao Wang氏チームとUltralyticsチームが最新バージョンの公開を競っている印象がある。
@@ -103,21 +106,21 @@
 	<li>画像とラベルを、学習用と検証用におおむね8:2の比率で分けて、以下の例に示すようなフォルダ構成で格納する。
 	画像格納フォルダパスのimagesをlabelsに置き換えるとラベル格納フォルダパスになるフォルダ構成になっていれば良い。
 	<pre>
-	C:/dev/yolo/data/
-	 +- images/
-	 |   +- train/	<- 学習用画像格納フォルダ	C:\dev\yolo\data\images\train\
-	 |   +- val/	<- 検証用画像格納フォルダ	C:\dev\yolo\data\images\val\
-	 +- labels/
-	     +- train/	<- 学習用ラベル格納フォルダ	C:\dev\yolo\data\labels\train\
-	     +- val/	<- 検証用ラベル格納フォルダ	C:\dev\yolo\data\labels\val\
+C:/dev/yolo/data/
+ +- images/
+ |   +- train/	<- 学習用画像格納フォルダ	C:\dev\yolo\data\images\train\
+ |   +- val/	<- 検証用画像格納フォルダ	C:\dev\yolo\data\images\val\
+ +- labels/
+     +- train/	<- 学習用ラベル格納フォルダ	C:\dev\yolo\data\labels\train\
+     +- val/	<- 検証用ラベル格納フォルダ	C:\dev\yolo\data\labels\val\
 	</pre>
 	<li>学習用の設定ファイル[mydata.yaml]をテキストエディタで作成する（以下は例）。
 	<pre>
-	path: C:\dev\yolo\data				# train,val共通パス
-	train: images\train				# 学習用画像フォルダ
-	val:   images\val				# 検証用画像フォルダ
-	nc: 4						# クラス数（対象物の数）
-	names: ['turtle','fish','shrimp','snail']	# クラス名（対象物の名前）
+path: C:\dev\yolo\data				# train,val共通パス
+train: images\train				# 学習用画像フォルダ
+val:   images\val				# 検証用画像フォルダ
+nc: 4						# クラス数（対象物の数）
+names: ['turtle','fish','shrimp','snail']	# クラス名（対象物の名前）
 	</pre>
 	</ul>
 	</p>
@@ -127,10 +130,10 @@
 	<li><a href="https://github.com/ultralytics/ultralytics">Ultralytics版YOLO公式サイト</a>の記載（2024年9月時点）にしたがって学習（訓練）する。
 	<li>テキストエディタで訓練スクリプト[train.py]を作成する。
 	<pre>
-	from ultralytics import YOLO
-	if __name__ == '__main__':
-		model = YOLO("yolov8n.pt")
-		results = model.train(data='mydata.yaml', epochs=100, imgsz=640)
+from ultralytics import YOLO
+if __name__ == '__main__':
+	model = YOLO("yolov8n.pt")
+	results = model.train(data='mydata.yaml', epochs=100, imgsz=640)
 	</pre>
 		<ul>
 		<li>YOLO v8にはサイズおよび精度の異なる5種類のモデルn,s,m,l,xがあり、この順にサイズが大きくなり処理時間が長くなる。ここでは最も小さいnモデル（yolov8n.pt）をもとに学習する。
@@ -138,7 +141,7 @@
 		</ul>
 	<li>訓練スクリプト[train.py]を実行する。
 	<pre>
-	python train.py
+python train.py
 	</pre>
 		<ul>
 		<li>yolov8n.pt が無い場合は最初に yolov8n.pt がダウンロードされる。
@@ -161,16 +164,16 @@
 	<li><a href="https://github.com/ultralytics/ultralytics">Ultralytics版YOLO公式サイト</a>の記載（2024年9月時点）にしたがって検出（推論）する。
 	<li>テキストエディタで推論スクリプト[detect.py]を作成する。
 	<pre>
-	from ultralytics import YOLO
-	model = YOLO('./runs/detect/train/weights/best.pt')
-	results = model("movie.mp4, save=True, conf=0.5) 
+from ultralytics import YOLO
+model = YOLO('./runs/detect/train/weights/best.pt')
+results = model("movie.mp4, save=True, conf=0.5) 
 	</pre>
 		<ul>
 		<li>最も精度が良かった学習モデル best.pt を使用して、映像ファイル movie.mp4 から検出（推論）し、信頼度スコア0.5以上の検出結果を出力する。
 		</ul>
 	<li>推論スクリプト[detect.py]を実行する。
 	<pre>
-	python detect.py
+python detect.py
 	</pre>
 	<li>検出結果（映像）が runs\detect\predict フォルダに元映像と同じファイル名で格納される。
 	</ul>
