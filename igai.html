@@ -9,6 +9,15 @@
 	<link rel="stylesheet" href="common.css">
 	<link rel="stylesheet" href="popup.css">
 </head>
+
+<style>
+@media (max-width: 670px) {
+	main video {
+		width: 90%;
+	}
+}
+</style>
+
 <body>
 
 <header>
@@ -137,7 +146,7 @@
 	<li>学習結果が runs\detect\train フォルダに格納される。
 		<ul>
 		<li>weights\last.ptが最終の学習モデル（重みデータ）で、weights\best.ptが最も精度が良かった学習モデル（重みデータ）である。
-		<li>学習状況を可視化した図 results.png が保存されている。<br>
+		<li>学習状況を可視化した図 results.png が保存されている。例を示す。<br>
 		<img src="img/igaitrainresult1.png" width="100%">
 			<ul>
 			<li>lossが下がって落ち着けば学習が進んで収束したことを意味し、mAPは推論精度で学習モデルの性能を表す。
