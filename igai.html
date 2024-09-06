@@ -76,11 +76,52 @@
 	自前でカメを学習させたモデルを作成しない限り、カメを検出することができない。
 	試しにCOCO学習済モデルで検出させるとイシガメを「bird」と誤って検出した。
 	<li>ここでは我が家のイシガメを学習させた物体検出モデルを作成して検出してみる。もしかしたらAIでカメを検出した世界初の事例かもしれない。
-	使用するAIモデルは、2023年にUltralyticsチームが公開したYOLO v8。
+	<li>使用するAIモデルは、2023年にUltralyticsチームが公開したYOLO v8。
+		<ul>
+		<li>YOLO v8は<a href="https://github.com/ultralytics/ultralytics">Ultralytics版YOLO公式サイト</a>（2024年9月時点）の説明にしたがってインストール・学習（訓練）・検出（推論）する。
+		</ul>
+	</ul>
+	</p>
+	
+	<h3>物体検出AIモデルの準備</h3>
+	<div class="indent">
+	<dl>
+	<dt><img src="img/ai_ba2.png">
+	<dd>
+		<ul>
+		<li>物体検出を行うAI深層学習モデル「YOLO」を準備する。
+		<li>YOLO（神経回路網モデル）はカメを学習していないため、カメを初めて見る赤ちゃんと同じでそれを「カメ」と認識することができない。
+		</ul>
+	</dl>
+	</div>
+	<h4>実際の手順</h4>
+    <p class="text">
+	<ul>
+	<li>YOLO v8をインストールする。コマンド1発でインストールできる。
+	<div class="box">
+	<pre>
+pip install ultralytics
+	</pre>
+	</div>
+		<ul>
+		<li>2024年9月時点ではYOLO ver8.2.86がインストールされた。
+		<li>必要に応じてPython仮想環境およびPyTorch環境（CUDAを含む）を用意してからインストールする。
+		</ul>
 	</ul>
 	</p>
 
 	<h3>学習データの準備</h3>
+	<div class="indent">
+	<dl>
+	<dt><img src="img/ai_ba1.png">
+	<dd>
+		<ul>
+		<li>どれがカメであるかを学習するためのデータ（画像とラベル）を準備する。
+		<li>撮影した画像の一枚一枚に対して、画像中のどこにカメが映っているかを指定（アノテーション）して、ラベルデータを作成する。
+		</ul>
+	</dl>
+	</div>
+	<h4>実際の手順</h4>
     <p class="text">
 	<ul>
 	<li>撮影映像からフレーム画像を取り出し、対象物の映っているフレームを選別する。
@@ -120,28 +161,21 @@ names: ['turtle','fish','shrimp','snail']	# クラス名（対象物の名前）
 	</div>
 	</ul>
 	</p>
-	
-	<h3>物体検出AIモデルの準備</h3>
-    <p class="text">
-	<ul>
-	<li><a href="https://github.com/ultralytics/ultralytics">Ultralytics版YOLO公式サイト</a>の記載（2024年9月時点）にしたがってインストールする。コマンド1発でインストールできる。
-	<div class="box">
-	<pre>
-pip install ultralytics
-	</pre>
-	</div>
-		<ul>
-		<li>2024年9月時点ではYOLO ver8.2.86がインストールされた。
-		<li>必要に応じてPython仮想環境およびPyTorch環境（CUDAを含む）を用意してからインストールする
-		（この説明文でおおよその作業内容がイメージできない場合は、計算機利用に慣れた専門家に協力を依頼するのが現実的）。
-		</ul>
-	</ul>
-	</p>
 
 	<h3>学習（訓練）</h3>
+	<div class="indent">
+	<dl>
+	<dt><img src="img/ai_ba3.png">
+	<dd>
+		<ul>
+		<li>用意したデータ（画像＋ラベル）を学習（繰り返し訓練）する。
+		<li>学習（繰り返し訓練）することにより、神経回路網のシナプス結合の強さ（重み）が徐々に調整され、入力画像にカメが映っているかを認識し出力できるようになる。
+		</ul>
+	</dl>
+	</div>
+	<h4>実際の手順</h4>
     <p class="text">
 	<ul>
-	<li><a href="https://github.com/ultralytics/ultralytics">Ultralytics版YOLO公式サイト</a>の記載（2024年9月時点）にしたがって学習（訓練）する。
 	<li>テキストエディタで訓練スクリプト[train.py]を作成する。
 	<div class="box">
 	<pre>
@@ -178,9 +212,19 @@ python train.py
 	</p>
 
 	<h3>検出（推論）</h3>
+	<div class="indent">
+	<dl>
+	<dt><img src="img/ai_ba4.png">
+	<dd>
+		<ul>
+		<li>学習したモデルを使用して検出（推論）する。
+		<li>すでに入力画像にカメが映っているかを認識し出力できる神経回路網になっているため、カメを検出（入力された画像のどこにカメがいるかを推論）することができる。
+		</ul>
+	</dl>
+	</div>
+	<h4>実際の手順</h4>
     <p class="text">
 	<ul>
-	<li><a href="https://github.com/ultralytics/ultralytics">Ultralytics版YOLO公式サイト</a>の記載（2024年9月時点）にしたがって検出（推論）する。
 	<li>テキストエディタで推論スクリプト[detect.py]を作成する。
 	<div class="box">
 	<pre>
