@@ -94,7 +94,7 @@
 		</ul>
 	</dl>
 	</div>
-	<h4>実際の手順</h4>
+	<h4>YOLO v8のインストール方法</h4>
     <p class="text">
 	<ul>
 	<li>YOLO v8をインストールする。コマンド1発でインストールできる。
@@ -121,7 +121,7 @@ pip install ultralytics
 		</ul>
 	</dl>
 	</div>
-	<h4>実際の手順</h4>
+	<h4>画像とラベルを準備する方法</h4>
     <p class="text">
 	<ul>
 	<li>撮影映像からフレーム画像を取り出し、対象物の映っているフレームを選別する。
@@ -173,7 +173,7 @@ names: ['turtle','fish','shrimp','snail']	# クラス名（対象物の名前）
 		</ul>
 	</dl>
 	</div>
-	<h4>実際の手順</h4>
+	<h4>用意したデータを使って訓練する方法</h4>
     <p class="text">
 	<ul>
 	<li>テキストエディタで訓練スクリプト[train.py]を作成する。
@@ -222,7 +222,7 @@ python train.py
 		</ul>
 	</dl>
 	</div>
-	<h4>実際の手順</h4>
+	<h4>映像からカメを検出する方法</h4>
     <p class="text">
 	<ul>
 	<li>テキストエディタで推論スクリプト[detect.py]を作成する。
@@ -230,11 +230,11 @@ python train.py
 	<pre>
 from ultralytics import YOLO
 model = YOLO('./runs/detect/train/weights/best.pt')
-results = model("movie.mp4, save=True, conf=0.5) 
+results = model('movie.mp4', save=True, conf=0.5) 
 	</pre>
 	</div>
 		<ul>
-		<li>最も精度が良かった学習モデル best.pt を使用して、映像ファイル movie.mp4 から検出（推論）し、信頼度スコア0.5以上の検出結果を出力する例。
+		<li>最も精度が良かった学習モデル best.pt を使用して、映像ファイル'movie.mp4'から検出（推論）し、信頼度スコア0.5以上の検出映像を出力する例。
 		</ul>
 	<li>推論スクリプト[detect.py]を実行する。
 	<div class="box">
@@ -242,9 +242,44 @@ results = model("movie.mp4, save=True, conf=0.5)
 python detect.py
 	</pre>
 	</div>
-	<li>検出結果（映像）が runs\detect\predict フォルダに元映像と同じファイル名で格納される。
+	<li>検出映像が runs\detect\predict フォルダに元映像と同じファイル名で格納される。
 	</ul>
 	</p>
+	<h4>画像からカメを検出する方法</h4>
+    <p class="text">
+	<ul>
+	<li>テキストエディタで推論スクリプト[detect.py]を作成する。
+	<div class="box">
+	<pre>
+from ultralytics import YOLO
+model = YOLO('./runs/detect/train/weights/best.pt')
+results = model('img_folder', save=True, save_txt=True, conf=0.5) 
+	</pre>
+	</div>
+		<ul>
+		<li>指定フォルダ'img_folder'にある画像から検出し、信頼度スコア0.5以上の検出画像と検出ラベルを出力する例。
+		<li>'save_txt=True'オプション付加により、検出ラベル（対象物番号と矩形座標）をファイル出力する。
+		<li>ここでは検出対象として画像が格納されたフォルダを指定しているが、一枚の画像ファイルを指定することもできる。
+		</ul>
+	<li>推論スクリプト[detect.py]を実行する。
+	<div class="box">
+	<pre>
+python detect.py
+	</pre>
+	</div>
+	<li>検出画像が runs\detect\predict フォルダに元画像と同じファイル名で格納される。
+	<li>検出ラベルが runs\detect\predict\labels フォルダに画像ファイル名＋拡張子txtのファイル名で格納される。
+	アノテーションで作成するラベルデータと同じ形式で保存されるため、この検出ラベルをアノテーションデータとして利用できる（商用アノテーションツールで見かける自動アノテーション機能を実現できることになる）。
+	</ul>
+	</p>
+
+	<!--
+	<h3>検出性能の比較</h3>
+	<ul>
+	<li>YOLO v8のモデルSとモデルLの比較
+	<li>YOLO v8 と YOLO v9の比較
+	</ul>
+	-->
 
 </main>
 
