@@ -125,12 +125,12 @@ pip install ultralytics
     <p class="text">
 	<ul>
 	<li>撮影映像からフレーム画像を取り出し、対象物の映っているフレームを選別する。
-	<a href="https://phototools65.pages.dev/">PhotoTools65</a>のツール[VideoFrames]は映像からFPS値を指定して取り出したフレーム画像を連番ファイル名で保存できる。<br>
+	<a href="https://phototools65.pages.dev/">PhotoTools65</a>の[VideoFrames]は映像からFPS値を指定して取り出したフレーム画像を連番ファイル名で保存できる。<br>
 	<img src="img/vframes1.png" class="img400">
 	<li>選別したフレーム画像から学習用画像を切り出しサイズを調整する。YOLOの学習用画像は640x640サイズにしておくのが好都合なので、
 	フレーム画像から対象物の映っている正方形領域を切り出し、切り出した画像を640x640サイズに調整する。
-	<a href="https://phototools65.pages.dev/">PhotoTools65</a>のツール[PhotoCrop]は写真または映像を指定領域で切り抜くことができるが、写真切り抜き時に元画像に上書き保存できるため効率的に切り出せる。
-	また、<a href="https://phototools65.pages.dev/">PhotoTools65</a>のツール[MultiPhotoResize]は、複数写真を指定サイズに収まるように一括でリサイズできる。<br>
+	<a href="https://phototools65.pages.dev/">PhotoTools65</a>の[PhotoCrop]は写真または映像を指定領域で切り抜くことができるが、写真切り抜き時に元画像に上書き保存できるため効率的に切り出せる。
+	また、<a href="https://phototools65.pages.dev/">PhotoTools65</a>の[MultiPhotoResize]は、複数写真を指定サイズに収まるように一括でリサイズできる。<br>
 	<img src="img/pcrop1.png" class="img400">
 	<img src="img/mpresize1.png" class="img250">
 	<li>物体検出用のアノテーションを実行する。
@@ -186,7 +186,8 @@ if __name__ == '__main__':
 	</pre>
 	</div>
 		<ul>
-		<li>YOLO v8にはサイズおよび精度の異なる5種類のモデルn,s,m,l,xがあり、この順にサイズが大きくなり処理時間が長くなる。ここでは最も小さいnモデル（yolov8n.pt）をもとに学習する。
+		<li>YOLO v8にはサイズおよび精度の異なる5種類のモデルn,s,m,l,xがあり、この順にサイズが大きくなり処理時間が長くなる。ここでは最も小さいnモデル（yolov8n.pt）をもとに学習している。
+		他のモデル（yolov8s.pt、yolov8m.ptなど）を指定しても良い。
 		<li>PC環境によっては、batchやworkersの値を明示的に指定する必要がある（例、"batch=8, workers=4"）。
 		</ul>
 	<li>訓練スクリプト[train.py]を実行する。
@@ -196,7 +197,7 @@ python train.py
 	</pre>
 	</div>
 		<ul>
-		<li>yolov8n.pt が無い場合は最初に yolov8n.pt がダウンロードされる。
+		<li>指定したモデルが無い場合は最初にダウンロードされる。yolov8n.ptは6.24MB、yolov8s.ptは21.5MB、yolov8m.ptは49.7MB。
 		</ul>
 	<li>学習結果が runs\detect\train フォルダに格納される。
 		<ul>
@@ -273,12 +274,44 @@ python detect.py
 	</ul>
 	</p>
 
-	<!--
 	<h3>検出性能の比較</h3>
+	<!--
+	2時間25分7秒の撮影映像（1920x1980画素、29.97fps）から5秒ごとのフレーム画像を抽出し、
+	カメが映り込んでいる880フレームを選び、
+	-->
+	<div class="text">
+	カメが延べ1999回映り込んでいる880画像に対して、条件を変えて検出性能を比較した結果を示す。
 	<ul>
-	<li>YOLO v8のモデルSとモデルLの比較
-	<li>YOLO v8 と YOLO v9の比較
+		<li>検出数は画像に映り込んでいるカメを正しく検出した回数、誤検出数は画像中のカメではないモノをカメとして検出した回数。
+		<li>検出数を1999で割ることで検出率を算出できるが、この値は意味を持たない。
+		880画像にはカメがごく一部しか映り込んでおらず到底検出できないであろう画像を多く含んでいるが、画像の選び方を少し変えれば簡単に検出率を100％に近づけることができるからである。
+		数値自体にあまり意味が無くても、条件を変えた時の検出性能を比較する目的には有効に使える。
 	</ul>
+	</div>
+
+	<h4>Epoch数（学習回数）による性能比較</h4>
+	<img src="img/graph_y8nepoch.png">
+	<div class="text">
+	<ul>
+	<li>Epoch数が多いほど良いわけではない。学習データの品質、性能評価指標の推移曲線、最終的には用途に応じた検出数と誤検出数のバランスを踏まえて適切なEcoch数を選択する。
+	<li>学習時間は学習画像数やEpoch数に比例する。本実験の学習画像は363枚。
+	</ul>
+	</div>
+
+	<h4>モデルサイズによる性能比較</h4>
+	<img src="img/graph_y8msize.png">
+	<div class="text">
+	<ul>
+	<li>大きいモデルの方が高性能になるが、大きいモデルで学習するためには高性能のGPUマシンが必要になる。
+	<li>低性能GPUマシンでの学習時間実測値は、YOLOv8n（Nano）が12分、YOLOv8s（Small）が20分、YOLOv8m（Medium）が236分。
+	<li>学習時間は学習画像数やEpoch数に比例する。本実験の学習画像は363枚、Epoch数は100。
+	</ul>
+	</div>
+
+	<!--
+	AIの検出性能を向上させる方法
+	・検出性能を評価する方法
+	・学習画像数による性能比較
 	-->
 
 </main>

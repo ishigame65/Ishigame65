@@ -60,6 +60,12 @@ main hr {
 	margin-top: 5px;
 	margin-bottom: 10px;
 }
+main h3 {
+	margin-top: 15px;
+}
+main h4 {
+	margin-top: 7px;
+}
 .center {
 	text-align: center;
 }
