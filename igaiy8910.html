@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 	<meta name="description" content="AIモデルYOLOv8・YOLOv9・YOLOv10のカメ検出性能比較">
-	<title>AIモデルYOLOv8・YOLOv9・YOLOv10のカメ検出性能比較</title>
+	<title>AIモデルYOLOv8・v9・v10のカメ検出性能比較</title>
 	<link rel="shortcut icon" href="img/kame.ico">
 	<link rel="stylesheet" href="common.css">
 	<!--<link rel="stylesheet" href="popup.css">-->
@@ -43,9 +43,9 @@
 <main>
 	<ul class="breadcrumb">
 		<li><a href="index.html">Top</a></li>
-		<li>AIモデルYOLOv8・YOLOv9・YOLOv10のカメ検出性能比較</li>
+		<li>AIモデルYOLOv8・v9・v10のカメ検出性能比較</li>
 	</ul>
-	<h2 class="title">AIモデルYOLOv8・YOLOv9・YOLOv10のカメ検出性能比較</h2>
+	<h2 class="title">AIモデルYOLOv8・v9・v10のカメ検出性能比較</h2>
 
 	<h3>概要</h3>
     <p class="text">
@@ -64,11 +64,11 @@
 	</div>
 		<ul>
 		<li>性能と使い勝手の両方において先行バージョンの良いところを取り入れる形で進化しているため、基本的に新しいバージョンほど高性能で使い勝手が良いが、
-		実用的な観点では、2020年のYOLO v5以降は使い勝手が似ており、YOLOのバージョンの違いよりも用意する学習データの違いが最終的な検出性能を左右する。
+		実用的な観点では、2020年のYOLOv5以降は使い勝手が似ており、YOLOのバージョンの違いよりも用意する学習データの違いが最終的な検出性能を左右する。
 		</ul>
 	<li>ここでは複数のAIモデルで我が家のイシガメを学習させて検出性能を比較してみる。使用するAIモデルは以下の三種。
 		<ul>
-		<li>2023年にUltralyticsチームが公開したYOLO v8
+		<li>2023年にUltralyticsチームが公開したYOLOv8
 		<li>2024年にChien-Yao Wangチームが公開したYOLOv9
 		<li>2024年に精華大学チームが公開したYOLOv10
 		</ul>
@@ -108,7 +108,7 @@ if __name__ == '__main__':
 	</pre>
 	</div>
 		<ul>
-		<li>YOLO v8にはサイズおよび精度の異なる5種類のモデルn,s,m,l,xがあり、この順にサイズが大きくなり処理時間が長くなる。
+		<li>YOLOv8にはサイズおよび精度の異なる5種類のモデルn,s,m,l,xがあり、この順にサイズが大きくなり処理時間が長くなる。
 		ここでは最も小さいnモデル（yolov8n.pt）をもとに転移学習している。yolov8s.pt、yolov8m.ptなど適宜使用するモデルを指定する。
 		</ul>
 	<li>訓練スクリプト[train.py]を実行する。
@@ -140,7 +140,7 @@ if __name__ == '__main__':
 	</pre>
 	</div>
 		<ul>
-		<li>YOLO v9にはサイズおよび精度の異なる5種類のモデルt,s,m,c,eがあり、この順にサイズが大きくなり処理時間が長くなる。
+		<li>YOLOv9にはサイズおよび精度の異なる5種類のモデルt,s,m,c,eがあり、この順にサイズが大きくなり処理時間が長くなる。
 		ここでは最も小さいtモデル（yolov9t.pt）をもとに転移学習している。yolov9s.pt、yolov9m.ptなど適宜使用するモデルを指定する。
 		<li>ここで指定しているのはUltralytics版実行環境に用意されているYOLOv9学習済モデルであるため、最初に使用する前に自動的にダウンロードされる。
 		<li>YOLOv8,YOLOv10に比べて学習時に多くのメモリを使用する様子。
@@ -175,7 +175,7 @@ wget https://github.com/THU-MIG/yolov10/releases/download/v1.1/yolov10m.pt -OutF
 	</pre>
 	</div>
 		<ul>
-		<li>YOLO v10にはサイズおよび精度の異なる6種類のモデル n,s,m,b,l,x があり、この順にサイズが大きくなり処理時間が長くなる。ここでは小さい3モデル（yolov10n.pt、yolov10s.pt、yolov10m.pt）を取得している。
+		<li>YOLOv10にはサイズおよび精度の異なる6種類のモデル n,s,m,b,l,x があり、この順にサイズが大きくなり処理時間が長くなる。ここでは小さい3モデル（yolov10n.pt、yolov10s.pt、yolov10m.pt）を取得している。
 		<li>yolov10n.ptは10.9MB、yolov10s.ptは31.4MB、yolov10m.ptは63.8MB。
 		</ul>
 	<li>テキストエディタで訓練スクリプト[train.py]を作成する。
@@ -229,10 +229,10 @@ python train.py
 	<img src="img/graph_y8910dtime.png">
 	<div class="text">
 	<ul>
-	<li>YOLOv10はYOLOv8,YOLOv9に比べて検出性能が低い。また、YOLOv9はYOLOv8,YOLOv10に比べて検出時間が長く、
+	<li>YOLOv10はYOLOv8・v9に比べて検出性能が低い。また、YOLOv9はYOLOv8・v10に比べて検出時間が長く、
 	実験に用いた低性能GPUマシンでは秒30コマのリアルタイム処理を実現できない。
 	<li>大きいモデルの方が検出性能が高いが、大きいモデルで学習するためには高性能のGPUマシンが必要になる。
-	<li>YOLOv8,YOLOv10の検出時間はいずれも33ms以下であり、フルHD解像度で秒30コマのリアルタイム処理を実現できる。
+	<li>YOLOv8・v10の検出時間はいずれも33ms以下であり、フルHD解像度で秒30コマのリアルタイム処理を実現できる。
 	<li>本実験の学習画像は、撮影日や撮影位置の異なる複数の撮影映像から抽出した640x640画素サイズの363画像。Epoch数は100。
 	<li>学習時間は使用機器性能・モデルサイズ・学習パラメータ値によって異なり、学習画像数やEpoch数に比例する。
 	低性能GPUマシンでの学習時間実測値は、YOLOv8nが12分、YOLOv8sが20分、YOLOv8mが236分、
@@ -243,10 +243,11 @@ python train.py
 	<h3>感触</h3>
 	<div class="text">
 	<ul>
-	<li>用途と使い方によって変わってくるだろうが、低性能GPUマシン前提の場合は総じてYOLOv8sの使い勝手が良い印象である。
+	<li>用途と使い方によって変わるだろうが、低性能GPUマシン前提の場合は総じてYOLOv8sの使い勝手が良い印象である。
 	YOLOv8sを使用して、学習データの質と量を向上させるのが得策だろう。
-	<li>YOLOv9,YOLOv10は発表されてからまだ時間が経っておらず、今後使い方や性能が向上する可能性がある。
-	また、YOLOv9のMIT license版実装の完成度が高まって使えるようになれば、ビジネス応用時の自由度が高まるため、改めて性能を評価すべきだろう。
+	<li>YOLOv9・v10は発表されてからまだ時間が経っておらず、今後使い方や性能が向上する可能性がある。
+	また、YOLOv9のMIT license版実装の完成度が高まり使えるようになれば、ビジネス応用時の自由度が高まるため、
+	改めて性能を評価すべきだろう（Chien-Yao Wang氏チームの実装能力に期待している）。
 	</ul>
 	</div>
 
