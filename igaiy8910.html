@@ -120,7 +120,7 @@ python train.py
 		<ul>
 		<li>指定したモデルが無い場合は最初にダウンロードされる。yolov8n.ptは6.24MB、yolov8s.ptは21.5MB、yolov8m.ptは49.7MB。
 		</ul>
-	<li>学習結果が runs\detect\train フォルダに格納される。
+	<li>学習結果が runs\detect\ フォルダの train から始まる名前のフォルダに格納される。
 		<ul>
 		<li>weights\last.ptが最終の学習モデル（重みデータ）で、weights\best.ptが最も精度が良かった学習モデル（重みデータ）である。
 		</ul>
@@ -144,7 +144,7 @@ if __name__ == '__main__':
 		ここでは最も小さいtモデル（yolov9t.pt）をもとに転移学習している。yolov9s.pt、yolov9m.ptなど適宜使用するモデルを指定する。
 		<li>ここで指定しているのはUltralytics版実行環境に用意されているYOLOv9学習済モデルであるため、最初に使用する前に自動的にダウンロードされる。
 		<li>YOLOv8,YOLOv10に比べて学習時に多くのメモリを使用する様子。
-		メモリ不足になる場合は、batch数やworkers数をデフォルト値の半分にするなど調整する（例: batch=8, workers=4）。
+		メモリ不足になる場合は、batch数をデフォルト値の半分（batch=8）にするか自動モード（batch=-1）にするなど調整する。
 		</ul>
 	<li>訓練スクリプト[train.py]を実行する。
 	<div class="box">
@@ -156,7 +156,7 @@ python train.py
 		<li>指定したモデルが無い場合は最初にダウンロードされる。yolov9t.ptは4.73MB、yolov9s.ptは14.6MB、yolov9m.ptは39.0MB。
 		ちなみに、開発元のYOLOv9学習済モデルは名称とファイルサイズが異なり、yolov9-t.ptはエラーで取得できずサイズ不明（2024年9月時点）、yolov9-s.ptは19.4MB、yolov9-m.ptは63.3MBとなっている。
 		</ul>
-	<li>学習結果が runs\detect\train フォルダに格納される。
+	<li>学習結果が runs\detect\ フォルダの train から始まる名前のフォルダに格納される。
 		<ul>
 		<li>weights\last.ptが最終の学習モデル（重みデータ）で、weights\best.ptが最も精度が良かった学習モデル（重みデータ）である。
 		</ul>
@@ -196,7 +196,7 @@ if __name__ == '__main__':
 python train.py
 	</pre>
 	</div>
-	<li>学習結果が runs\detect\train フォルダに格納される。
+	<li>学習結果が runs\detect\ フォルダの train から始まる名前のフォルダに格納される。
 		<ul>
 		<li>weights\last.ptが最終の学習モデル（重みデータ）で、weights\best.ptが最も精度が良かった学習モデル（重みデータ）である。
 		</ul>
