@@ -11,6 +11,23 @@
 </head>
 
 <style>
+.img250 {
+	border-radius:4px;
+}
+.img300 {
+	border-radius:4px;
+}
+.img400 {
+	border-radius:4px;
+}
+.img500 {
+	border-radius:4px;
+}
+main img {
+	margin-left: 0px;
+	margin-right: 0px;
+	border-radius:4px;
+}
 .box {
 	width: 100%;
 	padding: 5px;
@@ -131,7 +148,7 @@ pip install ultralytics
 	フレーム画像から対象物の映っている正方形領域を切り出し、切り出した画像を640x640サイズに調整する。
 	<a href="https://phototools65.pages.dev/">PhotoTools65</a>の[PhotoCrop]は写真または映像を指定領域で切り抜くことができるが、写真切り抜き時に元画像に上書き保存できるため効率的に切り出せる。
 	また、<a href="https://phototools65.pages.dev/">PhotoTools65</a>の[MultiPhotoResize]は、複数写真を指定サイズに収まるように一括でリサイズできる。<br>
-	<img src="img/pcrop1.png" class="img400">
+	<img src="img/pcrop1.png" class="img400">　　
 	<img src="img/mpresize1.png" class="img250">
 	<li>物体検出用のアノテーションを実行する。
 	専用のアノテーションツールを利用して、画像ごとに対象物の名前（実際には対象物番号）と矩形座標が書かれたラベルデータを作成する。
