@@ -22,6 +22,11 @@ main img {
 	border: 1px solid gray;
 	overflow-x: scroll;
 }
+.box2 {
+	width: 100%;
+	padding: 5px;
+	border: 1px solid gray;
+}
 @media (max-width: 670px) {
 	main video {
 		width: 90%;
@@ -87,7 +92,7 @@ main img {
 		<li>YOLOv10は、<a href="https://github.com/THU-MIG/yolov10">YOLOv10開発元公式GitHub</a>にAGPL-3.0 licenseの実装とその使用方法が記載されているが、
 		ultralytics版YOLO実行環境から利用する方法も併記されているため、Ultralytics版利用も公認された使用方法であり、同等の動作になることを期待できる。
 		<li>YOLOv8,YOLOv9,YOLOv10をultralytics版YOLO実行環境で学習させることで、学習時の多くのパラメータをデフォルト値で動かしても共通のパラメータ値で学習させることができる。
-		共通のパラメータ値が各モデルにとっての最適値とは限らないが、性能を比較する目的では、各モデルの特性を理解しないまま不適切なパラメータ値で学習させるリスクを避ける方が安全である。
+		共通のパラメータ値が各モデルにとっての最適値とは限らないが、性能を比較する目的ではむしろ好都合と言える。
 		</ul>
 	<li>Ultralytics版YOLO実行環境はYOLOv8インストールにより作成され（2024年9月時点）、本記事に示す方法でYOLOv8,YOLOv9,YOLOv10を学習（訓練）することで、YOLOv8と同じ方法で検出（推論）を行うことができる。		
 	</ul>
@@ -117,7 +122,7 @@ if __name__ == '__main__':
 		ここでは最も小さいnモデル（yolov8n.pt）をもとに転移学習している。yolov8s.pt、yolov8m.ptなど適宜使用するモデルを指定する。
 		</ul>
 	<li>訓練スクリプト[train.py]を実行する。
-	<div class="box">
+	<div class="box2">
 	<pre>
 python train.py
 	</pre>
@@ -152,7 +157,7 @@ if __name__ == '__main__':
 		メモリ不足になる場合は、batch数をデフォルト値の半分（batch=8）にするか自動モード（batch=-1）にするなど調整する。
 		</ul>
 	<li>訓練スクリプト[train.py]を実行する。
-	<div class="box">
+	<div class="box2">
 	<pre>
 python train.py
 	</pre>
@@ -196,7 +201,7 @@ if __name__ == '__main__':
 		<li>ここでは最も小さいtモデル（yolov10n.pt）をもとに転移学習している。yolov10s.pt、yolov10m.ptなど適宜使用するモデルを指定する。
 		</ul>
 	<li>訓練スクリプト[train.py]を実行する。
-	<div class="box">
+	<div class="box2">
 	<pre>
 python train.py
 	</pre>
