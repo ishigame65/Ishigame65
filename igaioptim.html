@@ -78,10 +78,12 @@ main img {
 	</ul>
 	</p>
 	
-	<h3>学習データ自動最適化の処理方式</h3>
-	<!--
+	<h3>学習データ自動最適化</h3>
+	<h4>自動最適化ツール</h4>
+	<div class="indent">
+	<img src="img/aioptimg1.png">
+	</div>
 	<h4>処理方式</h4>
-	-->
     <p class="text">
 	<ul>
 	<li>おおまかな処理フローを下図に示す。<br>
@@ -89,12 +91,12 @@ main img {
 	<li>入力する元データは画像とラベルで構成され、以下のフォルダに格納しておく。
 		<div class="box">
 		<pre>
-  [.]
-   +- src_images/ - 画像格納フォルダ
+  [元データフォルダ]
+   +- images/ - 画像格納フォルダ
    |  | photo001.jpg - 画像（ファイル名は任意）
    |  | photo002.jpg - 画像
    |  |   ...
-   +- src_labels/ - ラベル格納フォルダ
+   +- labels/ - ラベル格納フォルダ
       | classes.txt - クラスファイル（対象物名リスト）
       | photo001.txt - ラベル
       | photo002.txt - ラベル
@@ -107,7 +109,7 @@ main img {
 	<li>出力される学習データは訓練データと検証データからなり、以下のフォルダに格納された形で生成される。
 		<div class="box">
 		<pre>
-  [.]
+  [生成データフォルダ]
    +- images/ - 画像格納フォルダ
    |  +- train/ - 訓練画像格納フォルダ
    |  |  | photo001.jpg - 画像
