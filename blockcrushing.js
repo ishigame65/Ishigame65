@@ -370,6 +370,7 @@ class App {
 		this.divInterval = null;	// div(INTERVAL)
 		this.divHistory = null;		// div(HISTORY)
 		this.level = 0.2;			// 難易度レベル
+		this.crusherSpeed = 3;		// クラッシャー移動速度
 	}
 
 	toString(){
@@ -413,8 +414,10 @@ class App {
 		this.blockInterval = 80;	// ブロック生成間隔
 		this.divInterval.innerText = `ブロック生成間隔: ${this.blockInterval}`;
 
-		const levelStr = document.querySelector("input[name='LEVEL']:checked").value;
-		this.level = parseFloat(levelStr);
+		const levelStr = document.querySelector("input[name='LEVEL']:checked").value;	// レベル（難易度）
+		this.level = parseFloat(levelStr);		
+		const speedStr = document.querySelector("input[name='SPEED']:checked").value;	// クラッシャー移動速度
+		this.crusherSpeed = parseInt(speedStr);			// 移動速度
 
 		// Contextブロック設定
 		const ctx = canvas.getContext("2d");
@@ -442,7 +445,7 @@ class App {
 		window.addEventListener("keydown", event => keyRepeat.onkeydown(event));
 		window.addEventListener("keyup", event => keyRepeat.onkeyup(event));
 		this.crusher = this.createCrusher(keyRepeat,
-			canvas.width / 2, canvas.height, this.blockWidth, this.blockHeight, this.blockStackList);
+			canvas.width / 2, canvas.height, this.blockWidth, this.blockHeight, this.blockStackList, this.crusherSpeed);
 
 		// タイマーを回す
 		clearInterval(this.timer);
@@ -544,7 +547,7 @@ class App {
 	}
 	
 	/* クラッシャー作成 */
-	createCrusher(keyRepeat, x, y, blockWidth, blockHeight, blockStackList){
+	createCrusher(keyRepeat, x, y, blockWidth, blockHeight, blockStackList, crusherSpeed){
 		const crusher = new Crusher();
 		crusher.keyRepeat = keyRepeat;
 		crusher.x = x;
@@ -552,6 +555,7 @@ class App {
 		crusher.blockWidth = blockWidth;	// ブロック幅
 		crusher.blockHeight = blockHeight;	// ブロック高さ
 		crusher.blockStackList = blockStackList;	// ブロック積上げ数
+		crusher.step = crusherSpeed;	// クラッシャー移動速度
 		//console.log(`crusher> blockWidth: ${blockWidth}, blockHeight: ${blockHeight} `);
 		return crusher;
 	}
