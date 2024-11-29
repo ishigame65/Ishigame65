@@ -12,6 +12,14 @@
 </head>
 
 <style>
+.RIGHTDIV {
+  float:right;
+  text-align: center;
+  font-size: smaller;
+}
+.qrcode img {
+  margin-bottom: -4px;
+}
 #higuchi {
     position: absolute;
     top: 66px;
@@ -43,6 +51,13 @@
 	<div class="clear"></div>
 </header>
 <main>
+
+<div class="RIGHTDIV">
+<br>
+<canvas id="EYECANVAS" width="90px" height="60px"></canvas><br><br>
+<img src="img/qr_ishigame.png"><br>ここのURL
+</div>
+
 	<h1>Ishigame65</h1>
 	<h2>イシガメが快適に暮らす環境を作る</h2>
     <video id="movie" src="img/igwm01.mp4" controls muted autoplay playsinline loop></video>
@@ -106,6 +121,7 @@
 	<div class="clear"></div>
 </footer>
 
+<script src="eyes.js"></script>
 <script>
 function setmovie(moviefile){
 	tag = document.getElementById("movie");
