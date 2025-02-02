@@ -11,11 +11,14 @@ main video {
 	/*
 	margin-bottom: 10px;
 	*/
+	margin-top: 5px;
 	margin-bottom: 5px;
 }
 .gallery img {
 	margin: 2px 3px;
 }
+/* 
+ */
 main h1 {
 	display: none;
 }
@@ -55,7 +58,8 @@ dl dd {
 		margin: 2px 2px;
 	}
 	main h1 {
-        font-size: 13px;
+		display: initial;
+        font-size: 16px;
 		/*opacity: 0.5;*/	/* 不透明度 */
 	}
 	main h2 {
