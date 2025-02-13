@@ -106,10 +106,10 @@
 		top: 140px;
 		left: 100px;
 	}
-    div#filter a{
+    #filter{
         font-size: small;
     }
-    div#plant a{
+    #plant a{
         font-size: small;
     }
     #cage a{
