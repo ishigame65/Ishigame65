@@ -124,7 +124,13 @@
      /* a #cage{
         font-size:6pt;
     } */
-    a.col1{
+    #overlap div a.col1{
         font-size:6pt;
+    }
+    #overlap div#plant a{
+        font-size:6pt;
+    }
+    #dish a{
+        font-size:16pt;
     }
 }
