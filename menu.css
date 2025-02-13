@@ -83,8 +83,8 @@
 	#filter {
 		/* top: 0px; */
 		top: -10px;
-		/* left: 95px; */
-		left: 75px;
+		/* left: 75px; */
+		left: 55px;
 	}
 	#cage {
 		top: 22px;
@@ -96,8 +96,6 @@
 	}
 	#pond {
         top: 60px;
-		/* left: -280px; */
-		/* left: -270px; */
 		left: -230px;
 	}
 	#plant {
