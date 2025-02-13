@@ -75,6 +75,7 @@
 @media (max-width: 670px) {
     main {
 		font-size: 12px;
+        max-width: 600px;
     }
     .overlap img {
 		width: 260px;
@@ -104,13 +105,7 @@
 		left: 100px;
 	}
     .overlap div a {
-        font-size:9pt;
-        color:red;
-        text-decoration-color:red;
-    }
-    .overlap {
-        font-size:6pt;
-        color:green;
-        text-decoration-color:green;
+        font-size:10pt;
+        /* text-decoration-color:red; */
     }
 }
