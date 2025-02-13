@@ -92,7 +92,7 @@
 		top: 50px;
 		left: 90px;
 	}
-    #feeder a{
+    #filter a{
         text-decoration-color:red;
     }
 	#pond {
@@ -109,6 +109,6 @@
 	}
     .overlap div a {
         font-size:10pt;
-        /* text-decoration-color:red; */
+        text-decoration-color:green;
     }
 }
