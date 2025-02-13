@@ -81,10 +81,10 @@
 		width: 260px;
 	}
 	#filter {
-		top: 0px;
-		/* left: 145px; */
-		/* left: 135px; */
-		left: 95px;
+		/* top: 0px; */
+		top: -10px;
+		/* left: 95px; */
+		left: 75px;
 	}
 	#cage {
 		top: 22px;
