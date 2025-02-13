@@ -106,19 +106,19 @@
 		top: 140px;
 		left: 100px;
 	}
-    #filter a {
-        font-size: small;
-    }
-    #dish a {
-        font-size: small;
-    }
-    #pond a {
+    #filter a{
         font-size: small;
     }
     #plant a{
         font-size: small;
     }
     #cage a{
+        font-size: small;
+    }
+    #dish a{
+        font-size: small;
+    }
+    #pond a{
         font-size: small;
     }
 }
