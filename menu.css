@@ -73,13 +73,8 @@
     z-index: 6;
 }
 @media (max-width: 670px) {
-	/*
-	*/
     main {
 		font-size: 12px;
-    }
-    .overlap div a {
-        font-size:9pt;
     }
     .overlap img {
 		width: 260px;
@@ -109,4 +104,8 @@
 		top: 140px;
 		left: 100px;
 	}
+    .overlap div a {
+        font-size:9pt;
+        color:red;
+    }
 }
