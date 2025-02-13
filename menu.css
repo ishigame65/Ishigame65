@@ -127,10 +127,13 @@
     #overlap div a.col1{
         font-size:6pt;
     }
-    #overlap div#plant a{
+    #overlap div#plant a.col2{
         font-size:6pt;
     }
-    #dish a{
+    #dish a.col1{
+        font-size:16pt;
+    }
+    #overlap div#pond{
         font-size:16pt;
     }
 }
