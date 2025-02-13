@@ -1,21 +1,21 @@
 @charset "utf-8";
-.overlap {
+#overlap {
 	text-align: center;
     position: relative;
 }
-.overlap div a {
+#overlap div a {
     cursor: pointer;
     text-decoration: underline;
     text-decoration-color: #A0A0FF;
     font-size:12pt;
 }
-.overlap img {
+#overlap img {
     pointer-events: none;
 }
-.overlap .col1 {
+#overlap .col1 {
     color: steelblue;
 }
-.overlap .col2 {
+#overlap .col2 {
     color: pink;
 }
 #filter {
@@ -77,7 +77,7 @@
 		font-size: 12px;
         max-width: 600px;
     }
-    .overlap img {
+    #overlap img {
 		width: 260px;
 	}
 	#filter {
@@ -110,7 +110,7 @@
         text-decoration-color:red;
         font-size:7pt;
     } */
-    .overlap div a {
+    #overlap div a {
         text-decoration-color:red;
         font-size:10pt;
     }
