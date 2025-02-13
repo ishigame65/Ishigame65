@@ -83,6 +83,7 @@
 	#filter {
 		top: 5px;
 		left: -215px;
+        font-size:10pt;
         text-decoration-color:gold;
 	}
 	#cage {
@@ -106,8 +107,8 @@
 		left: 100px;
 	}
     #filter a{
-        font-size:10pt;
         text-decoration-color:red;
+        font-size:7pt;
     }
     .overlap div a {
         font-size:10pt;
