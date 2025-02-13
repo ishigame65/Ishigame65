@@ -76,7 +76,7 @@
     main {
 		/* font-size: 12px; */
         /* max-width: 600px; */
-		font-size: 10px;
+		font-size: small;
     }
     #overlap img {
 		width: 260px;
