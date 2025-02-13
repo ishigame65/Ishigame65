@@ -158,15 +158,10 @@ dl dd li:before {
 	margin-left: 20px;
 }
 .plist {
-	/*
-	margin-left: 50px;
-	*/
 	margin-top: -10px;
 	margin-bottom: 10px;
 }
 main ul {
-	/*
-	*/
 	margin-left: 30px;
 	margin-right: 10px;
 }
@@ -212,20 +207,10 @@ b {
 	color: #5a5c5f;
 }
 .breadcrumb li:not(:last-of-type)::after {
-	/*
-	content: ">";
-	margin: 0 .2em;
-	*/
 	content: "›";
 	margin: 0 .4em;
 	color: #777;
 	font-weight: bold;
-}
-.breadcrumb a {
-	/*
-	color: red;
-	text-decoration: none;
-	*/
 }
 img.icon {
 	margin:0;
@@ -259,8 +244,8 @@ img.icon {
     }
 
 	footer {
-		padding: 3px 6px;	/* 3px 8px */
-		height: 55px;	/* 67px */
+		padding: 3px 6px;
+		height: 55px;
 	}
 	footer img {
 		margin-top: 10px;

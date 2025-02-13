@@ -110,8 +110,14 @@
         text-decoration-color:red;
         font-size:7pt;
     } */
-    #overlap div a {
+    /* #overlap div a {
         text-decoration-color:red;
+        font-size:10pt;
+    } */
+    #cage{
+        font-size:6pt;
+    }
+    a.col1, a.col2{
         font-size:10pt;
     }
 }
