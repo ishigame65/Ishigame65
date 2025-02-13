@@ -115,13 +115,13 @@
         font-size:10pt;
     }
      */
-    #cage, #filter, #feeder, #pond, #plant, #dish{
+    #cage a, #filter a, #feeder a, #pond a, #plant a, #dish a{
         font-size:6pt;
     }
     /* #overlap a {
         font-size:6pt;
     } */
-     a #cage{
+     /* a #cage{
         font-size:6pt;
-     }
+     } */
 }
