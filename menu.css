@@ -113,11 +113,12 @@
     /* #overlap div a {
         text-decoration-color:red;
         font-size:10pt;
-    } */
-    /* #cage{
-        font-size:6pt;
-    } */
+    }
     #overlap a {
+        font-size:6pt;
+    }
+         */
+    #cage, #filter, #feeder, #pond, #plant, #dish{
         font-size:6pt;
     }
 }
