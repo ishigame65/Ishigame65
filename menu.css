@@ -3,7 +3,7 @@
 	text-align: center;
     position: relative;
 }
-.overlap a {
+.overlap div a {
     cursor: pointer;
     text-decoration: underline;
     text-decoration-color: #A0A0FF;
@@ -78,8 +78,8 @@
     main {
 		font-size: 12px;
     }
-    .overlap a {
-        font-size:10pt;
+    .overlap div a {
+        font-size:9pt;
     }
     .overlap img {
 		width: 260px;
