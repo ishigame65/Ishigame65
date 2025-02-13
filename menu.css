@@ -105,23 +105,15 @@
 	#dish {
 		top: 140px;
 		left: 100px;
+        font-size: smaller;
 	}
-    main a{
-        text-decoration-color:red;
-        font-size:7pt;
-    }    
     div#filter a{
         text-decoration-color:red;
         font-size: smaller;
     }
-    /* #overlap div a {
+    div#plant a{
         text-decoration-color:red;
-        font-size: 0.6rem;
-    } */
-    
-    /* #overlap div {
-        font-size: 1rem;
-    } */
-    
+        font-size:7pt;
+    }
 
 }
