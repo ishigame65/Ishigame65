@@ -3,7 +3,7 @@
 	text-align: center;
     position: relative;
 }
-#overlap div a {
+#overlap a {
     cursor: pointer;
     text-decoration: underline;
     text-decoration-color: #A0A0FF;
@@ -114,10 +114,10 @@
         text-decoration-color:red;
         font-size:10pt;
     } */
-    #cage a{
+    /* #cage{
         font-size:6pt;
-    }
-    .col1, .col2{
-        font-size:10pt;
+    } */
+    #overlap a {
+        font-size:6pt;
     }
 }
