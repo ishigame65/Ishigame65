@@ -74,8 +74,9 @@
 }
 @media (max-width: 670px) {
     main {
-		font-size: 12px;
-        max-width: 600px;
+		/* font-size: 12px; */
+        /* max-width: 600px; */
+		font-size: 10px;
     }
     #overlap img {
 		width: 260px;
@@ -83,7 +84,7 @@
 	#filter {
 		top: 5px;
 		left: -215px;
-        font-size:10pt;
+        font-size:16pt;
         text-decoration-color:gold;
 	}
 	#cage {
@@ -133,10 +134,10 @@
     #overlap div#pond{
         font-size:16pt;
     } */
-    #overlap{
+    /* #overlap{
         font-size:8pt;
     }
     #overlap div#plant a.col2{
         font-size:16pt;
-    }
+    } */
 }
