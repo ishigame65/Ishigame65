@@ -7,14 +7,15 @@
     cursor: pointer;
     text-decoration: underline;
     text-decoration-color: #A0A0FF;
+    font-size:12pt;
 }
 .overlap img {
     pointer-events: none;
 }
-.overlap #col1 {
+.overlap .col1 {
     color: steelblue;
 }
-.overlap #col2 {
+.overlap .col2 {
     color: pink;
 }
 #filter {
@@ -77,7 +78,10 @@
     main {
 		font-size: 12px;
     }
-	.overlap img {
+    .overlap a {
+        font-size:10pt;
+    }
+    .overlap img {
 		width: 260px;
 	}
 	#filter {
