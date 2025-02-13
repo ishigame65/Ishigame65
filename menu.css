@@ -106,9 +106,13 @@
 		top: 140px;
 		left: 100px;
 	}
-    div#filter a{
+    main a{
         text-decoration-color:red;
         font-size:7pt;
+    }    
+    div#filter a{
+        text-decoration-color:red;
+        font-size: smaller;
     }
     /* #overlap div a {
         text-decoration-color:red;
