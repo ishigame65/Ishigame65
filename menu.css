@@ -91,6 +91,7 @@
 	#feeder {
 		top: 50px;
 		left: 90px;
+        text-decoration-color:red;
 	}
 	#pond {
 		top: 70px;
