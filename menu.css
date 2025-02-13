@@ -107,14 +107,12 @@
 		left: 100px;
 	}
     div#filter a{
-        text-decoration-color:red;
         font-size: small;
     }
     div#plant a{
-        text-decoration-color:red;
-        font-size: medium;
+        font-size: small;
     }
     #cage a{
-        font-size: medium;
+        font-size: small;
     }
 }
