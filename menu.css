@@ -105,15 +105,14 @@
 	#dish {
 		top: 140px;
 		left: 100px;
-        font-size: smaller;
 	}
     div#filter a{
         text-decoration-color:red;
-        font-size: smaller;
+        font-size: small;
     }
     div#plant a{
         text-decoration-color:red;
-        font-size:7pt;
+        font-size:normal;
     }
 
 }
