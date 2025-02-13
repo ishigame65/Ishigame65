@@ -81,9 +81,10 @@
 		width: 260px;
 	}
 	#filter {
-		top: 5px;
+		/* top: 5px; */
+		top: 0px;
 		/* left: -215px; */
-		left: -15px;
+		left: -35px;
 	}
 	#cage {
 		top: 22px;
@@ -94,9 +95,10 @@
 		left: 90px;
 	}
 	#pond {
-		top: 70px;
+		/* top: 70px; */
+        top: 60px;
 		/* left: -250px; */
-		left: -50px;
+		left: -80px;
 	}
 	#plant {
 		top: 95px;
