@@ -112,7 +112,9 @@
     }
     div#plant a{
         text-decoration-color:red;
-        font-size:normal;
+        font-size: medium;
     }
-
+    #cage a{
+        font-size: medium;
+    }
 }
