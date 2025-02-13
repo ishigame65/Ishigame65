@@ -231,7 +231,8 @@ img.icon {
 	main {
 		/* 上、左右、下 */
 		padding: 53px 10px 8px;
-		font-size: 14px;
+		/* font-size: 14px; */
+		/* font-size: 14px; */
 	}
 	main img {
 		max-width: 100%;
