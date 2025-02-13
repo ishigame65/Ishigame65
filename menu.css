@@ -106,7 +106,7 @@
 		top: 140px;
 		left: 100px;
 	}
-    #filter a{
+    div#filter a{
         font-size: small;
     }
     #plant a{
@@ -118,7 +118,7 @@
     #dish a{
         font-size: small;
     }
-    #pond a{
+    div#pond a{
         font-size: small;
     }
 }
