@@ -104,13 +104,13 @@
 		top: 140px;
 		left: 100px;
 	}
-    div#filter a{
+    #filter a{
         font-size: small;
     }
     #plant a{
         font-size: small;
     }
-    #cage a{
+    div#cage a{
         font-size: small;
     }
     #dish a{
