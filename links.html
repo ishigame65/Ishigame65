@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">    
-	<meta name="description" content="Ishigame65 - 餌皿">
+	<meta name="description" content="Ishigame65 - リンク">
 	<link rel="shortcut icon" href="img/kame.ico">
-	<title>Ishigame65 - 餌皿</title>
+
+	<title>Ishigame65 - リンク</title>
 </head>
 <style>
-
+.qrcode img {
+    margin-bottom: -4px;
+}
+.extlink {
+    width: 24px;
+    margin-left: 7px;
+}
+@media (max-width: 670px) {
+	.qrcode img {
+		width: 60px;
+		height: 60px;
+	}
+}
 </style>
 <body>
  
@@ -49,25 +62,23 @@
         <div class="breadcrumb">
             <ul>
                 <li><a href="index.html">Top</a></li>
-                <li><a href="menu.html">飼育環境</a></li>
-                <li>餌皿</li>
+                <li>リンク</li>
             </ul>
         </div> <!-- breadcrumb -->
-        <h2>餌皿</h2>
-        <section class="indent">
-            <p>イシガメが地上で人工飼料を食べる時の皿を製作した。<br>
-                <img src="img/igdish1.jpg">
-            </p>                        
+        <h2>リンク</h2>
+        <section>
+            <h3>本サイト</h3>
+            <dl class="indent">
+                <dt><div class="qrcode"><img src="img/qr_ishigame.png"></div></dt>
+                <dd>本サイトTOPページのURL</dd>
+            </dl>
         </section>
-        <h3>3Dプリント</h3>
-        <section class="indent">
-            <p class="indent"><img src="img/prn3d.png">から3D-STLファイルをダウンロード</p>
-            <p>餌皿 <a href="餌皿.stl"><img src="img/prn3da.png"></a><br>
-                <img src="img/igcgdish1.png">
-                <ul class="indent">
-                <li>外形サイズ: 25x80x10mm</li>
-                </ul>
-            </p>
+        <section>
+        <h3>外部サイト<img class="extlink" src="img/extlink.png"></h3>
+            <dl class="indent">
+                <dt><a href="https://x.com/kameland1988">カメランドヒグチ（鴻巣市）</a></dt>
+                <dd>飼い方や注意事項を丁寧に教えて頂きました</dd>
+            </dl>
         </section>
     </main>
     <footer> <!-- フッターコンテンツ -->

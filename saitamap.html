@@ -1,97 +1,116 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-	<meta name="description" content="Ishigame65の埼玉">
-	<title>埼玉</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/saitamap.css">
+	<meta name="description" content="埼玉">
 	<link rel="shortcut icon" href="img/kame.ico">
-	<link rel="stylesheet" href="common.css">
-	<link rel="stylesheet" href="saitamap.css">
+	<title>埼玉</title>
 </head>
+<style>
 
+</style>
 <body>
+ 
+<!-- input・label・ドロワーメニューはbody直下 -->
+<input id="check_input" type="checkbox">
+<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+    <span></span>
+</label>
+<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+
+<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+    <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="intro.html">経緯と方針</a></li>
+        <li><a href="menu.html">飼育環境</a></li>
+        <li><a href="maintenance.html">日々の管理</a></li>
+        <li><a href="entertainment.html">遊び</a></li>
+        <li><a href="keeper.html">飼育係</a></li>
+    </ul>
+    <ul id="menu2nd">
+        <li>&nbsp;</li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li>&nbsp;</li>
+        <li><a href="links.html">リンク</a></li>
+        <li><a href="copyright.html">サイトポリシー</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+        <li><a href="search.html">サイト内検索</a></li>
+    </ul>
+</div>
+
 <header>
-	<a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a>
-	<nav>
-		<a href="index.html">Top</a>
-		<a href="intro.html">経緯と方針</a>
-		<a href="menu.html">飼育環境</a>
-		<a href="maintenance.html">日々の管理</a>
-	</nav>
-	<div class="clear"></div>
+    <h1><a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a></h1>
 </header>
-<main>
-	<ul class="breadcrumb">
-		<li><a href="index.html">Top</a></li>
-		<li><a href="keeper.html">飼育係</a></li>
-		<li>埼玉</li>
-	</ul>
-	<div class="contents">
-	<h2 class="title">埼玉</h2>
-	<div class="overlap">
-		<img src="img/smap1.png">
-		<div id="markers">
-			<div id="asaka1">★</div>
-			<div id="chichibu1">★</div>
-			<div id="kawagoe1">★</div>
-			<div id="omiya1">★</div>
-			<div id="satte1">★</div>
-			<div id="yono1">★</div>
-		</div>
-		<div id="note">　</div>
-	</div>
-	<div class="text">
-		<div class="scroll">
-		<a href="javascript:map_display('asaka1')"><img src="img/saiasaka1.jpg"></a>
-		<a href="javascript:map_display('chichibu1')"><img src="img/saichichibu1.jpg"></a>
-		<a href="javascript:map_display('kawagoe1')"><img src="img/saikawagoe1.jpg"></a>
-		<a href="javascript:map_display('omiya1')"><img src="img/saiomiya1.jpg"></a>
-		<a href="javascript:map_display('satte1')"><img src="img/saisatte1.jpg"></a>
-		<a href="javascript:map_display('yono1')"><img src="img/saiyono1.jpg"></a>
-		</div>
-	</div>
-	<div class="center">
-		<img id="photo" src="">
-	</div>
-	</div>
-</main>
-<footer>
-	<div class="footer-left">
-	<a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="Instagram" width=32 height=32></a>
-	</div>
-	<div class="footer-center"><a href="keeper.html"><b>飼育係</b></a><a href="sitemap.html">サイトマップ</a>
-	<a href="search.html">検索</a>
-	</div>
-	<div class="footer-right"><a href="copyright.html">&copy; 2024 Ishigame65.</a></div>
-	<div class="clear"></div>
-</footer>
+
+<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
+    <main> <!-- メインコンテンツ -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html">Top</a></li>
+                <li><a href="keeper.html">飼育係</a></li>
+                <li>埼玉</li>
+            </ul>
+        </div> <!-- breadcrumb -->
+        <h2>埼玉</h2>
+        <section class="indent">
+            <div class="overlap">
+                <img src="img/smap1.png">
+                <div id="markers">
+                    <div id="asaka1">★</div>
+                    <div id="chichibu1">★</div>
+                    <div id="kawagoe1">★</div>
+                    <div id="omiya1">★</div>
+                    <div id="satte1">★</div>
+                    <div id="yono1">★</div>
+                </div>
+                <div id="note">　</div>
+            </div>
+            <div class="scroll">
+                <a href="javascript:map_display('asaka1')"><img src="img/saiasaka1.jpg"></a>
+                <a href="javascript:map_display('chichibu1')"><img src="img/saichichibu1.jpg"></a>
+                <a href="javascript:map_display('kawagoe1')"><img src="img/saikawagoe1.jpg"></a>
+                <a href="javascript:map_display('omiya1')"><img src="img/saiomiya1.jpg"></a>
+                <a href="javascript:map_display('satte1')"><img src="img/saisatte1.jpg"></a>
+                <a href="javascript:map_display('yono1')"><img src="img/saiyono1.jpg"></a>
+            </div>
+            <div class="center">
+                <img id="photo" src="">
+            </div>
+        
+        </section>
+    </main>
+    <footer> <!-- フッターコンテンツ -->
+    </footer>
+</div>
 
 <script>
-var notes = {
-	asaka1:'朝霞 りっくんランド', 
-	chichibu1:'秩父 羊山 芝桜の丘', 
-	kawagoe1:'川越', 
-	omiya1:'大宮 鉄道博物館', 
-	satte1:'幸手 権現堂堤', 
-	yono1:'与野 与野公園' };
-function map_clear(){
-	markers = document.getElementById('markers');
-	tags = markers.children;
-	for (let i = 0; i < tags.length; i++) {
-		tags[i].style.visibility='hidden';
-	}
-	document.getElementById("note").innerHTML="";
-	return false;
-}
-function map_display(target){
-	map_clear();
-	tag = document.getElementById(target);
-	tag.style.visibility='visible';
-	document.getElementById("note").innerHTML=notes[target];
-	document.getElementById("photo").src="img/sai" + target + ".jpg";
-	return false;
-}
+    var notes = {
+        asaka1:'朝霞 りっくんランド', 
+        chichibu1:'秩父 羊山 芝桜の丘', 
+        kawagoe1:'川越', 
+        omiya1:'大宮 鉄道博物館', 
+        satte1:'幸手 権現堂堤', 
+        yono1:'与野 与野公園' };
+    function map_clear(){
+        markers = document.getElementById('markers');
+        tags = markers.children;
+        for (let i = 0; i < tags.length; i++) {
+            tags[i].style.visibility='hidden';
+        }
+        document.getElementById("note").innerHTML="";
+        return false;
+    }
+    function map_display(target){
+        map_clear();
+        tag = document.getElementById(target);
+        tag.style.visibility='visible';
+        document.getElementById("note").innerHTML=notes[target];
+        document.getElementById("photo").src="img/sai" + target + ".jpg";
+        return false;
+    }
 </script>
 
 </body>

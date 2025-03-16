@@ -1,286 +1,284 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">    
 	<meta name="description" content="AIモデルYOLOv8・YOLOv9・YOLOv10の検出性能比較">
-	<title>AIモデルYOLOv8・v9・v10の検出性能比較</title>
 	<link rel="shortcut icon" href="img/kame.ico">
-	<link rel="stylesheet" href="common.css">
-	<!--<link rel="stylesheet" href="popup.css">-->
+	<title>AIモデルYOLOv8・YOLOv9・YOLOv10の検出性能比較</title>
 </head>
-
 <style>
-main img {
-	margin-left: 0px;
-	margin-right: 0px;
-	border-radius:4px;
-}
-.box {
-	width: 100%;
-	padding: 5px;
-	border: 1px solid gray;
-	overflow-x: scroll;
-}
-.box2 {
-	width: 100%;
-	padding: 5px;
-	border: 1px solid gray;
-}
-@media (max-width: 670px) {
-	main video {
-		width: 90%;
-	}
-	pre {
-		font-size: 8pt;
-	}
-}
+    .box {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid gray;
+        overflow-x: scroll;
+    }
+    .box2 {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid gray;
+    }
+    @media (max-width: 670px) {
+        main video {
+            width: 90%;
+        }
+        pre {
+            font-size: 8pt;
+        }
+    }
 </style>
-
 <body>
+ 
+<!-- input・label・ドロワーメニューはbody直下 -->
+<input id="check_input" type="checkbox">
+<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+    <span></span>
+</label>
+<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+
+<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+    <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="intro.html">経緯と方針</a></li>
+        <li><a href="menu.html">飼育環境</a></li>
+        <li><a href="maintenance.html">日々の管理</a></li>
+        <li><a href="entertainment.html">遊び</a></li>
+        <li><a href="keeper.html">飼育係</a></li>
+    </ul>
+    <ul id="menu2nd">
+        <li>&nbsp;</li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li>&nbsp;</li>
+        <li><a href="links.html">リンク</a></li>
+        <li><a href="copyright.html">サイトポリシー</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+        <li><a href="search.html">サイト内検索</a></li>
+    </ul>
+</div>
 
 <header>
-	<a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a>
-	<nav>
-		<a href="index.html"><b>Top</b></a>
-		<a href="intro.html">経緯と方針</a>
-		<a href="menu.html">飼育環境</a>
-		<a href="maintenance.html">日々の管理</a>
-	</nav>
-	<div class="clear"></div>
+    <h1><a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a></h1>
 </header>
 
-<main>
-	<ul class="breadcrumb">
-		<li><a href="index.html">Top</a></li>
-		<li>AIモデルYOLOv8・v9・v10の検出性能比較</li>
-	</ul>
-	<h2 class="title">AIモデルYOLOv8・v9・v10の検出性能比較</h2>
-
-	<h3>概要</h3>
-    <p class="text">
-	<ul>
-	<li>物体検出を行う有名なAI深層学習モデルにYOLOがあるが、YOLOには開発チームの異なる多くのバージョンが存在する。
-	<div class="box">
-	<pre>
+<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
+    <main> <!-- メインコンテンツ -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html">Top</a></li>
+                <li><a href="entertainment.html">遊び</a></li>
+                <li>AIモデルYOLOv8・YOLOv9・YOLOv10の検出性能比較</li>
+            </ul>
+        </div> <!-- breadcrumb -->
+        <h2>AIモデルYOLOv8・YOLOv9・YOLOv10の検出性能比較</h2>
+        <h3>概要</h3>
+        <section class="indent">
+            <ul>
+            <li>物体検出を行う有名なAI深層学習モデルにYOLOがあるが、YOLOには開発チームの異なる多くのバージョンが存在する。
+                <div class="box indent">
+                    <pre>
 2015  2016  2017  2018  2019  2020  2021  2022  2023  2024
 +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----
-  v1       v2      v3                                        Joseph Redmon氏
-                               v4            v7       v9     Alexey Bochkovskiy氏、Chien-Yao Wang氏チーム
+v1       v2      v3                                        Joseph Redmon氏
+                            v4            v7       v9     Alexey Bochkovskiy氏、Chien-Yao Wang氏チーム
                                 v5              v8           Ultralyticsチーム
                                             v6               Meituanチーム
                                                         v10  精華大学チーム
-	</pre>
-	</div>
-		<ul>
-		<li>性能と使い勝手の両方において先行バージョンの良いところを取り入れる形で進化しているため、基本的に新しいバージョンほど高性能で使い勝手が良いが、
-		実用的な観点では、2020年のYOLOv5以降は使い勝手が似ており、YOLOのバージョンの違いよりも用意する学習データの違いが最終的な検出性能を左右する。
-		</ul>
-	<li>ここでは複数のAIモデルで我が家のイシガメを学習させて検出性能を比較してみる。使用するAIモデルは以下の三種。
-		<ul>
-		<li>2023年にUltralyticsチームが公開したYOLOv8
-		<li>2024年にChien-Yao Wangチームが公開したYOLOv9
-		<li>2024年に精華大学チームが公開したYOLOv10
-		</ul>
-	<li>YOLOv8を開発したUltralyticsは、Ultralytics版YOLO実行環境において、YOLOv8だけでなくYOLOv9とYOLOv10を実行可能にしている。		
-	このUltralytics版のYOLOv9とYOLOv10は、開発元のChien-Yao Wang版YOLOv9および精華大学版YOLOv10とは細かい実装やバージョンが一致しない可能性があるが、
-	以下の点を踏まえて、Ultralytics版YOLO実行環境でYOLOv8,YOLOv9,YOLOv10を動かし実験することとした。
-		<ul>
-		<li>YOLOv9は、2024年9月時点において、<a href="https://github.com/WongKinYiu/yolov9">YOLOv9開発元公式GitHub</a>にGPL-3.0 licenseの実装とその使用方法が記載されている一方で、		
-		<a href="https://github.com/WongKinYiu/YOLO">別リポジトリ</a>にてYOLOv9のMIT license版の実装し直しを進めており、現在まだバグが残っていて使用は控えるようにと記載されている。
-		現状の開発元YOLOv9実装は過渡的な位置づけであり、将来的にはMIT license版の実装を本命にする意向と推察される。
-		<li>YOLOv10は、<a href="https://github.com/THU-MIG/yolov10">YOLOv10開発元公式GitHub</a>にAGPL-3.0 licenseの実装とその使用方法が記載されているが、
-		ultralytics版YOLO実行環境から利用する方法も併記されているため、Ultralytics版利用も公認された使用方法であり、同等の動作になることを期待できる。
-		<li>YOLOv8,YOLOv9,YOLOv10をultralytics版YOLO実行環境で学習させることで、学習時の多くのパラメータをデフォルト値で動かしても共通のパラメータ値で学習させることができる。
-		共通のパラメータ値が各モデルにとっての最適値とは限らないが、性能を比較する目的ではむしろ好都合と言える。
-		</ul>
-	<li>Ultralytics版YOLO実行環境はYOLOv8インストールにより作成され（2024年9月時点）、本記事に示す方法でYOLOv8,YOLOv9,YOLOv10を学習（訓練）することで、YOLOv8と同じ方法で検出（推論）を行うことができる。		
-	</ul>
-	</p>
-	
-	<h3>各モデルの学習（訓練）</h3>
-	<div class="indent">
-	<ul>
-	<li>YOLOv8をインストールし、学習用のデータが準備できている必要がある。<a href="igai.html">AIでカメを検出する</a>を参照。
-	</ul>
-	</div>
-
-	<h4>YOLOv8を訓練する方法</h4>
-    <p class="text">
-	<ul>
-	<li>テキストエディタで訓練スクリプト[train.py]を作成する。
-	<div class="box">
-	<pre>
+                    </pre>
+                </div>
+                <ul class="indent">
+                    <li>性能と使い勝手の両方において先行バージョンの良いところを取り入れる形で進化しているため、基本的に新しいバージョンほど高性能で使い勝手が良いが、
+                    実用的な観点では、2020年のYOLOv5以降は使い勝手が似ており、YOLOのバージョンの違いよりも用意する学習データの違いが最終的な検出性能を左右する。
+                </ul>
+                <li>ここでは複数のAIモデルで我が家のイシガメを学習させて検出性能を比較してみる。使用するAIモデルは以下の三種。
+                    <ul class="indent">
+                        <li>2023年にUltralyticsチームが公開したYOLOv8
+                        <li>2024年にChien-Yao Wangチームが公開したYOLOv9
+                        <li>2024年に精華大学チームが公開したYOLOv10
+                    </ul>
+                <li>YOLOv8を開発したUltralyticsは、Ultralytics版YOLO実行環境において、YOLOv8だけでなくYOLOv9とYOLOv10を実行可能にしている。		
+                このUltralytics版のYOLOv9とYOLOv10は、開発元のChien-Yao Wang版YOLOv9および精華大学版YOLOv10とは細かい実装やバージョンが一致しない可能性があるが、
+                以下の点を踏まえて、Ultralytics版YOLO実行環境でYOLOv8,YOLOv9,YOLOv10を動かし実験することとした。
+                    <ul class="indent">
+                        <li>YOLOv9は、2024年9月時点において、<a href="https://github.com/WongKinYiu/yolov9">YOLOv9開発元公式GitHub</a>にGPL-3.0 licenseの実装とその使用方法が記載されている一方で、		
+                        <a href="https://github.com/WongKinYiu/YOLO">別リポジトリ</a>にてYOLOv9のMIT license版の実装し直しを進めており、現在まだバグが残っていて使用は控えるようにと記載されている。
+                        現状の開発元YOLOv9実装は過渡的な位置づけであり、将来的にはMIT license版の実装を本命にする意向と推察される。
+                        <li>YOLOv10は、<a href="https://github.com/THU-MIG/yolov10">YOLOv10開発元公式GitHub</a>にAGPL-3.0 licenseの実装とその使用方法が記載されているが、
+                        ultralytics版YOLO実行環境から利用する方法も併記されているため、Ultralytics版利用も公認された使用方法であり、同等の動作になることを期待できる。
+                        <li>YOLOv8,YOLOv9,YOLOv10をultralytics版YOLO実行環境で学習させることで、学習時の多くのパラメータをデフォルト値で動かしても共通のパラメータ値で学習させることができる。
+                        共通のパラメータ値が各モデルにとっての最適値とは限らないが、性能を比較する目的ではむしろ好都合と言える。
+                    </ul>
+                <li>Ultralytics版YOLO実行環境はYOLOv8インストールにより作成され（2024年9月時点）、本記事に示す方法でYOLOv8,YOLOv9,YOLOv10を学習（訓練）することで、YOLOv8と同じ方法で検出（推論）を行うことができる。		
+            </ul>
+        </section>
+        
+        <h3>各モデルの学習（訓練）</h3>
+        <section class="indent">
+            <ul>
+                <li>YOLOv8をインストールし、学習用のデータが準備できている必要がある。<a href="igai.html">AIでカメを検出する</a>を参照。
+            </ul>
+        </section>
+    
+        <h4>YOLOv8を訓練する方法</h4>
+        <section class="indent">
+            <ul>
+                <li>テキストエディタで訓練スクリプト[train.py]を作成する。
+                    <div class="box indent">
+                        <pre>
 from ultralytics import YOLO
 if __name__ == '__main__':
-	model = YOLO("yolov8n.pt")
-	results = model.train(data='mydata.yaml', epochs=100, imgsz=640)
-	</pre>
-	</div>
-		<ul>
-		<li>YOLOv8にはサイズおよび精度の異なる5種類のモデルn,s,m,l,xがあり、この順にサイズが大きくなり処理時間が長くなる。
-		ここでは最も小さいnモデル（yolov8n.pt）をもとに転移学習している。yolov8s.pt、yolov8m.ptなど適宜使用するモデルを指定する。
-		</ul>
-	<li>訓練スクリプト[train.py]を実行する。
-	<div class="box2">
-	<pre>
+    model = YOLO("yolov8n.pt")
+    results = model.train(data='mydata.yaml', epochs=100, imgsz=640)
+                        </pre>
+                    </div>
+                    <ul class="indent">
+                        <li>YOLOv8にはサイズおよび精度の異なる5種類のモデルn,s,m,l,xがあり、この順にサイズが大きくなり処理時間が長くなる。
+                        ここでは最も小さいnモデル（yolov8n.pt）をもとに転移学習している。yolov8s.pt、yolov8m.ptなど適宜使用するモデルを指定する。
+                    </ul>
+                <li>訓練スクリプト[train.py]を実行する。
+                    <div class="box2 indent">
+                        <pre>
 python train.py
-	</pre>
-	</div>
-		<ul>
-		<li>指定したモデルが無い場合は最初にダウンロードされる。yolov8n.ptは6.24MB、yolov8s.ptは21.5MB、yolov8m.ptは49.7MB。
-		</ul>
-	<li>学習結果が runs\detect\ フォルダの train から始まる名前のフォルダに格納される。
-		<ul>
-		<li>weights\last.ptが最終の学習モデル（重みデータ）で、weights\best.ptが最も精度が良かった学習モデル（重みデータ）である。
-		</ul>
-	</ul>
-	</p>
-
-	<h4>YOLOv9を訓練する方法</h4>
-    <p class="text">
-	<ul>
-	<li>テキストエディタで訓練スクリプト[train.py]を作成する。
-	<div class="box">
-	<pre>
+                        </pre>
+                    </div>
+                    <ul class="indent">
+                        <li>指定したモデルが無い場合は最初にダウンロードされる。yolov8n.ptは6.24MB、yolov8s.ptは21.5MB、yolov8m.ptは49.7MB。
+                    </ul>
+                <li>学習結果が runs\detect\ フォルダの train から始まる名前のフォルダに格納される。
+                    <ul class="indent">
+                        <li>weights\last.ptが最終の学習モデル（重みデータ）で、weights\best.ptが最も精度が良かった学習モデル（重みデータ）である。
+                    </ul>
+            </ul>
+        </section>
+    
+        <h4>YOLOv9を訓練する方法</h4>
+        <section class="indent">
+            <ul>
+                <li>テキストエディタで訓練スクリプト[train.py]を作成する。
+                    <div class="box indent">
+                        <pre>
 from ultralytics import YOLO
 if __name__ == '__main__':
-	model = YOLO("yolov9t.pt")
-	results = model.train(data='mydata.yaml', epochs=100, imgsz=640)
-	</pre>
-	</div>
-		<ul>
-		<li>YOLOv9にはサイズおよび精度の異なる5種類のモデルt,s,m,c,eがあり、この順にサイズが大きくなり処理時間が長くなる。
-		ここでは最も小さいtモデル（yolov9t.pt）をもとに転移学習している。yolov9s.pt、yolov9m.ptなど適宜使用するモデルを指定する。
-		<li>ここで指定しているのはUltralytics版実行環境に用意されているYOLOv9学習済モデルであるため、最初に使用する前に自動的にダウンロードされる。
-		<li>YOLOv8,YOLOv10に比べて学習時に多くのメモリを使用する様子。
-		メモリ不足になる場合は、batch数をデフォルト値の半分（batch=8）にするか自動モード（batch=-1）にするなど調整する。
-		</ul>
-	<li>訓練スクリプト[train.py]を実行する。
-	<div class="box2">
-	<pre>
+    model = YOLO("yolov9t.pt")
+    results = model.train(data='mydata.yaml', epochs=100, imgsz=640)
+                        </pre>
+                    </div>
+                    <ul class="indent">
+                        <li>YOLOv9にはサイズおよび精度の異なる5種類のモデルt,s,m,c,eがあり、この順にサイズが大きくなり処理時間が長くなる。
+                        ここでは最も小さいtモデル（yolov9t.pt）をもとに転移学習している。yolov9s.pt、yolov9m.ptなど適宜使用するモデルを指定する。
+                        <li>ここで指定しているのはUltralytics版実行環境に用意されているYOLOv9学習済モデルであるため、最初に使用する前に自動的にダウンロードされる。
+                        <li>YOLOv8,YOLOv10に比べて学習時に多くのメモリを使用する様子。
+                        メモリ不足になる場合は、batch数をデフォルト値の半分（batch=8）にするか自動モード（batch=-1）にするなど調整する。
+                    </ul>
+                <li>訓練スクリプト[train.py]を実行する。
+                    <div class="box2 indent">
+                        <pre>
 python train.py
-	</pre>
-	</div>
-		<ul>
-		<li>指定したモデルが無い場合は最初にダウンロードされる。yolov9t.ptは4.73MB、yolov9s.ptは14.6MB、yolov9m.ptは39.0MB。
-		ちなみに、開発元のYOLOv9学習済モデルは名称とファイルサイズが異なり、yolov9-t.ptはエラーで取得できずサイズ不明（2024年9月時点）、yolov9-s.ptは19.4MB、yolov9-m.ptは63.3MBとなっている。
-		</ul>
-	<li>学習結果が runs\detect\ フォルダの train から始まる名前のフォルダに格納される。
-		<ul>
-		<li>weights\last.ptが最終の学習モデル（重みデータ）で、weights\best.ptが最も精度が良かった学習モデル（重みデータ）である。
-		</ul>
-	</ul>
-	</p>
+                        </pre>
+                    </div>
+                    <ul class="indent">
+                        <li>指定したモデルが無い場合は最初にダウンロードされる。yolov9t.ptは4.73MB、yolov9s.ptは14.6MB、yolov9m.ptは39.0MB。
+                        ちなみに、開発元のYOLOv9学習済モデルは名称とファイルサイズが異なり、yolov9-t.ptはエラーで取得できずサイズ不明（2024年9月時点）、yolov9-s.ptは19.4MB、yolov9-m.ptは63.3MBとなっている。
+                    </ul>
+                <li>学習結果が runs\detect\ フォルダの train から始まる名前のフォルダに格納される。
+                    <ul class="indent">
+                        <li>weights\last.ptが最終の学習モデル（重みデータ）で、weights\best.ptが最も精度が良かった学習モデル（重みデータ）である。
+                    </ul>
+            </ul>
+        </section>
 
-	<h4>YOLOv10を訓練する方法</h4>
-    <p class="text">
-	<ul>
-	<li>学習済みモデルをYOLOv10開発元GitHubから取得する（以下はWindows PowerShellのwgetを利用して取得する例）。
-	<div class="box">
-	<pre>
+        
+        <h4>YOLOv10を訓練する方法</h4>
+        <section class="indent">
+            <ul>
+                <li>学習済みモデルをYOLOv10開発元GitHubから取得する（以下はWindows PowerShellのwgetを利用して取得する例）。
+                    <div class="box indent">
+                        <pre>
 wget https://github.com/THU-MIG/yolov10/releases/download/v1.1/yolov10n.pt -OutFile yolov10n.pt
 wget https://github.com/THU-MIG/yolov10/releases/download/v1.1/yolov10s.pt -OutFile yolov10s.pt
 wget https://github.com/THU-MIG/yolov10/releases/download/v1.1/yolov10m.pt -OutFile yolov10m.pt
-	</pre>
-	</div>
-		<ul>
-		<li>YOLOv10にはサイズおよび精度の異なる6種類のモデル n,s,m,b,l,x があり、この順にサイズが大きくなり処理時間が長くなる。ここでは小さい3モデル（yolov10n.pt、yolov10s.pt、yolov10m.pt）を取得している。
-		<li>yolov10n.ptは10.9MB、yolov10s.ptは31.4MB、yolov10m.ptは63.8MB。
-		</ul>
-	<li>テキストエディタで訓練スクリプト[train.py]を作成する。
-	<div class="box">
-	<pre>
+                        </pre>
+                    </div>
+                    <ul class="indent">
+                        <li>YOLOv10にはサイズおよび精度の異なる6種類のモデル n,s,m,b,l,x があり、この順にサイズが大きくなり処理時間が長くなる。ここでは小さい3モデル（yolov10n.pt、yolov10s.pt、yolov10m.pt）を取得している。
+                        <li>yolov10n.ptは10.9MB、yolov10s.ptは31.4MB、yolov10m.ptは63.8MB。
+                    </ul>
+                <li>テキストエディタで訓練スクリプト[train.py]を作成する。
+                    <div class="box indent">
+                        <pre>
 from ultralytics import YOLO
 if __name__ == '__main__':
-	model = YOLO("yolov10n.pt")
-	results = model.train(data='mydata.yaml', epochs=100, imgsz=640)
-	</pre>
-	</div>
-		<ul>
-		<li>ここでは最も小さいtモデル（yolov10n.pt）をもとに転移学習している。yolov10s.pt、yolov10m.ptなど適宜使用するモデルを指定する。
-		</ul>
-	<li>訓練スクリプト[train.py]を実行する。
-	<div class="box2">
-	<pre>
+    model = YOLO("yolov10n.pt")
+    results = model.train(data='mydata.yaml', epochs=100, imgsz=640)
+                        </pre>
+                    </div>
+                    <ul class="indent">
+                        <li>ここでは最も小さいtモデル（yolov10n.pt）をもとに転移学習している。yolov10s.pt、yolov10m.ptなど適宜使用するモデルを指定する。
+                    </ul>
+                <li>訓練スクリプト[train.py]を実行する。
+                    <div class="box2 indent">
+                        <pre>
 python train.py
-	</pre>
-	</div>
-	<li>学習結果が runs\detect\ フォルダの train から始まる名前のフォルダに格納される。
-		<ul>
-		<li>weights\last.ptが最終の学習モデル（重みデータ）で、weights\best.ptが最も精度が良かった学習モデル（重みデータ）である。
-		</ul>
-	</ul>
-	</p>
-
-	<h3>検出性能の比較</h3>
-	<div class="text">
-	2時間25分7秒の撮影映像（1920x1980画素、29.97fps）から5秒おきに抽出したフレーム画像の中でカメが映り込んでいる880画像に対して、
-	複数の学習モデルで検出を行った結果を比較する。
-	<ul>
-		<li>検出数は画像に映り込んでいるカメを正しく検出した回数、誤検出数は画像中のカメではないモノをカメとして検出した回数。
-		<li>検出数が多く誤検出数が少ない方が良い。最終的には用途に応じた検出数と誤検出数のバランスを踏まえて適切な条件を選択する。
-	</ul>
-	</div>
-
-	<h4>AIモデルとEpoch数（学習回数）による性能比較</h4>
-	<img src="img/graph_y8910epoch.png">
-	<div class="text">
-	<ul>
-	<li>Epoch数が多いほど良いわけではない。学習データの品質および性能評価指標の推移曲線に基づいて適切なEcoch数を選択する。
-	<li>本実験の学習画像は、撮影日や撮影位置の異なる複数の撮影映像から抽出した640x640画素サイズの454画像。
-	<li>学習時間は使用機器性能・モデルサイズ・学習パラメータ値によって異なり、学習画像数やEpoch数に比例する。
-	
-	</ul>
-	</div>
-
-	<h4>AIモデルとモデルサイズによる性能比較</h4>
-	<img src="img/graph_y8910size.png"><br>
-	<img src="img/graph_y8910dtime.png">
-	<div class="text">
-	<ul>
-	<li>YOLOv10はYOLOv8・v9に比べて検出性能が低い。また、YOLOv9はYOLOv8・v10に比べて検出時間が長く、
-	実験に用いた低性能GPUマシンでは秒30コマのリアルタイム処理を実現できない。
-	<li>大きいモデルの方が検出性能が高いが、大きいモデルで学習するためには高性能のGPUマシンが必要になる。
-	<li>YOLOv8・v10の画像毎の検出時間はいずれも33ms以下であり、フルHD解像度で秒30コマのリアルタイム検出を実現できる。
-	<li>本実験の学習画像は、撮影日や撮影位置の異なる複数の撮影映像から抽出した640x640画素サイズの454画像。Epoch数は100。
-	<li>学習時間は使用機器性能・モデルサイズ・学習パラメータ値によって異なり、学習画像数やEpoch数に比例する。
-	低性能GPUマシンでの学習時間実測値は、YOLOv8nが12分、YOLOv8sが20分、YOLOv8mが236分、
-	YOLOv9tが24分、YOLOv9sが34分、YOLOv9mが56分、YOLOv10nが15分、YOLOv10sが40分、YOLOv10mが7時間34分、
-	</ul>
-	</div>
-
-	<h3>感触</h3>
-	<div class="text">
-	<ul>
-	<li>用途と使い方によって変わるだろうが、低性能GPUマシン前提の場合は総じてYOLOv8sの使い勝手が良い印象である。
-	YOLOv8sを使用して、学習データの質と量を向上させるのが得策だろう。
-	<li>YOLOv9・v10は発表されてからまだ時間が経っておらず、今後使い方や性能が向上する可能性がある。
-	また、YOLOv9のMIT license版実装の完成度が高まり使えるようになれば、ビジネス応用時の自由度が高まるため、
-	改めて性能を評価すべきだろう（Chien-Yao Wang氏チームの実装能力に期待している）。
-	</ul>
-	</div>
-
-	<!--
-	AIの検出性能を向上させる方法
-	・検出性能を評価する方法
-	・学習画像数による性能比較
-	-->
-
-</main>
-
-<footer>
-	<div class="footer-left">
-	<a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="Instagram" width=32 height=32></a>
-	</div>
-	<div class="footer-center"><a href="keeper.html">飼育係</a><a href="sitemap.html">サイトマップ</a>
-	<a href="search.html">検索</a>
-	</div>
-	<div class="footer-right"><a href="copyright.html">&copy; 2024 Ishigame65.</a></div>
-	<div class="clear"></div>
-</footer>
-
-<script src="popup.js"></script>
-
+                        </pre>
+                    </div>
+                <li>学習結果が runs\detect\ フォルダの train から始まる名前のフォルダに格納される。
+                    <ul class="indent">
+                        <li>weights\last.ptが最終の学習モデル（重みデータ）で、weights\best.ptが最も精度が良かった学習モデル（重みデータ）である。
+                    </ul>
+            </ul>
+        </section>
+    
+        <h3>検出性能の比較</h3>
+        <section class="indent">
+            2時間25分7秒の撮影映像（1920x1980画素、29.97fps）から5秒おきに抽出したフレーム画像の中でカメが映り込んでいる880画像に対して、
+            複数の学習モデルで検出を行った結果を比較する。
+            <ul>
+                <li>検出数は画像に映り込んでいるカメを正しく検出した回数、誤検出数は画像中のカメではないモノをカメとして検出した回数。
+                <li>検出数が多く誤検出数が少ない方が良い。最終的には用途に応じた検出数と誤検出数のバランスを踏まえて適切な条件を選択する。
+            </ul>
+        </section>
+        
+        <h4>AIモデルとEpoch数（学習回数）による性能比較</h4>
+        <section class="indent">
+            <img src="img/graph_y8910epoch.png">
+            <ul>
+                <li>Epoch数が多いほど良いわけではない。学習データの品質および性能評価指標の推移曲線に基づいて適切なEcoch数を選択する。
+                <li>本実験の学習画像は、撮影日や撮影位置の異なる複数の撮影映像から抽出した640x640画素サイズの454画像。
+                <li>学習時間は使用機器性能・モデルサイズ・学習パラメータ値によって異なり、学習画像数やEpoch数に比例する。
+            </ul>
+        </section>
+    
+        <h4>AIモデルとモデルサイズによる性能比較</h4>
+        <section class="indent">
+            <img src="img/graph_y8910size.png"><br>
+            <img src="img/graph_y8910dtime.png">
+            <ul>
+                <li>YOLOv10はYOLOv8・v9に比べて検出性能が低い。また、YOLOv9はYOLOv8・v10に比べて検出時間が長く、
+                実験に用いた低性能GPUマシンでは秒30コマのリアルタイム処理を実現できない。
+                <li>大きいモデルの方が検出性能が高いが、大きいモデルで学習するためには高性能のGPUマシンが必要になる。
+                <li>YOLOv8・v10の画像毎の検出時間はいずれも33ms以下であり、フルHD解像度で秒30コマのリアルタイム検出を実現できる。
+                <li>本実験の学習画像は、撮影日や撮影位置の異なる複数の撮影映像から抽出した640x640画素サイズの454画像。Epoch数は100。
+                <li>学習時間は使用機器性能・モデルサイズ・学習パラメータ値によって異なり、学習画像数やEpoch数に比例する。
+                低性能GPUマシンでの学習時間実測値は、YOLOv8nが12分、YOLOv8sが20分、YOLOv8mが236分、
+                YOLOv9tが24分、YOLOv9sが34分、YOLOv9mが56分、YOLOv10nが15分、YOLOv10sが40分、YOLOv10mが7時間34分、
+            </ul>
+            </section>
+    
+        <h3>感触</h3>
+        <section class="indent">
+            <ul>
+                <li>用途と使い方によって変わるだろうが、低性能GPUマシン前提の場合は総じてYOLOv8sの使い勝手が良い印象である。
+                YOLOv8sを使用して、学習データの質と量を向上させるのが得策だろう。
+                <li>YOLOv9・v10は発表されてからまだ時間が経っておらず、今後使い方や性能が向上する可能性がある。
+                また、YOLOv9のMIT license版実装の完成度が高まり使えるようになれば、ビジネス応用時の自由度が高まるため、
+                改めて性能を評価すべきだろう（Chien-Yao Wang氏チームの実装能力に期待している）。
+            </ul>
+        </section>
+    </main>
+    <footer> <!-- フッターコンテンツ -->
+    </footer>
+</div>
+    
 </body>
 </html>

@@ -1,132 +1,131 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-	<meta name="description" content="亀のブロックつぶしゲーム（PC版）">
-	<title>亀のブロックつぶしゲーム（PC版）</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">    
+	<meta name="description" content="亀のブロックつぶし">
 	<link rel="shortcut icon" href="img/kame.ico">
-	<link rel="stylesheet" href="common.css">
+	<title>亀のブロックつぶし</title>
 </head>
-
 <style>
-input[type="button"] {
-	border-radius: 0.3em;
-	border: 1px solid #6aa;
-	background: #aee;
-	padding: 3px 6px;
-}
-#GAME {
-	width: 410px;
-	padding: 20px;
-}
-#CANVAS1 {
-	background: #fff;
-	border: 1px solid gray;
-}
-#INTERVAL {
-	
-	text-align: right;
-}
-#SCORE {
-	margin-top: 10px;
-	text-align: center;
-	font-size: 16pt;
-}
-#HISTORY {
-	width: 400px;
-	height: 200px;
-}
-.box2 {
-	margin: 0px 20px;
-	width: 95%;
-	padding: 5px;
-	border: 1px solid gray;
-}
-@media (max-width: 670px) {
-}
+    input[type="button"] {
+        border-radius: 0.3em;
+        border: 1px solid #6aa;
+        background: #aee;
+        padding: 3px 6px;
+    }
+    #GAME {
+        width: 410px;
+        padding: 20px;
+    }
+    #CANVAS1 {
+        /* width: 400px; */
+        background: #fff;
+        border: 1px solid gray;
+    }
+    #INTERVAL {        
+        text-align: right;
+    }
+    #SCORE {
+        margin-top: 10px;
+        text-align: center;
+        font-size: 16pt;
+    }
+    #HISTORY {
+        width: 400px;
+        height: 200px;
+    }
+    .box2 {
+        /* margin: 0px 20px; */
+        width: 95%;
+        padding: 5px;
+        border: 1px solid gray;
+    }
 </style>
-
 <body>
+ 
+<!-- input・label・ドロワーメニューはbody直下 -->
+<input id="check_input" type="checkbox">
+<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+    <span></span>
+</label>
+<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+
+<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+    <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="intro.html">経緯と方針</a></li>
+        <li><a href="menu.html">飼育環境</a></li>
+        <li><a href="maintenance.html">日々の管理</a></li>
+        <li><a href="entertainment.html">遊び</a></li>
+        <li><a href="keeper.html">飼育係</a></li>
+    </ul>
+    <ul id="menu2nd">
+        <li>&nbsp;</li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li>&nbsp;</li>
+        <li><a href="links.html">リンク</a></li>
+        <li><a href="copyright.html">サイトポリシー</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+        <li><a href="search.html">サイト内検索</a></li>
+    </ul>
+</div>
 
 <header>
-	<a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a>
-	<nav>
-		<a href="index.html"><b>Top</b></a>
-		<a href="intro.html">経緯と方針</a>
-		<a href="menu.html">飼育環境</a>
-		<a href="maintenance.html">日々の管理</a>
-	</nav>
-	<div class="clear"></div>
+    <h1><a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a></h1>
 </header>
 
-<main>
-	<ul class="breadcrumb">
-		<li><a href="index.html">Top</a></li>
-		<li>亀のブロックつぶしゲーム（PC版）</li>
-	</ul>
-
-	<h2 class="title">亀のブロックつぶしゲーム（PC版）</h2>
-	
-	<p class="text">
-	</p>
-	<div class="box2">
-		亀を上下左右の矢印キーで動かしてブロックをつぶすゲームです。
-		<ul>
-		<li>ブロックの上に乗って下矢印キーでブロックを押しつぶします。
-		<li>複数段のブロックを連続的に押しつぶすことはできません。
-		<li>孤立ブロックは横から左右キーで勢いよく押せば動かせます。
-		<li>2段以上の段差は登れません。
-		<li>レベルは大きい数値の方が難易度が高くなります。
-		<li>ブロック生成間隔は新しいブロックを生成する時間の間隔を表します。		
-		</ul>
-		※ 1980年代の雑誌パロディ版アスキーに掲載されていたゲーム「ブロックつぶし」を思い出しながら作成しましたが、
-		記憶がかなり曖昧なのでオリジナル版とは違っていると思います。
-		<!-- 年刊AhSKI! -->
-	</div>
-
-	<div id="GAME">
-	<div class="text">
-		亀の歩く速度:  
-		<label><input type="radio" name="SPEED" value="2" checked="">普通</label>
-		<label><input type="radio" name="SPEED" value="3">速い</label>
-	</div>
-	<div class="text">
-	レベル 
-	<label><input type="radio" name="LEVEL" value="0.2" checked="">1</label>
-	<label><input type="radio" name="LEVEL" value="0.4">2</label>
-	<label><input type="radio" name="LEVEL" value="0.6">3</label>
-	<label><input type="radio" name="LEVEL" value="0.8">4</label>
-	<label><input type="radio" name="LEVEL" value="1.0">5</label>
-	<div id="INTERVAL">ブロック生成間隔: 80</div><br>
-	</div>
-
-	<canvas id="CANVAS1"></canvas><br>
-
-	<input type="button" value="開始" onclick="app.start();"/>
-	<input type="button" value="停止" onclick="app.stop();"/>
-
-	<div id="SCORE">Score: 0</div>
-
-	<h4>履歴</h4>
-	<textarea id="HISTORY" style="overflow:auto;"></textarea>
-
-	</div>
-
-</main>
-
-<footer>
-	<div class="footer-left">
-	<a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="Instagram" width=32 height=32></a>
-	</div>
-	<div class="footer-center"><a href="keeper.html">飼育係</a><a href="sitemap.html">サイトマップ</a>
-	<a href="search.html">検索</a>
-	</div>
-	<div class="footer-right"><a href="copyright.html">&copy; 2024 Ishigame65.</a></div>
-	<div class="clear"></div>
-</footer>
-
-<script src="blockcrushing.min.js"></script>
+<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
+    <main> <!-- メインコンテンツ -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html">Top</a></li>
+                <li><a href="entertainment.html">遊び</a></li>
+                <li>亀のブロックつぶし</li>
+            </ul>
+        </div> <!-- breadcrumb -->
+        <h2>亀のブロックつぶし</h2>
+        <section class="indent">
+            <div class="box2">
+                亀を上下左右の矢印キーで動かしてブロックをつぶすPCゲームです。
+                <ul class="indent">
+                    <li>ブロックの上に乗って下矢印キーでブロックを押しつぶします。
+                    <li>複数段のブロックを連続的に押しつぶすことはできません。
+                    <li>孤立ブロックは横から左右キーで勢いよく押せば動かせます。
+                    <li>2段以上の段差は登れません。
+                    <li>レベルは大きい数値の方が難易度が高くなります。
+                    <li>ブロック生成間隔は新しいブロックを生成する時間の間隔を表します。		
+                </ul>
+                ※ 1980年代の雑誌パロディ版アスキーに掲載されていたゲーム「ブロックつぶし」を思い出しながら作成しましたが、
+                記憶がかなり曖昧なのでオリジナル版とは違っていると思います。
+                <!-- 年刊AhSKI! -->
+            </div>        
+            <div id="GAME">
+                亀の歩く速度:  
+                <label><input type="radio" name="SPEED" value="2" checked="">普通</label>
+                <label><input type="radio" name="SPEED" value="3">速い</label><br>
+                レベル 
+                <label><input type="radio" name="LEVEL" value="0.2" checked="">1</label>
+                <label><input type="radio" name="LEVEL" value="0.4">2</label>
+                <label><input type="radio" name="LEVEL" value="0.6">3</label>
+                <label><input type="radio" name="LEVEL" value="0.8">4</label>
+                <label><input type="radio" name="LEVEL" value="1.0">5</label>
+                <div id="INTERVAL">ブロック生成間隔: 80</div><br>
+                <canvas id="CANVAS1"></canvas><br>            
+                <input type="button" value="開始" onclick="app.start();"/>
+                <input type="button" value="停止" onclick="app.stop();"/>            
+                <div id="SCORE">Score: 0</div>            
+                <h4>履歴</h4>
+                <textarea id="HISTORY" style="overflow:auto;"></textarea>
+            </div>
+        </section>
+    </main>
+    <footer> <!-- フッターコンテンツ -->
+    </footer>
+</div>
+    
+<script src="js/blockcrushing.min.js"></script>
 
 </body>
 </html>

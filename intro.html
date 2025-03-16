@@ -1,93 +1,114 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-	<meta name="description" content="Ishigame65の経緯と方針">
-	<title>経緯と方針</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">    
+    <link rel="stylesheet" href="css/popup.css">
+	<meta name="description" content="Ishigame65 - 経緯と方針">
 	<link rel="shortcut icon" href="img/kame.ico">
-	<link rel="stylesheet" href="common.css">
-	<link rel="stylesheet" href="popup.css">
+	<title>Ishigame65 - 経緯と方針</title>
 </head>
+<style>
+
+</style>
 <body>
+ 
+<!-- input・label・ドロワーメニューはbody直下 -->
+<input id="check_input" type="checkbox">
+<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+    <span></span>
+</label>
+<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+
+<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+    <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="intro.html">経緯と方針</a></li>
+        <li><a href="menu.html">飼育環境</a></li>
+        <li><a href="maintenance.html">日々の管理</a></li>
+        <li><a href="entertainment.html">遊び</a></li>
+        <li><a href="keeper.html">飼育係</a></li>
+    </ul>
+    <ul id="menu2nd">
+        <li>&nbsp;</li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li>&nbsp;</li>
+        <li><a href="links.html">リンク</a></li>
+        <li><a href="copyright.html">サイトポリシー</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+        <li><a href="search.html">サイト内検索</a></li>
+    </ul>
+</div>
 
 <header>
-	<a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a>
-	<nav>
-		<a href="index.html">Top</a>
-		<a href="intro.html"><b>経緯と方針</b></a>
-		<a href="menu.html">飼育環境</a>
-		<a href="maintenance.html">日々の管理</a>
-	</nav>
-	<div class="clear"></div>
+    <h1><a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a></h1>
 </header>
 
-<main>
-	<ul class="breadcrumb">
-		<li><a href="index.html">Top</a></li>
-		<li>経緯と方針</li>
-	</ul>
-	<h2 class="title">経緯</h2>
-    <p class="text">イシガメ（日本石亀）を飼うのは、想像以上に手間が掛かる。</p>	
-    <p class="text">一番大変なのは水質の維持。
-    イシガメは陸地よりも水中にいる時間の方が長く、水中で餌（エサ）を食べ、よく排泄する。
-    亀専用の人工飼料を与えるが、どうしても食べる量より多く与えてしまい食べ残りが発生してしまう。
-    最初は屋内の<a href="" class="popup-open" data-modal-btn="modal01">薄型コンテナボックス</a>で飼っていたが、
-	食べ残した餌と排せつ物ですぐに水が汚れ、毎日の水替えがけっこう大変だった。
-    その後、<a href="" class="popup-open" data-modal-btn="modal02">より大きなコンテナボックス</a>に変え、
-	水量を多くして自製の外部濾過器を設置したところ、
-    水替えをしなくても水質を維持できるようになったが、夜中の水中ポンプの動作音が気になった。</p>
-    <p class="text">次に問題になったのはイシガメの越冬と旅行だった。
-    イシガメを屋内の水槽で飼う場合は冬眠しないため、
-    外部濾過器や水中ヒータを稼働させ続ける必要があるが、
-    外部濾過器のトラブルで周りが水浸しになるリスクが無いとは言えない。
-    実際にトラブルが起きたことは無いが、安心して家を留守にすることはできない。</p>
-    <p class="text">そこで、できるだけ楽をして課題を解決するため、屋外飼育で冬眠させることにした。
-    イシガメも屋内の人工的なコンテナボックス環境よりも、
-    もっと大きな池と陸地と太陽がある環境の方がのびのびと暮らせると考えた。</p>
-	<h2 class="title">方針</h2>
-    <p class="text">省力化しつつ水質を維持するためビオトープ化を目指す。</p>
-    <p class="text">イシガメ用の土地を確保し、大きめの人工池（たらい）で水量を確保することで、水温と水質をできるだけ安定させる。</p>
-    <p class="text">池底に硬質赤玉土と小粒玉砂利を敷き、外部濾過器と合わせて生物濾過する。</p>
-    <p class="text">食べ残した餌や夏場に発生する苔の掃除のため、また非常食用の餌として、
-    メダカ（黒メダカ）とヌマエビ（ミナミヌマエビ）とタニシ（ヒメタニシ）を同居させる。</p>
-    <p class="text">冬は落ち葉を投入して水中冬眠させる。</p>
-    <p class="text">まずは水質に敏感なヌマエビが繁殖する環境を作ることが大事である。
-    ヌマエビが繁殖する環境ならメダカやタニシも繁殖し、イシガメも快適に暮らせるはず。</p>
-	<div class="popup-wrap" data-modal-cont="modal01"><div class="popup-back"></div>
-	  <div class="popup-inner"><span class="popup-close"></span>
-		<div class="popup-contents">
-			<img src="img/igbox1.jpg">
-			<p class="popup-text">
-			コンテナボックスの蓋中央をくり抜いてワイヤーネットを取り付けた（マス目に合わせた切り込みに嵌め込んでグルーガンで接着）
-			<ul class="marker01">
-			<li>コンテナボックス#22（545x379x178）
-			<li>ワイヤーネット29.5×44cm、8x12マス（100均）
-			</ul></p></div></div></div>
-	<div class="popup-wrap" data-modal-cont="modal02"><div class="popup-back"></div>
-	  <div class="popup-inner"><span class="popup-close"></span>
-		<div class="popup-contents">
-			<img src="img/igbox2.jpg">
-			<p class="popup-text">
-			コンテナボックスの蓋中央をくり抜いてワイヤーネットを取り付けた（マス目に合わせた切り込みに嵌め込んでグルーガンで接着）
-			<ul class="marker01">
-			<li>コンテナボックス ロックス660L（660x440x320）
-			<li>ワイヤーネット36.5×47.5cm、10x13マス（100均）
-			</ul></p></div></div></div>
-</main>
-
-<footer>
-	<div class="footer-left">
-	<a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="Instagram" width=32 height=32></a>
-	</div>
-	<div class="footer-center"><a href="keeper.html">飼育係</a><a href="sitemap.html">サイトマップ</a>
-	<a href="search.html">検索</a>
-	</div>
-	<div class="footer-right"><a href="copyright.html">&copy; 2024 Ishigame65.</a></div>
-	<div class="clear"></div>
-</footer>
-
-<script src="popup.js"></script>
-
+<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
+    <main> <!-- メインコンテンツ -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html">Top</a></li>
+                <li>経緯と方針</li>
+            </ul>
+        </div> <!-- breadcrumb -->
+        <h2>経緯</h2>
+        <section class="indent">
+            <p>イシガメ（日本石亀）を飼うのは、想像以上に手間が掛かる。</p>	
+            <p>一番大変なのは水質の維持。
+            イシガメは陸地よりも水中にいる時間の方が長く、水中で餌（エサ）を食べ、よく排泄する。
+            亀専用の人工飼料を与えるが、どうしても食べる量より多く与えてしまい食べ残りが発生してしまう。
+            最初は屋内の<a href="" class="popup-open" data-modal-btn="modal01">薄型コンテナボックス</a>で飼っていたが、
+            食べ残した餌と排せつ物ですぐに水が汚れ、毎日の水替えがけっこう大変だった。
+            その後、<a href="" class="popup-open" data-modal-btn="modal02">より大きなコンテナボックス</a>に変え、
+            水量を多くして自製の外部濾過器を設置したところ、
+            水替えをしなくても水質を維持できるようになったが、夜中の水中ポンプの動作音が気になった。</p>
+            <p>次に問題になったのはイシガメの越冬と旅行だった。
+            イシガメを屋内の水槽で飼う場合は冬眠しないため、
+            外部濾過器や水中ヒータを稼働させ続ける必要があるが、
+            外部濾過器のトラブルで周りが水浸しになるリスクが無いとは言えない。
+            実際にトラブルが起きたことは無いが、安心して家を留守にすることはできない。</p>
+            <p>そこで、できるだけ楽をして課題を解決するため、屋外飼育で冬眠させることにした。
+            イシガメも屋内の人工的なコンテナボックス環境よりも、
+            もっと大きな池と陸地と太陽がある環境の方がのびのびと暮らせると考えた。</p>
+        </section>
+        <h2>方針</h2>
+        <section class="indent">
+            <p>省力化しつつ水質を維持するためビオトープ化を目指す。</p>
+            <p>イシガメ用の土地を確保し、大きめの人工池（たらい）で水量を確保することで、水温と水質をできるだけ安定させる。</p>
+            <p>池底に硬質赤玉土と小粒玉砂利を敷き、外部濾過器と合わせて生物濾過する。</p>
+            <p>食べ残した餌や夏場に発生する苔の掃除のため、また非常食用の餌として、
+            メダカ（黒メダカ）とヌマエビ（ミナミヌマエビ）とタニシ（ヒメタニシ）を同居させる。</p>
+            <p>冬は落ち葉を投入して水中冬眠させる。</p>
+            <p>まずは水質に敏感なヌマエビが繁殖する環境を作ることが大事である。
+            ヌマエビが繁殖する環境ならメダカやタニシも繁殖し、イシガメも快適に暮らせるはず。</p>
+            <div class="popup-wrap" data-modal-cont="modal01"><div class="popup-back"></div>
+              <div class="popup-inner"><span class="popup-close"></span>
+                <div class="popup-contents">
+                    <img src="img/igbox1.jpg">
+                    <p class="popup-text">
+                    コンテナボックスの蓋中央をくり抜いてワイヤーネットを取り付けた（マス目に合わせた切り込みに嵌め込んでグルーガンで接着）
+                    <ul class="marker01">
+                    <li>コンテナボックス#22（545x379x178）
+                    <li>ワイヤーネット29.5×44cm、8x12マス（100均）
+                    </ul></p></div></div></div>
+            <div class="popup-wrap" data-modal-cont="modal02"><div class="popup-back"></div>
+              <div class="popup-inner"><span class="popup-close"></span>
+                <div class="popup-contents">
+                    <img src="img/igbox2.jpg">
+                    <p class="popup-text">
+                    コンテナボックスの蓋中央をくり抜いてワイヤーネットを取り付けた（マス目に合わせた切り込みに嵌め込んでグルーガンで接着）
+                    <ul class="marker01">
+                    <li>コンテナボックス ロックス660L（660x440x320）
+                    <li>ワイヤーネット36.5×47.5cm、10x13マス（100均）
+                    </ul></p></div></div></div>
+        </section>
+    </main>
+    <footer> <!-- フッターコンテンツ -->
+    </footer>
+</div>
+    
+<script src="js/popup.js"></script>
 </body>
 </html>

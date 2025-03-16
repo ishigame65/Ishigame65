@@ -1,250 +1,284 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-	<meta name="description" content="Ishigame65のプロフィール">
-	<title>プロフィール</title>
-	<link rel="shortcut icon" href="img/kame.ico">
-	<link rel="stylesheet" href="common.css">
-</head>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="プロフィール">
+    <link rel="shortcut icon" href="img/kame.ico">
+    <title>プロフィール</title>
+</head>
 <style>
-.me {
-	float: right;
-	margin-right: 10px;
-	margin-top: 15px;
-	text-align: center;
-}
-.me img {
-	display: flex;
-}
-main img {
-	border-radius:3px;
-}
-.mini-photo img {
-	float: left;
-	width:120px;
-	height:120px;
-	border-radius:12px;
-}
-.mini-photo .desc {
-	font-size: 14px;
-	padding-top: 8px;
-}
-.mini-photo li {
-	padding-top: 2px;
-}
-.block {
-	display: inline-block;
-}
-.desc ul li:before {
-	color:lime;
-	content: "＊";
-	margin-left: 5px;
-}
-.sub_ul {
-	margin-left: 54px;
-	list-style-type: disc;
-}
-.sub_ul li:before {
-	content: none;
-}
-@media (max-width: 670px) {
-	.desc ul li:before {
-		margin-left: 0px;
-	}
-	.mini-photo img {
-		width:100px;
-		height:100px;
-		border-radius:9px;
-	}
-	.mini-photo .desc {
-		font-size: 12px;
-		padding-top: 3px;
-	}
-	.mini-photo li {
-		font-size: 12px;
-		padding-top: 2px;
-	}
-	.offer {
-		font-size: 12px;
-	}
-}
+    .me {
+        float: right;
+        margin-right: 20px;
+        margin-top: 15px;
+        text-align: center;
+    }
+    .me img {
+        display: flex;
+    }
+    main img {
+        border-radius: 3px;
+        margin-right: 7px;
+    }
+    .mini-photo img {
+        float: left;
+        width: 120px;
+        height: 120px;
+        border-radius: 12px;
+    }
+    .mini-photo .desc {
+        font-size: 14px;
+        padding-top: 8px;
+    }
+    .mini-photo li {
+        padding-top: 2px;
+    }
+    .block {
+        display: inline-block;
+    }
+    .desc ul {
+        list-style-type: none;
+    }
+    .desc ul li:before {
+        color: lime;
+        content: "＊";
+        margin-left: 5px;
+    }
+    .sub_ul {
+        margin-left: 54px;
+        list-style-type: disc;
+    }
+    .sub_ul li:before {
+        content: none;
+    }
+    @media (max-width: 670px) {
+        .desc ul li:before {
+            margin-left: 0px;
+        }
+        .mini-photo img {
+            width: 100px;
+            height: 100px;
+            border-radius: 9px;
+        }
+        .mini-photo .desc {
+            font-size: 12px;
+            padding-top: 3px;
+        }
+        .mini-photo li {
+            font-size: 12px;
+            padding-top: 2px;
+        }
+        .offer {
+            font-size: 12px;
+        }
+    }
 </style>
 
 <body>
-<header>
-	<a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a>
-	<nav>
-		<a href="index.html">Top</a>
-		<a href="intro.html">経緯と方針</a>
-		<a href="menu.html">飼育環境</a>
-		<a href="maintenance.html">日々の管理</a>
-	</nav>
-	<div class="clear"></div>
-</header>
 
-<main>
-	<ul class="breadcrumb">
-		<li><a href="index.html">Top</a></li>
-		<li><a href="keeper.html">飼育係</a></li>
-		<li>プロフィール</li>
-	</ul>
-	<div class="me"><img src="img/me.png" width=85 height=100></div>
-	<h2 class="title">プロフィール</h2>
-	<dl>
-	<div class="block">
-	<dt>生年月日</dt>
-	<dd><img src="img/mebirth.png"></dd>
-	</div>
-	<div class="block">
-	<dt>出身地</dt>
-	<dd><a href="kure.html"><img src="img/ondo.jpg"></a></dd>
-	</div>
-	<!-- <dt>仕事</dt>	
-	<dd>
-		<ul>
-		<li>前職：コンピュータを利用して何かに役立つモノを作る</li>
-		<li>現在：フリー
-			<ul class="sub_ul"><li><a href="https://phototools65.pages.dev/">PhotoTools65（使いやすい写真ツール）</a></li></ul>
-		</li>
-		</ul></dd>
-	<dd><p class="offer">※ お手伝いできることあればご連絡ください</p></dd> -->
-	<dt>遊び</dt>
-	<dd>
-		<ul>
-			<li><a href="https://phototools65.pages.dev/">PhotoTools65（使いやすい写真ツール）</a></li>
-		</ul></dd>
-	<dt>資格</dt>
-	<dd>
-		<ul>
-		<li>第1種情報処理技術者（歳がばれる）</li>
-		<li>色彩コーディネーター資格3級</li>
-		<li>中国語検定3級</li>
-		<li>フォークリフト運転技能講習</li>
-		</ul></dd>
-	<dd><p class="offer">※ いずれも趣味的に取得したため統一感が無い</p></dd>
-	<dt>自慢</dt>
-	<dd>
-		<ul>
-		<li>計算機の1ビット（磁気コアメモリ）を見たことがある、しかもF77プログラムを作ってその計算機を動かした</li>
-		<li>J1ビザで渡米し大学助手としてアルバイトしたことがある、しかも確定申告時に連邦政府と州政府の税務窓口で言葉が通じずたらい回しにされた</li>
-		</ul></dd>
-	<dt>楽しみ</dt>
-	<dd>
-		<ul>
-		<li>行ったことのない場所に行って景色を見る、最近は近場が多い<br>
-		<div class="mini-photo">
-			<img id="tpic" src="img/pchina1.jpg" onclick="tselect()">
-			<div class="desc" id="ttext">dummy</div>
-			<div class="clear"></div>
-		</div></li>
-		<li>自転車で温泉に行って汗だくで帰り、シャワーを浴びてビールを飲む<br>
-		<div class="mini-photo">
-			<img id="bpic" src="img/bike1.jpg" onclick="bselect()">
-			<div class="desc" id="btext">dummy</div>
-			<div class="clear"></div>
-		</div></li>
-		<li>何かを作ったり描いたり撮ったり<br>
-		<div class="mini-photo">
-			<img id="mpic" src="img/brick1.jpg" onclick="mselect()">
-			<div class="desc" id="mtext">dummy</div>
-			<div class="clear"></div>
-		</div></li>
-		</ul></dd>
-	</dd>
-	</dl>
-</main>
+    <!-- input・label・ドロワーメニューはbody直下 -->
+    <input id="check_input" type="checkbox">
+    <label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+        <span></span>
+    </label>
+    <label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
 
-<footer>
-	<div class="footer-left">
-	<a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="Instagram" width=32 height=32></a>
-	</div>
-	<div class="footer-center"><a href="keeper.html"><b>飼育係</b></a><a href="sitemap.html">サイトマップ</a>
-	<a href="search.html">検索</a>
-	</div>
-	<div class="footer-right"><a href="copyright.html">&copy; 2024 Ishigame65.</a></div>
-	<div class="clear"></div>
-</footer>
+    <div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+        <ul>
+            <li><a href="index.html">TOP</a></li>
+            <li><a href="intro.html">経緯と方針</a></li>
+            <li><a href="menu.html">飼育環境</a></li>
+            <li><a href="maintenance.html">日々の管理</a></li>
+            <li><a href="entertainment.html">遊び</a></li>
+            <li><a href="keeper.html">飼育係</a></li>
+        </ul>
+        <ul id="menu2nd">
+            <li>&nbsp;</li>
+            <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt=""
+                        id="instaicon"></a></li>
+            <li>&nbsp;</li>
+            <li><a href="links.html">リンク</a></li>
+            <li><a href="copyright.html">サイトポリシー</a></li>
+            <li><a href="sitemap.html">サイトマップ</a></li>
+            <li><a href="search.html">サイト内検索</a></li>
+        </ul>
+    </div>
 
-<script>
-var tsrc = new Array("pchina1.jpg","psaitama1.jpg","pturkey.jpg","pitaly1.jpg",
-"pthai1.jpg","ptaiwan1.jpg","pitaly2.jpg","phawaii1.jpg","pitaly3.jpg","pjnavy1.jpg");
-var tdsc = new Array(
-"民主化戦車男より少し前の上海"+"<ul><li>神戸から船で48時間</li></ul>",
-"春日部の地下神殿"
-+"<ul><li>想像以上に巨大な貯水槽で壮観な景色</li></ul>",
-"トルコ黒海沿岸"
-+"<ul><li>イスタンブールから車でボスポラス海峡左岸を北上</li>"
-+"<li>レンタカーはフィアットベースのトルコ車だった</li></ul>",
-"アルベロベッロのトゥルッリ"
-+"<ul><li>南イタリアのバーリ駅からローカル鉄道で約2時間</li>"
-+"<li>トゥルッリはとんがり屋根の伝統的な家屋</li></ul>",
-"アユタヤ遺跡の近く"
-+"<ul><li>バンコク中央駅からタイ国鉄で約1時間半</li></ul>",
-"北埔の路地"
-+"<ul><li>竹東駅から10分以上歩き、路線バスで山道を約30分</li></ul>",
-"ボローニャ"
-+"<ul><li>フィレンツェからイタリア国鉄の都市間特急で約1時間半</li></ul>",
-"真珠湾のアリゾナ記念館"
-+"<ul><li>ワイキキから車で約30分</li>"
-+"<li>海軍基地にある慰霊施設で多くの退役軍人が訪れる</li>"
-+"<li>退役軍人に混じって、宣戦布告なき卑劣な騙し討ちであったことを宣伝する映像を見ないと記念館にたどり着けない</li></ul>",
-"ブラーノ島"
-+"<ul><li>ベネチア旧市街から水上バスで40分</li></ul>",
-"相模湾沖の海上自衛隊艦"
-+"<ul><li>観艦式でイージス艦こんごうから見た景色</li></ul>")
-var tindex = -1
-function tselect(){
-	do {
-		index = Math.floor(Math.random()*tsrc.length)
-	} while (index == tindex);
-	document.getElementById("tpic").src="img/" + tsrc[index];
-	document.getElementById("ttext").innerHTML=tdsc[index];
-	tindex = index
-}
-var bsrc = new Array("bike1.jpg","bike2.jpg","bike3.jpg");
-var bdsc = new Array(
-"半世紀前から立っているであろうキカイダーとクロモリ1号"
-+"<ul><li>クロモリ1号はイタ車カンパ仕様（→ <a href='bikeindex.html'>銀輪はたまに唄う</a>）</li></ul>", 
-"道端のコスモスとクロモリ2号"
-+"<ul><li>クロモリ2号はパナソニックWレバー仕様（→ <a href='bikeindex.html'>銀輪はたまに唄う</a>）</li></ul>",
-"日帰りで行った温泉で最も遠いのは群馬県の伊香保温泉"
-+"<ul><li>伊香保直前の上り坂で力尽き、帰りは輪行</li></ul>")
-var bindex = -1
-function bselect(){
-	do {
-		index = Math.floor(Math.random()*bsrc.length)
-	} while (index == bindex);
-	document.getElementById("bpic").src="img/" + bsrc[index];
-	document.getElementById("btext").innerHTML=bdsc[index];
-	bindex = index
-}
-var msrc = new Array("brick1.jpg","miniature1.jpg","miniature2.jpg","melon.jpg","phsaipan0.jpg");
-var mdsc = new Array(
-"花壇のレンガ積み"
-+"<ul><li>途中からモルタルで作った偽レンガ（庭から出てきた石や瓦礫を<a href='brickmold.html'>型枠</a>に入れてモルタルで固める）</li></ul>", 
-"小さなもの",
-"屋内水槽用の電源タップカバー"
-+"<ul><li>廃墟みたいと家族には概ね不評</li></ul>",
-"メロンパンナちゃん",
-"海の写真（→ <a href='photos.html'>あの日あの時あの場所の写真</a>）")
-var mindex = -1
-function mselect(){
-	do {
-		index = Math.floor(Math.random()*msrc.length)
-	} while (index == mindex);
-	document.getElementById("mpic").src="img/" + msrc[index];
-	document.getElementById("mtext").innerHTML=mdsc[index];
-	mindex = index
-}
-window.onload = function() {
-	tselect()
-	bselect()
-	mselect()
-}
-</script>
+    <header>
+        <h1><a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a></h1>
+    </header>
+
+    <div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
+        <main> <!-- メインコンテンツ -->
+            <div class="breadcrumb">
+                <ul>
+                    <li><a href="index.html">Top</a></li>
+                    <li><a href="keeper.html">飼育係</a></li>
+                    <li>プロフィール</li>
+                </ul>
+            </div> <!-- breadcrumb -->
+            <div class="me"><img src="img/me.png" width=85 height=100></div>
+            <h2>プロフィール</h2>
+            <section class="indent">
+                <dl>
+                    <div class="block">
+                        <dt>生年月日</dt>
+                        <dd><img src="img/mebirth.png"></dd>
+                    </div>
+                    <div class="block">
+                        <dt>出身地</dt>
+                        <dd><a href="kure.html"><img src="img/ondo.jpg"></a></dd>
+                    </div>
+                    <!-- <dt>仕事</dt>	
+                        <dd>
+                            <ul>
+                            <li>前職：コンピュータを利用して何かに役立つモノを作る</li>
+                            <li>現在：フリー
+                                <ul class="sub_ul"><li><a href="https://phototools65.pages.dev/">PhotoTools65（使いやすい写真ツール）</a></li></ul>
+                            </li>
+                            </ul></dd>
+                        <dd><p class="offer">※ お手伝いできることあればご連絡ください</p></dd> -->
+                    <dt>遊び</dt>
+                    <dd>
+                        <ul>
+                            <li><a href="https://phototools65.pages.dev/">PhotoTools65（使いやすい写真ツール）</a></li>
+                        </ul>
+                    </dd>
+                    <dt>資格</dt>
+                    <dd>
+                        <ul>
+                            <li>第1種情報処理技術者（歳がばれる）</li>
+                            <li>色彩コーディネーター資格3級</li>
+                            <li>中国語検定3級</li>
+                            <li>フォークリフト運転技能講習</li>
+                        </ul>
+                    </dd>
+                    <dd>
+                        <p class="offer">※ いずれも趣味的に取得したため統一感が無い</p>
+                    </dd>
+                    <dt>自慢</dt>
+                    <dd>
+                        <ul>
+                            <li>計算機の1ビット（磁気コアメモリ）を見たことがある、しかもF77プログラムを作ってその計算機を動かした</li>
+                            <li>J1ビザで渡米し大学助手としてアルバイトしたことがある、しかも確定申告時に連邦政府と州政府の税務窓口で言葉が通じずたらい回しにされた</li>
+                        </ul>
+                    </dd>
+                    <dt>楽しみ</dt>
+                    <dd>
+                        <ul>
+                            <li>行ったことのない場所に行って景色を見る、最近は近場が多い<br>
+                                <div class="mini-photo">
+                                    <img id="tpic" src="img/pchina1.jpg" onclick="tselect()">
+                                    <div class="desc" id="ttext">dummy</div>
+                                    <div class="clear"></div>
+                                </div>
+                            </li>
+                            <li>自転車で温泉に行って汗だくで帰り、シャワーを浴びてビールを飲む<br>
+                                <div class="mini-photo">
+                                    <img id="bpic" src="img/bike1.jpg" onclick="bselect()">
+                                    <div class="desc" id="btext">dummy</div>
+                                    <div class="clear"></div>
+                                </div>
+                            </li>
+                            <li>何かを作ったり描いたり撮ったり<br>
+                                <div class="mini-photo">
+                                    <img id="mpic" src="img/brick1.jpg" onclick="mselect()">
+                                    <div class="desc" id="mtext">dummy</div>
+                                    <div class="clear"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </dd>
+                    </dd>
+                </dl>
+            </section>
+        </main>
+        <footer> <!-- フッターコンテンツ -->
+        </footer>
+    </div>
+
+
+    <script>
+        var tsrc = new Array("pchina1.jpg", "psaitama1.jpg", "pturkey.jpg", "pitaly1.jpg",
+            "pthai1.jpg", "ptaiwan1.jpg", "pitaly2.jpg", "phawaii1.jpg", "pitaly3.jpg", "pjnavy1.jpg");
+        var tdsc = new Array(
+            "民主化戦車男より少し前の上海" + "<ul><li>神戸から船で48時間</li></ul>",
+            "春日部の地下神殿"
+            + "<ul><li>想像以上に巨大な貯水槽で壮観な景色</li></ul>",
+            "トルコ黒海沿岸"
+            + "<ul><li>イスタンブールから車でボスポラス海峡左岸を北上</li>"
+            + "<li>レンタカーはフィアットベースのトルコ車だった</li></ul>",
+            "アルベロベッロのトゥルッリ"
+            + "<ul><li>南イタリアのバーリ駅からローカル鉄道で約2時間</li>"
+            + "<li>トゥルッリはとんがり屋根の伝統的な家屋</li></ul>",
+            "アユタヤ遺跡の近く"
+            + "<ul><li>バンコク中央駅からタイ国鉄で約1時間半</li></ul>",
+            "北埔の路地"
+            + "<ul><li>竹東駅から10分以上歩き、路線バスで山道を約30分</li></ul>",
+            "ボローニャ"
+            + "<ul><li>フィレンツェからイタリア国鉄の都市間特急で約1時間半</li></ul>",
+            "真珠湾のアリゾナ記念館"
+            + "<ul><li>ワイキキから車で約30分</li>"
+            + "<li>海軍基地にある慰霊施設で多くの退役軍人が訪れる</li>"
+            + "<li>退役軍人に混じって、宣戦布告なき卑劣な騙し討ちであったことを宣伝する映像を見ないと記念館にたどり着けない</li></ul>",
+            "ブラーノ島"
+            + "<ul><li>ベネチア旧市街から水上バスで40分</li></ul>",
+            "相模湾沖の海上自衛隊艦"
+            + "<ul><li>観艦式でイージス艦こんごうから見た景色</li></ul>")
+        var tindex = -1
+        function tselect() {
+            do {
+                index = Math.floor(Math.random() * tsrc.length)
+            } while (index == tindex);
+            document.getElementById("tpic").src = "img/" + tsrc[index];
+            document.getElementById("ttext").innerHTML = tdsc[index];
+            tindex = index
+        }
+        var bsrc = new Array("bike1.jpg", "bike2.jpg", "bike3.jpg");
+        var bdsc = new Array(
+            "半世紀前から立っているであろうキカイダーとクロモリ1号"
+            + "<ul><li>クロモリ1号はイタ車カンパ仕様（→ <a href='bikeindex.html'>銀輪はたまに唄う</a>）</li></ul>",
+            "道端のコスモスとクロモリ2号"
+            + "<ul><li>クロモリ2号はパナソニックWレバー仕様（→ <a href='bikeindex.html'>銀輪はたまに唄う</a>）</li></ul>",
+            "日帰りで行った温泉で最も遠いのは群馬県の伊香保温泉"
+            + "<ul><li>伊香保直前の上り坂で力尽き、帰りは輪行</li></ul>")
+        var bindex = -1
+        function bselect() {
+            do {
+                index = Math.floor(Math.random() * bsrc.length)
+            } while (index == bindex);
+            document.getElementById("bpic").src = "img/" + bsrc[index];
+            document.getElementById("btext").innerHTML = bdsc[index];
+            bindex = index
+        }
+        var msrc = new Array("brick1.jpg", "miniature1.jpg", "miniature2.jpg", "melon.jpg", "phsaipan0.jpg");
+        var mdsc = new Array(
+            "花壇のレンガ積み"
+            + "<ul><li>途中からモルタルで作った偽レンガ（庭から出てきた石や瓦礫を<a href='brickmold.html'>型枠</a>に入れてモルタルで固める）</li></ul>",
+            "小さなもの",
+            "屋内水槽用の電源タップカバー"
+            + "<ul><li>廃墟みたいと家族には概ね不評</li></ul>",
+            "メロンパンナちゃん",
+            "海の写真（→ <a href='photos.html'>あの日あの時あの場所の写真</a>）")
+        var mindex = -1
+        function mselect() {
+            do {
+                index = Math.floor(Math.random() * msrc.length)
+            } while (index == mindex);
+            document.getElementById("mpic").src = "img/" + msrc[index];
+            document.getElementById("mtext").innerHTML = mdsc[index];
+            mindex = index
+        }
+        window.onload = function () {
+            tselect()
+            bselect()
+            mselect()
+        }
+    </script>
 
 </body>
+
 </html>
