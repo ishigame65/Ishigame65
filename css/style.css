@@ -8,8 +8,12 @@ body {
 
 }
 header, main {
-    margin-left: 20px;
-    /* min-width: 840px; */
+    margin-left: 1.5em;
+}
+footer {
+    margin-top: 1em;
+    background-color: lightgray;
+    height: 1em;
 }
 h2 {
     margin: 0.6em 0 0.2em;
@@ -20,8 +24,14 @@ h3 {
 dd {
     margin-left: 1em;
 }
-footer {
-    margin-top: 20px;
-    background-color: lightgray;
-    height: 20px;
+img {
+    max-width: 100%;
+}
+@media (max-width: 840px) {
+    body {
+        font-size: smaller;
+    }
+    header, main {
+        margin-left: 1em;
+    }   
 }
