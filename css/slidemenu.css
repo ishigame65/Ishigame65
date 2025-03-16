@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+/* input非表示 */
+#check_input {
+    display: none;
+}
+
+/* ハンバーガーボタン */
+#menu_btn {
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    background-color: honeydew;
+    cursor: pointer;
+}
+/* 三本線*/
+#menu_btn span,
+#menu_btn span::before,
+#menu_btn span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 25px;
+    border-radius: 3px;
+    background-color: #CE5D8B;
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1); /* アニメーションのイージング */
+}
+#menu_btn span::before {
+    bottom: 8px;
+}
+#menu_btn span::after {
+    top: 8px;
+}
+
+/* クリックされたら三本線が×に変化する */
+#check_input:checked ~ #menu_btn span {
+    background-color: transparent; 
+}
+#check_input:checked ~ #menu_btn span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+#check_input:checked ~ #menu_btn span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/* ドロワーメニュー */
+#menu_cont {
+    position: fixed;
+    top: 0;
+    left: 100%; /* left 100%で画面の外に出しておく */
+    height: 100%;
+    background-color: honeydew;
+    z-index: 90;
+    transition: left 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    display: flex;  /* メニュー2列 */
+    /* justify-content: space-between; */
+    gap: 10px;
+}
+
+/* ドロワーメニュー外の背景 */
+#drawer_back {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 80;
+}
+
+/* メニューリストの装飾 */
+#menu_cont ul {
+    /* background-color: green; */
+    margin-top: 20px;
+}
+
+#menu_cont ul#menu2nd {
+    /* background-color: green; */
+    margin-top: 35px;
+    font-size: smaller;
+}
+#menu_cont ul li {
+    list-style: none;
+    /* background-color: yellow; */
+}
+#menu_cont ul li a {
+    display: block;
+    width: 100%;
+    padding: 7px;   /* 調整 */
+    margin: 5px;
+    /* color: slateblue; */
+    color: black;
+    text-decoration: none;
+}
+#menu_cont ul li a:hover {
+    /* opacity: 0.7; */
+    opacity: 0.5;
+}
+
+/* クリックされたらドロワーメニュー表示 */
+#check_input:checked ~ #menu_cont {
+    width: 280px;
+    left: calc(100% - 280px);
+    top: 20px;
+}
+#check_input:checked ~ #drawer_back {
+    display: block;
+}
+
+/* wrapper コンテンツ */
+#wrapper {
+    position: relative;
+    left: 0;
+    transition: left 0.5s cubic-bezier(0.075, 0.82, 0.165, 1); /* ドロワーメニューと同じ設定にしておく */
+}
+#check_input:checked ~ #wrapper {
+    left: calc(192px - 90%);
+}
+#instaicon {
+    margin-left: 7px;
+    width: 18px;
+    height: 18px;
+    /* background-color: red; */
+    vertical-align: top;
+}
