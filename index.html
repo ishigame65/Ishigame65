@@ -18,7 +18,6 @@
     main {
         display: flex;  /* 2列 */
         justify-content: space-between;
- 
     }
     aside {
         display: flex;
@@ -29,13 +28,13 @@
     }
     aside img {
         width: 192px;
+        margin: 0 0 4px 4px;
     }
     /* article {
         background-color: green;
     } */
     h2 {
-        /* background-color: yellow; */
-        margin-top: 20px;
+        margin-top: 1em;
         text-align: center;
         color: olive;
         font-weight: normal;
@@ -58,7 +57,12 @@
     }
     @media (max-width: 840px) {
         video {
-            width: 430px;
+            /* width: 430px; */
+            width: 70%;
+        }
+        aside img {
+            width: 128px;
+    		margin: 0 0 2px 2px;
         }
     }
 </style>
@@ -101,7 +105,7 @@
             <!-- <video id="movie" src="img/igwm01.mp4" controls muted autoplay playsinline loop></video> -->
             <video id="movie" src="img/igwm01.mp4" controls muted playsinline loop></video>
             <h2>イシガメが快適に暮らす環境を作る</h2>
-            <h4 class="uc">工事中<br>現在スマホからの閲覧はできません<br>Comming Soon</h4>
+            <h4 class="uc">工事中<br>Comming Soon</h4>
         </article>
         <aside>
             <img src="img/igwm08p.jpg" onclick="setmovie('img/igwm08s.mp4')">
