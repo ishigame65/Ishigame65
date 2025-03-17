@@ -60,3 +60,11 @@ td.num_text {
 	color: #777;
 	font-weight: bold;
 }
+@media (max-width: 840px) {
+    .indent {
+        margin-left: 0.7em;
+    }
+    section .indent {
+        margin-left: 0.25em;
+    }
+}
