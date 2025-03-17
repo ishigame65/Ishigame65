@@ -19,14 +19,15 @@
         display: flex;  /* 2列 */
         justify-content: space-between;
     }
-    aside {
+    #thumbnail {
         display: flex;
         flex-direction: column;
+        /* text-align: right; */
         margin-right: 20px;
         height: calc(100vh - 120px);
         overflow-y: scroll;
     }
-    aside img {
+    #thumbnail img {
         width: 192px;
         margin: 0 0 4px 4px;
     }
@@ -46,7 +47,7 @@
         width: 840px;
     }
     video {
-        width: 600px;
+        max-width: 640px;
     }
     .uc { /* 工事中 */
         margin-top: 20px;
@@ -56,11 +57,17 @@
         border-radius: 30px;
     }
     @media (max-width: 840px) {
-        video {
-            /* width: 430px; */
-            width: 70%;
+        main {
+            display: initial;
         }
-        aside img {
+        #thumbnail {
+            display: initial;
+        }
+        video {
+            /* max-width: 640px; */
+            width: 100%;
+        }
+        #thumbnail img {
             width: 128px;
     		margin: 0 0 2px 2px;
         }
@@ -94,20 +101,20 @@
         <li><a href="search.html">サイト内検索</a></li>
     </ul>
 </div>
-
+<!-- main_movie thumbnail -->
 <header>
     <h1><a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a></h1>
 </header>
 
 <div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
     <main>
-        <article>
+        <div id="main_movie">
             <!-- <video id="movie" src="img/igwm01.mp4" controls muted autoplay playsinline loop></video> -->
-            <video id="movie" src="img/igwm01.mp4" controls muted playsinline loop></video>
+            <video src="img/igwm01.mp4" controls muted playsinline loop></video>
             <h2>イシガメが快適に暮らす環境を作る</h2>
             <h4 class="uc">工事中<br>Comming Soon</h4>
-        </article>
-        <aside>
+        </div>
+        <div id="thumbnail">
             <img src="img/igwm08p.jpg" onclick="setmovie('img/igwm08s.mp4')">
             <img src="img/igwm07p.jpg" onclick="setmovie('img/igwm07s.mp4')">
             <img src="img/igwm06p.jpg" onclick="setmovie('img/igwm06s.mp4')">
@@ -117,7 +124,7 @@
             <img src="img/igwm04p.jpg" onclick="setmovie('img/igwm04s.mp4')">
             <img src="img/igwm09p.jpg" onclick="setmovie('img/igwm09s.mp4')">
             <img src="img/igwm01p.jpg" onclick="setmovie('img/igwm01s.mp4')">
-        </aside>
+        </div>
 
     </main>
     <footer>
