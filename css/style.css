@@ -5,7 +5,6 @@
 
 body {
     background-color: honeydew;
-
 }
 header, main {
     margin-left: 1.5em;
@@ -15,6 +14,9 @@ footer {
     background-color: lightgray;
     height: 1em;
 }
+img, video {
+    max-width: 100%;
+}
 h2 {
     margin: 0.6em 0 0.2em;
 }
@@ -23,9 +25,6 @@ h3 {
 }
 dd {
     margin-left: 1em;
-}
-img {
-    max-width: 100%;
 }
 @media (max-width: 840px) {
     body {
