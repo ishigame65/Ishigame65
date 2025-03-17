@@ -1,241 +1,255 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-	<meta name="description" content="Ishigame65のクロモリ1号">
-	<title>クロモリ1号</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">    
+	<link rel="stylesheet" href="css/popup.css">
+   <meta name="description" content="クロモリ1号">
 	<link rel="shortcut icon" href="img/kame.ico">
-	<link rel="stylesheet" href="common.css">
-	<link rel="stylesheet" href="popup.css">
+	<title>クロモリ1号</title>
 </head>
-
 <style>
-#topimg {
-	border-radius: 3px;
-	max-width: 320px;
-	float:right;
-	margin-bottom: 10px;
-}
-.bkcanvas {
-	position: relative;
-	float: left;
-	width: 320px;
-	height: 190px;
-	margin-right: 30px;
-}
-.bkcanvas img {
-	width: 320px;	/* 640 x 380 */
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-.bkselect {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-}
-.bkselect a {
-	font-size: 14px;
-	margin-bottom: 2px;
-	white-space: nowrap;
-}
-.bkselect img {
-	display: inline-block;
-	width: 24px;
-	border-radius: 1px;
-	margin-bottom: -2px;
-	margin-left: 1px;
-	margin-right: 1px;
-}
-#bkreset {
-	clear:both;
-	margin-top: -30px;
-	margin-left: 260px;
-	margin-bottom: 0;
-}
-#note img {
-	display: inline-block;
-	border-radius: 1px;
-	width: 24px;
-	margin-bottom: -2px;
-	margin-left: 2px;
-}
-main hr {
-	/*
-	*/
-	margin-top: 5px;
-}
-@media (max-width: 670px) {
-	#topimg {
-		border-radius: 2px;
-		max-width: 288px;
-		margin-bottom: 5px;
-	}
-	.bkcanvas {
-		float: none;
-		/* 640 x 380 */
-		width: 288px;
-		height: 171px;
-	}
-	.bkcanvas img {
-		width: 288px;
-	}
-	.bkselect {
-		margin-top: 10px;
-		margin-left: 15px;
-		display: block;
-	}
-	.bkselect a {
-		display: inline-block;
-		font-size: 12px;
-		margin-left: 10px;
-		margin-bottom: 5px;
-	}
-	#bkreset {
-		margin-top: 0;
-	}
-}
+    #topimg {
+        border-radius: 3px;
+        max-width: 320px;
+        float:right;
+        margin-bottom: 10px;
+    }
+    .bkcanvas {
+        position: relative;
+        float: left;
+        width: 320px;
+        height: 190px;
+        margin-right: 30px;
+    }
+    .bkcanvas img {
+        width: 320px;	/* 640 x 380 */
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .bkselect {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    .bkselect a {
+        font-size: 14px;
+        margin-bottom: 2px;
+        white-space: nowrap;
+    }
+    .bkselect img {
+        display: inline-block;
+        width: 24px;
+        border-radius: 1px;
+        margin-bottom: -2px;
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+    #bkreset {
+        clear:both;
+        margin-top: -30px;
+        margin-left: 260px;
+        margin-bottom: 0;
+    }
+    #note img {
+        display: inline-block;
+        border-radius: 1px;
+        width: 24px;
+        margin-bottom: -2px;
+        margin-left: 2px;
+    }
+    main hr {
+        /*
+        */
+        margin-top: 5px;
+    }
+    @media (max-width: 670px) {
+        #topimg {
+            border-radius: 2px;
+            max-width: 288px;
+            margin-bottom: 5px;
+        }
+        .bkcanvas {
+            float: none;
+            /* 640 x 380 */
+            width: 288px;
+            height: 171px;
+        }
+        .bkcanvas img {
+            width: 288px;
+        }
+        .bkselect {
+            margin-top: 10px;
+            margin-left: 15px;
+            display: block;
+        }
+        .bkselect a {
+            display: inline-block;
+            font-size: 12px;
+            margin-left: 10px;
+            margin-bottom: 5px;
+        }
+        #bkreset {
+            margin-top: 0;
+        }
+    }
 </style>
-
 <body>
+ 
+<!-- input・label・ドロワーメニューはbody直下 -->
+<input id="check_input" type="checkbox">
+<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+    <span></span>
+</label>
+<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+
+<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+    <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="intro.html">経緯と方針</a></li>
+        <li><a href="menu.html">飼育環境</a></li>
+        <li><a href="maintenance.html">日々の管理</a></li>
+        <li><a href="entertainment.html">遊び</a></li>
+        <li><a href="keeper.html">飼育係</a></li>
+    </ul>
+    <ul id="menu2nd">
+        <li>&nbsp;</li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li>&nbsp;</li>
+        <li><a href="links.html">リンク</a></li>
+        <li><a href="copyright.html">サイトポリシー</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+        <li><a href="search.html">サイト内検索</a></li>
+    </ul>
+</div>
+
 <header>
-	<a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a>
-	<nav>
-		<a href="index.html">Top</a>
-		<a href="intro.html">経緯と方針</a>
-		<a href="menu.html">飼育環境</a>
-		<a href="maintenance.html">日々の管理</a>
-	</nav>
-	<div class="clear"></div>
+    <h1><a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a></h1>
 </header>
-<main>
-	<ul class="breadcrumb">
-		<li><a href="index.html">Top</a></li>
-		<li><a href="keeper.html">飼育係</a></li>
-		<li><a href="profile.html">プロフィール</a></li>
-		<li><a href="bikeindex.html">銀輪はたまに唄う</a></li>
-		<li>クロモリ1号</li>
-	</ul>
-	<h2 class="title">クロモリ1号</h2>
-	<img id="topimg" src="img/bkc1.jpg">
-	<p class="text">	
-	クロモリ（クロームモリブデン鋼）は鉄にクロムやモリブデンを加えた合金であり、
-	自転車に適した特性を持つため、古くから自転車のフレームに使われている。
-	クロモリで作られる自転車は、全体が細身で
-	トップチューブが地面と平行になるホリゾンタルフレームが良く似合い、その伝統的なフォルムが美しい。	
-	最新のカーボン素材のロードバイクに比べてレトロな雰囲気になるため、景色を楽しむツーリング用にも使いやすい。
-	</p>
-	<div class="clear"></div>
-	<p id="note" class="text"></p>
-	<div class="bkcanvas">
-		<!-- z-index未指定のため順序が重要 -->
-		<img id="bkspoke" src="img/bkspoke.png">
-		<img id="bkhub" src="img/bkhub.png">
-		<img id="bksprocket" src="img/bksprocket.png">
-		<img id="bkrim" src="img/bkrim.png">
-		<img id="bktire" src="img/bktire.png">
-		<img id="bkpillar" src="img/bkpillar.png">
-		<img id="bkframe" src="img/bkframe.png">
-		<img id="bksaddle" src="img/bksaddle.png">
-		<img id="bkcompo" src="img/bkcompo.png">
-		<img id="bkpedal" src="img/bkpedal.png">
-		<img id="bkstem" src="img/bkstem.png">
-		<img id="bkhandle" src="img/bkhandle.png">
-	</div>
-	<div class="bkselect">
-		<a href="javascript:bike_on('bkframe')">フレーム<img src="img/flagit.png"></a>
-		<a href="javascript:bike_on('bkcompo')">コンポーネント<img src="img/flagit.png"></a>
-		<a href="javascript:bike_on('bkhub')">ハブ<img src="img/flagit.png"></a>
-		<a href="javascript:bike_on('bkspoke')">スポーク<img src="img/flagch.png"></a>
-		<a href="javascript:bike_on('bkrim')">リム<img src="img/flagfr.png"></a>
-		<a href="javascript:bike_on('bktire')">タイヤ<img src="img/flagit.png"><img src="img/flagde.png"><img src="img/flagjp.png"></a>
-		<a href="javascript:bike_on('bkpillar')">シートポスト<img src="img/flagit.png"></a>
-		<a href="javascript:bike_on('bkstem')">ステム<img src="img/flagit.png"></a>
-		<a href="javascript:bike_on('bkhandle')">ハンドルバー<img src="img/flagit.png"></a>
-		<a href="javascript:bike_on('bkpedal')">ペダル<img src="img/flagjp.png"></a>
-		<a href="javascript:bike_on('bksaddle')">サドル<img src="img/flagit.png"></a>
-	</div>
-	<div id="bkreset"><a href="javascript:bike_reset()">Reset</a></div>
-	<p class="text">
-	<ul>
-		<li>組んで頂いた自転車屋はさいたま市のパワーコープ。当時遠方に住んでいたため東京出張のついでに寄らせていただき、全パーツを指定して注文した。
-		店内に<a href="" class="popup-open" data-modal-btn="modal01">Colnagoの芸術的なフレームがいくつも吊るしてあり</a>、実際のカラーリングを確認して注文することができた。
-		</li>
-		<li>ホイールはMavicオープンプロ（リム）＋DTSwissコンペティション（スポーク）＋Campanoloコーラス（ハブ）の手組み。個人的には至高の銀輪。</li>
-		<li>クロモリ素材であることも影響しているだろうが、感覚的には（ガチガチではなく）しなやかに仕上がっている印象で、
-		駆動系・制動系・ホイール周りは購入してから一度も調整していない。
-		他のバイクとは何かが違うと感じるが、素人なので具体的には理解できていない。
-		もしかしたら全てのパーツを神業的な精度（公差0）で組み上げているのかもしれない。</li>
-	</ul>
-	</p>
-	<hr>
-	<ul class="breadcrumb">
-		<li><a href="bikeindex.html">銀輪はたまに唄う</a></li>
-	</ul>
-	<div class="popup-wrap" data-modal-cont="modal01"><div class="popup-back"></div>
-	  <div class="popup-inner"><span class="popup-close"></span>
-		<div class="popup-contents">
-			<img src="img/bkpcoop1.jpg">
-			</div></div></div>
-</main>
-<footer>
-	<div class="footer-left">
-	<a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="Instagram" width=32 height=32></a>
-	</div>
-	<div class="footer-center"><a href="keeper.html"><b>飼育係</b></a><a href="sitemap.html">サイトマップ</a>
-	<a href="search.html">検索</a>
-	</div>
-	<div class="footer-right"><a href="copyright.html">&copy; 2024 Ishigame65.</a></div>
-	<div class="clear"></div>
-</footer>
+
+<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
+    <main> <!-- メインコンテンツ -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html">Top</a></li>
+                <li><a href="keeper.html">飼育係</a></li>
+                <li><a href="profile.html">プロフィール</a></li>
+                <li><a href="bikeindex.html">銀輪はたまに唄う</a>
+                <li>クロモリ1号</li>
+            </ul>
+        </div> <!-- breadcrumb -->
+        <h2>クロモリ1号</h2>
+        <section class="indent">
+            <img id="topimg" src="img/bkc1.jpg">
+            <p>	
+            クロモリ（クロームモリブデン鋼）は鉄にクロムやモリブデンを加えた合金であり、
+            自転車に適した特性を持つため、古くから自転車のフレームに使われている。
+            クロモリで作られる自転車は、全体が細身で
+            トップチューブが地面と平行になるホリゾンタルフレームが良く似合い、その伝統的なフォルムが美しい。	
+            最新のカーボン素材のロードバイクに比べてレトロな雰囲気になるため、景色を楽しむツーリング用にも使いやすい。
+            </p>
+            <div class="clear"></div>
+            <p id="note"></p>
+            <div class="bkcanvas">
+                <!-- z-index未指定のため順序が重要 -->
+                <img id="bkspoke" src="img/bkspoke.png">
+                <img id="bkhub" src="img/bkhub.png">
+                <img id="bksprocket" src="img/bksprocket.png">
+                <img id="bkrim" src="img/bkrim.png">
+                <img id="bktire" src="img/bktire.png">
+                <img id="bkpillar" src="img/bkpillar.png">
+                <img id="bkframe" src="img/bkframe.png">
+                <img id="bksaddle" src="img/bksaddle.png">
+                <img id="bkcompo" src="img/bkcompo.png">
+                <img id="bkpedal" src="img/bkpedal.png">
+                <img id="bkstem" src="img/bkstem.png">
+                <img id="bkhandle" src="img/bkhandle.png">
+            </div>
+            <div class="bkselect">
+                <a href="javascript:bike_on('bkframe')">フレーム<img src="img/flagit.png"></a>
+                <a href="javascript:bike_on('bkcompo')">コンポーネント<img src="img/flagit.png"></a>
+                <a href="javascript:bike_on('bkhub')">ハブ<img src="img/flagit.png"></a>
+                <a href="javascript:bike_on('bkspoke')">スポーク<img src="img/flagch.png"></a>
+                <a href="javascript:bike_on('bkrim')">リム<img src="img/flagfr.png"></a>
+                <a href="javascript:bike_on('bktire')">タイヤ<img src="img/flagit.png"><img src="img/flagde.png"><img src="img/flagjp.png"></a>
+                <a href="javascript:bike_on('bkpillar')">シートポスト<img src="img/flagit.png"></a>
+                <a href="javascript:bike_on('bkstem')">ステム<img src="img/flagit.png"></a>
+                <a href="javascript:bike_on('bkhandle')">ハンドルバー<img src="img/flagit.png"></a>
+                <a href="javascript:bike_on('bkpedal')">ペダル<img src="img/flagjp.png"></a>
+                <a href="javascript:bike_on('bksaddle')">サドル<img src="img/flagit.png"></a>
+            </div>
+            <div id="bkreset"><a href="javascript:bike_reset()">Reset</a></div>
+            <p>
+            <ul>
+                <li>組んで頂いた自転車屋はさいたま市のパワーコープ。当時遠方に住んでいたため東京出張のついでに寄らせていただき、全パーツを指定して注文した。
+                店内に<a href="" class="popup-open" data-modal-btn="modal01">Colnagoの芸術的なフレームがいくつも吊るしてあり</a>、実際のカラーリングを確認して注文することができた。
+                </li>
+                <li>ホイールはMavicオープンプロ（リム）＋DTSwissコンペティション（スポーク）＋Campanoloコーラス（ハブ）の手組み。個人的には至高の銀輪。</li>
+                <li>クロモリ素材であることも影響しているだろうが、感覚的には（ガチガチではなく）しなやかに仕上がっている印象で、
+                駆動系・制動系・ホイール周りは購入してから一度も調整していない。
+                他のバイクとは何かが違うと感じるが、素人なので具体的には理解できていない。
+                もしかしたら全てのパーツを神業的な精度（公差0）で組み上げているのかもしれない。</li>
+            </ul>
+            </p>            
+        </section>
+        <div class="popup-wrap" data-modal-cont="modal01"><div class="popup-back"></div>
+        <div class="popup-inner"><span class="popup-close"></span>
+          <div class="popup-contents">
+              <img src="img/bkpcoop1.jpg">
+              </div></div></div>
+    </main>
+    <footer> <!-- フッターコンテンツ -->
+    </footer>
+</div>
 
 <script src="popup.js"></script>
 
 <script>
-var notes = {
-	bkframe:'Colnago<img src="img/flagit.png">',
-	bkcompo:'Campanolo<img src="img/flagit.png">',
-	bkhub:'Campanolo<img src="img/flagit.png">',
-	bkspoke:'DT Swiss<img src="img/flagch.png">',
-	bkrim:'Mavic<img src="img/flagfr.png">',
-	bktire:'Vittoria<img src="img/flagit.png"> → Continental<img src="img/flagde.png"> → Panaracer（パナレーサー）<img src="img/flagjp.png">',
-	bkpillar:'Campanolo<img src="img/flagit.png">',
-	bkstem:'ITM<img src="img/flagit.png">',
-	bkhandle:'ITM<img src="img/flagit.png">',
-	bkpedal:'Shimano（シマノ）<img src="img/flagjp.png">',
-	bksaddle:'Selle Italia<img src="img/flagit.png">' };
-function bike_foggy(){
-	markers = document.getElementsByClassName('bkcanvas');
-	tags = markers[0].children;
-	for (let i = 0; i < tags.length; i++) {
-		tags[i].style.opacity = 0.2;
-		tags[i].style.filter = `brightness(1)`;
-	}
-}
-function bike_highlight(t){
-	tag = document.getElementById(t);
-	tag.style.opacity = 1;
-	tag.style.filter = `brightness(0.4)`;
-}
-function bike_on(target){
-	bike_foggy();
-	bike_highlight(target);
-	document.getElementById("note").innerHTML=notes[target];
-	if (target == "bkcompo") {
-		bike_highlight('bksprocket');
-		bike_highlight('bkwlever');
-	}
-}
-function bike_reset(){
-	markers = document.getElementsByClassName('bkcanvas');
-	tags = markers[0].children;
-	for (let i = 0; i < tags.length; i++) {
-		tags[i].style.opacity = 1;
-		tags[i].style.filter = `brightness(1)`;
-	}
-	document.getElementById("note").innerHTML="";
-}
+    var notes = {
+        bkframe:'Colnago<img src="img/flagit.png">',
+        bkcompo:'Campanolo<img src="img/flagit.png">',
+        bkhub:'Campanolo<img src="img/flagit.png">',
+        bkspoke:'DT Swiss<img src="img/flagch.png">',
+        bkrim:'Mavic<img src="img/flagfr.png">',
+        bktire:'Vittoria<img src="img/flagit.png"> → Continental<img src="img/flagde.png"> → Panaracer（パナレーサー）<img src="img/flagjp.png">',
+        bkpillar:'Campanolo<img src="img/flagit.png">',
+        bkstem:'ITM<img src="img/flagit.png">',
+        bkhandle:'ITM<img src="img/flagit.png">',
+        bkpedal:'Shimano（シマノ）<img src="img/flagjp.png">',
+        bksaddle:'Selle Italia<img src="img/flagit.png">' };
+    function bike_foggy(){
+        markers = document.getElementsByClassName('bkcanvas');
+        tags = markers[0].children;
+        for (let i = 0; i < tags.length; i++) {
+            tags[i].style.opacity = 0.2;
+            tags[i].style.filter = `brightness(1)`;
+        }
+    }
+    function bike_highlight(t){
+        tag = document.getElementById(t);
+        tag.style.opacity = 1;
+        tag.style.filter = `brightness(0.4)`;
+    }
+    function bike_on(target){
+        bike_foggy();
+        bike_highlight(target);
+        document.getElementById("note").innerHTML=notes[target];
+        if (target == "bkcompo") {
+            bike_highlight('bksprocket');
+            bike_highlight('bkwlever');
+        }
+    }
+    function bike_reset(){
+        markers = document.getElementsByClassName('bkcanvas');
+        tags = markers[0].children;
+        for (let i = 0; i < tags.length; i++) {
+            tags[i].style.opacity = 1;
+            tags[i].style.filter = `brightness(1)`;
+        }
+        document.getElementById("note").innerHTML="";
+    }
 </script>
 
 </body>

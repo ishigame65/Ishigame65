@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<meta name="description" content="Ishigame65の走行経路">
+	<title>走行経路</title>
+	<link rel="shortcut icon" href="img/kame.ico">
+	<link rel="stylesheet" href="common.css">
+	<link rel="stylesheet" href="bikemap.css">
+</head>
+
+<body>
+<header>
+	<a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a>
+	<nav>
+		<a href="index.html">Top</a>
+		<a href="intro.html">経緯と方針</a>
+		<a href="menu.html">飼育環境</a>
+		<a href="maintenance.html">日々の管理</a>
+	</nav>
+	<div class="clear"></div>
+</header>
+<main>
+	<ul class="breadcrumb">
+		<li><a href="index.html">Top</a></li>
+		<li><a href="keeper.html">飼育係</a></li>
+		<li><a href="profile.html">プロフィール</a></li>
+		<li><a href="bikeindex.html">銀輪はたまに唄う</a></li>
+		<li>走行経路</li>
+	</ul>
+	<div class="contents">
+	<h2 class="title">走行経路</h2>
+	<div class="overlap">
+		<img src="img/bkmap1.png">
+		<div id="markers">
+			<div id="miyagi1">★</div>
+			<div id="miyagi2">★</div>
+			<div id="chiba1">★</div>
+			<div id="chiba2">★</div>
+			<div id="shiga1">★</div>
+			<div id="kagawa1">★</div>
+			<div id="tokushima1">★</div>
+			<div id="kochi1">★</div>
+			<div id="tottori1">★</div>
+			<div id="tottori2">★</div>
+			<div id="shimane1">★</div>
+			<div id="shimane2">★</div>		
+			<div id="yamaguchi1">★</div>
+			<div id="miyazaki1">★</div>
+			<div id="miyazaki2">★</div>
+			<div id="miyazaki3">★</div>
+			<div id="oita1">★</div>
+			<div id="oita2">★</div>
+			<div id="kagoshima1">★</div>
+			<div id="kagoshima2">★</div>
+			<div id="kumamoto1">★</div>
+			<div id="fukuoka1">★</div>
+			<div id="saga1">★</div>
+			<div id="nagasaki1">★</div>
+		</div>
+		<div id="note"></div>
+	</div>
+	<div class="text">
+		<div class="scroll">
+		<a href="javascript:map_display('shiga1')"><img src="img/bkmshiga1.jpg"></a>
+		<a href="javascript:map_display('fukuoka1')"><img src="img/bkmfukuoka1.jpg"></a>
+		<a href="javascript:map_display('oita2')"><img src="img/bkmoita2.jpg"></a>
+		<a href="javascript:map_display('oita1')"><img src="img/bkmoita1.jpg"></a>
+		<a href="javascript:map_display('miyazaki1')"><img src="img/bkmmiyazaki1.jpg"></a>
+		<a href="javascript:map_display('miyazaki2')"><img src="img/bkmmiyazaki2.jpg"></a>
+		<a href="javascript:map_display('miyazaki3')"><img src="img/bkmmiyazaki3.jpg"></a>
+		<a href="javascript:map_display('kagoshima1')"><img src="img/bkmkagoshima1.jpg"></a>
+		<a href="javascript:map_display('kagoshima2')"><img src="img/bkmkagoshima2.jpg"></a>
+		<a href="javascript:map_display('kumamoto1')"><img src="img/bkmkumamoto1.jpg"></a>
+		<a href="javascript:map_display('saga1')"><img src="img/bkmsaga1.jpg"></a>
+		<a href="javascript:map_display('nagasaki1')"><img src="img/bkmnagasaki1.jpg"></a>
+		<a href="javascript:map_display('kochi1')"><img src="img/bkmkochi1.jpg"></a>
+		<a href="javascript:map_display('tokushima1')"><img src="img/bkmtokushima1.jpg"></a>
+		<a href="javascript:map_display('kagawa1')"><img src="img/bkmkagawa1.jpg"></a>
+		<a href="javascript:map_display('yamaguchi1')"><img src="img/bkmyamaguchi1.jpg"></a>
+		<a href="javascript:map_display('shimane1')"><img src="img/bkmshimane1.jpg"></a>
+		<a href="javascript:map_display('shimane2')"><img src="img/bkmshimane2.jpg"></a>
+		<a href="javascript:map_display('tottori2')"><img src="img/bkmtottori2.jpg"></a>
+		<a href="javascript:map_display('tottori1')"><img src="img/bkmtottori1.jpg"></a>
+		<a href="javascript:map_display('chiba1')"><img src="img/bkmchiba1.jpg"></a>
+		<a href="javascript:map_display('chiba2')"><img src="img/bkmchiba2.jpg"></a>
+		<a href="javascript:map_display('miyagi2')"><img src="img/bkmmiyagi2.jpg"></a>
+		<a href="javascript:map_display('miyagi1')"><img src="img/bkmmiyagi1.jpg"></a>
+		</div>
+	</div>
+	<img id="photo" src="">
+	<hr>
+	<ul class="breadcrumb">
+		<li><a href="bikeindex.html">銀輪はたまに唄う</a></li>
+	</ul>
+	</div>
+</main>
+<footer>
+	<div class="footer-left">
+	<a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="Instagram" width=32 height=32></a>
+	</div>
+	<div class="footer-center"><a href="keeper.html"><b>飼育係</b></a><a href="sitemap.html">サイトマップ</a>
+	<a href="search.html">検索</a>
+	</div>
+	<div class="footer-right"><a href="copyright.html">&copy; 2024 Ishigame65.</a></div>
+	<div class="clear"></div>
+</footer>
+
+<script>
+var notes = {
+	miyagi1:'宮城県 石巻<ul><li>帰路は女川から輪行</li><li>嫌いな言葉：リアス式海岸</li></ul>', 
+	miyagi2:'宮城県 松島', 
+	chiba1:'千葉県 九十九里浜', 
+	chiba2:'千葉県 犬吠埼灯台', 
+	shiga1:'滋賀県 長浜<ul><li>クロモリ初号機</li><li>ブリジストンAtrantisスポルティーフ</li></ul>', 
+	kagawa1:'香川県 金刀比羅宮（こんぴらさん）', 
+	tokushima1:'徳島県 日和佐<ul><li>うみがめ博物館（うみがめ産卵場所）</li></ul>', 
+	kochi1:'高知県 足摺岬', 
+	tottori1: '鳥取県 鳥取砂丘<li>帰路は鳥取から輪行</li><li>嫌いな言葉：リアス式海岸</li></ul>',
+	tottori2: '鳥取県 境港',
+	shimane1: '島根県 温泉津温泉',
+	shimane2: '島根県 出雲大社',
+	yamaguchi1:'山口県 錦帯橋', 
+	oita1:'大分県 国東半島', 
+	oita2:'大分県 耶馬渓', 
+	miyazaki1:'宮崎県 宗太郎越え', 
+	miyazaki2:'宮崎県 高千穂峡', 
+	miyazaki3:'宮崎県 日南海岸', 
+	kagoshima1:'鹿児島県 志布志湾', 
+	kagoshima2:'鹿児島県 枕崎', 
+	kumamoto1:'熊本県 八代', 
+	fukuoka1:'福岡県 英彦山', 
+	saga1:'佐賀県 吉野ヶ里遺跡', 
+	nagasaki1:'長崎県 平戸<ul><li>帰路は平戸口から輪行</li><li>嫌いな言葉：リアス式海岸</li></ul>' };
+function map_clear(){
+	markers = document.getElementById('markers');
+	tags = markers.children;
+	for (let i = 0; i < tags.length; i++) {
+		tags[i].style.visibility='hidden';
+	}
+	document.getElementById("note").innerHTML="";
+	return false;
+}
+function map_display(target){
+	map_clear();
+	tag = document.getElementById(target);
+	tag.style.visibility='visible';
+	document.getElementById("note").innerHTML=notes[target];
+	document.getElementById("photo").src="img/bkm" + target + ".jpg";
+	return false;
+}
+</script>
+
+</body>
+</html>

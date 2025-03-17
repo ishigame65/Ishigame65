@@ -1,69 +1,81 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-	<meta name="description" content="Ishigame65の出身地">
-	<title>出身地</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">    
+	<meta name="description" content="出身地">
 	<link rel="shortcut icon" href="img/kame.ico">
-	<link rel="stylesheet" href="common.css">
+	<title>出身地</title>
 </head>
-
 <style>
-main img {
-	border-radius: 4px;
-	max-width: 200px;
-	margin: 2px;
-}
-@media (max-width: 670px) {
-	main img {
-		border-radius: 3px;
-		max-width: 126px;
-		margin: 1px;
-	}
-}
+    main img {
+        border-radius: 4px;
+        max-width: 200px;
+        margin: 2px;
+    }
+    @media (max-width: 670px) {
+        main img {
+            border-radius: 3px;
+            max-width: 126px;
+            margin: 1px;
+        }
+    }
 </style>
-
 <body>
-<header>
-	<a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a>
-	<nav>
-		<a href="index.html">Top</a>
-		<a href="intro.html">経緯と方針</a>
-		<a href="menu.html">飼育環境</a>
-		<a href="maintenance.html">日々の管理</a>
-	</nav>
-	<div class="clear"></div>
-</header>
-<main>
-	<ul class="breadcrumb">
-		<li><a href="index.html">Top</a></li>
-		<li><a href="keeper.html">飼育係</a></li>
-		<li><a href="profile.html">プロフィール</a></li>
-		<li>出身地</li>
-	</ul>
-	<h2 class="title">出身地</h2>
-	<p class="text">
-	</p>
-	<img src="img/kuref1.jpg"><img src="img/kuref2.jpg"><img src="img/kuref3.jpg"><img src="img/kuref4.jpg"><br>
-	<img src="img/kures1.jpg"><img src="img/kures2.jpg"><img src="img/kures3.jpg"><img src="img/kures4.jpg"><br>
-	<img src="img/kuren1.jpg"><img src="img/kuren2.jpg"><img src="img/kuren3.jpg"><img src="img/kuren4.jpg"><br>
-	<img src="img/kurek1.jpg"><img src="img/kurek2.jpg"><img src="img/kurek3.jpg"><img src="img/hirom1.jpg">
+ 
+<!-- input・label・ドロワーメニューはbody直下 -->
+<input id="check_input" type="checkbox">
+<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+    <span></span>
+</label>
+<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
 
-	<hr>
-	<ul class="breadcrumb">
-		<li><a href="profile.html">プロフィール</a></li>
-	</ul>
-</main>
-<footer>
-	<div class="footer-left">
-	<a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="Instagram" width=32 height=32></a>
-	</div>
-	<div class="footer-center"><a href="keeper.html"><b>飼育係</b></a><a href="sitemap.html">サイトマップ</a>
-	<a href="search.html">検索</a>
-	</div>
-	<div class="footer-right"><a href="copyright.html">&copy; 2024 Ishigame65.</a></div>
-	<div class="clear"></div>
-</footer>
+<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+    <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="intro.html">経緯と方針</a></li>
+        <li><a href="menu.html">飼育環境</a></li>
+        <li><a href="maintenance.html">日々の管理</a></li>
+        <li><a href="entertainment.html">遊び</a></li>
+        <li><a href="keeper.html">飼育係</a></li>
+    </ul>
+    <ul id="menu2nd">
+        <li>&nbsp;</li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li>&nbsp;</li>
+        <li><a href="links.html">リンク</a></li>
+        <li><a href="copyright.html">サイトポリシー</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+        <li><a href="search.html">サイト内検索</a></li>
+    </ul>
+</div>
+
+<header>
+    <h1><a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a></h1>
+</header>
+
+<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
+    <main> <!-- メインコンテンツ -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html">Top</a></li>
+                <li><a href="keeper.html">飼育係</a></li>
+                <li><a href="profile.html">プロフィール</a></li>
+                    <li>出身地</li>
+            </ul>
+        </div> <!-- breadcrumb -->
+        <h2>出身地</h2>
+        <section class="indent">
+            <img src="img/kuref1.jpg"><img src="img/kuref2.jpg"><img src="img/kuref3.jpg"><img src="img/kuref4.jpg"><br>
+            <img src="img/kures1.jpg"><img src="img/kures2.jpg"><img src="img/kures3.jpg"><img src="img/kures4.jpg"><br>
+            <img src="img/kuren1.jpg"><img src="img/kuren2.jpg"><img src="img/kuren3.jpg"><img src="img/kuren4.jpg"><br>
+            <img src="img/kurek1.jpg"><img src="img/kurek2.jpg"><img src="img/kurek3.jpg"><img src="img/hirom1.jpg"><br>
+        </section>
+    </main>
+    <footer> <!-- フッターコンテンツ -->
+    </footer>
+</div>
+    
 </body>
 </html>
