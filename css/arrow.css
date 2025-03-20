@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* <span class="arrow-up"></span>　font-size、colorで調整 */
+.arrow-up {
+    display: inline-block;
+    vertical-align: middle;
+    color: #333;
+    line-height: 1;
+    position: relative;
+    /* width: 0.1em; */
+    width: 0.13em;
+    height: 1em;
+    background: currentColor;
+}
+.arrow-up::before {
+    content: '';
+    width: 0.65em;
+    height: 0.65em;
+    /* border: 0.1em solid currentColor; */
+    border: 0.13em solid currentColor;
+    border-left: 0;
+    border-bottom: 0;
+    transform: rotate(-45deg);
+    transform-origin: top right;
+    position: absolute;
+    top: -0.05em;
+    /* right: 50%; */
+    /* right: calc(50% - 0.001em); */
+    right: calc(50% - 0.017em);
+    box-sizing: border-box;
+}

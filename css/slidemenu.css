@@ -8,7 +8,7 @@
 /* ハンバーガーボタン */
 #menu_btn {
     position: fixed;
-    top: 30px;
+    top: 20px;
     right: 20px;
     height: 40px;
     width: 40px;
@@ -80,38 +80,33 @@
 
 /* メニューリストの装飾 */
 #menu_cont ul {
-    /* background-color: green; */
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 #menu_cont ul#menu2nd {
-    /* background-color: green; */
-    margin-top: 35px;
+    margin-top: 30px;
     font-size: smaller;
 }
 #menu_cont ul li {
     list-style: none;
-    /* background-color: yellow; */
 }
 #menu_cont ul li a {
     display: block;
     width: 100%;
     padding: 7px;   /* 調整 */
     margin: 5px;
-    /* color: slateblue; */
     color: black;
     text-decoration: none;
 }
 #menu_cont ul li a:hover {
-    /* opacity: 0.7; */
     opacity: 0.5;
 }
 
 /* クリックされたらドロワーメニュー表示 */
 #check_input:checked ~ #menu_cont {
-    width: 280px;
-    left: calc(100% - 280px);
-    top: 20px;
+    width: 15rem;
+    left: calc(100% - 15rem);
+    top: 15px;
 }
 #check_input:checked ~ #drawer_back {
     display: block;
@@ -132,4 +127,17 @@
     height: 18px;
     /* background-color: red; */
     vertical-align: top;
+}
+@media (max-width: 670px) {
+    #menu_btn {
+        top: 25px;
+        right: 15px;
+        height: 30px;
+        width: 30px;
+    }
+    #check_input:checked ~ #menu_cont {
+        width: 13rem;
+        left: calc(100% - 13rem);
+        top: 10px;
+    }
 }
