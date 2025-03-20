@@ -11,7 +11,6 @@
 	<meta property="og:description" content="イシガメが快適に暮らす環境を作る">
 	<meta property="og:image" content="https://ishigame65.netlify.app/img/ig1080x1080b.jpg">
 	<link rel="shortcut icon" href="img/kame.ico">
-
 	<title>Ishigame65</title>
 </head>
 <style>
@@ -31,9 +30,6 @@
         width: 192px;
         margin: 0 0 4px 4px;
     }
-    /* article {
-        background-color: green;
-    } */
     h2 {
         margin-top: 1em;
         text-align: center;
@@ -42,9 +38,6 @@
         font-size: 120%;
         font-family: sans-serif;
         font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    }
-    footer {
-        width: 840px;
     }
     video {
         max-width: 640px;
@@ -57,7 +50,7 @@
         border-radius: 30px;
         color: burlywood;
     }
-    @media (max-width: 840px) {
+    @media (max-width: 670px) {
         main {
             display: initial;
         }
@@ -104,7 +97,7 @@
 </div>
 <!-- main_movie thumbnail -->
 <header>
-    <h1><a href="index.html"><img src="img/logo.png" alt="Ishigame65"></a></h1>
+    <h1><a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a></h1>
 </header>
 
 <div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
@@ -129,7 +122,8 @@
 
     </main>
     <footer>
-        <!-- フッターコンテンツ -->
+        <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+        <a href="#logo"><span class="arrow-up"></span></a>
     </footer>
 </div>
 
@@ -138,6 +132,7 @@
         tag = document.getElementById("movie");
         tag.src=moviefile;
         tag.autoplay=true;
+        window.scrollTo({top:0,behavior:'smooth'});
     }
 </script>
 
