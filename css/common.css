@@ -53,6 +53,8 @@ td.num_text {
     list-style-type: none;
     /* flex-wrap: wrap; */
     /* color: #5a5c5f; */
+    white-space: nowrap;
+    overflow-x: auto;
 }
 .breadcrumb li:not(:last-of-type)::after {
 	content: "›";
