@@ -10,7 +10,7 @@
 </head>
 <style>
     #me {
-        margin-right: 20px;
+        margin-right: 0.5em;
         text-align: center;
     }
     img#mpic {         
@@ -38,9 +38,21 @@
         0% { transform: translateX(0)}
         100% { transform: translateX(-100%)}
     }
-    #map {
-        margin-right: 8px;
-        vertical-align: top;
+    .mapcase {
+        position: relative;
+        width: 160px;
+        height: 160px;
+    }
+    .mapcase img {
+        /* vertical-align: top; */
+        width: 100%;
+    }
+    #overmap {
+        position: absolute;
+        bottom: -0.5em;
+        right: 0.5em;
+        line-height: 1;
+        /* background-color: yellow; */
     }
     .mailto a {
         color: #5a5c5f;
@@ -63,8 +75,12 @@
             width: 90px;
             font-size: 12px;
         }
-        #map {
+        .mapcase {
             width: 140px;
+            height: 140px;
+        }
+        .mapcase img {
+            width: 100%;
         }
     }
 </style>
@@ -118,7 +134,9 @@
         <section class="indent">
             <dl>
             <dt>現住所（飼育場所）</dt>
-            <dd><a href="saitamap.html"><img id="map" src="img/here.png">埼玉</a>
+            <dd><a href="saitamap.html">
+                <div class="mapcase"><img src="img/here.png"><p id="overmap">埼玉</p></div>
+                </a>
                 <div class="source">出典：<a href="https://maps.gsi.go.jp/">国土地理院ウェブサイト</a></div></dd>
             <dt>連絡先</dt>
             <dd><div class="mailto"><a href="mailto:moriuchi@ymail.ne.jp"><img src="img/mail.png" class="icon">moriuchi@ymail.ne.jp（森内）</a></div>
