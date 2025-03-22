@@ -44,7 +44,7 @@
 .popup-contents {
 	overflow-y: scroll;
 	/* max-height: 420px; */
-  min-height: calc(100vh - 15em);
+  max-height: calc(100vh - 8em);
   font-size: 14px;
   background-color: yellow;
 }
@@ -121,7 +121,7 @@ ul.marker01 li:before {
 /*
 */
 @media (max-width: 670px) {
-	.popup-inner {
+  .popup-inner {
 		padding: 15px;  
 	}
 	.popup-contents img {
@@ -132,7 +132,10 @@ ul.marker01 li:before {
 		width: 192px;
 	}
 	.popup-contents {
-		font-size: 12px;
+    /* max-height: 420px; */
+    /* max-height: 60vh; */
+    font-size: 12px;
+    background-color: green;
 	}
 	ul.marker01 {
 		list-style-type: none;
