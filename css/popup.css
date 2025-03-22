@@ -133,7 +133,6 @@ ul.marker01 li:before {
 	.popup-contents {
     max-height: 280px;
     font-size: 12px;
-    /* background-color: orange */
 	}
 	ul.marker01 {
 		list-style-type: none;
