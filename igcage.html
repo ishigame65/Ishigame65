@@ -9,12 +9,23 @@
 	<title>Ishigame65 - ケージ</title>
 </head>
 <style>
-    img {
-        margin-right: 15px;
-        margin-bottom: 7px;}
+    main img {
+        /* margin-right: 15px;
+        margin-bottom: 7px; */
+        margin-right: 0.7em;
+        margin-bottom: 0.4em;
+    }
     canvas#rose {
         width: 270px;
         height: 200px;
+    }
+    @media (max-width: 670px) {
+        main img {
+            max-width: 45%;
+        }
+        canvas#rose {
+            max-width: 45%;                
+        }
     }
 </style>
 <body>
