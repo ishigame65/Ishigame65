@@ -37,6 +37,7 @@ footer {
     font-size: larger;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1em;
 }
 #instaicon2 {
     width: 1.2em;
