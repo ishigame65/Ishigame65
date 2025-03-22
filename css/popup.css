@@ -44,7 +44,7 @@
 .popup-contents {
 	overflow-y: scroll;
 	/* max-height: 420px; */
-  min-height: calc(100vh - 4em);
+  min-height: calc(100vh - 10em);
   font-size: 14px;
 }
 .popup-contents > * + * {
