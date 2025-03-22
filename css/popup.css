@@ -42,8 +42,9 @@
   padding: 20px;  
 }
 .popup-contents {
-	overflow-y: scroll;	/* -- */
-	max-height: 420px;	/* -- */
+	overflow-y: scroll;
+	/* max-height: 420px; */
+  min-height: calc(100vh - 4em);
   font-size: 14px;
 }
 .popup-contents > * + * {
