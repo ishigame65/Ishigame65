@@ -51,8 +51,6 @@ td.num_text {
 .breadcrumb ul {
     display: flex;
     list-style-type: none;
-    /* flex-wrap: wrap; */
-    /* color: #5a5c5f; */
     white-space: nowrap;
     overflow-x: auto;
 }
@@ -68,5 +66,11 @@ td.num_text {
     }
     section .indent {
         margin-left: 0.25em;
+    }
+    .breadcrumb {
+        font-size: smaller;
+    }
+    .breadcrumb li:not(:last-of-type)::after {
+        margin: 0 .3em;
     }
 }
