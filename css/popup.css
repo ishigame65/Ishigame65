@@ -121,7 +121,7 @@ ul.marker01 li:before {
 @media (max-width: 670px) {
   .popup-inner {
 		padding: 15px;
-    max-height: 250px;
+    max-height: 320px;
 	}
 	.popup-contents img {
 		margin-right: 10px;
@@ -131,11 +131,8 @@ ul.marker01 li:before {
 		width: 192px;
 	}
 	.popup-contents {
-    /* max-height: 420px; */
-    /* max-height: 60vh; */
-    max-height: 200px;
     font-size: 12px;
-    background-color: cyan;
+    background-color: orange
 	}
 	ul.marker01 {
 		list-style-type: none;
