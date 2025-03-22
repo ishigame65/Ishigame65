@@ -12,6 +12,13 @@
     img {
         margin-right: 15px;
     }
+    @media (max-width: 670px) {
+        .two_cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5em;
+        }
+    }
 </style>
 <body>
  
@@ -60,8 +67,10 @@
             <p>水質維持のため、また日よけ・隠れ家・メダカの産卵場所・イシガメが掴まって休憩する場所として水草を入れる。
                 ヌマエビが農薬に弱いため水草は無農薬のもの。</p>
             <p>ミニホテイアオイ、ドワーフアマゾンフロッグピット、アナカリス。<br>
-                <img src="img/igglass1.jpg">
-                <img src="img/igglass2.jpg">
+                <div class="two_cols">
+                    <img src="img/igglass1.jpg">
+                    <img src="img/igglass2.jpg">
+                </div>
                 <ul class="plist">
                 <li>栄養豊富だからと思うが、いずれもかなりの勢いで増えるので、定期的に間引く必要がある。</li>
                 </ul></p>
