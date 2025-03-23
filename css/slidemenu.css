@@ -139,7 +139,8 @@
 }
 @media (max-width: 670px) {
     #menu_btn {
-        top: 25px;
+        /* top: 25px; */
+        top: 15px;
         right: 15px;
         height: 30px;
         width: 30px;
