@@ -45,7 +45,9 @@
 	margin-left: 20px;
 }
 @media (max-width: 670px) {
-
+  .sitemap a {
+    font-size: 90%;
+  }
 	.sitemap ul li ul {
 	  margin-top: .5em;
 	  margin-bottom: .75em;
