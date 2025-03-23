@@ -12,8 +12,7 @@ header, main, footer {
     margin-right: 1rem;
 }
 footer {
-    margin-top: 1em;
-    /* height: 1em; */
+    margin-top: 2em;
 }
 img, video {
     max-width: 100%;
