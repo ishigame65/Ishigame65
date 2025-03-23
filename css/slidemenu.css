@@ -38,10 +38,16 @@
 #menu_btn span::after {
     top: 8px;
 }
+#menu_btn #title {
+    position: relative;
+    top: 22px;
+    font-size: 12px;
+    color: #CE5D8B;
+}
 
 /* クリックされたら三本線が×に変化する */
 #check_input:checked ~ #menu_btn span {
-    background-color: transparent; 
+    background-color: transparent;
 }
 #check_input:checked ~ #menu_btn span::before {
     bottom: 0;
@@ -50,6 +56,9 @@
 #check_input:checked ~ #menu_btn span::after {
     top: 0;
     transform: rotate(-45deg);
+}
+#check_input:checked ~ #menu_btn #title {
+    color: transparent;
 }
 
 /* ドロワーメニュー */
