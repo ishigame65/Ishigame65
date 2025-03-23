@@ -15,19 +15,18 @@
         margin-right: 0.7em;
         margin-bottom: 0.4em;
     }
-    canvas#rose {
+    /* canvas#rose {
         width: 270px;
         height: 200px;
-    }
+    } */
     @media (max-width: 670px) {
         main img {
             max-width: 45%;
         }
-        canvas#rose {
-            /* max-width: 45%;                 */
+        /* canvas#rose {
             width: 135px;
             height: 100px;
-        }
+        } */
     }
 </style>
 <body>
@@ -94,11 +93,10 @@
               エアコン室外機の風が当たる面は半透明の板（家に余っていたポリカ中空ボード）を張った。<br />
                 <img src="img/igc4.jpg"><img src="img/igcsheet.jpg">
             </p>
-            <p>元々薔薇を植えていた場所だったためケージの中で薔薇が咲いていたが、
+            <!-- <p>元々薔薇を植えていた場所だったためケージの中で薔薇が咲いていたが、
                 亀が登ろうとして棘でケガをするといけないので、2024年秋にケージの外に移植した。<br>
-                <!-- <canvas id="rose" width="360" height="270"></canvas> -->
                 <canvas id="rose"></canvas>
-            </p>
+            </p> -->
         </section>
     </main>
     <footer> <!-- フッターコンテンツ -->
@@ -107,24 +105,24 @@
     </footer>
 </div>
 <script>
-    const canvas = document.getElementById('rose');
-    const ctx = canvas.getContext('2d');
-    const img = new Image();
-    img.src = 'img/igc5.jpg';
-    img.onload = function() {
-        ctx.globalAlpha = 0.5;
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-        ctx.globalAlpha = 1;
-        ctx.lineWidth = 3;
-        ctx.strokeStyle = '#FFFFAA';
-        ctx.beginPath();
-        ctx.moveTo(0,0);
-        ctx.lineTo(canvas.width, canvas.height);
-        ctx.moveTo(0,canvas.height);
-        ctx.lineTo(canvas.width, 0);
-        ctx.closePath();
-        ctx.stroke();
-    };
+    // const canvas = document.getElementById('rose');
+    // const ctx = canvas.getContext('2d');
+    // const img = new Image();
+    // img.src = 'img/igc5.jpg';
+    // img.onload = function() {
+    //     ctx.globalAlpha = 0.5;
+    //     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    //     ctx.globalAlpha = 1;
+    //     ctx.lineWidth = 3;
+    //     ctx.strokeStyle = '#FFFFAA';
+    //     ctx.beginPath();
+    //     ctx.moveTo(0,0);
+    //     ctx.lineTo(canvas.width, canvas.height);
+    //     ctx.moveTo(0,canvas.height);
+    //     ctx.lineTo(canvas.width, 0);
+    //     ctx.closePath();
+    //     ctx.stroke();
+    // };
 </script>
 </body>
 </html>
