@@ -13,10 +13,8 @@
     position: relative;
 }
 .overlap img {
-	/* max-width: 375px;
-	max-height: 375px; */
 	/* border-radius: 15px; */
-	border-radius: 1em;
+	/* border-radius: 1em; */
 	/*
 	margin-bottom: -20px;
 	*/
@@ -107,9 +105,8 @@
 		font-size: 12px;
     }
 	.overlap img {
-		border-radius: 8px;
-		max-width: 250px;
-		max-height: 250px;
+		/* border-radius: 8px; */
+		width: 200px;
 	}
 	.thumbnail img {
 		border-radius: 3px;
@@ -117,10 +114,6 @@
 		margin-right: 0;
 		width: 50px;
 		height: 50px;
-		/*
-		width: 80px;
-		height: 80px;
-		*/
 	}
 	.scroll {
 		height: 106px;
@@ -133,8 +126,10 @@
 		font-size:11px;
 	}
 	#photo {
-		width: 95%;
+		/* width: 95%; */
 		margin-left: 10px;
+		max-width: 250px;
+		min-height: 250px;
 	}	
 	#markers {
 		font-size:16px;
