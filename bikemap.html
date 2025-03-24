@@ -57,7 +57,7 @@
             </ul>
         </div> <!-- breadcrumb -->
         <h2>走行経路</h2>
-        <section class="indent">
+        <section id="scrollhere" class="indent">
             <div class="overlap">
                 <img src="img/bkmap1.png">
                 <div id="markers">
@@ -88,7 +88,7 @@
                 </div>
                 <div id="note"></div>
             </div>
-            <div class="text">
+            <div class="thumbnail">
                 <div class="scroll">
                 <a href="javascript:map_display('shiga1')"><img src="img/bkmshiga1.jpg"></a>
                 <a href="javascript:map_display('fukuoka1')"><img src="img/bkmfukuoka1.jpg"></a>
@@ -168,6 +168,10 @@
         tag.style.visibility='visible';
         document.getElementById("note").innerHTML=notes[target];
         document.getElementById("photo").src="img/bkm" + target + ".jpg";
+        const here = document.getElementById("scrollhere");
+        here.scrollIntoView({ behavior: 'smooth'});
+        // const y = here.getBoundingClientRect().top;        
+        // window.scrollTo({top:y,behavior:'smooth'});
         return false;
     }
 </script>
