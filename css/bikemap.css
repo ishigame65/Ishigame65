@@ -1,13 +1,5 @@
 @charset "utf-8";
 
-/* main {
-	color: #5a5c5f;
-	text-align: center;
-}
-.contents {
-	display: inline-block;
-	text-align: left;
-} */
 .overlap {
 	text-align: center;
     position: relative;
@@ -35,7 +27,8 @@
 }
 #photo {
 	display: block;
-	margin: 0 auto 10px auto;
+	/* margin: 0 auto 10px auto; */
+	margin: 0 auto 0 auto;
 }
 #note {
 	text-align: left;
@@ -126,10 +119,11 @@
 		font-size:11px;
 	}
 	#photo {
-		/* width: 95%; */
-		margin-left: 10px;
+		/* margin-left: 10px; */
 		max-width: 250px;
 		max-height: 250px;
+		/* margin-left: auto;
+		margin-right: auto; */
 	}	
 	#markers {
 		font-size:16px;
