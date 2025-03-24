@@ -129,7 +129,7 @@
 		/* width: 95%; */
 		margin-left: 10px;
 		max-width: 250px;
-		min-height: 250px;
+		max-height: 250px;
 	}	
 	#markers {
 		font-size:16px;
