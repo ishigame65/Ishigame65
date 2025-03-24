@@ -13,13 +13,16 @@
     position: relative;
 }
 .overlap img {
-	border-radius: 15px;
+	/* max-width: 375px;
+	max-height: 375px; */
+	/* border-radius: 15px; */
+	border-radius: 1em;
 	/*
 	margin-bottom: -20px;
 	*/
 	/*こうしないと大きな余白ができてしまう*/
 }
-.text img {
+.thumbnail img {
 	border-radius: 5px;
 	margin-left: 0;
 	margin-right: 0;
@@ -105,9 +108,10 @@
     }
 	.overlap img {
 		border-radius: 8px;
-		width: 200px;
+		max-width: 250px;
+		max-height: 250px;
 	}
-	.text img {
+	.thumbnail img {
 		border-radius: 3px;
 		margin-left: 3px;
 		margin-right: 0;
