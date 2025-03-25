@@ -54,7 +54,7 @@
                 <li>埼玉</li>
             </ul>
         </div> <!-- breadcrumb -->
-        <h2>埼玉</h2>
+        <h2 id="scrollhere">埼玉</h2>
         <section class="indent">
             <div class="overlap">
                 <img src="img/smap1.png">
@@ -111,6 +111,8 @@
         tag.style.visibility='visible';
         document.getElementById("note").innerHTML=notes[target];
         document.getElementById("photo").src="img/sai" + target + ".jpg";
+        const here = document.getElementById("scrollhere");
+        here.scrollIntoView({ behavior: 'smooth'});
         return false;
     }
 </script>
