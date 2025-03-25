@@ -6,11 +6,13 @@
 }
 .sitemap ul li ul {
   margin-top: .5em;
-  margin-bottom: .75em;
+  /* margin-bottom: .75em; */
+  margin-bottom: .65em;
   margin-left: 48px;
 }
 .sitemap ul li ul li {
-  margin-bottom: .25em;
+  /* margin-bottom: .25em; */
+  margin-bottom: .2em;
   position: relative;
 }
 .sitemap ul li ul li::before {
@@ -48,9 +50,12 @@
   .sitemap a {
     font-size: 90%;
   }
+  /* .sitemap ul li ul li {
+    margin-bottom: .15em;
+  } */
 	.sitemap ul li ul {
 	  margin-top: .5em;
-	  margin-bottom: .75em;
+	  margin-bottom: .65em;
 	  margin-left: 20px;
 	}
 }
