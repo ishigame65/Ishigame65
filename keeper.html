@@ -149,6 +149,21 @@
         <a href="#logo"><span class="arrow-up"></span></a>
     </footer>
 </div>
+
+<script>
+    var msrc = new Array("me01.jpg","me02.jpg","me03.jpg","me04.jpg","me05.jpg","me06.jpg","me07.jpg","me08.jpg");
+    var mindex = -1
+    function mselect(){
+        do {
+            index = Math.floor(Math.random()*msrc.length)
+        } while (index == mindex);
+        document.getElementById("mpic").src="img/" + msrc[index];
+        mindex = index
+    }
+    window.onload = function() {
+        mselect()
+    }
+</script>
     
 </body>
 </html>
