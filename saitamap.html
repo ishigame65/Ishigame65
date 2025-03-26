@@ -10,7 +10,29 @@
 	<title>埼玉</title>
 </head>
 <style>
-
+h3 {
+    position: absolute;
+    top: 32px;
+    left: 85px;
+}
+#mapmark {
+    position: absolute;
+    top: 92px;
+    left: 319px;
+    opacity: 0.3;
+}
+@media (max-width: 670px) {
+    h3 {
+        top: 22px;
+        left: 55px;
+    }
+    #mapmark {
+        top: 53px;
+        left: 222px;
+        width: 30px;
+        height: 30px;
+    }
+}
 </style>
 <body>
  
@@ -55,9 +77,11 @@
             </ul>
         </div> <!-- breadcrumb -->
         <h2 id="scrollhere">埼玉</h2>
+        <h3>～ 飼育場所 ～</h3>
         <section class="indent">
             <div class="overlap">
                 <img src="img/smap1.png">
+                <img id="mapmark" src="img/en50.png">
                 <div id="markers">
                     <div id="asaka1">★</div>
                     <div id="chichibu1">★</div>
