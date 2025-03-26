@@ -45,23 +45,53 @@
     }
     .mapcase img {
         /* vertical-align: top; */
-        width: 100%;
+        /* width: 100%; */
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .mapmark {
+        opacity: 0.3;
+        border-bottom: 2px solid blue;
+    }
+    #map1mark {
+        top: 72px;
+        left: 62px;
+    }
+    #map2mark {
+        top: 50px;
+        left: 75px;
+    }
+    #map3mark {
+        top: 5px;
+        left: 80px;
+    }
+    .mapcase p {
+        position: absolute;
+        /* bottom: -0.5em; */
+        bottom: -1.0em;
+        /* right: 0.2em; */
+        right: 0;
+        line-height: 1;
+    }
+    #map1label, #map2label {
+        display: none;
     }
     #overmap {
         position: absolute;
         bottom: -0.5em;
         right: 0.5em;
         line-height: 1;
-        /* background-color: yellow; */
+        background-color: yellow;
     }
     .mailto a {
         color: #5a5c5f;
         text-decoration: none;
     }
-    .source {
+    /* .source {
         font-size: 11px;
         margin: 6px 0;
-    }
+    } */
     .icon {
         margin-right: 8px;
     }
@@ -75,13 +105,10 @@
             width: 90px;
             font-size: 12px;
         }
-        .mapcase {
+        /* .mapcase {
             width: 140px;
             height: 140px;
-        }
-        .mapcase img {
-            width: 100%;
-        }
+        } */
     }
 </style>
 <body>
@@ -134,10 +161,18 @@
         <section>
             <dl>
             <dt>現住所（飼育場所）</dt>
-            <dd><a href="saitamap.html">
-                <div class="mapcase"><img src="img/here.png"><p id="overmap">埼玉</p></div>
-                </a>
-                <div class="source">出典：<a href="https://maps.gsi.go.jp/">国土地理院ウェブサイト</a></div></dd>
+            <dd>
+                <div class="mapcase">
+                    <img id="map1" src="img/cmapjpc1200c.png">
+                    <a href="saitamap.html"><img id="map1mark" class="mapmark" src="img/en50.png"></a>
+                    <p id="map1label">埼玉</p>
+                    <img id="map2" src="img/cmapjpa400.png">
+                    <img id="map2mark" class="mapmark" src="img/en50.png" onclick="map2click()">
+                    <p id="map2label">関東地方</p>
+                    <img id="map3" src="img/cmap115s400.png">
+                    <img id="map3mark" src="img/en50.png" class="mapmark" onclick="map3click()">
+                    <p id="map3label">日本</p>
+                </div>
             <dt>連絡先</dt>
             <dd><div class="mailto"><a href="mailto:moriuchi@ymail.ne.jp"><img src="img/mail.png" class="icon">moriuchi@ymail.ne.jp（森内）</a></div>
             </dd>
@@ -151,6 +186,20 @@
 </div>
 
 <script>
+    // 現住所地図切替
+    function map3click(){
+        document.getElementById("map3").style.display = "none";
+        document.getElementById("map3mark").style.display = "none";
+        document.getElementById("map3label").style.display = "none";
+        document.getElementById("map2label").style.display = "block";
+    }
+    function map2click(){
+        document.getElementById("map2").style.display = "none";
+        document.getElementById("map2mark").style.display = "none";
+        document.getElementById("map2label").style.display = "none";
+        document.getElementById("map1label").style.display = "block";
+    }
+    // プロファイル画像ランダム切替
     var msrc = new Array("me01.jpg","me02.jpg","me03.jpg","me04.jpg","me05.jpg","me06.jpg","me07.jpg","me08.jpg");
     var mindex = -1
     function mselect(){
