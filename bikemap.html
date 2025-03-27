@@ -10,7 +10,22 @@
 	<title>走行経路</title>
 </head>
 <style>
-
+.thumbnail {
+    position: relative;
+}
+#arrow {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    opacity: 0.5;
+    pointer-events: none;
+}
+@media (max-width: 670px) {
+    #arrow {
+        top: 27px;
+        right: 5px;
+    }
+}
 </style>
 <body>
  
@@ -90,31 +105,32 @@
             </div>
             <div class="thumbnail">
                 <div class="scroll">
-                <a href="javascript:map_display('shiga1')"><img src="img/bkmshiga1.jpg"></a>
-                <a href="javascript:map_display('fukuoka1')"><img src="img/bkmfukuoka1.jpg"></a>
-                <a href="javascript:map_display('oita2')"><img src="img/bkmoita2.jpg"></a>
-                <a href="javascript:map_display('oita1')"><img src="img/bkmoita1.jpg"></a>
-                <a href="javascript:map_display('miyazaki1')"><img src="img/bkmmiyazaki1.jpg"></a>
-                <a href="javascript:map_display('miyazaki2')"><img src="img/bkmmiyazaki2.jpg"></a>
-                <a href="javascript:map_display('miyazaki3')"><img src="img/bkmmiyazaki3.jpg"></a>
-                <a href="javascript:map_display('kagoshima1')"><img src="img/bkmkagoshima1.jpg"></a>
-                <a href="javascript:map_display('kagoshima2')"><img src="img/bkmkagoshima2.jpg"></a>
-                <a href="javascript:map_display('kumamoto1')"><img src="img/bkmkumamoto1.jpg"></a>
-                <a href="javascript:map_display('saga1')"><img src="img/bkmsaga1.jpg"></a>
-                <a href="javascript:map_display('nagasaki1')"><img src="img/bkmnagasaki1.jpg"></a>
-                <a href="javascript:map_display('kochi1')"><img src="img/bkmkochi1.jpg"></a>
-                <a href="javascript:map_display('tokushima1')"><img src="img/bkmtokushima1.jpg"></a>
-                <a href="javascript:map_display('kagawa1')"><img src="img/bkmkagawa1.jpg"></a>
-                <a href="javascript:map_display('yamaguchi1')"><img src="img/bkmyamaguchi1.jpg"></a>
-                <a href="javascript:map_display('shimane1')"><img src="img/bkmshimane1.jpg"></a>
-                <a href="javascript:map_display('shimane2')"><img src="img/bkmshimane2.jpg"></a>
-                <a href="javascript:map_display('tottori2')"><img src="img/bkmtottori2.jpg"></a>
-                <a href="javascript:map_display('tottori1')"><img src="img/bkmtottori1.jpg"></a>
-                <a href="javascript:map_display('chiba1')"><img src="img/bkmchiba1.jpg"></a>
-                <a href="javascript:map_display('chiba2')"><img src="img/bkmchiba2.jpg"></a>
-                <a href="javascript:map_display('miyagi2')"><img src="img/bkmmiyagi2.jpg"></a>
-                <a href="javascript:map_display('miyagi1')"><img src="img/bkmmiyagi1.jpg"></a>
+                    <a href="javascript:map_display('shiga1')"><img src="img/bkmshiga1.jpg"></a>
+                    <a href="javascript:map_display('fukuoka1')"><img src="img/bkmfukuoka1.jpg"></a>
+                    <a href="javascript:map_display('oita2')"><img src="img/bkmoita2.jpg"></a>
+                    <a href="javascript:map_display('oita1')"><img src="img/bkmoita1.jpg"></a>
+                    <a href="javascript:map_display('miyazaki1')"><img src="img/bkmmiyazaki1.jpg"></a>
+                    <a href="javascript:map_display('miyazaki2')"><img src="img/bkmmiyazaki2.jpg"></a>
+                    <a href="javascript:map_display('miyazaki3')"><img src="img/bkmmiyazaki3.jpg"></a>
+                    <a href="javascript:map_display('kagoshima1')"><img src="img/bkmkagoshima1.jpg"></a>
+                    <a href="javascript:map_display('kagoshima2')"><img src="img/bkmkagoshima2.jpg"></a>
+                    <a href="javascript:map_display('kumamoto1')"><img src="img/bkmkumamoto1.jpg"></a>
+                    <a href="javascript:map_display('saga1')"><img src="img/bkmsaga1.jpg"></a>
+                    <a href="javascript:map_display('nagasaki1')"><img src="img/bkmnagasaki1.jpg"></a>
+                    <a href="javascript:map_display('kochi1')"><img src="img/bkmkochi1.jpg"></a>
+                    <a href="javascript:map_display('tokushima1')"><img src="img/bkmtokushima1.jpg"></a>
+                    <a href="javascript:map_display('kagawa1')"><img src="img/bkmkagawa1.jpg"></a>
+                    <a href="javascript:map_display('yamaguchi1')"><img src="img/bkmyamaguchi1.jpg"></a>
+                    <a href="javascript:map_display('shimane1')"><img src="img/bkmshimane1.jpg"></a>
+                    <a href="javascript:map_display('shimane2')"><img src="img/bkmshimane2.jpg"></a>
+                    <a href="javascript:map_display('tottori2')"><img src="img/bkmtottori2.jpg"></a>
+                    <a href="javascript:map_display('tottori1')"><img src="img/bkmtottori1.jpg"></a>
+                    <a href="javascript:map_display('chiba1')"><img src="img/bkmchiba1.jpg"></a>
+                    <a href="javascript:map_display('chiba2')"><img src="img/bkmchiba2.jpg"></a>
+                    <a href="javascript:map_display('miyagi2')"><img src="img/bkmmiyagi2.jpg"></a>
+                    <a href="javascript:map_display('miyagi1')"><img src="img/bkmmiyagi1.jpg"></a>
                 </div>
+                <img id="arrow" src="img/arrow64.png">
             </div>
             <div class="center">
                 <img id="photo" src="">

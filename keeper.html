@@ -153,10 +153,10 @@
                     <a href="saitamap.html"><img id="map1mark" class="mapmark" src="img/en50.png"></a>
                     <p id="map1label">埼玉</p>
                     <img id="map2" src="img/cmapjpa400.png">
-                    <img id="map2mark" class="mapmark" src="img/en50.png" onclick="map2click()">
+                    <img id="map2mark" class="mapmark" src="img/en50.png" onmouseover="map2over()">
                     <p id="map2label">関東地方</p>
                     <img id="map3" src="img/cmap115s400.png">
-                    <img id="map3mark" src="img/en50.png" class="mapmark" onclick="map3click()">
+                    <img id="map3mark" src="img/en50.png" class="mapmark" onmouseover="map3over()">
                     <p id="map3label">日本</p>
                 </div>
             <dt>連絡先</dt>
@@ -173,13 +173,13 @@
 
 <script>
     // 現住所地図切替
-    function map3click(){
+    function map3over(){
         document.getElementById("map3").style.display = "none";
         document.getElementById("map3mark").style.display = "none";
         document.getElementById("map3label").style.display = "none";
         document.getElementById("map2label").style.display = "block";
     }
-    function map2click(){
+    function map2over(){
         document.getElementById("map2").style.display = "none";
         document.getElementById("map2mark").style.display = "none";
         document.getElementById("map2label").style.display = "none";
