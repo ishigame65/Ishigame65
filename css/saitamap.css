@@ -51,6 +51,8 @@
     position:absolute; top: 60px; right:0; bottom:0; left: 260px; margin:auto; z-index:1; }
 #yono1 {
     position:absolute; top: 129px; right:0; bottom:0; left: 183px; margin:auto; z-index:1; }
+#joshi1k {
+    position:absolute; top: 105px; right:0; bottom:0; left: 228px; margin:auto; z-index:1; }
 
 #clear{
     color: steelblue;
@@ -104,5 +106,7 @@
 		position:absolute; top: 32px; right:0; bottom:0; left: 150px; margin:auto; z-index:1; }
 	#yono1 {
 		position:absolute; top: 71px; right:0; bottom:0; left: 108px; margin:auto; z-index:1; }
-
+	#joshi1k {
+		position:absolute; top: 57px; right:0; bottom:0; left: 132px; margin:auto; z-index:1; }
+		
 }
