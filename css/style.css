@@ -5,6 +5,7 @@
 @import url(arrow.css);
 
 body {
+    /* honeydew: 240, 255, 240 */
     background-color: honeydew;
 }
 header, main, footer {

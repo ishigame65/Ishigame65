@@ -127,8 +127,9 @@
     left: 0;
     transition: left 0.5s cubic-bezier(0.075, 0.82, 0.165, 1); /* ドロワーメニューと同じ設定にしておく */
 }
-#check_input:checked ~ #wrapper {
-    left: calc(192px - 90%);
+#check_input:checked ~ #wrapper {	/* メニュー表示時のコンテンツ左移動位置 */
+    /* left: calc(192px - 90%); */
+    left: -50%;
 }
 #instaicon {
     margin-left: 7px;
