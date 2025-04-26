@@ -32,6 +32,9 @@
         line-height: 1em;
         animation: scroll01 20s linear infinite;
     }
+    section {
+        max-width: 500px;
+    }
     @keyframes scroll01{
         0% { transform: translateX(0)}
         100% { transform: translateX(-100%)}
@@ -95,6 +98,10 @@
             width: 90px;
             font-size: 12px;
         }
+        section {
+            max-width: 360px;
+        }
+
     }
 </style>
 <body>
@@ -139,12 +146,12 @@
             </ul>
         </div> <!-- breadcrumb -->
         <h2>飼育係</h2>
-        <div id="me" class="floatright">
-            <img id="mpic" src="img/me01.jpg" onclick="mselect()"><br>
-            <a href="profile.html">profile</a>
-            <div class="flowtext"><p>あまり似ていないのは生成AIのせい</p></div>
-        </div>    
         <section>
+            <div id="me" class="floatright">
+                <img id="mpic" src="img/me01.jpg" onclick="mselect()"><br>
+                <a href="profile.html">profile</a>
+                <div class="flowtext"><p>あまり似ていないのは生成AIのせい</p></div>
+            </div>
             <dl>
             <dt>現住所（飼育場所）</dt>
             <dd>
@@ -163,7 +170,7 @@
             <dd><div class="mailto"><a href="mailto:moriuchi@ymail.ne.jp"><img src="img/mail.png" class="icon">moriuchi@ymail.ne.jp（森内）</a></div>
             </dd>
             </dl>
-        </section>        
+        </section>
     </main>
     <footer> <!-- フッターコンテンツ -->
         <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
