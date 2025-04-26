@@ -41,20 +41,13 @@
     video {
         max-width: 640px;
     }
-    .uc { /* 工事中 */
-        margin-top: 20px;
-        text-align: center;
-        background-color: beige;
-        padding: 15px;
-        border-radius: 30px;
-        color: burlywood;
-    }
     @media (max-width: 840px) {
         main {
             display: initial;
         }
         #thumbnail {
             display: grid;
+            height: initial;
             grid-template-columns: repeat(auto-fit, minmax(128px,128px));
             gap: 2px;
             justify-content: center;
@@ -64,10 +57,15 @@
         }
         #thumbnail img {
             width: 128px;
-            /* margin: 0;
-            padding: 0;
-            vertical-align: top; */
         }
+    }
+    .uc { /* 工事中 */
+        margin-top: 20px;
+        text-align: center;
+        background-color: beige;
+        padding: 15px;
+        border-radius: 30px;
+        color: burlywood;
     }
 </style>
 <body>
