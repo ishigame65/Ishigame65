@@ -35,7 +35,7 @@
         color: olive;
         font-weight: normal;
         font-size: 120%;
-        font-family: sans-serif;
+        /* font-family: sans-serif; */
         font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
     video {
@@ -52,16 +52,29 @@
         text-align: center;
         color: olive;
         opacity: 0.25;
-        scale: 1.0 1.5;
+        scale: 0.9 1.5;
     }
     article ul li {
-        margin-bottom: -0.4em;
+        margin-bottom: -0.5em;
+    }
+    .foot {
+        position: absolute;
+        top: 12em;
+        opacity: 0.1;
+        width: 150px;
+        height: 90px;
+    }
+    #foot1 {
+        left: 0;
+    }
+    #foot2 {
+        right: 0;
     }
     #kame {
         position: absolute;
         width: 100%;
         text-align: center;
-        top: 0.9em;
+        top: 0.8em;
         font-size: 8em;
         font-weight: bold;
         color: olive;
@@ -72,22 +85,6 @@
         scale: 1.7 0.9;
         rotate: -10deg;
         translate: 50px;
-    }
-    #foot1 {
-        position: absolute;
-        top: 13em;
-        left: 0;
-        opacity: 0.1;
-        width: 150px;
-        height: 90px;
-    }
-    #foot2 {
-        position: absolute;
-        top: 13em;
-        right: 0;
-        opacity: 0.1;
-        width: 150px;
-        height: 90px;
     }
     @media (max-width: 840px) {
         main {
@@ -171,8 +168,8 @@
                     <li>거북이가 편안하게 사는 환경 만들기</li>
                 </ul>
                 <div id="kame">龜</div>
-                <img id="foot1" src="img/igkft1.png">
-                <img id="foot2" src="img/igkft2.png">
+                <img id="foot1" class="foot" src="img/igkft1.png">
+                <img id="foot2" class="foot" src="img/igkft2.png">
             </article>
         </div>
         <div id="thumbnail">
