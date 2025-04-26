@@ -41,6 +41,31 @@
     video {
         max-width: 640px;
     }
+    article {
+        position: relative;
+    }
+    article ul {
+        position: absolute;
+        width: 100%;
+        margin-top: 1.6em;
+        list-style-type: none;
+        text-align: center;
+        color: olive;
+        opacity: 0.25;
+    }
+    article ul li {
+        margin-top: 0.2em;
+    }
+    #kame {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 0.9em;
+        font-size: 8em;
+        font-weight: bold;
+        color: olive;
+        opacity: 0.1;
+    }
     @media (max-width: 840px) {
         main {
             display: initial;
@@ -57,6 +82,9 @@
         }
         #thumbnail img {
             width: 128px;
+        }
+        article, #kame {
+            display: none;
         }
     }
     .uc { /* 工事中 */
@@ -107,6 +135,20 @@
             <video id="movie" src="img/igwm01.mp4" controls muted playsinline loop></video>
             <h2>イシガメが快適に暮らす環境を作る</h2>
             <!-- <h4 class="uc">一部工事中</h4> -->
+            <article>
+                <ul>
+                    <li>为日本池龟创造舒适的生存环境</li>
+                    <li>การสร้างสภาพแวดล้อมที่สะดวกสบายสำหรับเต่าบ่อน้ำญี่ปุ่น</li>
+                    <li>Japon gölet kaplumbağaları için konforlu bir ortam yaratmak</li>
+                    <li>Creare un ambiente confortevole per le tartarughe giapponesi</li>
+                    <li>Creating a comfortable living environment for Japanese pond turtles</li>
+                    <li>ஜப்பானிய குளம் ஆமைகளுக்கு வசதியான சூழலை உருவாக்குதல்.</li>
+                    <li>Створення комфортних умов для японських ставкових черепах</li>
+                    <li>បង្កើតបរិយាកាសផាសុកភាពសម្រាប់អណ្តើកទឹកជប៉ុន</li>
+                    <li>거북이가 편안하게 사는 환경 만들기</li>
+                </ul>
+                <div id="kame">龜</div>
+            </article>
         </div>
         <div id="thumbnail">
             <img src="img/igwm08p.jpg" onclick="setmovie('img/igwm08s.mp4')">
