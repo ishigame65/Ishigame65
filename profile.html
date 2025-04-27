@@ -60,6 +60,11 @@
     .sub_ul li:before {
         content: none;
     }
+    ul.sublist {
+        font-size: 14px;
+        margin-left: 1em;
+        list-style-type:none;
+    }
     @media (max-width: 670px) {
         .desc ul li:before {
             margin-left: 0px;
@@ -158,6 +163,9 @@
                                     <div class="desc" id="btext">dummy</div>
                                     <div class="clear"></div>
                                 </div>
+                                <ul class="sublist">
+                                    <li>→ <a href="bikeindex.html">銀輪はたまに唄う</a></li>
+                                </ul>
                             </li>
                             <li>何かを作ったり描いたり撮ったり<br>
                                 <div class="mini-photo">
@@ -165,6 +173,10 @@
                                     <div class="desc" id="mtext">dummy</div>
                                     <div class="clear"></div>
                                 </div>
+                                <ul class="sublist">
+                                    <li>→ <a href='photos.html'>あの日あの時あの場所の写真</a></li>
+                                    <li>→ <a href="https://phototools65.pages.dev/">PhotoTools65</a></li>
+                                </ul>
                             </li>
                         </ul>
                     </dd>
@@ -250,9 +262,11 @@
         var bsrc = new Array("bike1.jpg", "bike2.jpg", "bike3.jpg");
         var bdsc = new Array(
             "半世紀前から立っているであろうキカイダーとクロモリ1号"
-            + "<ul><li>クロモリ1号はイタ車カンパ仕様（→ <a href='bikeindex.html'>銀輪はたまに唄う</a>）</li></ul>",
+            + "<ul><li>クロモリ1号はイタ車カンパ仕様</li></ul>",
+            // + "<ul><li>クロモリ1号はイタ車カンパ仕様（→ <a href='bikeindex.html'>銀輪はたまに唄う</a>）</li></ul>",
             "道端のコスモスとクロモリ2号"
-            + "<ul><li>クロモリ2号はパナソニックWレバー仕様（→ <a href='bikeindex.html'>銀輪はたまに唄う</a>）</li></ul>",
+            + "<ul><li>クロモリ2号はパナソニックWレバー仕様</li></ul>",
+            // + "<ul><li>クロモリ2号はパナソニックWレバー仕様（→ <a href='bikeindex.html'>銀輪はたまに唄う</a>）</li></ul>",
             "日帰りで行った温泉で最も遠いのは群馬県の伊香保温泉"
             + "<ul><li>伊香保直前の上り坂で力尽き、帰りは輪行</li></ul>")
         var bindex = -1
@@ -270,8 +284,10 @@
             "小さなもの",
             "屋内水槽用の電源タップカバー" + "<ul><li>廃墟みたいと家族には概ね不評</li></ul>",
             "メロンパンナちゃん",
-            "海の写真（→ <a href='photos.html'>あの日あの時あの場所の写真</a>）",
-            "本サイトの画像や映像を編集するツールはDIY（→ <a href='https://phototools65.pages.dev/'>PhotoTools65</a>）" );
+            // "海の写真（→ <a href='photos.html'>あの日あの時あの場所の写真</a>）",
+            "海の写真",
+            // "本サイトの画像や映像を編集するツールはDIY（→ <a href='https://phototools65.pages.dev/'>PhotoTools65</a>）" );
+            "本サイトの画像や映像を編集するツールはDIY" );
         var mindex = -1
         function mselect() {
             do {
