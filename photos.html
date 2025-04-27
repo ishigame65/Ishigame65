@@ -29,6 +29,23 @@
             max-width: 270px;
         }
     }
+    @media (pointer: coarse), (hover: none) {
+        .type3[title] {
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+        }
+        .type3[title]:focus::after {
+            content: attr(title);
+            position: absolute;
+            top: 90%;
+            color: #000;
+            background-color: #fff;
+            border: 1px solid;
+            width: fit-content;
+            padding: 3px;
+        }
+    }
 </style>
 <body>
  
@@ -75,13 +92,13 @@
         </div> <!-- breadcrumb -->
         <h2>あの日あの時あの場所の写真</h2>
         <section class="indent">
-            <img title="2011 熊本" src="img/phkumamoto1.jpg">
-            <img title="2011 熊本" src="img/phkumamoto2.jpg">
-            <img title="2011 新竹" src="img/phtaiwan1.jpg">
-            <img title="2009 広東" src="img/phgz1.jpg"><br>
-            <img title="2010 東京" src="img/phome1.jpg">
-            <img title="2009 広東" src="img/phgd1.jpg"><br>
-            <img title="2023 埼玉" class="panorama" src="img/phhasuda1.jpg">        
+            <img class="type3" title="2011 熊本" src="img/phkumamoto1.jpg">
+            <img class="type3" title="2011 熊本" src="img/phkumamoto2.jpg">
+            <img class="type3" title="2011 新竹" src="img/phtaiwan1.jpg">
+            <img class="type3" title="2009 広東" src="img/phgz1.jpg"><br>
+            <img class="type3" title="2010 東京" src="img/phome1.jpg">
+            <img class="type3" title="2009 広東" src="img/phgd1.jpg"><br>
+            <img class="type3" title="2023 埼玉" class="panorama" src="img/phhasuda1.jpg">        
         </section>
     </main>
     <footer> <!-- フッターコンテンツ -->
