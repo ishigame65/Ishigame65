@@ -185,12 +185,12 @@
                             <li>Webクリエイター能力認定試験（エキスパート）</li>
                         </ul>
                     </dd>
-                    <dt>遊び</dt>
+                    <!-- <dt>遊び</dt>
                     <dd>
                         <ul>
                             <li><a href="https://phototools65.pages.dev/">PhotoTools65（使いやすい写真ツール）</a></li>
                         </ul>
-                    </dd>
+                    </dd> -->
                     <!-- <dt>仕事</dt>	
                         <dd>
                             <ul>
@@ -264,15 +264,14 @@
             document.getElementById("btext").innerHTML = bdsc[index];
             bindex = index
         }
-        var msrc = new Array("brick1.jpg", "miniature1.jpg", "miniature2.jpg", "melon.jpg", "phsaipan0.jpg");
+        var msrc = new Array("brick1.jpg", "miniature1.jpg", "miniature2.jpg", "melon.jpg", "phsaipan0.jpg", "noimage.png");
         var mdsc = new Array(
-            "花壇のレンガ積み"
-            + "<ul><li>途中からモルタルで作った偽レンガ（庭から出てきた石や瓦礫を<a href='brickmold.html'>型枠</a>に入れてモルタルで固める）</li></ul>",
+            "花壇のレンガ積み" + "<ul><li>途中からモルタルで作った偽レンガ（庭から出てきた石や瓦礫を<a href='brickmold.html'>型枠</a>に入れてモルタルで固める）</li></ul>",
             "小さなもの",
-            "屋内水槽用の電源タップカバー"
-            + "<ul><li>廃墟みたいと家族には概ね不評</li></ul>",
+            "屋内水槽用の電源タップカバー" + "<ul><li>廃墟みたいと家族には概ね不評</li></ul>",
             "メロンパンナちゃん",
-            "海の写真（→ <a href='photos.html'>あの日あの時あの場所の写真</a>）")
+            "海の写真（→ <a href='photos.html'>あの日あの時あの場所の写真</a>）",
+            "本サイトの画像や映像を編集するツールはDIY（→ <a href='https://phototools65.pages.dev/'>PhotoTools65</a>）" );
         var mindex = -1
         function mselect() {
             do {
