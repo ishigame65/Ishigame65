@@ -177,8 +177,8 @@
                                     <div class="clear"></div>
                                 </div>
                                 <ul class="sublist">
-                                    <li>→ <a href='photos.html'>あの日あの時あの場所の写真</a></li>
-                                    <li>→ <a href="https://phototools65.pages.dev/">PhotoTools65</a></li>
+                                    <li><span id="markerp">・</span> <a href='photos.html'>あの日あの時あの場所の写真</a></li>
+                                    <li><span id="markert">・</span> <a href="https://phototools65.pages.dev/">PhotoTools65</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -291,6 +291,8 @@
             "海の写真",
             // "本サイトの画像や映像を編集するツールはDIY（→ <a href='https://phototools65.pages.dev/'>PhotoTools65</a>）" );
             "本サイトの画像や映像を編集するツールはDIY" );
+        var markp = document.getElementById("markerp");
+        var markt = document.getElementById("markert");
         var mindex = -1
         function mselect() {
             do {
@@ -298,6 +300,13 @@
             } while (index == mindex);
             document.getElementById("mpic").src = "img/" + msrc[index];
             document.getElementById("mtext").innerHTML = mdsc[index];
+            markp.innerHTML = "・";
+            markt.innerHTML = "・";
+            if (index == 4) {
+                markp.innerHTML = "→";
+            } else if (index == 5) {
+                markt.innerHTML = "→";
+            }
             mindex = index
         }
         window.onload = function () {
