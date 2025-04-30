@@ -5,8 +5,7 @@
 @import url(arrow.css);
 
 body {
-    /* honeydew: 240, 255, 240 */
-    background-color: honeydew;
+    background: linear-gradient(0deg, honeydew, lightcyan, honeydew);
 }
 header, main, footer {
     margin-left: 1.5em;
