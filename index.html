@@ -1,3 +1,8 @@
+<!--
+ https://www.frog-pod.com/FrogTechLog/2023/01/cssmix-blend-mode.html
+ 
+  -->
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -29,14 +34,22 @@
         width: 192px;
         margin: 0 0 4px 4px;
     }
-    h2 {
-        margin-top: 1em;
+    #main_movie {
+        position: relative;
+    }
+    #catchphrase {
+        position:absolute;
+        top: 1em;
+        left: 0;
+        right: 0;
+        margin: auto;
+        z-index: 100;
         text-align: center;
-        color: olive;
+        /* color: white; */
+        color: lightgoldenrodyellow;
         font-weight: normal;
-        font-size: 120%;
-        /* font-family: sans-serif; */
-        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: xx-large;
+        font-family:'Times New Roman', Times, serif;
     }
     video {
         max-width: 640px;
@@ -101,12 +114,16 @@
         }
         video {
             width: 100%;
+            margin-bottom: 10px;
         }
         #thumbnail img {
             width: 128px;
         }
         article, #kame, #foot1, #foot2 {
             display: none;
+        }
+        #catchphrase {
+            font-size: x-large;
         }
     }
     .uc { /* 工事中 */
@@ -156,7 +173,7 @@
     <main>
         <div id="main_movie">
             <video id="movie" src="img/igwm01.mp4" controls muted playsinline loop></video>
-            <h2>イシガメが快適に暮らす環境を作る</h2>
+            <h2 id="catchphrase">イシガメが快適に暮らす環境を作る</h2>
             <!-- <h4 class="uc">一部工事中</h4> -->
             <article>
                 <ul>
@@ -196,6 +213,7 @@
 
 <script>
     function setmovie(moviefile){
+        document.getElementById("catchphrase").style.display = "none";
         tag = document.getElementById("movie");
         tag.src=moviefile;
         tag.autoplay=true;
