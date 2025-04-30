@@ -12,6 +12,9 @@ header, main, footer {
     margin-left: 1.5em;
     margin-right: 1rem;
 }
+header {
+    margin-bottom: 0.75em;
+}
 footer {
     margin-top: 2em;
 }
