@@ -71,7 +71,7 @@
         right: 0;
         line-height: 1;
     }
-    #map1label, #map2label {
+    #map1, #map2, #map1mark, #map2mark, #map1label, #map2label {
         display: none;
     }
     #overmap {
@@ -185,12 +185,16 @@
         document.getElementById("map3").style.display = "none";
         document.getElementById("map3mark").style.display = "none";
         document.getElementById("map3label").style.display = "none";
+        document.getElementById("map2").style.display = "block";
+        document.getElementById("map2mark").style.display = "block";
         document.getElementById("map2label").style.display = "block";
     }
     function map2over(){
         document.getElementById("map2").style.display = "none";
         document.getElementById("map2mark").style.display = "none";
         document.getElementById("map2label").style.display = "none";
+        document.getElementById("map1").style.display = "block";
+        document.getElementById("map1mark").style.display = "block";
         document.getElementById("map1label").style.display = "block";
     }
     // プロファイル画像ランダム切替
