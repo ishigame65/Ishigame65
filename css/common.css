@@ -3,6 +3,9 @@
     margin: 0;
     padding: 0;
 }
+body {
+    -webkit-text-size-adjust: 100%; /* iPhone横向きSafariでフォントサイズが大きくなる問題の対処 */
+}
 .floatleft {
     float: left;
 }
