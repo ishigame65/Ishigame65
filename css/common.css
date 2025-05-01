@@ -21,6 +21,9 @@ body {
 .indent {
     margin-left: 1em;
 }
+.indent2 {
+    margin-left: 1.5em;
+}
 .opacity05 {
     opacity: 0.5;
 }
