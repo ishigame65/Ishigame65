@@ -50,6 +50,10 @@ footer {
     margin-right: 1em;
     color: #CE5D8B;
 }
+/* 今後検討 */
+/* .scroller {
+    scrollbar-color: #FAF8D8 #DE94BF;
+} */
 @media (max-width: 670px) {
     body {
         font-size: smaller;
