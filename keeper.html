@@ -9,6 +9,9 @@
 	<title>Ishigame65 - 飼育係</title>
 </head>
 <style>
+    section {
+        max-width: 500px;
+    }    
     #me {
         margin-right: 0.5em;
         text-align: center;
@@ -32,9 +35,6 @@
         line-height: 1em;
         animation: scroll01 20s linear infinite;
     }
-    section {
-        max-width: 500px;
-    }
     @keyframes scroll01{
         0% { transform: translateX(0)}
         100% { transform: translateX(-100%)}
@@ -49,6 +49,27 @@
         top: 0;
         left: 0;
     }
+    .fadein {
+        animation: fadein 1.5s forwards;
+    }
+    .fadein03 {
+        animation: fadein03 1.5s forwards;
+    }
+    @keyframes fadein {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+    @keyframes fadein03 {
+        0% { opacity: 0; }
+        100% { opacity: 0.3; }
+    }
+    /* .fadeout {
+        animation: fadeout 1s both;
+    }
+    @keyframes fadeout {
+        0% { opacity: 1; }
+        100% { opacity: 0; }
+    } */
     .mapmark {
         opacity: 0.3;
         border-bottom: 2px solid blue;
@@ -172,11 +193,11 @@
             <dt>現住所（飼育場所）</dt>
             <dd>
                 <div class="mapcase">
-                    <img id="map1" src="img/cmapjpc1200c.png">
-                    <a href="saitamap.html"><img id="map1mark" class="mapmark" src="img/en50.png"></a>
+                    <img id="map1" class="fadein" src="img/cmapjpc1200c.png">
+                    <a href="saitamap.html"><img id="map1mark" class="mapmark fadein03" src="img/en50.png"></a>
                     <p id="map1label">埼玉</p>
-                    <img id="map2" src="img/cmapjpa400.png">
-                    <img id="map2mark" class="mapmark" src="img/en50.png" onmouseover="map2over()">
+                    <img id="map2" class="fadein" src="img/cmapjpa400.png">
+                    <img id="map2mark" class="mapmark fadein03" src="img/en50.png" onmouseover="map2over()">
                     <p id="map2label">関東地方</p>
                     <img id="map3" src="img/cmap115s400.png">
                     <img id="map3mark" src="img/en50.png" class="mapmark" onmouseover="map3over()">
@@ -205,6 +226,8 @@
     // 現住所地図切替
     function map3over(){
         document.getElementById("map3").style.display = "none";
+        // document.getElementById("map3").classList.add("fadeout");
+        // document.getElementById("map3").style.zIndex = 10;
         document.getElementById("map3mark").style.display = "none";
         document.getElementById("map3label").style.display = "none";
         document.getElementById("map2").style.display = "block";
@@ -213,6 +236,8 @@
     }
     function map2over(){
         document.getElementById("map2").style.display = "none";
+        // document.getElementById("map2").classList.add("fadeout");
+        // document.getElementById("map2").style.zIndex = 10;
         document.getElementById("map2mark").style.display = "none";
         document.getElementById("map2label").style.display = "none";
         document.getElementById("map1").style.display = "block";
