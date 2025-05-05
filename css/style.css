@@ -68,19 +68,24 @@ dd {
     display: flex;
     list-style-type: none;
     white-space: nowrap;
-    overflow-x: auto;
     font-size: smaller;
 }
 nav ul {
     margin-top: 3em;
-    gap: 1em;
 }
 #footlinks ul {
-    gap: 1.5em;
+    gap: 0.5em;
 }
 nav a, #footlinks a {
+    padding: 0 0.5em;
     text-decoration: none;
     color: dimgray;
+}
+nav li:hover, #footlinks li:hover {
+    scale: 1.0 1.2;
+}
+nav a:hover, #footlinks a:hover {
+    color: black;
 }
 /* 今後検討 */
 /* .scroller {
