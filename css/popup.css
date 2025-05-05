@@ -116,9 +116,7 @@ ul.marker01 li:before {
     opacity: 0;
   }
 }
-/*
-*/
-@media (max-width: 670px) {
+@media (max-width: 700px) {
   .popup-inner {
 		padding: 15px;
     max-height: 320px;

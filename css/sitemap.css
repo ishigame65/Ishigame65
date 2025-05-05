@@ -46,7 +46,7 @@
 	color: tomato;
 	margin-left: 20px;
 }
-@media (max-width: 670px) {
+@media (max-width: 700px) {
   .sitemap a {
     font-size: 90%;
   }
