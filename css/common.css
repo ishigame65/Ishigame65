@@ -19,11 +19,12 @@ body {
     font-size: smaller;
 }
 .indent {
-    margin-left: 1em;
-}
-.indent2 {
+    /* margin-left: 1em; */
     margin-left: 1.5em;
 }
+/* .indent2 {
+    margin-left: 1.5em;
+} */
 .opacity05 {
     opacity: 0.5;
 }
@@ -68,11 +69,19 @@ td.num_text {
 }
 @media (max-width: 700px) {
     .indent {
-        margin-left: 0.7em;
+        /* margin-left: 0.7em; */
+        margin-left: 1em;
     }
+    /* .indent2 {
+        margin-left: 1em;
+    } */
     section .indent {
-        margin-left: 0.25em;
+        /* margin-left: 0.25em; */
+        margin-left: 0.4em;
     }
+    /* section .indent2 {
+        margin-left: 0.37em;
+    } */
     .breadcrumb {
         font-size: smaller;
     }
