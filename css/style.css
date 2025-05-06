@@ -8,6 +8,7 @@
 body {
     background: linear-gradient(0deg, honeydew, lightcyan, honeydew);
 }
+
 header, main, footer {
     margin-left: 1.5em;
     margin-right: 1rem;

@@ -19,12 +19,8 @@ body {
     font-size: smaller;
 }
 .indent {
-    /* margin-left: 1em; */
     margin-left: 1.5em;
 }
-/* .indent2 {
-    margin-left: 1.5em;
-} */
 .opacity05 {
     opacity: 0.5;
 }

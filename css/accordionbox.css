@@ -5,7 +5,7 @@
     display: block;
     cursor :pointer;
     padding:3px;
-    background: linear-gradient(90deg, rgb(216, 240, 169), honeydew);
+    background: linear-gradient(90deg, LightGray, WhiteSmoke);
     font-size: smaller;
 }
 .accordion-box input#AC_BUTTON {

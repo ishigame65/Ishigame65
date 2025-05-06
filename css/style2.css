@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+body {
+    /* background: linear-gradient(0deg, beige, beige, beige); */
+    background: WhiteSmoke;
+}
+#menu_btn, #menu_cont {
+    background-color: WhiteSmoke;
+}
+#menu_btn span,
+#menu_btn span::before,
+#menu_btn span::after {
+    background-color: black;
+}
+#menu_btn #title {
+    color: black;
+}
+.arrow-up {
+    color: black;
+}
+.breadcrumb, a {
+    color: gray;
+}
+a, .popup-open {
+    text-decoration-color: black;
+
+}
+ul.marker01 li:before {
+    color: gray;
+}

@@ -135,12 +135,10 @@
     margin-left: 7px;
     width: 18px;
     height: 18px;
-    /* background-color: red; */
     vertical-align: top;
 }
 @media (max-width: 700px) {
     #menu_btn {
-        /* top: 25px; */
         top: 15px;
         right: 15px;
         height: 30px;
