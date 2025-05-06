@@ -1,13 +1,12 @@
 @charset "utf-8";
 
 /* no1 */
-.accordion-box {
-    font-size: smaller;
-}
 .accordion-box label#AC_LABEL {
     display: block;
     cursor :pointer;
     padding:3px;
+    /* background-color: rgb(216, 240, 169); */
+    background: linear-gradient(90deg, rgb(216, 240, 169), honeydew);
 }
 .accordion-box input#AC_BUTTON {
     display: none; 
@@ -18,6 +17,7 @@
     transition: 0.5s;	/* display speed */
     opacity: 0;
     padding-left: 10px;
+    font-size: smaller;
 }
 .accordion-box input#AC_BUTTON:checked + label + div {
     height: auto;
