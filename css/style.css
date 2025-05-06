@@ -3,6 +3,7 @@
 @import url(common.css);
 @import url(slidemenu.css);
 @import url(arrow.css);
+@import url(accordionbox.css);
 
 body {
     background: linear-gradient(0deg, honeydew, lightcyan, honeydew);

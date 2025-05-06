@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+/* no1 */
+.accordion-box {
+    font-size: smaller;
+}
+.accordion-box label#AC_LABEL {
+    display: block;
+    cursor :pointer;
+    padding:3px;
+}
+.accordion-box input#AC_BUTTON {
+    display: none; 
+}
+.accordion-box div#AC_CONTENTS {
+    height: 0;
+    overflow-y: hidden;
+    transition: 0.5s;	/* display speed */
+    opacity: 0;
+    padding-left: 10px;
+}
+.accordion-box input#AC_BUTTON:checked + label + div {
+    height: auto;
+    opacity: 1;
+	/* border: 1px solid gray; */
+	border: 1px dotted gray;
+	padding: 4px 6px;
+}
+.accordion-box label#AC_LABEL::before {
+    content: "＋";
+    padding-right: 8px;
+}
+.accordion-box input#AC_BUTTON:checked + label::before {
+    content: "－";
+}
+
+/* no2 */
+.accordion-box2 {
+    margin:  0 10px;
+}
+.accordion-box2 label#AC_LABEL2 {
+    display: block;
+    font-weight: bold;
+    cursor :pointer;
+    margin-top: 10px;
+    padding:4px;
+    background-color:paleturquoise;
+}
+.accordion-box2 input#AC_BUTTON2 {
+    display: none; 
+}
+.accordion-box2 div#AC_CONTENTS2 {
+    height: 0;
+    overflow-y: hidden;
+    transition: 0.5s;	/* display speed */
+    opacity: 0;
+    padding-left: 10px;
+}
+.accordion-box2 input#AC_BUTTON2:checked + label + div {
+    height: auto;
+    opacity: 1;
+	border: 1px solid gray;
+	padding: 10px 10px;
+}
+.accordion-box2 label#AC_LABEL2::before {
+    content: "＋";
+    padding-right: 8px;
+}
+.accordion-box2 input#AC_BUTTON2:checked + label::before {
+    content: "－";
+}
+
+/* no3 */
+.accordion-box3 {
+    margin:  0 10px;
+}
+.accordion-box3 label#AC_LABEL3 {
+    display: block;
+    font-weight: bold;
+    cursor :pointer;
+    margin-top: 10px;
+    padding:4px;
+    background-color:paleturquoise;
+}
+.accordion-box3 input#AC_BUTTON3 {
+    display: none; 
+}
+.accordion-box3 div#AC_CONTENTS3 {
+    height: 0;
+    overflow-y: hidden;
+    transition: 0.5s;	/* display speed */
+    opacity: 0;
+    padding-left: 10px;
+}
+.accordion-box3 input#AC_BUTTON3:checked + label + div {
+    height: auto;
+    opacity: 1;
+	border: 1px solid gray;
+	padding: 10px 10px;
+}
+.accordion-box3 label#AC_LABEL3::before {
+    content: "＋";
+    padding-right: 8px;
+}
+.accordion-box3 input#AC_BUTTON3:checked + label::before {
+    content: "－";
+}
