@@ -10,7 +10,8 @@ body {
 }
 
 header, main, footer {
-    margin-left: 1.5em;
+    /* margin-left: 1.5em; */
+    margin-left: 1rem;
     margin-right: 1rem;
 }
 header {
@@ -98,7 +99,8 @@ nav a:hover, #footlinks a:hover {
         font-size: smaller;
     }
     header, main, footer {
-        margin-left: 1em;
+        /* margin-left: 1em; */
+        margin-left: 0.5rem;
         margin-right: 0.5rem;
     }   
     h1 {
