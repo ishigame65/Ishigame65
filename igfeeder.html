@@ -73,127 +73,29 @@
         </div> <!-- breadcrumb -->
         <h2>自動給餌器</h2>
         <section class="indent">
-            <p>3Dプリンタとタミヤの遊星ギヤーボックスセットを利用して、水力で自動的に人工飼料を与える器具を製作した。</p>
-            <p>濾過器から出てくる水で水車を回し、ギア比800,000:1で減速することで回転板を約16日で1回転させ、概ね2日に1回の間隔で餌を投下する。
-              <ul class="indent">
-              <li>塩ビ管異形チーズで水流を分岐して水車を回す</li>
-              <li>タミヤの遊星ギアユニットを連結改造してギア比40,000:1を実現する</li>
-              <li>自製ギア2種（ギア比4:1×5:1）にタミヤの遊星ギアユニット(ギア比40,000:1)を連結し、ギア比800,000:1を実現する</li>
-              </ul>
+            <p>
+                当初は濾過器から出てくる水で水車を回し動力にする
+                <a href="igfeeder1st.html">水力自動給餌器</a>を製作し稼働させていたが、
+                餌が湿気やすいという問題があったため、現在は市販の電池式自動給餌器を利用している。<br>
+                <img class="floatleft" src="img/igbfeeder1.jpg">                
+                毎日設定した時刻に写真左側部が回転することにより給餌することができる。
+                3つまでの給餌時刻を設定でき、給餌孔面積と回転数設定（1～3）によって給餌量を調整できる。
+                価格は約1700円（中華通販サイト）。
+                <div class="clear"></div>
             </p>
             <p>
-              <img src="img/igcghafall1desc.png"><img src="img/ighaf1.jpg"><br>
-              <img src="img/igcghafall2.png"><img src="img/igcghafall3.png"><img src="img/igcghafall4.png">
+                給餌器を固定する台座や雨風を防ぐ囲いは
+                <a href="igfeeder1st.html">水力自動給餌器</a>用に製作したものを流用した。
+                写真は囲いを取り付ける前の状態で、囲いはL型金具の上の出っ張りに差し込む形で固定する。<br>
+                <img src="img/igbfeeder2.jpg">
+                <img src="img/igbfeeder3.jpg">
             </p>
         </section>
-        <h3>遊星ギアボックスを製作</h3>
-        <section class="indent">
-            <p>タミヤ遊星ギヤーボックスセット<br>
-              <img src="img/iggearbox1.jpg"><img src="img/iggearbox2.jpg"><br>
-              <ul class="indent">
-              <li>ギア比5:1,5:1,4:1,4:1の計4個の遊星ギアユニットを組み合わせて使用することができる</li>
-              <li>4個の遊星ギアユニット全てを連結するとギア比400:1（5:1×5:1×4:1×4:1）となる</li>
-              </ul>
-            </p>
-            <p>タミヤ遊星ギヤーボックスセット2個から、ギア比5:1,5:1,5:1,5:1,4:1,4:1,4:1の計7個の遊星ギアユニットを連結し、
-            ギア比40,000:1（5:1×5:1×5:1×5:1×4:1×4:1×4:1）とする
-              <ul class="indent">
-                <li>7個の遊星ギアユニットを連結するために、M3x75mmボルト3本が必要となる（付属ネジは長さが足らない）</li>
-              </ul>
-            </p>
-            <p>付属のジョイントメタルを取り付ける<br>
-              <img src="img/iggearbox3.jpg">
-            </p>
-        </section>
-        <h3>必要部品を3Dプリント</h3>
-        <section class="indent">
-            <p class="indent"><img src="img/prn3d.png">から3D-STLファイルをダウンロード</p>
+        <h3>関連記事</h3>
+        <section class="indent">            
             <ul>
-            <li>水車 <a href="水車.stl"><img src="img/prn3da.png"></a><br><img src="img/ig3dhafsuisha1.png"></li>
-            <li>水車ギア芯部 <a href="水車ギア芯部.stl"><img src="img/prn3da.png"></a><br><img src="img/ig3dhafsuishacore1.png"></li>
-            <li>ギアA <a href="ギアA.stl"><img src="img/prn3da.png"></a><br><img src="img/ig3dhafgeara1.png"></li>
-            <li>ギアB <a href="ギアB.stl"><img src="img/prn3da.png"></a><br><img src="img/ig3dhafgearb1.png"></li>
-            <li>ギアB接合芯部 <a href="ギアB接合芯部.stl"><img src="img/prn3da.png"></a><br>
-              <img src="img/ig3dhafgearbcnct1.png"><img src="img/ig3dhafgearbcnct2.png"><br>
-              <ul class="indent">
-              <li>円周上に配置した凸部が遊星ギアボックスのギアユニットプレート凹部に嵌合する</li>
-              </ul></li>
-            <li>回転板 <a href="回転板.stl"><img src="img/prn3da.png"></a><br>
-              <img src="img/ig3dhafwheel1.png"><img src="img/ig3dhafwheel2.png"><br>
-              <ul class="indent">
-              <li>中央の穴が遊星ギアボックスのジョイントメタルに嵌合する</li>
-              </ul></li>
-            <li>トレイ <a href="トレイ.stl"><img src="img/prn3da.png"></a><br><img src="img/ig3dhaftray1.png"></li>
-            <li>固定具 <a href="固定具.stl"><img src="img/prn3da.png"></a><br><br><img src="img/ig3dhafdropjig1.png"></li>
-            </ul>
-        </section>
-        <h3 id="組み立て">組み立て</h3>
-        <section class="indent">
-            <p>3Dプリント部品を組み立て、回転部をプラスチックベアリングと長ナットでL型金具に取り付ける<br>
-              <img src="img/ighafbearing1.jpg"><img src="img/ighaflongnut1.jpg"><img src="img/ighafasm2.jpg"></p>
-            <p>遊星ギアボックスを木材に取り付けてL型金具に固定して、全体を木材で製作した台に固定する（台はレンガの重みで安定させる）<br>
-              <img src="img/ighafasm1.jpg"><img src="img/ighafasm3.jpg"></p>
-            <p>家に余っていた木材とプラ板を利用して、雨風を防ぐ囲いを製作して取り付けた<br>
-              <img src="img/ighaf2.jpg"></p>
-        </section>
-        <h3 id="購入部品">購入部品</h3>
-        <section class="indent">
-            <table class="smart_table">
-            <thead>
-                <tr class="header">
-                    <th>名前</th>
-                    <th>個数</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="odd">
-                    <td>タミヤ遊星ギヤーボックスセット</td>
-                    <td class="num_text">2</td>
-                </tr>
-                <tr class="even">
-                    <td>六角穴付きボルト M3x75mm</td>
-                    <td class="num_text">3</td>
-                </tr>
-                <tr class="odd">
-                    <td>プラスチックベアリング（ネジ軸タイプ）PH-004、外径26高さ7、軸径6ピッチ1</td>
-                    <td class="num_text">1</td>
-                </tr>
-                <tr class="even">
-                    <td>プラスチックベアリング（ネジ軸タイプ）PH-002、外径22高さ7、軸径6ピッチ1</td>
-                    <td class="num_text">2</td>
-                </tr>
-                <tr class="odd">
-                    <td>長ナット6x30mm（M6ピッチ1）</td>
-                    <td class="num_text">3</td>
-                </tr>
-                <tr class="even">
-                    <td>ネジ3x50mm</td>
-                    <td class="num_text">8</td>
-                </tr>
-                <tr class="odd">
-                    <td>ネジ4x60mm</td>
-                    <td class="num_text">1</td>
-                </tr>
-                <tr class="even">
-                    <td>ワッシャー3x8mm</td>
-                    <td class="num_text">8</td>
-                </tr>
-                <tr class="odd">
-                    <td>袋ナット3mm</td>
-                    <td class="num_text">8</td>
-                </tr>
-                <tr class="even">
-                    <td>L型型具</td>
-                    <td class="num_text">3</td>
-                </tr>
-                <tr class="odd">
-                    <td>塩ビ管異形チーズ20/13</td>
-                    <td class="num_text">1</td>
-                </tr>
-            </tbody>
-            </table><br>
-            <ul class="plist">
-                <li>その他の細かいネジ・ナット類は自宅にあった物を使用</li>
+            <li><a href="igfeeder1st.html">水力自動給餌器</a>
+
             </ul>
         </section>
     </main>
