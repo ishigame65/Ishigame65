@@ -6,12 +6,11 @@
 }
 .sitemap ul li ul {
   margin-top: .5em;
-  /* margin-bottom: .75em; */
   margin-bottom: .65em;
-  margin-left: 48px;
+  /* margin-left: 48px; */
+  margin-left: 2em;
 }
 .sitemap ul li ul li {
-  /* margin-bottom: .25em; */
   margin-bottom: .2em;
   position: relative;
 }
