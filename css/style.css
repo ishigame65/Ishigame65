@@ -90,6 +90,25 @@ nav li:hover, #footlinks li:hover {
 nav a:hover, #footlinks a:hover {
     color: black;
 }
+#articles {
+    vertical-align: top;
+}
+article {
+    display: inline-block;
+    min-width: 24em;
+    max-width: 28em;
+    margin-right: 1em;
+    padding-right: 1em;
+}
+article h3 {
+    background: linear-gradient(90deg, royalblue, rgba(255,255,255,0.0));
+    color: linen;
+    padding: 0.2em 0.3em;
+}
+.article_content {
+    margin-left: 0.6em;
+}
+
 /* 今後検討 */
 /* .scroller {
     scrollbar-color: #FAF8D8 #DE94BF;
@@ -113,5 +132,13 @@ nav a:hover, #footlinks a:hover {
     }
     nav, #footlinks {
         display: none;
+    }
+    article {
+        min-width: none;
+        max-width: none;
+        padding: 0;
+    }
+    .article_content {
+        margin-left: 0.3em;
     }
 }
