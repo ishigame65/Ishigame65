@@ -10,7 +10,7 @@
 .image_link img{
 	position: relative;
 	display: inline-block;
-	margin: 0 20px 0 0;
+	margin: 0.75em 20px 0 0;
 }
 .image_link:before{
 	content:"";
@@ -32,7 +32,6 @@
 	position:absolute;
 	top:10%;
 	left: 0;
-	margin-top:-1.5em;
 	opacity:0;
 	z-index:3;
 	transition:0.3s;
@@ -53,6 +52,7 @@
 	.image_link:after{
 		font-size:12px;
 		height: auto;
+		top:15%;
 	}
 	#mytext {
 		font-size:12px;

@@ -90,6 +90,12 @@ nav li:hover, #footlinks li:hover {
 nav a:hover, #footlinks a:hover {
     color: black;
 }
+h2 {
+    background: linear-gradient(90deg, paleturquoise, rgba(255,255,255,0.0));
+    padding: 0.2em 0.3em;
+    /* margin-bottom: 0.75em; */
+    border-radius: 0.15em;
+}
 #articles {
     vertical-align: top;
 }
@@ -104,6 +110,7 @@ article h3 {
     background: linear-gradient(90deg, royalblue, rgba(255,255,255,0.0));
     color: linen;
     padding: 0.2em 0.3em;
+    border-radius: 0.1em;
 }
 .article_content {
     margin-left: 0.6em;

@@ -20,6 +20,7 @@ body {
 }
 .indent {
     margin-left: 1.5em;
+    margin-left: 0.6em;
 }
 .opacity05 {
     opacity: 0.5;
@@ -66,6 +67,7 @@ td.num_text {
 @media (max-width: 700px) {
     .indent {
         margin-left: 1em;
+        margin-left: 0.3em;
     }
     section .indent {
         margin-left: 0.4em;
