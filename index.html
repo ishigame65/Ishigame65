@@ -38,6 +38,7 @@
         position: relative;
     }
     #catchphrase {
+		background: none;
         position:absolute;
         top: 0;
         left: 0;
@@ -56,6 +57,38 @@
     video {
         max-width: 640px;
     }
+    /* 矩形絵 */
+    #rectart {
+        display: none;
+        position: relative;
+        width: 35em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .rectshape {
+        position: absolute;
+        background-color: mediumaquamarine;
+        background-color: #fff;
+    }
+	#rect1 {
+		width: 3em;
+        height: 6em;
+        top: 2em;
+        left: 4em;
+	}
+	#rect2 {
+		width: 7em;
+        height: 2em;
+        top: 6em;
+        left: 10em;
+	}
+	#rect3 {
+		width: 1.5em;
+        height: 1.5em;
+        top: 6.5em;
+        left: 25em;
+        border-radius: 0.75em;
+	}
     /* 文字絵 */
     #charart {
         font-size: 10px;
@@ -123,6 +156,9 @@
         #thumbnail img {
             width: 128px;
         }
+        #rectart {
+            display: none;
+        } 
         #charart, #kame, #foot1, #foot2 {
             display: none;
         }
@@ -189,6 +225,11 @@
             <video id="movie" src="img/igwm01.mp4" controls muted playsinline loop></video>
             <h2 id="catchphrase">イシガメが快適に暮らす環境を作る</h2>
             <!-- <h4 class="uc">一部工事中</h4> -->
+            <div id="rectart">
+                <div id="rect1" class="rectshape"></div>
+                <div id="rect2" class="rectshape"></div>
+                <div id="rect3" class="rectshape"></div>
+            </div>
             <div id="charart">
                 <ul>
                     <li>为日本池龟创造舒适的生存环境</li>
