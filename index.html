@@ -57,12 +57,13 @@
         max-width: 640px;
     }
     /* 文字絵 */
-    article {
+    #charart {
         font-size: 10px;
         position: relative;
         margin-top: 1em;
+        display: none;  /*** なしにする ***/
     }
-    article ul {
+    #charart ul {
         position: absolute;
         width: 100%;
         margin-top: 4em;
@@ -72,7 +73,7 @@
         opacity: 0.25;
         scale: 0.9 1.5;
     }
-    article ul li {
+    #charart ul li {
         margin-bottom: -0.5em;
     }
     .foot {
@@ -122,7 +123,7 @@
         #thumbnail img {
             width: 128px;
         }
-        article, #kame, #foot1, #foot2 {
+        #charart, #kame, #foot1, #foot2 {
             display: none;
         }
         #catchphrase {
@@ -188,7 +189,7 @@
             <video id="movie" src="img/igwm01.mp4" controls muted playsinline loop></video>
             <h2 id="catchphrase">イシガメが快適に暮らす環境を作る</h2>
             <!-- <h4 class="uc">一部工事中</h4> -->
-            <article>
+            <div id="charart">
                 <ul>
                     <li>为日本池龟创造舒适的生存环境</li>
                     <li>การสร้างสภาพแวดล้อมที่สะดวกสบายสำหรับเต่าบ่อน้ำญี่ปุ่น</li>
@@ -203,7 +204,7 @@
                 <div id="kame">龜</div>
                 <img id="foot1" class="foot" src="img/igkft1.png">
                 <img id="foot2" class="foot" src="img/igkft2.png">
-            </article>
+            </div>
         </div>
         <div id="thumbnail">
             <img src="img/igwm08p.jpg" onclick="setmovie('img/igwm08s.mp4')">
