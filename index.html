@@ -57,86 +57,11 @@
     video {
         max-width: 640px;
     }
-    /* 矩形絵 */
-    #rectart {
-        display: none;
-        position: relative;
-        width: 35em;
+    #joke_art {
+        width: fit-content;
         margin-left: auto;
         margin-right: auto;
-    }
-    .rectshape {
-        position: absolute;
-        background-color: mediumaquamarine;
-        background-color: #fff;
-    }
-	#rect1 {
-		width: 3em;
-        height: 6em;
-        top: 2em;
-        left: 4em;
-	}
-	#rect2 {
-		width: 7em;
-        height: 2em;
-        top: 6em;
-        left: 10em;
-	}
-	#rect3 {
-		width: 1.5em;
-        height: 1.5em;
-        top: 6.5em;
-        left: 25em;
-        border-radius: 0.75em;
-	}
-    /* 文字絵 */
-    #charart {
-        font-size: 10px;
-        position: relative;
-        margin-top: 1em;
-        display: none;  /*** なしにする ***/
-    }
-    #charart ul {
-        position: absolute;
-        width: 100%;
-        margin-top: 4em;
-        list-style-type: none;
-        text-align: center;
-        color: olive;
-        opacity: 0.25;
-        scale: 0.9 1.5;
-    }
-    #charart ul li {
-        margin-bottom: -0.5em;
-    }
-    .foot {
-        position: absolute;
-        top: 12em;
-        opacity: 0.1;
-        width: 12em;
-        height: 6em;
-    }
-    #foot1 {
-        left: 11em;
-    }
-    #foot2 {
-        right: 11em;
-    }
-    #kame {
-        position: absolute;
-        width: 100%;
-        text-align: center;
-        top: 1em;
-        font-size: 7.5em;
-        font-weight: bold;
-        color: olive;
-        opacity: 0.1;
-        transition: 2s;
-    }
-    #kame:hover {
-        scale: 1.7 0.9;
-        rotate: -10deg;
-        translate: 50px;
+        color: mediumseagreen;
     }
     @media (max-width: 840px) {
         main {
@@ -149,6 +74,9 @@
             gap: 2px;
             justify-content: center;
         }
+        #catchphrase {
+            font-size: large;
+        }
         video {
             width: 100%;
             margin-bottom: 10px;
@@ -156,14 +84,8 @@
         #thumbnail img {
             width: 128px;
         }
-        #rectart {
+        #joke_art {
             display: none;
-        } 
-        #charart, #kame, #foot1, #foot2 {
-            display: none;
-        }
-        #catchphrase {
-            font-size: large;
         }
     }
     .uc { /* 工事中 */
@@ -225,26 +147,8 @@
             <video id="movie" src="img/igwm01.mp4" controls muted playsinline loop></video>
             <h2 id="catchphrase">イシガメが快適に暮らす環境を作る</h2>
             <!-- <h4 class="uc">一部工事中</h4> -->
-            <div id="rectart">
-                <div id="rect1" class="rectshape"></div>
-                <div id="rect2" class="rectshape"></div>
-                <div id="rect3" class="rectshape"></div>
-            </div>
-            <div id="charart">
-                <ul>
-                    <li>为日本池龟创造舒适的生存环境</li>
-                    <li>การสร้างสภาพแวดล้อมที่สะดวกสบายสำหรับเต่าบ่อน้ำญี่ปุ่น</li>
-                    <li>Japon gölet kaplumbağaları için konforlu bir ortam yaratmak</li>
-                    <li>Creare un ambiente confortevole per le tartarughe giapponesi</li>
-                    <li>Creating a comfortable living environment for Japanese pond turtles</li>
-                    <li>ஜப்பானிய குளம் ஆமைகளுக்கு வசதியான சூழலை உருவாக்குதல்.</li>
-                    <li>Створення комфортних умов для японських ставкових черепах</li>
-                    <li>បង្កើតបរិយាកាសផាសុកភាពសម្រាប់អណ្តើកទឹកជប៉ុន</li>
-                    <li>거북이가 편안하게 사는 환경 만들기</li>
-                </ul>
-                <div id="kame">龜</div>
-                <img id="foot1" class="foot" src="img/igkft1.png">
-                <img id="foot2" class="foot" src="img/igkft2.png">
+            <div id="joke_art">
+                ஜப்பானிய குளம் ஆமைகளுக்கு வசதியான சூழலை உருவாக்குதல்.
             </div>
         </div>
         <div id="thumbnail">
