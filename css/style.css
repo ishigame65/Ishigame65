@@ -94,6 +94,9 @@ h2 {
     padding: 0.2em 0.3em;
     border-radius: 0.15em;
 }
+h2.mono {
+    background: linear-gradient(90deg, silver, rgba(255,255,255,0.0));
+}
 .maxw100 {
     max-width: 100%;
 }
@@ -112,6 +115,9 @@ article h3 {
     color: linen;
     padding: 0.2em 0.3em;
     border-radius: 0.1em;
+}
+article h3.mono {
+    background: linear-gradient(90deg, gray, rgba(255,255,255,0.0));
 }
 .article_content {
     margin-left: 0.6em;
