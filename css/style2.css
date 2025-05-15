@@ -1,7 +1,6 @@
 @charset "utf-8";
 
 body {
-    /* background: linear-gradient(0deg, beige, beige, beige); */
     background: WhiteSmoke;
 }
 #menu_btn, #menu_cont {
@@ -23,7 +22,6 @@ body {
 }
 a, .popup-open {
     text-decoration-color: black;
-
 }
 ul.marker01 li:before {
     color: gray;
