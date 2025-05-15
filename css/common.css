@@ -12,6 +12,10 @@ body {
 .floatright {
     float: right;
 }
+.textright {
+    display: block;
+    text-align: right;
+}
 .clear {
 	clear: both;	/* 配置指定（回り込み）解除 */
 }
