@@ -11,11 +11,14 @@
 	<title>過去のクロモリ</title>
 </head>
 <style>
+    article {
+        max-width: 95%;
+    }
     main img {
         border-radius: 4px;
         max-width: 320px;
-        margin-bottom: 15px;
-        margin-left: 15px;
+        margin-bottom: 0.75em;
+        margin-right: 0.75em;
         float: left;
     }
     table {
@@ -25,8 +28,6 @@
         main img {
             border-radius: 3px;
             max-width: 288px;
-            margin-bottom: 5px;
-            margin-left: 10px;
         }
         table {
             max-width: 98%;
@@ -89,31 +90,33 @@
             </ul>
         </div> <!-- breadcrumb -->
         <h2>過去のクロモリ</h2>
-        <h3>ブリジストン Atrantis スポルティーフ</h3>
-        <section class="indent">
-            <p>
-                ランドナーとロードバイクの中間的な位置づけのスポルティーフという種類の自転車。
-                自転車の知識が無かった貧乏学生が、なぜ普及モデルのロードマンではなく上位モデルのAtlantisを購入したのかは謎。
-                たまたま購入したこの自転車のおかげで長距離ツーリングの楽しみを知り、今に至る。
-            </p>
-            <img src="img/bkmshiga1.jpg">
-            <a href="" class="popup-open" data-modal-btn="modal01">（詳細スペック）</a>
-            <div class="clear"></div>        
-        </section>
-        <h3>Nishiki Custom Sport</h3>
-        <section class="indent">
-            <p class="text">
-                米国滞在時に日常の移動手段として買ったNishikiのロードバイク。
-                駆動系はSuntour、制動系はDia Compe、ホイールはArayaという、そうそうたるJapanブランド。
-                最後の写真は購入した自転車屋。
-            </p>
-            <img src="img/bkn5.jpg">
-            <img src="img/bkn1.jpg">
-            <img src="img/bkn3.jpg">
-            <img src="img/bkn4.jpg">
-            <img src="img/bkn2.jpg">
-            <div class="clear"></div>               
-        </section>
+        <div id="articles">
+            <article>
+                <h3>ブリジストン Atrantis スポルティーフ</h3>
+                <p>
+                    ランドナーとロードバイクの中間的な位置づけのスポルティーフという種類の自転車。
+                    自転車の知識が無かった貧乏学生が、なぜ普及モデルのロードマンではなく上位モデルのAtlantisを購入したのかは謎。
+                    たまたま購入したこの自転車のおかげで長距離ツーリングの楽しみを知り、今に至る。
+                </p>
+                <img src="img/bkmshiga1.jpg">
+                <a href="" class="popup-open" data-modal-btn="modal01">（詳細スペック）</a>
+                <!-- <div class="clear"></div>         -->
+            </article>
+            <article>                
+                <h3>Nishiki Custom Sport</h3>
+                <p>
+                    米国滞在時に日常の移動手段として買ったNishikiのロードバイク。
+                    駆動系はSuntour、制動系はDia Compe、ホイールはArayaという、そうそうたるJapanブランド。
+                    最後の写真は購入した自転車屋。
+                </p>
+                <img src="img/bkn5.jpg">
+                <img src="img/bkn1.jpg">
+                <img src="img/bkn3.jpg">
+                <img src="img/bkn4.jpg">
+                <img src="img/bkn2.jpg">
+                <!-- <div class="clear"></div>                -->
+            </article>
+        </div>
 
         <div class="popup-wrap" data-modal-cont="modal01"><div class="popup-back"></div>
         <div class="popup-inner"><span class="popup-close"></span>
