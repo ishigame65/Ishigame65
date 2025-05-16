@@ -100,6 +100,14 @@ h2.mono {
 .maxw100 {
     max-width: 100%;
 }
+img.bike {
+    max-width: 320px;
+    max-height: 320px;
+    border-radius: 4px;
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+    margin-bottom: 0.75em;
+}
 #articles {
     vertical-align: top;
 }
@@ -151,5 +159,10 @@ article h3.mono {
     }
     .article_content {
         margin-left: 0.3em;
+    }
+    img.bike {
+        max-width: 288px;
+        max-height: 288px;
+        border-radius: 3px;
     }
 }
