@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/popup2.css"><!-- 検討中 -->
 	<meta name="description" content="あの日あの時あの場所の写真">
 	<link rel="shortcut icon" href="img/kame.ico">
 	<title>あの日あの時あの場所の写真</title>
@@ -18,6 +19,11 @@
     }
     main img.panorama {
         max-width: 609px;
+    }
+    p.kumamoto {
+        position: absolute;
+        top: 50%;
+        left: 150px;
     }
     @media (max-width: 700px) {
         main img {
@@ -104,39 +110,110 @@
         </div> <!-- breadcrumb -->
         <h2 class="mono">あの日あの時あの場所の写真</h2>
         <section class="indent">
-            <img class="type3" title="2011 熊本" src="img/phkumamoto1.jpg">
-            <img class="type3" title="2011 熊本" src="img/phkumamoto2.jpg">
-            <img class="type3" title="2011 新竹" src="img/phtaiwan1.jpg">
-            <img class="type3" title="2009 広東" src="img/phgz1.jpg">
-            <img class="type3" title="2005 Napoli" src="img/ph2005napoli1.jpg">
-            <img class="type3" title="2005 Bari" src="img/ph2005bari1.jpg">
-            <img class="type3" title="1993 Bali" src="img/ph93bali1.jpg">
-            <img class="type3" title="1993 Bali" src="img/ph93bali2.jpg">
-            <img class="type3" title="1992 Saipan" src="img/ph92saipan1.jpg">
-            <img class="type3" title="1992 Istanbul" src="img/sh92istanbul2.jpg">
-            <img class="type3" title="1992 Istanbul" src="img/sh92istanbul3.jpg">
-            <img class="type3" title="1992 Istanbul" src="img/sh92istanbul7.jpg">
-            <img class="type3" title="1988 D.C." src="img/ph88dc1.jpg">
-            <img class="type3" title="1986 上海" src="img/ph86shanghai2.jpg">
+            <a href="javascript:mapup(135, -5.5, -53.5, '2011 熊本');">
+                <img class="type3" title="2011 熊本" src="img/phkumamoto1.jpg">
+            </a>
+            <a href="javascript:mapup(135, -5.5, -53.5, '2011 熊本');">
+                <img class="type3" title="2011 熊本" src="img/phkumamoto2.jpg">
+            </a>
+            <a href="javascript:mapup(135, -22, -41, '2011 新竹');">
+                <img class="type3" title="2011 新竹" src="img/phtaiwan1.jpg">
+            </a>
+            <a href="javascript:mapup(105, 14, -39, '2009 広東');">
+                <img class="type3" title="2009 広東" src="img/phgz1.jpg">
+            </a>
+            <a href="javascript:mapup(20, -8, -65.5, '2005 Napoli');">
+                <img class="type3" title="2005 Napoli" src="img/ph2005napoli1.jpg">
+            </a>
+            <a href="javascript:mapup(20, -5.4, -65.3, '2005 Bari');">
+                <img class="type3" title="2005 Bari" src="img/ph2005bari1.jpg">
+            </a>
+            <a href="javascript:mapup(105, 17.5, 15, '1993 Bali');">
+                <img class="type3" title="1993 Bali" src="img/ph93bali1.jpg">
+            </a>
+            <a href="javascript:mapup(105, 17.5, 15, '1993 Bali');">
+                <img class="type3" title="1993 Bali" src="img/ph93bali2.jpg">
+            </a>
+            <a href="javascript:mapup(135, 20, -25, '1992 Saipan');">
+                <img class="type3" title="1992 Saipan" src="img/ph92saipan1.jpg">
+            </a>
+            <a href="javascript:mapup(20, 11.3, -65.6, '1992 Istanbul');">
+                <img class="type3" title="1992 Istanbul" src="img/sh92istanbul2.jpg">
+            </a>
+            <a href="javascript:mapup(20, 11.3, -65.6, '1992 Istanbul');">
+                <img class="type3" title="1992 Istanbul" src="img/sh92istanbul3.jpg">
+            </a>
+            <a href="javascript:mapup(20, 11.3, -65.6, '1992 Istanbul');">
+                <img class="type3" title="1992 Istanbul" src="img/sh92istanbul7.jpg">
+            </a>
+            <a href="javascript:mapup(-90, 18.2, -61.3, '1988 D.C.');">
+                <img class="type3" title="1988 D.C." src="img/ph88dc1.jpg">
+            </a>
+            <a href="javascript:mapup(105, 24.4, -51, '1986 上海');">
+                <img class="type3" title="1986 上海" src="img/ph86shanghai2.jpg">
+            </a>
             <br>
-            <img class="type3" title="2010 東京" src="img/phome1.jpg">
-            <img class="type3" title="2010 Bangkok" src="img/ph10bangkok1.jpg">
-            <img class="type3" title="2009 広東" src="img/phgd1.jpg">
-            <img class="type3" title="2009 広東" src="img/ph09gd2.jpg">
-            <img class="type3" title="1992 Istanbul" src="img/sh92istanbul1.jpg">
-            <img class="type3" title="1992 Istanbul" src="img/sh92istanbul4.jpg">
-            <img class="type3" title="1992 Istanbul" src="img/sh92istanbul5.jpg">
-            <img class="type3" title="1992 Istanbul" src="img/sh92istanbul6.jpg">
-            <img class="type3" title="1992 Izmir" src="img/sh92izmir1.jpg">
-            <img class="type3" title="1989 Ayutthaya" src="img/ph89ayutthaya1.jpg">
-            <img class="type3" title="1989 Singapore" src="img/ph89singapore1.jpg">
-            <img class="type3" title="1988 Ontario" src="img/ph88ontario1.jpg">
-            <img class="type3" title="1987 Indiana" src="img/ph87indiana1.jpg">
-            <img class="type3" title="1986 上海" src="img/ph86shanghai1.jpg">
-            <img class="type3" title="1986 陝西" src="img/ph86xian1.jpg">
+            <a href="javascript:mapup(135, 7.2, -58.2, '2010 東京');">
+                <img class="type3" title="2010 東京" src="img/phome1.jpg">
+            </a>
+            <a href="javascript:mapup(105, -7, -23.5, '2010 Bangkok');">
+                <img class="type3" title="2010 Bangkok" src="img/ph10bangkok1.jpg">
+            </a>
+            <a href="javascript:mapup(105, 12.5, -38.8, '2009 広東');">
+                <img class="type3" title="2009 広東" src="img/phgd1.jpg">
+            </a>
+            <a href="javascript:mapup(105, 12.5, -38.8, '2009 広東');">
+                <img class="type3" title="2009 広東" src="img/ph09gd2.jpg">
+            </a>
+            <a href="javascript:mapup(20, 11.3, -65.6, '1992 Istanbul');">
+                <img class="type3" title="1992 Istanbul" src="img/sh92istanbul1.jpg">
+            </a>
+            <a href="javascript:mapup(20, 11.3, -65.6, '1992 Istanbul');">
+                <img class="type3" title="1992 Istanbul" src="img/sh92istanbul4.jpg">
+            </a>
+            <a href="javascript:mapup(20, 11.3, -65.6, '1992 Istanbul');">
+                <img class="type3" title="1992 Istanbul" src="img/sh92istanbul5.jpg">
+            </a>
+            <a href="javascript:mapup(20, 11.3, -65.6, '1992 Istanbul');">
+                <img class="type3" title="1992 Istanbul" src="img/sh92istanbul6.jpg">
+            </a>
+            <a href="javascript:mapup(20, 9.5, -62.5, '1992 Izmir');">
+                <img class="type3" title="1992 Izmir" src="img/sh92izmir1.jpg">
+            </a>
+            <a href="javascript:mapup(105, -7, -24.6, '1989 Ayutthaya');">
+                <img class="type3" title="1989 Ayutthaya" src="img/ph89ayutthaya1.jpg">
+            </a>
+            <a href="javascript:mapup(105, -1.1, -2, '1989 Singapore');">
+                <img class="type3" title="1989 Singapore" src="img/ph89singapore1.jpg">
+            </a>
+            <a href="javascript:mapup(-90, 13, -67.3, '1988 Ontario');">
+                <img class="type3" title="1988 Ontario" src="img/ph88ontario1.jpg">
+            </a>
+            <a href="javascript:mapup(-90, 5, -63, '1987 Indiana');">
+                <img class="type3" title="1987 Indiana" src="img/ph87indiana1.jpg">
+            </a>
+            <a href="javascript:mapup(105, 24.4, -51, '1986 上海');">
+                <img class="type3" title="1986 上海" src="img/ph86shanghai1.jpg">
+            </a>
+            <a href="javascript:mapup(105, 5.2, -56.5, '1986 陝西');">
+                <img class="type3" title="1986 陝西" src="img/ph86xian1.jpg"></a>
             <br>
-            <img class="type3" title="2023 埼玉" class="panorama" src="img/phhasuda1.jpg"><br>
+            <a href="javascript:mapup(135, 7.3, -58.4, '2023 埼玉');">
+                <img class="type3 panorama" title="2023 埼玉" src="img/phhasuda1.jpg">
+            </a>
+            <br>
             <small class="textright">Photo by moriuchi</small>
+            <!-- 検討中 -->
+            <div id="popup-base"></div>
+            <div id="popup-wrapper">
+                <div id="popup-inside">
+                    <div id="close">X</div>
+                    <img id="popup-pics" src="img/cmap135s400.png" alt="map400x400">
+                    <img id="popup-marker" src="img/mk50r.png">
+                    <div id="popup-text">テキスト</div>
+                </div>
+            </div>
+            <!-- 検討中 -->
         </section>
     </main>
     <footer> <!-- フッターコンテンツ -->
@@ -156,6 +233,8 @@
         </div>
     </footer>
 </div>
-    
+
+<script src="js/popup2.js"></script><!-- 検討中 -->
+
 </body>
 </html>
