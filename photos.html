@@ -15,29 +15,32 @@
         border-radius: 4px;
         max-width: 300px;
         max-height: 300px;
-        margin: 6px;
+        margin: 6px 4px;
     }
     main img.panorama {
         max-width: 609px;
     }
-    p.kumamoto {
+    section.photos a {
+        text-decoration: none;
+    }
+    /* p.kumamoto {
         position: absolute;
         top: 50%;
         left: 150px;
-    }
+    } */
     @media (max-width: 700px) {
         main img {
             border-radius: 3px;
             max-width: 200px;
             max-height: 200px;
-            margin: 3px;
+            margin: 3px 2px;
         }
         main img.panorama {
             max-width: 270px;
         }
     }
     /* 以下のツールチップ表示スマホ対応は全く機能しない */
-    @media (pointer: coarse), (hover: none) {
+    /* @media (pointer: coarse), (hover: none) {
         .type3[title] {
             position: relative;
             display: inline-flex;
@@ -53,7 +56,7 @@
             width: fit-content;
             padding: 3px;
         }
-    }
+    } */
 </style>
 <body>
  
@@ -109,7 +112,7 @@
             </ul>
         </div> <!-- breadcrumb -->
         <h2 class="mono">あの日あの時あの場所の写真</h2>
-        <section class="indent">
+        <section class="indent photos">
             <a href="javascript:mapup(135, -5.5, -53.5, '2011 熊本');">
                 <img class="type3" title="2011 熊本" src="img/phkumamoto1.jpg">
             </a>
@@ -196,14 +199,15 @@
                 <img class="type3" title="1986 上海" src="img/ph86shanghai1.jpg">
             </a>
             <a href="javascript:mapup(105, 5.2, -56.5, '1986 陝西');">
-                <img class="type3" title="1986 陝西" src="img/ph86xian1.jpg"></a>
+                <img class="type3" title="1986 陝西" src="img/ph86xian1.jpg">
+            </a>
             <br>
             <a href="javascript:mapup(135, 7.3, -58.4, '2023 埼玉');">
                 <img class="type3 panorama" title="2023 埼玉" src="img/phhasuda1.jpg">
             </a>
             <br>
             <small class="textright">Photo by moriuchi</small>
-            <!-- 検討中 -->
+            <!-- ポップアップ -->
             <div id="popup-base"></div>
             <div id="popup-wrapper">
                 <div id="popup-inside">
@@ -213,7 +217,6 @@
                     <div id="popup-text">テキスト</div>
                 </div>
             </div>
-            <!-- 検討中 -->
         </section>
     </main>
     <footer> <!-- フッターコンテンツ -->
