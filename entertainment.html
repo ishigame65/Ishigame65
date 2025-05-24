@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">    
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/image_link.css">
 	<meta name="description" content="Ishigame65 - 遊び">
 	<link rel="shortcut icon" href="img/kame.ico">
 	<title>Ishigame65 - 遊び</title>
@@ -72,6 +73,14 @@
         </div>
         <h2>遊び</h2>
         <article>
+            <h3>生成AI</h3>
+            <div class="article_content image_link">
+                <img id="mypic" src="img/ig0.jpg" width="384" onclick="select_random()">
+                <br>
+                <div id="mytext" onclick="select_random()">Click Turtle !</div>
+            </div>
+        </article>
+        <article>
             <h3>ゲーム</h3>
             <div class="article_content">
                 <ul class="indent">
@@ -109,5 +118,18 @@
     </footer>
 </div>
 <script src="js/eyes.js"></script>
+<script>
+	var pics_src = new Array("igClaudeMonet.jpg","igKatsushikaHokusai.jpg","igPabloPicasso.jpg","igVanGogh.jpg");
+	var pics_dsc = new Array("Claude Monet", "Katsushika Hokusai", "Pablo Picasso", "Van Gogh")
+	var pre_index = -1
+	function select_random(){
+		do {
+			index = Math.floor(Math.random()*pics_src.length)
+		} while (index == pre_index);
+		document.getElementById("mypic").src="img/" + pics_src[index];
+		document.getElementById("mytext").textContent=pics_dsc[index] + " style";
+		pre_index = index
+	}
+</script>
 </body>
 </html>
