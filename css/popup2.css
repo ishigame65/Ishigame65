@@ -45,6 +45,9 @@ https://qiita.com/yuaomo/items/55ec1c3ae15ffb272f9c
     scale: 1.5 1;
     color: white;
     font-weight: bold;
+    /* font-family: "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; */
+    /* font-family: "メイリオ", Meiryo, sans-serif; */
+    font: sans-serif;
 }
 
 /* 2025 moriuchi */
