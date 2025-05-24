@@ -45,8 +45,6 @@ https://qiita.com/yuaomo/items/55ec1c3ae15ffb272f9c
     scale: 1.5 1;
     color: white;
     font-weight: bold;
-    /* なぜかiphoneで明朝体になる */
-    /* font-family: sans-serif; */
     font-family:"Century Gothic", sans-serif;
 }
 
