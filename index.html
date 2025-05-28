@@ -26,14 +26,11 @@
     #thumbnail {
         display: flex;
         flex-direction: column;
-        /* margin-right: 20px; */
         margin-right: 0.5em;
-        /* height: calc(100vh - 180px); */
         height: 400px;
         overflow-y: scroll;
     }
     #thumbnail img {
-        /* width: 192px; */
         width: 160px;
         margin: 0 0 4px 4px;
     }
@@ -60,19 +57,29 @@
     video {
         max-width: 640px;
     }
-    section#search {
-        margin: 1em 0.5em 0 0;
-    }
-    iframe {
-        width: 100%;
-        height: 380px;
-    }
     #joke_art {
         width: fit-content;
         margin-left: auto;
         margin-right: auto;
         color: mediumseagreen;
     }
+    /* 検索 */
+    section#search {
+        margin: 1em 0.5em 0 0;
+    }
+    #TextSearch {
+		margin: 1.5em 0 1.5em 20px;
+    }
+    #msg {
+        margin-top: .75em;
+        margin-bottom: .75em;
+    }
+	#TextSearch input {
+		font-size: larger;
+		padding: 0 0.5em;
+		margin-right: 0.5em;
+		margin-bottom: 1em;
+	}
     @media (max-width: 840px) {
         section#movies {
             display: initial;
@@ -96,6 +103,13 @@
         }
         #joke_art {
             display: none;
+        }
+        /* 検索 */
+        #TextSearch {
+            margin-left: 15px;
+        }
+        #wordText, #checkButton {
+            font-size: 16px;
         }
     }
     .uc { /* 工事中 */
@@ -174,7 +188,16 @@
             </div>
         </section>
         <section id="search">
-            <iframe src="search.html" frameborder="0"></iframe>
+            <h2>検索</h2>
+            <div id="TextSearch">
+                <small>1つの語句を入力してサイト内を[検索]</small>
+                <p>
+                    <label><input type="text" id="wordText"></label>
+                    <input type="button" value="検索" id="checkButton">
+                </p>
+                <p id="msg"></p>
+                <p id="hitlist"></p>
+            </div>
         </section>
     </main>
     <footer> <!-- フッターコンテンツ -->
@@ -202,6 +225,104 @@
         tag.autoplay=true;
         window.scrollTo({top:0,behavior:'smooth'});
     }
+</script>
+
+<!-- 検索 -->
+<script src='js/search.js'></script>
+<script>
+	function butClick2(){
+	  var jump_el = document.getElementById('TextSearch');
+
+	  wordText.value = wordText2.value;
+	  butClick()
+
+	  const jump_left = jump_el.getBoundingClientRect().left;
+	  const jump_top = jump_el.getBoundingClientRect().top;
+	  window.scrollTo({left: jump_left, top: jump_top, behavior: 'smooth'});
+	}
+
+	function butClick(){
+	  var msg_el = document.getElementById('msg');
+	  var hitlist_el = document.getElementById('hitlist');
+	  
+	  var result = searchData(wordText.value);
+	  msg_el.innerHTML = '<b>' + result.length + '</b> 件見つかりました（' + i_body.length + '件中）';
+
+	  var html = createHtml(result);
+	  hitlist_el.innerHTML = html;
+	}
+
+	function searchData(query) {
+	  var result = [];
+	  query = query.trim();
+	  if (query.length < 1) {
+		return result;
+	  }
+	  var re = new RegExp(query, 'i');
+	  for (var i = 0; i < i_body.length; ++i) {
+		var pos = i_body[i].search(re);
+		if (pos != -1) {
+			result.push([i, pos, pos + query.length]);
+		}
+	  }
+	  return result;
+	}
+
+	function createHtml(result) {
+	  var htmls = [];
+	  for (var i = 0; i < result.length; ++i) {
+		var index = result[i][0];
+		var start = result[i][1];
+		var end = result[i][2];
+		var url = i_url[index];
+		var title = i_title[index];
+		var body = i_body[index]
+		htmls.push(createEntry(url, title, body, start, end));
+	  }
+	  return htmls.join('');
+	}
+
+	function createEntry(url, title, body, start, end) {
+	  return '<div class=\"item\">' +
+		  '<a class=\"item_title\" href=\"' + url + '\" target=\"_parent\">' + title + '</a>' +
+		  '<blockquote>' + excerpt(body, start, end) + '</blockquote>' +
+		  '</div>';
+	}
+
+	function excerpt(body, start, end) {
+	  var head = body.substring(start - 80, start);
+	  pos = head.lastIndexOf('<br>');
+	  if (pos != -1) {
+		next_pos = head.lastIndexOf('<br>', pos - 1);
+		if (next_pos != -1) {
+		  pos = next_pos
+		}
+		head = head.substring(pos + 4)
+	  }
+	  var tail = body.substring(end, end + 180);
+	  pos = tail.indexOf('<br>');
+	  if (pos != -1) {
+		next_pos = tail.indexOf('<br>', pos + 1);
+		if (next_pos != -1) {
+		  pos = next_pos
+		  next_pos = tail.indexOf('<br>', pos + 1);
+		  if (next_pos != -1) {
+			pos = next_pos
+		  }
+		}
+		tail = tail.substring(0, pos - 4)
+	  }
+	  return [head, '<b>', body.substring(start, end), '</b>', tail].join('');
+	}
+
+	window.onload = function() {
+	  let wordText = document.getElementById('wordText');
+	  let checkButton = document.getElementById('checkButton');
+	  checkButton.addEventListener('click', butClick);
+	  let wordText2 = document.getElementById('wordText2');
+	  let checkButton2 = document.getElementById('checkButton2');
+	  checkButton2.addEventListener('click', butClick2);
+	}
 </script>
 
 </body>
