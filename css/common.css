@@ -23,7 +23,7 @@ body {
     font-size: smaller;
 }
 .indent {
-    margin-left: 1.5em;
+    /* margin-left: 1.5em; */
     margin-left: 0.6em;
 }
 .opacity05 {
@@ -70,7 +70,7 @@ td.num_text {
 }
 @media (max-width: 700px) {
     .indent {
-        margin-left: 1em;
+        /* margin-left: 1em; */
         margin-left: 0.3em;
     }
     section .indent {
