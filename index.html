@@ -75,6 +75,10 @@
         margin-bottom: .75em;
     }
 	#TextSearch input {
+        -webkit-appearance: none;
+        appearance: none;
+        border: 1px solid gray;
+        max-width: 11em;
 		font-size: larger;
 		padding: 0 0.5em;
 		margin-right: 0.5em;
@@ -193,6 +197,7 @@
                 <small>1つの語句を入力してサイト内を[検索]</small>
                 <p>
                     <label><input type="text" id="wordText"></label>
+                    <!-- <label><input type="text" id="wordText" maxlength="5" required></label> -->
                     <input type="button" value="検索" id="checkButton">
                 </p>
                 <p id="msg"></p>
