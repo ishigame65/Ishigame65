@@ -54,8 +54,12 @@
         font-size: x-large;
         font-family:'Times New Roman', Times, serif;
     }
-    video {
+    #movie {
         max-width: 640px;
+        filter: grayscale(100%);
+    }
+    h2 {
+        filter: grayscale(100%);
     }
     #joke_art {
         width: fit-content;
@@ -98,7 +102,7 @@
         #catchphrase {
             font-size: 1rem;
         }
-        video {
+        #movie {
             width: 100%;
             margin-bottom: 10px;
         }
@@ -230,6 +234,19 @@
         tag.autoplay=true;
         window.scrollTo({top:0,behavior:'smooth'});
     }
+    // 映像初期状態だけモノクロにする
+    const mov = document.getElementById("movie");
+    let isHovered = false;
+    mov.addEventListener('mouseover', () => {
+        isHovered = true;
+        // モノクロ解除
+        mov.style.filter = 'none';
+        mov.style.transition = '5s';
+    });
+    mov.addEventListener('mouseout', () => {
+        // モノクロ解除したまま元に戻さない
+        isHovered = false;
+    });
 </script>
 
 <!-- 検索 -->
