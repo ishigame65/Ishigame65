@@ -176,7 +176,7 @@
     <main>
         <section id="movies">
             <div id="main_movie">
-                <video id="movie" src="img/igwm01.mp4" controls muted playsinline loop></video>
+                <video id="movie" src="img/igwm01.mp4" controls muted playsinline loop onclick="this.play();"></video>
                 <h2 id="catchphrase">イシガメが快適に暮らす環境を作る</h2>
                 <!-- <h4 class="uc">一部工事中</h4> -->
                 <div id="joke_art">
@@ -227,26 +227,19 @@
 </div>
 
 <script>
+    const mov = document.getElementById("movie");
     function setmovie(moviefile){
         document.getElementById("catchphrase").style.display = "none";
-        tag = document.getElementById("movie");
-        tag.src=moviefile;
-        tag.autoplay=true;
+        mov.src=moviefile;
+        mov.autoplay=true;
         window.scrollTo({top:0,behavior:'smooth'});
     }
     // 映像初期状態だけモノクロにする
-    const mov = document.getElementById("movie");
-    let isHovered = false;
-    mov.addEventListener('mouseover', () => {
-        isHovered = true;
-        // モノクロ解除
-        mov.style.filter = 'none';
-        mov.style.transition = '5s';
-    });
-    mov.addEventListener('mouseout', () => {
-        // モノクロ解除したまま元に戻さない
-        isHovered = false;
-    });
+    mov.addEventListener("play", atplay);
+    function atplay() {
+        mov.style.filter = 'none';  // モノクロ解除
+        mov.style.transition = '10s';
+    }
 </script>
 
 <!-- 検索 -->
