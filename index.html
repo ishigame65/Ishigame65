@@ -88,9 +88,14 @@
 		margin-right: 0.5em;
 		margin-bottom: 1em;
 	}
+    #searchButton {
+        background-color: khaki;
+        border-radius: 0.2em;
+    }
     @media (max-width: 840px) {
         section#movies {
             display: initial;
+
         }
         #thumbnail {
             display: grid;
@@ -116,7 +121,7 @@
         #TextSearch {
             margin-left: 15px;
         }
-        #wordText, #checkButton {
+        #wordText, #searchButton {
             font-size: 16px;
         }
     }
@@ -202,7 +207,7 @@
                 <p>
                     <label><input type="text" id="wordText"></label>
                     <!-- <label><input type="text" id="wordText" maxlength="5" required></label> -->
-                    <input type="button" value="検索" id="checkButton">
+                    <input type="button" value="検索" id="searchButton">
                 </p>
                 <p id="msg"></p>
                 <p id="hitlist"></p>
