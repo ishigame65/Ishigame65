@@ -88,7 +88,7 @@
 		margin-right: 0.5em;
 		margin-bottom: 1em;
 	}
-    #searchButton {
+    #checkButton {
         background-color: khaki;
         border-radius: 0.2em;
     }
@@ -121,7 +121,7 @@
         #TextSearch {
             margin-left: 15px;
         }
-        #wordText, #searchButton {
+        #wordText, #checkButton {
             font-size: 16px;
         }
     }
@@ -207,7 +207,7 @@
                 <p>
                     <label><input type="text" id="wordText"></label>
                     <!-- <label><input type="text" id="wordText" maxlength="5" required></label> -->
-                    <input type="button" value="検索" id="searchButton">
+                    <input type="button" value="検索" id="checkButton">
                 </p>
                 <p id="msg"></p>
                 <p id="hitlist"></p>
@@ -250,16 +250,14 @@
 <!-- 検索 -->
 <script src='js/search.js'></script>
 <script>
-	function butClick2(){
-	  var jump_el = document.getElementById('TextSearch');
-
-	  wordText.value = wordText2.value;
-	  butClick()
-
-	  const jump_left = jump_el.getBoundingClientRect().left;
-	  const jump_top = jump_el.getBoundingClientRect().top;
-	  window.scrollTo({left: jump_left, top: jump_top, behavior: 'smooth'});
-	}
+	//function butClick2(){
+	//  var jump_el = document.getElementById('TextSearch');
+	//  wordText.value = wordText2.value;
+	//  butClick()
+	//  const jump_left = jump_el.getBoundingClientRect().left;
+	//  const jump_top = jump_el.getBoundingClientRect().top;
+	//  window.scrollTo({left: jump_left, top: jump_top, behavior: 'smooth'});
+	//}
 
 	function butClick(){
 	  var msg_el = document.getElementById('msg');
@@ -339,9 +337,9 @@
 	  let wordText = document.getElementById('wordText');
 	  let checkButton = document.getElementById('checkButton');
 	  checkButton.addEventListener('click', butClick);
-	  let wordText2 = document.getElementById('wordText2');
-	  let checkButton2 = document.getElementById('checkButton2');
-	  checkButton2.addEventListener('click', butClick2);
+	  //let wordText2 = document.getElementById('wordText2');
+	  //let checkButton2 = document.getElementById('checkButton2');
+	  //checkButton2.addEventListener('click', butClick2);
 	}
 </script>
 
