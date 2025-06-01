@@ -79,9 +79,10 @@
     }
     #TextSearch {
 		margin: 1.5em 0 1.5em 20px;
+        position: relative;
     }
     #msg {
-        margin-top: .75em;
+        margin-top: 1.5em;
         margin-bottom: .75em;
     }
 	#TextSearch input {
@@ -92,17 +93,27 @@
 		font-size: larger;
 		padding: 0 0.5em;
 		margin-right: 0.5em;
-		margin-bottom: 1em;
 	}
     #checkButton {
         color: black;
         background-color: khaki;
         border-radius: 0.2em;
     }
-    #turtles {
+    /* #turtles {
         width: 270px;
         margin-right: 4em;
         opacity: 0;
+    } */
+    #turtle0 {
+        height: 40px;
+        position: absolute;
+        bottom: -1.5em;
+        right: 1em;
+        animation: turtlemove 40s linear 1 forwards;
+    }
+    @keyframes turtlemove {
+        0%{ transform:translateX(-0px);}
+        100%{ transform:translateX(-350px);}
     }
     @media (max-width: 840px) {
         section#movies {
@@ -135,7 +146,10 @@
         #wordText, #checkButton {
             font-size: 16px;
         }
-        #turtles {
+        /* #turtles {
+            display: none;
+        } */
+        #turtle0 {
             display: none;
         }
     }
@@ -217,7 +231,7 @@
         <section id="search">
             <h2>検索</h2>
             <div id="TextSearch">
-                <img id="turtles" class="floatright" src="img/turtle.png">
+                <!-- <img id="turtles" class="floatright" src="img/turtle.png"> -->
                 <small>1つの語句を入力してサイト内を[検索]</small>
                 <p>
                     <label><input type="text" id="wordText"></label>
@@ -226,6 +240,7 @@
                 </p>
                 <p id="msg"></p>
                 <p id="hitlist"></p>
+                <img id="turtle0" src="img/turtle0.png">
             </div>
         </section>
     </main>
@@ -265,27 +280,21 @@
 <!-- 検索 -->
 <script src='js/search.js'></script>
 <script>
-	//function butClick2(){
-	//  var jump_el = document.getElementById('TextSearch');
-	//  wordText.value = wordText2.value;
-	//  butClick()
-	//  const jump_left = jump_el.getBoundingClientRect().left;
-	//  const jump_top = jump_el.getBoundingClientRect().top;
-	//  window.scrollTo({left: jump_left, top: jump_top, behavior: 'smooth'});
-	//}
-
 	function butClick(){
-	  var msg_el = document.getElementById('msg');
-	  var hitlist_el = document.getElementById('hitlist');
-      var turtles_el = document.getElementById('turtles');
+        //   var turtles_el = document.getElementById('turtles');
+        //   turtles_el.style.opacity = '1.0';
+        var turtle0_el = document.getElementById('turtle0');
+        turtle0_el.style.animation = 'none';
+        turtle0_el.style.right = '1em';
 
-      turtles_el.style.opacity = '1.0';
+        var msg_el = document.getElementById('msg');
+	    var hitlist_el = document.getElementById('hitlist');
 	  
-	  var result = searchData(wordText.value);
-	  msg_el.innerHTML = '<b>' + result.length + '</b> 件見つかりました（' + i_body.length + '件中）';
+	    var result = searchData(wordText.value);
+	    msg_el.innerHTML = '<b>' + result.length + '</b> 件見つかりました（' + i_body.length + '件中）';
 
-	  var html = createHtml(result);
-	  hitlist_el.innerHTML = html;
+	    var html = createHtml(result);
+	    hitlist_el.innerHTML = html;
 	}
 
 	function searchData(query) {
@@ -352,12 +361,9 @@
 	}
 
 	window.onload = function() {
-	  let wordText = document.getElementById('wordText');
-	  let checkButton = document.getElementById('checkButton');
-	  checkButton.addEventListener('click', butClick);
-	  //let wordText2 = document.getElementById('wordText2');
-	  //let checkButton2 = document.getElementById('checkButton2');
-	  //checkButton2.addEventListener('click', butClick2);
+	    let wordText = document.getElementById('wordText');
+	    let checkButton = document.getElementById('checkButton');
+	    checkButton.addEventListener('click', butClick);
 	}
 </script>
 
