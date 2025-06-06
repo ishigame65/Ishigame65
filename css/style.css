@@ -150,12 +150,13 @@ article h3.mono, section h3.mono {
     nav, #footlinks {
         display: none;
     }
-    article {
+    article, section {
         min-width: none;
-        max-width: none;
+        /* max-width: none; */
+        max-width: 95%;
         padding: 0;
     }
-    .article_content {
+    .article_content, .section_content {
         margin-left: 0.3em;
     }
     img.bike {
