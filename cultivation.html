@@ -26,8 +26,12 @@
             border-radius: 4px;
             width: 180px;
         }
-        img {
-            max-width: 95%;
+        img.floatright {
+            max-width: 50%;
+            margin-left: 0.3em;
+        }
+        #CultivationPlan {
+            width: 95%;
         }
     }
 </style>
@@ -91,7 +95,7 @@
             </article>
             <article>
                 <h3 class="mono">菜園カレンダー</h3>
-                <p>
+                <p class="article_content">
                     いつ何を植えれば良いかも分かっていない素人が手探りで野菜を育てているが、野菜は時期を逃すと栽培できないため、最低限の情報を整理しておこうと菜園カレンダーを作ることにした。
                     <canvas id="CultivationPlan" width="450" height="620"></canvas>
                     一般的なツールでは上手く作れず、良い作図ライブラリも見つからなかったため、専用の作図ライブラリ（<a href='cplib.html'>栽培計画ライブラリ</a>）を開発してから菜園カレンダーを作ることになった。
@@ -99,7 +103,7 @@
             </article>
             <article>
                 <h3 class="mono">花壇のレンガ積み</h3>
-                <p>
+                <p class="article_content">
                     <img src="img/brick1.jpg" class = "floatright">
                     亀池用のタライを埋めるために庭を掘ると土や石や瓦礫が出てできて処分に困る。
                     そこで、石や瓦礫を利用して偽レンガを作り、偽レンガを積んで花壇を作り土を入れた。<br>

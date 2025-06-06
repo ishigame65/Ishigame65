@@ -45,6 +45,14 @@
         text-decoration: none;
         line-height: 40px;
     }
+    @media (max-width: 700px) {
+        #CultivationPlan {
+            width: 95%;
+        }
+        .html_frame, .view_frame {
+            width: 95%;
+        }
+    }
 </style>
 <body>
 
@@ -121,7 +129,7 @@
         <section>
             <h3 class="mono">ダウンロード</h3>
             <div class="section_content">
-                栽培計画ライブラリ`CultivationPlan.min.js`（JavaScriptファイル）は下のリンクからダウンロードしてご利用いただけます
+                開発した栽培計画ライブラリ`CultivationPlan.min.js`（JavaScriptファイル）は下のリンクからダウンロードしてご利用いただけます
                 （右クリックして[名前を付けてリンク先を保存]など）。
                 <div class="download">
                     <a href="js/CultivationPlan.min.js">CultivationPlan.min.js</a>
@@ -135,15 +143,15 @@
                 <ol class="indent">
                     <li>栽培計画ライブラリ`CultivationPlan.min.js`をダウンロードし、jsフォルダに置く</li>
                     <li>WEBページ（HTMLファイル）を作成する（例：`index.html`ファイル）
-                        <ul>
+                        <ul class="indent">
                             <li>描画領域としてcanvasを作成</li>
                             <li>`CultivationPlan.min.js`を読み込む</li>
-                            <li>菜園カレンダーを作成して描画するscriptを記述
-                                <ol>
+                            <li>菜園カレンダーを作成して描画する処理を記述
+                                <ol class="indent">
                                     <li>菜園カレンダー（クラスオブジェクト）を生成</li>
                                     <li>作業（作業名、色）を定義</li>
                                     <li>データ準備
-                                        <ul>
+                                        <ul class="indent">
                                             <li>対象物ごとに、作業期間を「作業名:期間」の形で記載する</li>
                                             <li>期間は、開始月-終了月の形で記載し、末尾にa（上旬）,b（中旬）,c（下旬）を付加できる</li>
                                         </ul>
