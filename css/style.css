@@ -108,26 +108,24 @@ img.bike {
     margin-right: 0.4em;
     margin-bottom: 0.75em;
 }
-#articles {
-    vertical-align: top;
-}
 article {
     display: inline-block;
+    vertical-align: top;
     min-width: 24em;
     max-width: 28em;
     margin-right: 1em;
     padding-right: 1em;
 }
-article h3 {
+article h3, section h3 {
     background: linear-gradient(90deg, royalblue, rgba(255,255,255,0.0));
     color: linen;
     padding: 0.2em 0.3em;
     border-radius: 0.1em;
 }
-article h3.mono {
+article h3.mono, section h3.mono {
     background: linear-gradient(90deg, gray, rgba(255,255,255,0.0));
 }
-.article_content {
+.article_content, .section_content {
     margin-left: 0.6em;
 }
 
