@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/sitemap.css">
+    <meta name="description" content="栽培計画ライブラリ">
+    <link rel="shortcut icon" href="img/kame.ico">
+    <title>栽培計画ライブラリ</title>
+</head>
+<style>
+    .sitemap {
+        background-color: lavender;
+        width: fit-content;
+        padding: 0.5em 0.75em 0.1em 0.2em;
+    }
+    .download {
+        margin: 0.3em 0.7em;
+    }
+    article {
+        max-width: none;
+    }
+    #plan_frame {
+        border: none;
+    }
+    .html_frame, .view_frame {
+        background-color: white;
+    }
+    .mailto a {
+        color: #5a5c5f;
+        text-decoration: none;
+    }
+    #lineicon {
+        height: 40px;
+        margin-right: 0.5em;
+    }
+    .lineto {
+        margin-top: 0.75em;
+        margin-bottom: 0.75em;
+    }
+    .lineto a {
+        color: #5a5c5f;
+        text-decoration: none;
+        line-height: 40px;
+    }
+</style>
+<body>
+
+<!-- input・label・ドロワーメニューはbody直下 -->
+<input id="check_input" type="checkbox">
+<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+    <span></span><div id="title">MENU</div>
+</label>
+<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+
+<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+    <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="intro.html">経緯と方針</a></li>
+        <li><a href="menu.html">飼育環境</a></li>
+        <li><a href="maintenance.html">日々の管理</a></li>
+        <li><a href="trouble.html">トラブル</a></li>
+        <li><a href="baby.html">成長記録</a></li>
+    </ul>
+    <ul id="menu2nd">
+        <li>&nbsp;</li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li><a href="keeper.html">飼育係</a></li>
+        <li><a href="entertainment.html">遊び</a></li>
+        <li><a href="links.html">リンク</a></li>
+        <li><a href="copyright.html">サイトポリシー</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+    </ul>
+</div>
+
+<header>
+    <h1><a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a></h1>
+    <nav>
+        <ul>
+            <li><a href="intro.html">経緯と方針</a></li>
+            <li><a href="menu.html">飼育環境</a></li>
+            <li><a href="maintenance.html">日々の管理</a></li>
+            <li><a href="trouble.html">トラブル</a></li>
+            <li><a href="baby.html">成長記録</a></li>
+        </ul>    
+    </nav>
+</header>
+
+<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
+    <main>
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html">Top</a></li>
+                <li><a href="keeper.html">飼育係</a></li>
+                <li><a href="profile.html">プロフィール</a></li>
+                <li><a href='cultivation.html'>野菜作り</a></li>
+                <li>栽培計画ライブラリ</li>
+            </ul>
+        </div> <!-- breadcrumb -->
+
+        <h2 class="mono">栽培計画ライブラリ</h2>
+        <p class="indent">
+            野菜作りに必要な作業を行う時期が一目でわかる菜園カレンダーを作成するために開発した作図ライブラリです。
+            <iframe id="plan_frame" src="./cp_sample2.html" frameborder="1" width="600" height="280" style="zoom:0.75"></iframe>
+        </p>
+        <dl class="indent">
+            <dt>開発の経緯</dt>
+            <dd>
+                <ul>
+                    <li>いつ何を植えれば良いかも分かっていない素人が手探りで野菜を育てているが、野菜は時期を逃すと栽培できないため、最低限の情報を整理しておこうと菜園カレンダーを作ることにした。</li>
+                    <li>最初は一般的な作表ツール（Excelなどの123的なやつ）や作図ツール（ドロー系ソフト）で作ってみたが、どうにも使いにくい（修正に余計な手間と時間が掛かる）し、不細工になってしまう。</li>
+                    <li>それなら優秀な先人が開発した作図ライブラリを利用して開発しようと考えたが、一般的なカレンダーやガントチャートを作成するライブラリは多くあるものの、菜園カレンダーに利用できる作図ライブラリが何故か見つからない。</li>
+                    <li>以上のことから、先ず専用の作図ライブラリを開発してから、菜園カレンダーを作ることにした。</li>
+                </ul>
+
+            </dd>
+        </dl>
+
+        <section>
+            <h3 class="mono">ダウンロード</h3>
+            <div class="section_content">
+                栽培計画ライブラリ`CultivationPlan.min.js`（JavaScriptファイル）は下のリンクからダウンロードしてご利用いただけます
+                （右クリックして[名前を付けてリンク先を保存]など）。
+                <div class="download">
+                    <a href="js/CultivationPlan.min.js">CultivationPlan.min.js</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="mono">菜園カレンダーを作成する方法</h3>
+            <div class="section_content">
+                <ol class="indent">
+                    <li>栽培計画ライブラリ`CultivationPlan.min.js`をダウンロードし、jsフォルダに置く</li>
+                    <li>WEBページ（HTMLファイル）を作成する（例：`index.html`ファイル）
+                        <ul>
+                            <li>描画領域としてcanvasを作成</li>
+                            <li>`CultivationPlan.min.js`を読み込む</li>
+                            <li>菜園カレンダーを作成して描画するscriptを記述
+                                <ol>
+                                    <li>菜園カレンダー（クラスオブジェクト）を生成</li>
+                                    <li>作業（作業名、色）を定義</li>
+                                    <li>データ準備
+                                        <ul>
+                                            <li>対象物ごとに、作業期間を「作業名:期間」の形で記載する</li>
+                                            <li>期間は、開始月-終了月の形で記載し、末尾にa（上旬）,b（中旬）,c（下旬）を付加できる</li>
+                                        </ul>
+                                    </li>
+                                    <li>描画</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>フォルダ構成<br>
+                        <div class="sitemap">
+                            <ul>
+                                <li>任意フォルダ/
+                                    <ul>
+                                        <li>index.html（例）</li>                                        
+                                        <li>js/
+                                            <ul>
+                                                <li>CultivationPlan.min.js</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>作成したWEBページ（例：`index.html`ファイル）をWEBブラウザで表示する</li>
+                </ol>
+            </div>
+        </section>
+        <section>
+            <h3 class="mono">例1</h3>
+            <div id="articles">
+                <article>
+                    <h4 class="mono">HTMLファイル</h4>
+                    <iframe class="html_frame" src="./cp_sample1.txt" frameborder="1" width="600" height="370"></iframe>
+                </article>
+                <article>
+                    <h4 class="mono">表示</h4>
+                    <iframe class="view_frame" src="./cp_sample1.html" frameborder="1" width="600" height="280" style="zoom:0.75"></iframe>
+                </article>
+            </div>
+        </section>
+        <section>
+            <h3 class="mono">例2</h3>
+            <div id="articles">
+                <article>
+                    <h4 class="mono">HTMLファイル</h4>
+                    <iframe class="html_frame" src="./cp_sample2.txt" frameborder="1" width="710" height="370"></iframe>
+                </article>
+                <article>
+                    <h4 class="mono">表示</h4>
+                    <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="280" style="zoom:0.75"></iframe>
+                </article>
+            </div>
+            
+        </section>
+        <section>
+            <h3 class="mono">今後について</h3>
+            <div class="section_content">
+                ご要望があれば機能の改善や強化を検討したいと考えていますので、お気軽にご連絡ください。
+                <dl>
+                    <dt>連絡先</dt>
+                    <dd>
+                        <div class="mailto"><a href="mailto:moriuchi@ymail.ne.jp"><img src="img/mail.png" class="icon">moriuchi@ymail.ne.jp</a></div>
+                    </dd>
+                    <dd>
+                        <div class="lineto"><a href="https://lin.ee/KBpGvoV"><img src="img/line_icon.png" alt="" id="lineicon">森内</a></div>
+                    </dd>
+                </dl>
+            </div>
+        </section>
+    </main> <!-- メインコンテンツ -->
+    <footer> <!-- フッターコンテンツ -->
+        <div id="footicons">
+            <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+            <a href="#logo"><span class="arrow-up"></span></a>    
+        </div>
+        <div id="footlinks">
+            <ul>
+                <li><a href="keeper.html">飼育係</a></li>
+                <li><a href="entertainment.html">遊び</a></li>
+                <li><a href="links.html">リンク</a></li>
+                <li><a href="copyright.html">サイトポリシー</a></li>
+                <li><a href="sitemap.html">サイトマップ</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>

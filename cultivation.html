@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <meta name="description" content="野菜作り">
+    <link rel="shortcut icon" href="img/kame.ico">
+    <title>野菜作り</title>
+</head>
+<style>
+    #topimg {
+        border-radius: 6px;
+        width: 300px;
+        display: block;
+        margin-top: 1em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    img {
+        margin: 0.5em 0.5em 0.5em 0;
+    }
+    @media (max-width: 700px) {
+        #topimg {
+            border-radius: 4px;
+            width: 180px;
+        }
+        img {
+            max-width: 95%;
+        }
+    }
+</style>
+<body>
+
+<!-- input・label・ドロワーメニューはbody直下 -->
+<input id="check_input" type="checkbox">
+<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+    <span></span><div id="title">MENU</div>
+</label>
+<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+
+<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+    <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="intro.html">経緯と方針</a></li>
+        <li><a href="menu.html">飼育環境</a></li>
+        <li><a href="maintenance.html">日々の管理</a></li>
+        <li><a href="trouble.html">トラブル</a></li>
+        <li><a href="baby.html">成長記録</a></li>
+    </ul>
+    <ul id="menu2nd">
+        <li>&nbsp;</li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li><a href="keeper.html">飼育係</a></li>
+        <li><a href="entertainment.html">遊び</a></li>
+        <li><a href="links.html">リンク</a></li>
+        <li><a href="copyright.html">サイトポリシー</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+    </ul>
+</div>
+
+<header>
+    <h1><a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a></h1>
+    <nav>
+        <ul>
+            <li><a href="intro.html">経緯と方針</a></li>
+            <li><a href="menu.html">飼育環境</a></li>
+            <li><a href="maintenance.html">日々の管理</a></li>
+            <li><a href="trouble.html">トラブル</a></li>
+            <li><a href="baby.html">成長記録</a></li>
+        </ul>    
+    </nav>
+</header>
+
+<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
+    <main> <!-- メインコンテンツ -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html">Top</a></li>
+                <li><a href="keeper.html">飼育係</a></li>
+                <li><a href="profile.html">プロフィール</a></li>
+                <li>野菜作り</li>
+            </ul>
+        </div> <!-- breadcrumb -->
+
+        <h2 class="mono">野菜作り</h2>
+        <div id="articles">
+            <article>
+                <img id="topimg" src="img/garden2.jpg">
+            </article>
+            <article>
+                <h3 class="mono">菜園カレンダー</h3>
+                <p>
+                    いつ何を植えれば良いかも分かっていない素人が手探りで野菜を育てているが、野菜は時期を逃すと栽培できないため、最低限の情報を整理しておこうと菜園カレンダーを作ることにした。
+                    <canvas id="CultivationPlan" width="450" height="620"></canvas>
+                    一般的なツールでは上手く作れず、良い作図ライブラリも見つからなかったため、専用の作図ライブラリ（<a href='cplib.html'>栽培計画ライブラリ</a>）を開発してから菜園カレンダーを作ることになった。
+                </p>
+            </article>
+            <article>
+                <h3 class="mono">花壇のレンガ積み</h3>
+                <p>
+                    <img src="img/brick1.jpg" class = "floatright">
+                    亀池用のタライを埋めるために庭を掘ると土や石や瓦礫が出てできて処分に困る。
+                    そこで、石や瓦礫を利用して偽レンガを作り、偽レンガを積んで花壇を作り土を入れた。<br>
+                    偽レンガを作る時の<a href='brickmold.html'>モルタルレンガ用型枠</a>は3Dプリンタで製作した。
+                </p>
+            </article>
+        </div>
+
+    </main> <!-- メインコンテンツ -->
+    <footer> <!-- フッターコンテンツ -->
+        <div id="footicons">
+            <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+            <a href="#logo"><span class="arrow-up"></span></a>    
+        </div>
+        <div id="footlinks">
+            <ul>
+                <li><a href="keeper.html">飼育係</a></li>
+                <li><a href="entertainment.html">遊び</a></li>
+                <li><a href="links.html">リンク</a></li>
+                <li><a href="copyright.html">サイトポリシー</a></li>
+                <li><a href="sitemap.html">サイトマップ</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+
+<!-- 菜園暦ライブラリを読み込み -->
+<script src="js/CultivationPlan.min.js"></script>
+
+<!-- 菜園カレンダーを作成して描画する -->
+<script>
+    // 菜園カレンダー生成
+    const plan = new CultivationPlan();
+
+    // 作業定義（作業名, 色）
+    plan.add_action('種蒔き', 'brown');
+    plan.add_action('植え付け', 'limegreen');
+    plan.add_action('収穫', 'gold');
+    plan.add_action('株分け', 'orchid');
+    plan.add_action('堀り上げ', 'turquoise');
+
+    // 状態設定
+    plan.add_status('invalid', 'gray'); // 状態定義（状態名, 色）
+    plan.set_status_opacity(0.5);   // 状態色不透明度
+
+    // データ準備
+    const colors = ['Lavender', 'lightcyan'];
+    const dataset_0 = [
+        // 'name':対象名、作業名:期間、作業名:期間
+        // 　（期間）開始月-終了月、（オプション）a:上旬, b:中旬, c:下旬
+        { 'name':'ニラ', '種蒔き':'3b-4a', '植え付け':'6b-7a', 'color':colors[0], 'status':'valid' },
+        { 'name':'ニラ/2年目～', '収穫':'4-10', 'color':colors[0], 'status':'valid' },
+        { 'name':'ニラ/3年目～', '株分け':'2c-3a', 'color':colors[0], 'status':'valid' },
+        { 'name':'ジャガイモ', '植え付け':'3-3', '収穫':'6-7a', 'color':colors[0], 'status':'valid' },  // ジャガイモは3月に植え付け、6月～7月上旬に収穫
+        { 'name':'パクチー', '種蒔き':'3-4', '収穫':'6-10', 'color':colors[0], 'status':'valid' },
+        { 'name':'パセリ', '植え付け':'4-5', 'color':colors[0], 'status':'incomplete' },
+        { 'name':'チンゲン菜', '種蒔き':'3b-10b', '収穫':'5c-11b', 'color':colors[0], 'status':'invalid' },
+        { 'name':'空心菜', '種蒔き':'4-5', '植え付け':'5-7', 'color':colors[0], 'status':'valid' },
+        { 'name':'オクラ', '種蒔き':'4b-5a', '植え付け':'5c-6b', '収穫':'7-9', 'color':colors[0], 'status':'valid' },
+        { 'name':'キュウリ苗', '植え付け':'4c-5b', '収穫':'6-8', 'color':colors[0], 'status':'valid' },
+        { 'name':'とうがらし苗', '植え付け':'5-5', 'color':colors[0], 'status':'incomplete' },
+        { 'name':'ミニトマト苗', '植え付け':'5-6b', '収穫':'7-10a', 'color':colors[0], 'status':'valid' },
+        { 'name':'ゴーヤ苗', '植え付け':'5-6', 'color':colors[0], 'status':'invalid' },
+        { 'name':'バジル苗', '植え付け':'5-7', 'color':colors[0], 'status':'invalid' },
+        { 'name':'九条ネギ干苗', '堀り上げ':'5-6a', '植え付け':'8-9a', '収穫':'10-4', 'color':colors[0], 'status':'valid' },
+        { 'name':'菜花', '種蒔き':'8b-10b', '収穫':'11-3', 'color':colors[0], 'status':'valid' },
+        { 'name':'にんにく', '植え付け':'9b-10', '収穫':'5-6', 'color':colors[0], 'status':'valid' },
+        { 'name':'イチゴ苗', '植え付け':'10-11', '収穫':'5-6', 'color':colors[0], 'status':'valid' },
+        { 'name':'スナップえんどう', '種蒔き':'10c-11', '収穫':'4c-7a', 'color':colors[0], 'status':'incomplete' },
+        { 'name':'玉ねぎ苗', '植え付け':'11b-12b', '収穫':'6-7a', 'color':colors[0], 'status':'valid' },
+    ];
+    const dataset = dataset_0.filter(data => data.status != 'incomplete');    // 不完全データを取り除く
+    for (i = 0; i < dataset.length; i++) if (i % 2 != 0) dataset[i].color = colors[1];  // 奇数番目の色を変える
+
+    // 描画
+    plan.set_font("14px 'MS P Gothic'");    // フォント設定（オプション）
+    plan.set_padding(10);                   // パディング設定（オプション）
+    plan.set_border(0.25, 'gray');          // 罫線の幅と色を設定（オプション）
+    plan.set_month_bgcolor('LightYellow');  // 月背景色設定（オプション）
+    // plan.hide_legend();                  // 凡例非表示（オプション）
+    plan.set_today(0.5, 'red');             // 本日線設定（オプション）
+    plan.draw(dataset);                     // 描画
+</script>
+
+</body>
+</html>

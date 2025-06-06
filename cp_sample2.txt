@@ -1,0 +1,70 @@
+<!-- 栽培計画ライブラリを利用して菜園カレンダーを作成するサンプル -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="菜園カレンダー2">
+    <title>菜園カレンダー2</title>
+</head>
+<style>
+    /* 菜園カレンダーの描画領域 */
+    #CultivationPlan {
+        /* 背景色 */
+        background: lightgoldenrodyellow;
+        /* 以下で横方向中央表示 */
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<body>
+    <!-- 菜園カレンダーの描画領域を作成 -->
+    <canvas id="CultivationPlan" width="500" height="260"></canvas>
+
+    <!-- 栽培計画ライブラリを読み込み -->
+    <script src="js/CultivationPlan.min.js"></script>
+
+    <!-- 菜園カレンダーを作成して描画する -->
+    <script>
+        // 菜園カレンダー生成
+        const plan = new CultivationPlan();
+
+        // 作業定義（作業名, 色）
+        plan.add_action('種蒔き', 'brown');
+        plan.add_action('植え付け', '#32cd32');     // 'limegreen'のカラーコード
+        plan.add_action('収穫', 'rgb(255,215,0)');  // 'gold'のRGB値
+
+        // 状態設定
+        plan.add_status('invalid', 'gray'); // 状態定義（状態名, 色）
+        plan.set_status_opacity(0.5);   // 状態色不透明度
+
+        // データ準備
+        const colors = ['Lavender', 'lightcyan'];
+        const dataset = [
+            // 'name':対象名、作業名:期間、作業名:期間
+            // 　（期間）開始月-終了月、（オプション）a:上旬, b:中旬, c:下旬
+            // （1行目）ジャガイモは3月に植え付け、6月～7月上旬に収穫
+            { 'name':'ジャガイモ', '植え付け':'3-3', '収穫':'6-7a', 'color':colors[0] },
+            { 'name':'チンゲン菜', '種蒔き':'3b-10b', '収穫':'5c-11b', 'color':colors[0] },
+            { 'name':'オクラ', '種蒔き':'4b-5a', '植え付け':'5c-6b', '収穫':'7-9', 'color':colors[0] },
+            { 'name':'ミニトマト苗', '植え付け':'5-6b', '収穫':'7-10a', 'color':colors[0], 'status':'invalid' },
+            { 'name':'菜花', '種蒔き':'8b-10b', '収穫':'11-3', 'color':colors[0] },
+            { 'name':'玉ねぎ苗', '植え付け':'11b-12b', '収穫':'6-7a', 'color':colors[0] },
+        ];
+        // 奇数番目の色を変える
+        for (i = 0; i < dataset.length; i++) if (i % 2 != 0) dataset[i].color = colors[1];
+
+        // オプション設定
+        plan.set_font("14px 'MS P Gothic'");    // フォント設定（オプション）
+        plan.set_padding(10);                   // パディング設定（オプション）
+        plan.set_border(0.25, 'blue');          // 罫線の幅と色を設定（オプション）
+        plan.set_month_bgcolor('LightYellow');  // 月背景色設定（オプション）
+        // plan.hide_legend();                  // 凡例非表示（オプション）
+        plan.set_today(0.75, 'red');            // 今日線設定（オプション）
+
+        // 描画
+        plan.draw(dataset);
+    </script>
+</body>
+</html>
