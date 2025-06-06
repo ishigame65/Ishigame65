@@ -164,4 +164,7 @@ article h3.mono, section h3.mono {
         max-height: 288px;
         border-radius: 3px;
     }
+    canvas {
+        margin-left: 0;
+    }
 }
