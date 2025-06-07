@@ -23,7 +23,7 @@
         max-width: none;
     }
 
-    .iframe-wrap, .iframe-wrap2 {
+    .iframe1-wrap, .iframe2-wrap {
         position: relative;
         width: 100%;
         padding-top: 56.25%;
@@ -31,10 +31,10 @@
         -webkit-overflow-scrolling:touch;
         border:2px solid #ccc; 
     }
-    .iframe-wrap2 {
+    .iframe1-wrap {
         width: 600px;
     }
-    .iframe-wrap iframe, .iframe-wrap2 iframe {
+    .iframe1-wrap iframe, .iframe2-wrap iframe {
         position:absolute;
         top:0;
         left:0;
@@ -42,6 +42,7 @@
         height:100%;
         border:none;
         display:block;
+        background-color: yellow;
     }
     
     /* #plan_frame {
@@ -68,10 +69,10 @@
         line-height: 40px;
     }
     @media (max-width: 700px) {
-        .iframe-wrap, .iframe-wrap2 {
+        .iframe2-wrap, .iframe1-wrap {
             width: 96%;
         }
-        /* .iframe-wrap iframe {
+        /* .iframe2-wrap iframe {
             width:90%;
         } */
         /* #plan_frame {
@@ -222,13 +223,13 @@ https://www.netshop7.com/blog/2010/11/iphonesafariiframe.html
             <div id="articles">
                 <article>
                     <h4 class="mono">HTMLファイル</h4>
-                    <div class="iframe-wrap2">
+                    <div class="iframe1-wrap">
                         <iframe src="./cp_sample1.txt" frameboader="0" style="zoom:0.85"></iframe>
                     </div>
                 </article>
                 <article>
                     <h4 class="mono">表示</h4>
-                    <div class="iframe-wrap">
+                    <div class="iframe2-wrap">
                         <iframe src="./cp_sample1.html" frameboader="0" style="zoom:0.75"></iframe>
                     </div>
                 </article>
@@ -239,11 +240,17 @@ https://www.netshop7.com/blog/2010/11/iphonesafariiframe.html
             <div id="articles">
                 <article>
                     <h4 class="mono">HTMLファイル</h4>
-                    <iframe class="html_frame" src="./cp_sample2.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe>
+                    <div class="iframe1-wrap">
+                        <iframe src="./cp_sample2.txt" frameboader="0" style="zoom:0.85"></iframe>
+                    </div>
+                    <!-- <iframe class="html_frame" src="./cp_sample2.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe> -->
                 </article>
                 <article>
                     <h4 class="mono">表示</h4>
-                    <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="310" style="zoom:0.75"></iframe>
+                    <div class="iframe2-wrap">
+                        <iframe src="./cp_sample2.html" frameboader="0" style="zoom:0.75"></iframe>
+                    </div>
+                    <!-- <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="310" style="zoom:0.75"></iframe> -->
                 </article>
             </div>
             
