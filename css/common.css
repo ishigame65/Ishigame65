@@ -23,7 +23,6 @@ body {
     font-size: smaller;
 }
 .indent {
-    /* margin-left: 1.5em; */
     margin-left: 0.6em;
 }
 .opacity05 {
@@ -35,8 +34,11 @@ blockquote {
 img {
     vertical-align: top;
 }
-ul li {
-    margin-left: 0.5em;
+/* ul, ol {
+    list-style-position: inside;
+} */
+ul li, ol li {
+    margin-left: 0.6em;
 }
 p {
     margin-top: 0.5em;
@@ -70,11 +72,7 @@ td.num_text {
 }
 @media (max-width: 700px) {
     .indent {
-        /* margin-left: 1em; */
         margin-left: 0.3em;
-    }
-    section .indent {
-        margin-left: 0.4em;
     }
     .breadcrumb {
         font-size: smaller;
