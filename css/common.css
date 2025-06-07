@@ -34,9 +34,6 @@ blockquote {
 img {
     vertical-align: top;
 }
-/* ul, ol {
-    list-style-position: inside;
-} */
 ul li, ol li {
     margin-left: 0.6em;
 }
@@ -72,7 +69,8 @@ td.num_text {
 }
 @media (max-width: 700px) {
     .indent {
-        margin-left: 0.3em;
+        /* margin-left: 0.3em; */
+        margin-left: 0.4em;
     }
     .breadcrumb {
         font-size: smaller;
