@@ -23,7 +23,7 @@
         max-width: none;
     }
 
-    .iframe-wrap {
+    .iframe-wrap, .iframe-wrap2 {
         position: relative;
         width: 100%;
         padding-top: 56.25%;
@@ -31,7 +31,10 @@
         -webkit-overflow-scrolling:touch;
         border:2px solid #ccc; 
     }
-    .iframe-wrap iframe {
+    .iframe-wrap2 {
+        width: 600px;
+    }
+    .iframe-wrap iframe, .iframe-wrap2 iframe {
         position:absolute;
         top:0;
         left:0;
@@ -65,7 +68,7 @@
         line-height: 40px;
     }
     @media (max-width: 700px) {
-        .iframe-wrap {
+        .iframe-wrap, .iframe-wrap2 {
             width: 96%;
         }
         /* .iframe-wrap iframe {
@@ -219,8 +222,8 @@ https://www.netshop7.com/blog/2010/11/iphonesafariiframe.html
             <div id="articles">
                 <article>
                     <h4 class="mono">HTMLファイル</h4>
-                    <div class="iframe-wrap">
-                        <iframe src="./cp_sample1.txt" frameboader="0" width="500" style="zoom:0.85"></iframe>
+                    <div class="iframe-wrap2">
+                        <iframe src="./cp_sample1.txt" frameboader="0" style="zoom:0.85"></iframe>
                     </div>
                 </article>
                 <article>
