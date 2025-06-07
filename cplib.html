@@ -52,6 +52,12 @@
         .html_frame, .view_frame {
             width: 96%;
         }
+        .view_frame {
+            display: block;
+            width: 1px;
+            min-width: 100%;
+            *width: 100%;
+        }
     }
 </style>
 <body>
@@ -112,7 +118,6 @@
         <p class="indent">
             野菜作りに必要な作業を行う時期が一目でわかる菜園カレンダーを作成するために開発した作図ライブラリです。
             <iframe id="plan_frame" src="./cp_sample2.html" frameborder="1" width="600" height="310" style="zoom:0.9"></iframe>
-            <!-- <iframe id="plan_frame" src="./cp_sample2.html" frameborder="1" width="600" height="310"></iframe> -->
         </p>
         <dl class="indent">
             <dt>開発の経緯</dt>
@@ -207,6 +212,7 @@
                 <article>
                     <h4 class="mono">表示</h4>
                     <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="330" style="zoom:0.75"></iframe>
+                    <!-- <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="360" style="zoom:0.75"></iframe> -->
                 </article>
             </div>
             
