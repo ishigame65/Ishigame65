@@ -128,11 +128,11 @@
         <section>
             <h3 class="mono">ダウンロード</h3>
             <div class="section_content">
-                開発した栽培計画ライブラリ`CultivationPlan.min.js`（JavaScriptファイル）は下のリンクからダウンロードしてご利用いただけます
-                （右クリックして[名前を付けてリンク先を保存]など）。
                 <div class="download">
                     <a href="js/CultivationPlan.min.js">CultivationPlan.min.js</a>
                 </div>
+                開発した栽培計画ライブラリ`CultivationPlan.min.js`（JavaScriptファイル）は、上のリンクからダウンロードしてご利用いただけます
+                （右クリックして[名前を付けてリンク先を保存]など）。
             </div>
         </section>
 
@@ -143,19 +143,33 @@
                     <li>栽培計画ライブラリ`CultivationPlan.min.js`をダウンロードし、jsフォルダに置く</li>
                     <li>WEBページ（HTMLファイル）を作成する（例：`index.html`ファイル）
                         <ul class="indent">
-                            <li>描画領域としてcanvasを作成</li>
-                            <li>`CultivationPlan.min.js`を読み込む</li>
+                            <li>描画領域としてcanvasを作成<br>
+                                <code>&lt;canvas id="CultivationPlan"&gt;&lt;/canvas&gt;</code>
+                            </li>
+                            <li>`CultivationPlan.min.js`を読み込む<br>
+                                <code>&lt;script src="js/CultivationPlan.min.js"&gt;&lt;/script&gt;</code>
+                            </li>
                             <li>菜園カレンダーを作成して描画する処理を記述
                                 <ol class="indent">
-                                    <li>菜園カレンダー（クラスオブジェクト）を生成</li>
-                                    <li>作業（作業名、色）を定義</li>
-                                    <li>データ準備
+                                    <li>菜園カレンダー（クラスオブジェクト）を生成<br>
+                                        <code>const plan = new CultivationPlan();</code>
+                                    </li>
+                                    <li>作業（作業名、色）を定義<br>
+                                        <code>plan.add_action('種蒔き', 'brown');</code>
+                                    </li>
+                                    <li>データ準備<br>
+                                        <code>
+                                        const dataset = [
+                                            { 'name':'ニラ', '種蒔き':'3b-4a', '植え付け':'6b-7a', 'color':colors[0], 'status':'valid' },
+                                        ];</code>
                                         <ul class="indent">
                                             <li>対象物ごとに、作業期間を「作業名:期間」の形で記載する</li>
                                             <li>期間は、開始月-終了月の形で記載し、末尾にa（上旬）,b（中旬）,c（下旬）を付加できる</li>
                                         </ul>
                                     </li>
-                                    <li>描画</li>
+                                    <li>描画<br>
+                                        <pre>plan.draw(dataset);</pre>
+                                    </li>
                                 </ol>
                             </li>
                         </ul>
@@ -182,30 +196,27 @@
         </section>
         <section>
             <h3 class="mono">例1</h3>
-            <div id="articles">
-                <article>
-                    <h4 class="mono">HTMLファイル</h4>
-                    <iframe class="html_frame" src="./cp_sample1.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe>
-                </article>
-                <article>
-                    <h4 class="mono">表示</h4>
-                    <iframe class="view_frame" src="./cp_sample1.html" frameborder="1" width="600" height="300" style="zoom:0.75"></iframe>
-                </article>
-            </div>
+            <article>
+                <h4 class="mono">HTMLファイル</h4>
+                <iframe class="html_frame" src="./cp_sample1.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe>
+                <!-- <iframe class="html_frame" src="./cp_sample1.txt" frameborder="1" width="710" height="370" style="transform: scale(0.85)"></iframe> -->
+            </article>
+            <article>
+                <h4 class="mono">表示</h4>
+                <iframe class="view_frame" src="./cp_sample1.html" frameborder="1" width="600" height="300" style="zoom:0.75"></iframe>
+            </article>
         </section>
         <section>
             <h3 class="mono">例2</h3>
-            <div id="articles">
-                <article>
-                    <h4 class="mono">HTMLファイル</h4>
-                    <iframe class="html_frame" src="./cp_sample2.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe>
-                </article>
-                <article>
-                    <h4 class="mono">表示</h4>
-                    <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="330" style="zoom:0.75"></iframe>
-                </article>
-            </div>
-            
+            <article>
+                <h4 class="mono">HTMLファイル</h4>
+                <iframe class="html_frame" src="./cp_sample2.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe>
+                <!-- <iframe class="html_frame" src="./cp_sample2.txt" frameborder="1" width="710" height="370" style="transform: scale(0.85)"></iframe> -->
+            </article>
+            <article>
+                <h4 class="mono">表示</h4>
+                <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="330" style="zoom:0.75"></iframe>
+            </article>            
         </section>
         <section>
             <h3 class="mono">今後について</h3>
