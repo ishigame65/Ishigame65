@@ -19,14 +19,14 @@ window.addEventListener('DOMContentLoaded', function () {
     })
     modalBG[i].addEventListener('click', function () {
       modalWindow[i].classList.add('active2');
-      setTimeout(function() {
+      setTimeout(function () {
         modalWindow[i].classList.remove('active');
         modalWindow[i].classList.remove('active2');
       }, 300);
     })
     modalClose[i].addEventListener('click', function () {
       modalWindow[i].classList.add('active2');
-      setTimeout(function() {
+      setTimeout(function () {
         modalWindow[i].classList.remove('active');
         modalWindow[i].classList.remove('active2');
       }, 300);
