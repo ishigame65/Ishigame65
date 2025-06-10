@@ -5,61 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style2.css">
-    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/CultiLog.css">
     <meta name="description" content="野菜作り">
     <link rel="shortcut icon" href="img/kame.ico">
     <title>野菜作り</title>
-</head>
-<style>
-    #topimg {
-        border-radius: 6px;
-        width: 300px;
-        display: block;
-        margin-top: 1em;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    img {
-        margin: 0.5em 0.5em 0.5em 0;
-    }
-    #CultivationLog {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 0.5em;
-    }
-    .CultivationLogLabel {
-        margin-right: 1em;
-        margin-bottom: 0.5em;
-    }
-    .popup-contents .name {
-        font-size: larger;
-    }
-    .popup-contents .date {
-        margin-bottom: 0.5em;
-        color: darkblue;
-    }
-    .popup-contents img {
-        width: 75%;
-        width: 40%;
-        margin-right: 0.5em;
-    }
-    .popup-text {
-        color: dimgray;
-    }
-    @media (max-width: 700px) {
+    <style>
         #topimg {
-            border-radius: 4px;
-            width: 180px;
+            border-radius: 6px;
+            width: 300px;
+            display: block;
+            margin-top: 1em;
+            margin-left: auto;
+            margin-right: auto;
         }
         img.floatright {
-            max-width: 50%;
-            margin-left: 0.3em;
+            margin-left: 0.5em;
         }
-        #CultivationPlan {
-            width: 28em;
+        img.floatleft {
+            margin-right: 0.5em;
         }
-    }
-</style>
+        #CultiLog img {
+            width: 40%;
+        }
+        @media (max-width: 700px) {
+            #topimg {
+                border-radius: 4px;
+                width: 180px;
+            }
+            img.floatright {
+                max-width: 50%;
+                margin-left: 0.3em;
+            }
+            img.floatleft {
+                max-width: 50%;
+                margin-right: 0.3em;
+            }
+            #CultiPlan {
+                width: 28em;
+            }
+        }
+    </style>
+</head>
 <body>
 
 <!-- input・label・ドロワーメニューはbody直下 -->
@@ -120,18 +106,18 @@
         <article>
             <h3 class="mono">菜園カレンダー</h3>
             <p class="article_content">
-                いつ何を植えれば良いかも分かっていない素人が手探りで野菜を育てているが、野菜は時期を逃すと栽培できないため、最低限の情報を整理しておこうと菜園カレンダーを作ることにした。
-                <canvas id="CultivationPlan" width="450" height="620"></canvas>
+                いつ何を植えれば良いかも分かっていない素人が手探りで野菜を育てているが、野菜は時期を逃すと栽培できないため、
+                野菜作りに必要な作業を行う時期が一目でわかる菜園カレンダーを作ることにした。
+                <canvas id="CultiPlan" width="450" height="620"></canvas>
                 <!-- <h4>栽培記録</h4> -->
-                一般的なツールでは上手く作れず、良い作図ライブラリも見つからなかったため、専用の作図ライブラリ（<a href='cplib.html'>栽培計画ライブラリ</a>）を開発してから菜園カレンダーを作ることになった。
+                一般的なツールでは上手く作れず、良い作図ライブラリも見つからなかったため、専用の<a href='cultilib.html'>栽培ライブラリ</a>を開発してから菜園カレンダーを作ることになった。
             </p>
         </article>
         <article>
             <h3 class="mono">栽培記録</h3>
             <p class="article_content">
-                <div id="CultivationLog"></div>
-                <a href='cplib.html'>栽培計画ライブラリ</a>に栽培記録を作成する機能を追加し、
-                野菜ごとの栽培記録がポップアップ表示される仕組みとした。
+                <div id="CultiLog"></div>
+                <a href='cultilib.html'>栽培ライブラリ</a>に栽培記録を作成する機能を追加し、野菜ごとの栽培記録をポップアップ表示する仕組みとした。
             </p>
         </article>
         <article>
@@ -162,14 +148,14 @@
     </footer>
 </div>
 
-<!-- 菜園暦ライブラリを読み込み -->
-<!-- <script src="js/CultivationPlan.js"></script> -->
+<!-- 栽培ライブラリを読み込み -->
 <script src="js/CultivationPlan.min.js"></script>
+<script src="js/CultivationLog.min.js"></script>
 
-<!-- 菜園カレンダーを作成して描画する -->
+<!-- 菜園カレンダーと栽培記録を作成する -->
 <script>
-    // 菜園カレンダー生成
-    const plan = new CultivationPlan();
+    // 栽培計画オブジェクト生成
+    const plan = new CultivationPlan("CultiPlan");
 
     // 作業定義（作業名, 色）
     plan.add_action('種蒔き', 'brown');
@@ -220,18 +206,19 @@
     plan.set_today(0.5, 'red');             // 本日線設定（オプション）
     plan.draw(dataset);                     // 描画
 
-    // 記事（開発中）
-    plan.add_log('九条ネギ', '2025/06/07', 'img/a250607n1.jpg, img/a250607n2.jpg', '干し苗の仮植え');
-    plan.add_log('ニラ', '2023/06/25', 'img/a230625nr.jpg', '1年目夏');
-    plan.add_log('ニラ', '2024/04/26', 'img/a240426nr.jpg', '2年目春');
-    plan.add_log('ニラ', '2025/01/25', 'img/a250113nr1.jpg, img/a250113nr2.jpg', '3年目冬刈取');
-    plan.add_log('ニラ', '2025/03/07', 'img/a250307nr.jpg', '3年目春株分け6日後');
-    plan.add_log('玉ねぎ', '2025/06/07', 'img/a250607t.jpg', '収穫');
-    document.getElementById("CultivationLog").innerHTML = plan.get_logs();
+    // 栽培記録
+    const log = new CultivationLog("CultiLog"); // 栽培記録オブジェクト生成
+    log.add_log('九条ネギ', '2025/06/07', 'img/a250607n1.jpg, img/a250607n2.jpg', '干し苗の仮植え');
+    log.add_log('ニラ', '2023/06/25', 'img/a230625nr.jpg', '1年目夏');
+    log.add_log('ニラ', '2024/04/26', 'img/a240426nr.jpg', '2年目春');
+    log.add_log('ニラ', '2025/01/25', 'img/a250113nr1.jpg, img/a250113nr2.jpg', '3年目冬刈取');
+    log.add_log('ニラ', '2025/03/07', 'img/a250307nr.jpg', '3年目春株分け6日後');
+    log.add_log('玉ねぎ', '2025/06/07', 'img/a250607t.jpg', '収穫');
+    log.set_logs(); // 栽培記録を設定
 
 </script>
 <!-- ポップアップライブラリを読み込み -->
-<script src="js/popup.js"></script>
+<script src="js/popup.min.js"></script>
 
 </body>
 </html>

@@ -1,29 +1,29 @@
-<!-- 栽培計画ライブラリを利用して菜園カレンダーを作成するサンプル -->
+<!-- 栽培ライブラリを利用して菜園カレンダーを作成するサンプル -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="菜園カレンダー1">
-    <title>菜園カレンダ1</title>
+    <title>菜園カレンダー1</title>
+    <style>
+        /* 最大幅 for mobile iframe habit */
+        #CultiPlan {
+            max-width: 135%;
+        }
+    </style>
 </head>
-<style>
-    /* 最大幅 for mobile iframe habit */
-    #CultivationPlan {
-        max-width: 135%;
-    }
-</style>
 <body>
     <!-- 菜園カレンダーの描画領域を作成 -->
-    <canvas id="CultivationPlan" width="520" height="280"></canvas>
+    <canvas id="CultiPlan" width="520" height="280"></canvas>
 
-    <!-- 栽培計画ライブラリを読み込み -->
+    <!-- 栽培ライブラリの栽培計画クラスを読み込み -->
     <script src="js/CultivationPlan.min.js"></script>
 
-    <!-- 菜園カレンダーを作成して描画する -->
+    <!-- 菜園カレンダーを作成する -->
     <script>
-        // 菜園カレンダー生成
-        const plan = new CultivationPlan();
+        // 栽培計画オブジェクト生成
+        const plan = new CultivationPlan("CultiPlan");
 
         // 作業定義（作業名, 色）
         plan.add_action('種蒔き', 'brown');

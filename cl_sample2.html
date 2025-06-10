@@ -1,0 +1,40 @@
+<!-- 栽培ライブラリを利用して栽培記録を作成するサンプル -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/CultiLog.css">
+    <meta name="description" content="栽培記録2">
+    <title>栽培記録2</title>
+    <style>
+        #CultiLog img {
+            width: 40%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 栽培記録用のdiv領域を作成 -->
+    <div id="CultiLog"></div>
+
+    <!-- 栽培記録クラスを読み込み -->
+    <script src="js/CultivationLog.min.js"></script>
+
+    <!-- 栽培記録を作成する -->
+    <script>
+        // 栽培記録オブジェクト生成
+        const log = new CultivationLog("CultiLog");
+
+        // 栽培記録を追加
+        log.add_log('玉ねぎ', '2025/06/07', 'img/a250607t.jpg', '収穫');
+        log.add_log('ニラ', '2024/04/26', 'img/a240426nr.jpg', '2年目春');
+        log.add_log('ニラ', '2025/01/25', 'img/a250113nr1.jpg, img/a250113nr2.jpg', '3年目冬刈取');
+
+        // 栽培記録を設定
+        log.set_logs();
+    </script>
+
+    <!-- ポップアップライブラリを読み込み -->
+    <script src="js/popup.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/sitemap.css">
+    <meta name="description" content="栽培計画ライブラリ">
+    <link rel="shortcut icon" href="img/kame.ico">
+    <title>栽培ライブラリ</title>
+    <style>
+        .sitemap {
+            background-color: lavender;
+            width: fit-content;
+            padding: 0.5em 0.75em 0.1em 0.2em;
+        }
+        table.download {
+            border: 1px solid gray;
+            border-collapse: collapse;
+            margin: 0.5em 0;
+        }
+        article {
+            max-width: none;
+        }
+        #plan_frame {
+            border: none;
+        }
+        .html_frame, .view_frame {
+            background-color: white;
+        }
+        .icon {
+            margin-right: 8px;
+            margin-top: 0.2em;
+        }
+        .mailto a {
+            color: #5a5c5f;
+            text-decoration: none;
+        }
+        #lineicon {
+            height: 40px;
+            margin-right: 0.5em;
+        }
+        .lineto {
+            margin-top: 0.75em;
+            margin-bottom: 0.75em;
+        }
+        .lineto a {
+            color: #5a5c5f;
+            text-decoration: none;
+            line-height: 40px;
+        }
+        code {
+            color: darkgoldenrod;
+        }
+        .figures {
+            display: flex;
+            margin-left: 0.5em;
+        }
+        @media (max-width: 700px) {
+            #plan_frame, .html_frame, .view_frame {
+                width: 96%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- input・label・ドロワーメニューはbody直下 -->
+<input id="check_input" type="checkbox">
+<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+    <span></span><div id="title">MENU</div>
+</label>
+<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+
+<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+    <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="intro.html">経緯と方針</a></li>
+        <li><a href="menu.html">飼育環境</a></li>
+        <li><a href="maintenance.html">日々の管理</a></li>
+        <li><a href="trouble.html">トラブル</a></li>
+        <li><a href="baby.html">成長記録</a></li>
+    </ul>
+    <ul id="menu2nd">
+        <li>&nbsp;</li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li><a href="keeper.html">飼育係</a></li>
+        <li><a href="entertainment.html">遊び</a></li>
+        <li><a href="links.html">リンク</a></li>
+        <li><a href="copyright.html">サイトポリシー</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+    </ul>
+</div>
+
+<header>
+    <h1><a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a></h1>
+    <nav>
+        <ul>
+            <li><a href="intro.html">経緯と方針</a></li>
+            <li><a href="menu.html">飼育環境</a></li>
+            <li><a href="maintenance.html">日々の管理</a></li>
+            <li><a href="trouble.html">トラブル</a></li>
+            <li><a href="baby.html">成長記録</a></li>
+        </ul>    
+    </nav>
+</header>
+
+<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
+    <main>
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html">Top</a></li>
+                <li><a href="keeper.html">飼育係</a></li>
+                <li><a href="profile.html">プロフィール</a></li>
+                <li><a href='cultivation.html'>野菜作り</a></li>
+                <li>栽培ライブラリ</li>
+            </ul>
+        </div> <!-- breadcrumb -->
+
+        <h2 class="mono">栽培ライブラリ</h2>
+        <p class="indent">
+            菜園カレンダーと栽培記録を作成するために開発したJavsScriptライブラリです。栽培記録は作物名を選択して表示します
+            <div class="figures">
+                <figure>
+                    <figcaption>菜園カレンダー</figcaption>
+                    <iframe id="plan_frame" src="./cp_sample2.html" frameborder="1" width="600" height="310" style="zoom:0.9"></iframe>
+                </figure>
+                <figure>
+                    <figcaption>栽培記録</figcaption>
+                    <iframe id="log_frame" src="./cl_sample2.html" frameborder="1" width="600" height="400" style="zoom:0.75"></iframe>
+                </figure>
+            </div>
+        </p>
+        <dl class="indent">
+            <dt>開発の経緯</dt>
+            <dd>
+                <ul>
+                    <li>いつ何を植えれば良いかも分かっていない素人が手探りで野菜を育てているが、野菜は時期を逃すと栽培できないため、野菜作りに必要な作業を行う時期が一目でわかる菜園カレンダーを作ることにした</li>
+                    <li>最初は一般的な作表ツール（Excelなどの123的なやつ）や作図ツール（ドロー系ソフト）で作ってみたが、どうにも使いにくい（修正に余計な手間と時間が掛かる）し、見た目が不細工になってしまう</li>
+                    <li>それなら優秀な先人が開発した作図ライブラリを利用して作ろうと考えたが、一般的なカレンダーやガントチャートを作成するライブラリは多くあるものの、菜園カレンダーに利用できる作図ライブラリが何故か見つからない</li>
+                    <li>以上のことから、先ず専用のライブラリを開発してから、菜園カレンダーを作ることにした</li>
+                    <li>ついでに、野菜ごとの栽培記録を作成する機能をライブラリに追加した</li>
+                </ul>
+
+            </dd>
+        </dl>
+
+        <!-- <p><a href="test.html"> ( Under Construction ) </a></p> -->
+
+        <section>
+            <h3 class="mono">ダウンロード</h3>
+            <div class="section_content">
+                栽培ライブラリは下表のファイルで構成され、各ファイル名のリンクからダウンロードしてご利用いただけます（右クリックして[名前を付けてリンク先を保存]など）
+                <table class="download">
+                    <tr><th>ファイル名</th><th>種類</th><th>説明</th></tr>
+                    <tr>
+                        <td><a href="js/CultivationPlan.min.js">CultivationPlan.min.js</a></td>
+                        <td>JavsScriptファイル</td>
+                        <td>栽培計画クラス</td>
+                    </tr>
+                    <tr>
+                        <td><a href="js/CultivationLog.min.js">CultivationLog.min.js</a></td>
+                        <td>JavsScriptファイル</td>
+                        <td>栽培記録クラス</td>
+                    </tr>
+                    <tr>
+                        <td><a href="css/CultiLog.css">CultiLog.css</a></td>
+                        <td>CSSファイル</td>
+                        <td>栽培記録の体裁を整えるスタイルシート</td>
+                    </tr>
+                    <tr>
+                        <td><a href="js/popup.min.js">popup.min.js</a></td>
+                        <td>JavsScriptファイル</td>
+                        <td>栽培記録ポップアップ画面用ライブラリ</td>
+                    </tr>
+                    <tr>
+                        <td><a href="css/popup.css">popup.css</a></td>
+                        <td>CSSファイル</td>
+                        <td>栽培記録ポップアップ画面用スタイルシート</td>
+                    </tr>
+                </table>
+                ダウンロードした各ファイルを下図に示すフォルダに格納します<br>
+                <div class="sitemap">
+                    <ul>
+                        <li>任意フォルダ/
+                            <ul>
+                                <li>js/
+                                    <ul>
+                                        <li>CultivationPlan.min.js</li>
+                                        <li>CultivationLog.min.js</li>
+                                        <li>popup.min.js</li>
+                                    </ul>
+                                </li>
+                                <li>css/
+                                    <ul>
+                                        <li>CultiLog.css</li>
+                                        <li>popup.css</li>
+                                    </ul>
+                                </li>
+                                <li>img/</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h3 class="mono">菜園カレンダーを作成する方法</h3>
+            <div class="section_content">
+                <ol class="indent">
+                    <li>ファイルとフォルダが下図の構成になっていることを確認する<br>
+                        <div class="sitemap">
+                            <ul>
+                                <li>任意フォルダ/
+                                    <ul>
+                                        <li>index.html（次項で作成、ファイル名は任意）</li>                                        
+                                        <li>js/
+                                            <ul>
+                                                <li>CultivationPlan.min.js</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>WEBページ（HTMLファイル）を作成する（例：`index.html`ファイル）
+                        <ul class="indent">
+                            <li>描画領域としてcanvasを作成<br>
+                                <code>&lt;canvas id="CultiPlan"&gt;&lt;/canvas&gt;</code>
+                            </li>
+                            <li>栽培計画クラス`CultivationPlan.min.js`を読み込む<br>
+                                <code>&lt;script src="js/CultivationPlan.min.js"&gt;&lt;/script&gt;</code>
+                            </li>
+                            <li>菜園カレンダーを作成する処理を記述
+                                <ol class="indent">
+                                    <li>栽培計画オブジェクトを生成（canvasのidを引数に指定）<br>
+                                        <code>const plan = new CultivationPlan("CultiPlan");</code>
+                                    </li>
+                                    <li>作業（作業名、色）を定義<br>
+                                        <code>plan.add_action('種蒔き', 'brown');</code>
+                                    </li>
+                                    <li>データ準備<br>
+                                        <code>
+                                        const dataset = [
+                                            { 'name':'ニラ', '種蒔き':'3b-4a', '植え付け':'6b-7a' },
+                                        ];</code>
+                                        <ul class="indent">
+                                            <li>対象物（野菜）ごとに、作業期間を「作業名:期間」の形で記載する</li>
+                                            <li>期間は、開始月-終了月の形で記載し、末尾にa（上旬）,b（中旬）,c（下旬）を付加できる</li>
+                                        </ul>
+                                    </li>
+                                    <li>描画<br>
+                                        <code>plan.draw(dataset);</code>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>付加機能（オプション設定）については「菜園カレンダーの作成例2」をご確認ください</li>
+                            <li>WEBページ（HTMLファイル）はテキストエディタ（メモ帳など）で作成することができます</li>
+                        </ul>
+                    </li>
+                    <li>作成したWEBページ（例：`index.html`ファイル）をWEBブラウザで表示する</li>
+                </ol>
+            </div>
+        </section>
+        <section>
+            <h3 class="mono">菜園カレンダーの作成例1</h3>
+            <article>
+                <h4 class="mono">HTMLファイル</h4>
+                <iframe class="html_frame" src="./cp_sample1.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe>
+            </article>
+            <article>
+                <h4 class="mono">表示</h4>
+                <iframe class="view_frame" src="./cp_sample1.html" frameborder="1" width="600" height="300" style="zoom:0.75"></iframe>
+            </article>
+        </section>
+        <section>
+            <h3 class="mono">菜園カレンダーの作成例2</h3>
+            <article>
+                <h4 class="mono">HTMLファイル</h4>
+                <iframe class="html_frame" src="./cp_sample2.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe>
+            </article>
+            <article>
+                <h4 class="mono">表示</h4>
+                <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="330" style="zoom:0.75"></iframe>
+            </article>            
+        </section>
+
+        <section>
+            <h3 class="mono">栽培記録を作成する方法</h3>
+            <div class="section_content">
+                <ol class="indent">
+                    <li>ファイルとフォルダが下図の構成になっていることを確認する<br>
+                        <div class="sitemap">
+                            <ul>
+                                <li>任意フォルダ/
+                                    <ul>
+                                        <li>index.html（次項で作成、ファイル名は任意）</li>                                        
+                                        <li>js/
+                                            <ul>
+                                                <li>CultivationLog.min.js</li>
+                                                <li>popup.min.js</li>
+                                            </ul>
+                                        </li>
+                                        <li>css/
+                                            <ul>
+                                                <li>CultiLog.css</li>
+                                                <li>popup.css</li>
+                                            </ul>
+                                        </li>
+                                        <li>img/</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>WEBページ（HTMLファイル）を作成する（例：`index.html`ファイル）
+                        <ul class="indent">
+                            <li>栽培記録の体裁を整えるスタイルシートを読み込む<br>
+                                <code>&lt;link rel="stylesheet" href="css/CultiLog.css"&gt;</code>
+                            </li>
+                            <li>栽培記録用のdiv領域を作成<br>
+                                <code>&lt;div id="CultiLog"&gt;&lt;/div&gt;</code>
+                            </li>
+                            <li>栽培記録クラス`CultivationLog.min.js`を読み込む<br>
+                                <code>&lt;script src="js/CultivationLog.min.js"&gt;&lt;/script&gt;</code>
+                            </li>
+                            <li>栽培記録を作成する処理を記述
+                                <ol class="indent">
+                                    <li>栽培記録オブジェクトを生成（栽培記録用divのidを引数に指定）<br>
+                                        <code>const log = new CultivationLog("CultiLog");</code>
+                                    </li>
+                                    <li>栽培記録を追加<br>
+                                        <code>log.add_log('玉ねぎ', '2025/06/07', 'img/a250607t.jpg', '収穫');</code>
+                                    </li>
+                                    <li>栽培記録を設定<br>
+                                        <code>log.set_logs();</code>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>ポップアップライブラリを読み込む<br>
+                                <code>&lt;script src="js/popup.min.js"&gt;&lt;/script&gt;</code>
+                            </li>
+                            <li>栽培記録に指定した写真（画像ファイル）はimgフォルダの下に置きます</li>
+                            <li>`CultiLog.css`を参考に、HTMLファイル内のstyleタグでスタイル指定することで、体裁を整えることができます</li>
+                            <li>栽培記録の記載方法は「栽培記録の作成例2」をご確認ください</li>
+                            <li>WEBページ（HTMLファイル）はテキストエディタ（メモ帳など）で作成することができます</li>
+                        </ul>
+                    </li>
+                    <li>作成したWEBページ（例：`index.html`ファイル）をWEBブラウザで表示する</li>
+                </ol>
+            </div>
+        </section>
+        <section>
+            <h3 class="mono">栽培記録の作成例1</h3>
+            <article>
+                <h4 class="mono">HTMLファイル</h4>
+                <iframe class="html_frame" src="./cl_sample1.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe>
+            </article>
+            <article>
+                <h4 class="mono">表示</h4>
+                <iframe class="view_frame" src="./cl_sample1.html" frameborder="1" width="600" height="400" style="zoom:0.75"></iframe>
+            </article>
+        </section>
+        <section>
+            <h3 class="mono">栽培記録の作成例2</h3>
+            <article>
+                <h4 class="mono">HTMLファイル</h4>
+                <iframe class="html_frame" src="./cl_sample2.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe>
+                <br><small>写真（画像ファイル）の大きさを40%に指定している</small>
+            </article>
+            <article>
+                <h4 class="mono">表示</h4>
+                <iframe class="view_frame" src="./cl_sample2.html" frameborder="1" width="600" height="400" style="zoom:0.75"></iframe>
+            </article>
+        </section>
+        <section>
+            <h3 class="mono">今後について</h3>
+            <div class="section_content">
+                ご要望があれば機能の改善や強化を検討したいと考えていますので、お気軽にご連絡ください。
+                <dl>
+                    <dt>連絡先</dt>
+                    <dd>
+                        <div class="mailto"><a href="mailto:moriuchi@ymail.ne.jp"><img src="img/mail.png" class="icon">moriuchi@ymail.ne.jp</a></div>
+                    </dd>
+                    <dd>
+                        <div class="lineto"><a href="https://lin.ee/KBpGvoV"><img src="img/line_icon.png" alt="" id="lineicon">森内</a></div>
+                    </dd>
+                </dl>
+            </div>
+        </section>
+    </main> <!-- メインコンテンツ -->
+    <footer> <!-- フッターコンテンツ -->
+        <div id="footicons">
+            <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+            <a href="#logo"><span class="arrow-up"></span></a>    
+        </div>
+        <div id="footlinks">
+            <ul>
+                <li><a href="keeper.html">飼育係</a></li>
+                <li><a href="entertainment.html">遊び</a></li>
+                <li><a href="links.html">リンク</a></li>
+                <li><a href="copyright.html">サイトポリシー</a></li>
+                <li><a href="sitemap.html">サイトマップ</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>
