@@ -2,15 +2,20 @@
 
 @import url("popup.css");
 
-#CultiLog {
+/* #CultiLog {
+    background-color: yellow;
+} */
+#CultiLog ul.label_style1 {
+    list-style-type: none;
+}
+#CultiLog ul.label_style2 {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 0.5em;
+    list-style-type: none;
 }
-#CultiLog .label {
-    margin-right: 1em;
-    margin-bottom: 0.5em;
-}
+/* #CultiLog .label {
+    background-color: pink;
+} */
 #CultiLog .name {
     font-size: larger;
     margin-bottom: 0.5em;
