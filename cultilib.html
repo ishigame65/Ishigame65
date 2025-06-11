@@ -52,17 +52,6 @@
         code {
             color: darkgoldenrod;
         }
-        /* .figures {
-            margin-left: 0.5em;
-        }
-        figure {
-            float: left;
-        } */
-        /* .figures::after {
-            content: '';
-            display: block;
-            clear: both;
-        } */
         @media (max-width: 700px) {
             .html_frame, .view_frame {
                 width: 96%;
@@ -249,6 +238,7 @@
                                         <code>
                                         const dataset = [
                                             { 'name':'ニラ', '種蒔き':'3b-4a', '植え付け':'6b-7a' },
+                                            （省略）
                                         ];</code>
                                         <ul class="indent">
                                             <li>作物ごとに作業期間を「作業名:期間」の形で記載する</li>
@@ -260,7 +250,14 @@
                                     </li>
                                 </ol>
                             </li>
-                            <li>見栄え調整（オプション設定）については「菜園カレンダーの作成例2」をご確認ください</li>
+                            <li>見栄え調整（オプション設定）については「菜園カレンダーの作成例2」をご確認ください<br>
+                                <code>plan.set_font("14px 'MS P Gothic'");    // フォント設定（オプション）<br>
+                                plan.set_padding(10);                   // パディング設定（オプション）<br>
+                                plan.set_border(0.25, 'blue');          // 罫線の幅と色を設定（オプション）<br>
+                                plan.set_month_bgcolor('LightYellow');  // 月背景色設定（オプション）<br>
+                                // plan.hide_legend();                  // 凡例非表示（オプション）<br>
+                                plan.set_today(0.75, 'red');            // 今日線の幅と色を設定（オプション）</code>
+                            </li>
                             <li>WEBページ（HTMLファイル）はテキストエディタ（メモ帳など）で作成することができます</li>
                         </ul>
                     </li>
@@ -346,9 +343,24 @@
                             <li>ポップアップライブラリを読み込む<br>
                                 <code>&lt;script src="js/popup.min.js"&gt;&lt;/script&gt;</code>
                             </li>
-                            <li>栽培記録の記載方法は「栽培記録の作成例2」をご確認ください</li>
+                            <li>栽培記録を追加する方法は「栽培記録の作成例2」をご確認ください<br>
+                                <code>
+                                    log.add_log('玉ねぎ', '2025/06/07', 'img/a250607t.jpg', '収穫');<br>
+                                    log.add_log('ニラ', '2024/04/26', 'img/a240426nr.jpg', '2年目春');<br>
+                                    log.add_log('ニラ', '2025/01/25', 'img/a250113nr1.jpg, img/a250113nr2.jpg', '3年目冬刈取');<br>
+                                </code>
+                            </li>
                             <li>栽培記録に指定した写真（画像ファイル）はimgフォルダの下に置きます</li>
-                            <li>見栄え調整（オプション設定）については「栽培記録の作成例2」をご確認ください</li>
+                            <li>見栄え調整（オプション設定）については「栽培記録の作成例2」をご確認ください<br>
+                                <code>
+                                    // log.set_label_style(0);  // マーカー付き縦並びスタイル（デフォルト）<br>
+                                    // log.set_label_style(1);  // 縦並びスタイル<br>
+                                    log.set_label_style(2);  // 横並びスタイル<br>
+                                    log.set_label_lineheight('2');  // 行高さ指定<br>
+                                    log.set_label_gap('3em');       // 横並び時の間隔指定<br>
+                                    log.set_margin('1em 0 1em 0');  // 周囲余白指定（上、右、下、左）<br>
+                                </code>
+                            </li>
                             <li>`CultiLog.css`を参考にstyleタグでスタイル指定して体裁を整えることもできます</li>
                             <li>WEBページ（HTMLファイル）はテキストエディタ（メモ帳など）で作成することができます</li>
                         </ul>
