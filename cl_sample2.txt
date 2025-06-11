@@ -30,6 +30,14 @@
         log.add_log('ニラ', '2024/04/26', 'img/a240426nr.jpg', '2年目春');
         log.add_log('ニラ', '2025/01/25', 'img/a250113nr1.jpg, img/a250113nr2.jpg', '3年目冬刈取');
 
+        // 見栄え調整（オプション設定）
+        // log.set_label_style(0);  // マーカー付き縦並びスタイル（デフォルト）
+        // log.set_label_style(1);  // 縦並びスタイル
+        log.set_label_style(2);  // 横並びスタイル
+        log.set_label_lineheight('2');  // 行高さ指定
+        log.set_label_gap('3em');       // 横並び時の間隔指定
+        log.set_margin('1em 0 1em 0');  // 周囲余白指定（上、右、下、左）
+
         // 栽培記録を設定
         log.set_logs();
     </script>
