@@ -25,9 +25,6 @@
         article {
             max-width: none;
         }
-        #plan_frame, #log_frame {
-            border: none;
-        }
         .html_frame, .view_frame {
             background-color: white;
         }
@@ -55,19 +52,19 @@
         code {
             color: darkgoldenrod;
         }
-        .figures {
+        /* .figures {
             margin-left: 0.5em;
         }
         figure {
             float: left;
-        }
-        .figures::after {
+        } */
+        /* .figures::after {
             content: '';
             display: block;
             clear: both;
-        }
+        } */
         @media (max-width: 700px) {
-            #plan_frame, #log_frame, .html_frame, .view_frame {
+            .html_frame, .view_frame {
                 width: 96%;
             }
         }
@@ -132,25 +129,12 @@
             菜園カレンダーと栽培記録を作成するために開発したJavsScriptライブラリです。栽培記録は作物名を選択して表示します
             <article class="indent">
                 菜園カレンダー<br>
-                <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="300" style="zoom:0.75"></iframe>
+                <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="330" style="zoom:0.75"></iframe>
             </article>
             <article class="indent">
                 栽培記録<br>
-                <iframe class="view_frame" src="./cl_sample2.html" frameborder="1" width="600" height="410" style="zoom:0.75"></iframe>
+                <iframe class="view_frame" src="./cl_sample2.html" frameborder="1" width="600" height="480" style="zoom:0.75"></iframe>
             </article>
-            <div class="figures">
-                <figure>
-                    <figcaption>菜園カレンダー</figcaption>
-                    <!-- <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="330" style="zoom:0.75"></iframe> -->
-                    <!-- <iframe id="plan_frame" src="./cp_sample2.html" frameborder="1" width="600" height="300" style="zoom:0.85"></iframe> -->
-                    <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="300" style="zoom:0.75"></iframe>
-                </figure>
-                <figure>
-                    <figcaption>栽培記録</figcaption>
-                    <!-- <iframe id="log_frame" src="./cl_sample2.html" frameborder="1" width="600" height="410" style="zoom:0.85"></iframe> -->
-                    <iframe class="view_frame" src="./cl_sample2.html" frameborder="1" width="600" height="410" style="zoom:0.75"></iframe>
-                </figure>
-            </div>
         </p>
         <dl class="indent">
             <dt>開発の経緯</dt>
