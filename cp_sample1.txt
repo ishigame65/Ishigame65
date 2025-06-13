@@ -38,7 +38,9 @@
         ];
 
         // 描画
-        plan.draw(dataset);
+        window.addEventListener('load', function() {
+            plan.draw(dataset);
+        });
     </script>
 </body>
 </html>

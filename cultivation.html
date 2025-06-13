@@ -198,14 +198,13 @@
     const dataset = dataset_0.filter(data => data.status != 'incomplete');    // 不完全データを取り除く
     for (i = 0; i < dataset.length; i++) if (i % 2 != 0) dataset[i].color = colors[1];  // 奇数番目の色を変える
 
-    // 描画
+    // 描画準備
     plan.set_font("14px 'MS P Gothic'");    // フォント設定（オプション）
     plan.set_padding(7);                    // パディング設定（オプション）
     plan.set_border(0.25, 'gray');          // 罫線の幅と色を設定（オプション）
     plan.set_month_bgcolor('LightYellow');  // 月背景色設定（オプション）
     // plan.hide_legend();                  // 凡例非表示（オプション）
     plan.set_today(0.5, 'red');             // 本日線設定（オプション）
-    plan.draw(dataset);                     // 描画
 
     // 栽培記録
     const log = new CultivationLog("CultiLog"); // 栽培記録オブジェクト生成
@@ -217,6 +216,11 @@
     log.add_log('玉ねぎ', '2025/06/07', 'img/a250607t.jpg', '収穫');
     log.set_margin('0 0 1em 1em');  // 周囲余白指定（上、右、下、左）
     log.set_logs(); // 栽培記録を設定
+
+    // 描画
+    window.addEventListener('load', function() {
+        plan.draw(dataset);
+    });
 
 </script>
 <!-- ポップアップライブラリを読み込み -->

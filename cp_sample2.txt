@@ -64,7 +64,9 @@
         plan.set_today(0.75, 'red');            // 今日線の幅と色を設定（オプション）
 
         // 描画
-        plan.draw(dataset);
+        window.addEventListener('load', function() {
+            plan.draw(dataset);
+        });
     </script>
 </body>
 </html>
