@@ -28,7 +28,7 @@
         .html_frame, .view_frame {
             background-color: white;
         }
-        .html_frame {
+        /* .html_frame {
             -o-transform: scale(0.85);
             -o-transform-origin: 0 0;
             -ms-transform: scale(0.85);
@@ -39,7 +39,7 @@
             -webkit-transform-origin: 0 0;
             transform: scale(0.85);
             transform-origin: 0 0;
-        }
+        } */
         .icon {
             margin-right: 8px;
             margin-top: 0.2em;
@@ -67,6 +67,9 @@
         @media (max-width: 700px) {
             .html_frame, .view_frame {
                 width: 96%;
+            }
+            .html_frame {
+                zoom: 0.5;
             }
         }
     </style>
@@ -285,20 +288,20 @@
             </article>
             <article>
                 <h4 class="mono">HTMLファイル</h4>
-                <!-- <iframe class="html_frame" src="./cp_sample1.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe> -->
-                <iframe class="html_frame" src="./cp_sample1.txt" frameborder="1" width="710" height="370"></iframe>
+                <iframe class="html_frame" src="./cp_sample1.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe>
+                <!-- <iframe class="html_frame" src="./cp_sample1.txt" frameborder="1" width="710" height="370"></iframe> -->
             </article>
         </section>
         <section>
             <h3 class="mono">菜園カレンダーの作成例2</h3>
             <article>
-                <h4 class="mono">HTMLファイル</h4>
-                <iframe class="html_frame" src="./cp_sample2.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe>
-            </article>
-            <article>
                 <h4 class="mono">表示</h4>
                 <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="330" style="zoom:0.75"></iframe>
             </article>            
+            <article>
+                <h4 class="mono">HTMLファイル</h4>
+                <iframe class="html_frame" src="./cp_sample2.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe>
+            </article>
         </section>
 
         <section>
