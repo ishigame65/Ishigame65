@@ -113,10 +113,14 @@
 
         <h2 class="mono">栽培ライブラリ</h2>
         <p class="indent">
-            菜園カレンダーと栽培記録を作成するために開発したJavsScriptライブラリです。栽培記録は作物名を選択して表示します
+            菜園カレンダー・菜園マップ・栽培記録を作成するために開発したJavsScriptライブラリです。栽培記録は作物名を選択して表示します
             <article class="indent">
                 菜園カレンダー<br>
                 <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="330" style="zoom:0.75"></iframe>
+            </article>
+            <article class="indent">
+                菜園マップ<br>
+                <iframe class="view_frame" src="./cm_sample2.html" frameborder="1" width="530" height="350" style="zoom:0.75"></iframe>
             </article>
             <article class="indent">
                 栽培記録<br>
@@ -131,7 +135,7 @@
                     <li>最初は一般的な作表ツール（Excelなどの123的なやつ）や作図ツール（ドロー系ソフト）で作ってみたが、どうにも使いにくい（修正に余計な手間と時間が掛かる）し、見た目が不細工になってしまう</li>
                     <li>それなら優秀な先人が開発した作図ライブラリを利用して作ろうと考えたが、一般的なカレンダーやガントチャートを作成するライブラリは多くあるものの、菜園カレンダーに利用できる作図ライブラリが何故か見つからない</li>
                     <li>以上のことから、先ず専用のライブラリを開発してから、菜園カレンダーを作ることにした</li>
-                    <li>次に、作物ごとの栽培記録を作成する機能をライブラリに追加した</li>
+                    <li>次に、菜園マップと作物ごとの栽培記録を作成する機能をライブラリに追加した</li>
                 </ul>
 
             </dd>
@@ -149,9 +153,24 @@
                         <td>栽培計画クラス</td>
                     </tr>
                     <tr>
+                        <td><a href="js/CultivationMap.min.js">CultivationMap.min.js</a></td>
+                        <td>JavsScriptファイル</td>
+                        <td>栽培地図クラス</td>
+                    </tr>
+                    <tr>
                         <td><a href="js/CultivationLog.min.js">CultivationLog.min.js</a></td>
                         <td>JavsScriptファイル</td>
                         <td>栽培記録クラス</td>
+                    </tr>
+                    <tr>
+                        <td><a href="img/pluspat1.png">pluspat1.png</a></td>
+                        <td>PNG画像ファイル</td>
+                        <td>栽培地図の非栽培区画を表すパターン画像</td>
+                    </tr>
+                    <tr>
+                        <td><a href="img/direction1.png">direction1.png</a></td>
+                        <td>PNG画像ファイル</td>
+                        <td>栽培地図の方位マーク画像</td>
                     </tr>
                     <tr>
                         <td><a href="css/CultiLog.css">CultiLog.css</a></td>
@@ -177,6 +196,7 @@
                                 <li>js/
                                     <ul>
                                         <li>CultivationPlan.min.js</li>
+                                        <li>CultivationMap.min.js</li>
                                         <li>CultivationLog.min.js</li>
                                         <li>popup.min.js</li>
                                     </ul>
@@ -187,7 +207,12 @@
                                         <li>popup.css</li>
                                     </ul>
                                 </li>
-                                <li>img/</li>
+                                <li>img/
+                                    <ul>
+                                        <li>pluspat1.png</li>
+                                        <li>direction1.png</li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -288,6 +313,104 @@
             <article>
                 <h4 class="mono">HTMLファイル</h4>
                 <iframe class="html_frame" src="./cp_sample2.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe>
+            </article>
+        </section>
+
+        <section>
+            <h3 class="mono">菜園マップを作成する方法</h3>
+            <div class="section_content">
+                <ol class="indent">
+                    <li>ファイルとフォルダが下図の構成になっていることを確認する<br>
+                        <div class="sitemap">
+                            <ul>
+                                <li>任意フォルダ/
+                                    <ul>
+                                        <li>index.html（次項で作成、任意ファイル名）</li>                                        
+                                        <li>js/
+                                            <ul>
+                                                <li>CultivationMap.min.js</li>
+                                            </ul>
+                                        </li>
+                                        <li>img/
+                                            <ul>
+                                                <li>pluspat1.png</li>
+                                                <li>direction1.png</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>WEBページ（HTMLファイル）を作成する（例：`index.html`ファイル）
+                        <ul class="indent">
+                            <li>描画領域としてcanvasを作成<br>
+                                <code>&lt;canvas id="CultiMap" width="229" height="229"&gt;&lt;/canvas&gt;</code>
+                            </li>
+                            <li>栽培地図クラス`CultivationMap.min.js`を読み込む<br>
+                                <code>&lt;script src="js/CultivationMap.min.js"&gt;&lt;/script&gt;</code>
+                            </li>
+                            <li>菜園マップを作成する処理を記述
+                                <ol class="indent">
+                                    <li>栽培地図オブジェクトを生成（canvasのidを引数に指定）<br>
+                                        <code>const map = new CultivationMap("CultiMap");</code>
+                                    </li>
+                                    <li>畑全体サイズ設定（単位cm）<br>
+                                        <code>map.set_garden_size(229, 229);</code>
+                                    </li>
+                                    <li>非栽培エリア設定（色、区画）<br>
+                                        <code>map.set_dead_color('path', 'tan');<br>
+                                        map.add_dead('path', 0, 100, 228, 40);</code>
+                                    </li>
+                                    <li>作物エリア設定（色、区画）<br>
+                                        <code>map.set_plant_color('ジャガイモ', 'sandybrown');<br>
+                                        map.set_plant_color('ニラ', 'mediumseagreen');<br>
+                                        map.set_plant_color('玉ねぎ', 'khaki');<br>
+                                        map.add_plant('ジャガイモ', 0, 0, 228, 100);<br>
+                                        map.add_plant('ニラ', 0, 140, 228, 44);<br>
+                                        map.add_plant('玉ねぎ', 0, 184, 228, 44);</code>
+                                    </li>
+                                    <li>描画<br>
+                                        <code>
+                                            window.addEventListener('load', function() {
+                                                map.draw(dataset);
+                                            });
+                                        </code>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>方位設定や見栄え調整（オプション設定）については「菜園マップの作成例2」をご確認ください<br>
+                                <code>
+                                map.set_direction(-30, 10, 10); // 方位設定（オプション：角度、X位置、Y位置）<br>
+                                map.set_font("14px 'MS P Gothic'"); // フォント設定（オプション）</code>
+                            </li>
+                            <li>WEBページ（HTMLファイル）はテキストエディタ（メモ帳など）で作成することができます</li>
+                        </ul>
+                    </li>
+                    <li>作成したWEBページ（例：`index.html`ファイル）をWEBブラウザで表示する</li>
+                </ol>
+            </div>
+        </section>
+        <section>
+            <h3 class="mono">菜園マップの作成例1</h3>
+            <article>
+                <h4 class="mono">表示</h4>
+                <iframe class="view_frame" src="./cm_sample1.html" frameborder="1" width="530" height="350" style="zoom:0.75"></iframe>
+            </article>
+            <article>
+                <h4 class="mono">HTMLファイル</h4>
+                <iframe class="html_frame" src="./cm_sample1.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe>
+            </article>
+        </section>
+        <section>
+            <h3 class="mono">菜園マップの作成例2</h3>
+            <article>
+                <h4 class="mono">表示</h4>
+                <iframe class="view_frame" src="./cm_sample2.html" frameborder="1" width="530" height="350" style="zoom:0.75"></iframe>
+            </article>            
+            <article>
+                <h4 class="mono">HTMLファイル</h4>
+                <iframe class="html_frame" src="./cm_sample2.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe>
             </article>
         </section>
 

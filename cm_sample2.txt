@@ -1,0 +1,77 @@
+<!-- 栽培ライブラリを利用して菜園カレンダーを作成するサンプル -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="菜園マップ2">
+    <title>菜園マップ2</title>
+    <style>
+        #CultiMap {
+            background-color: lemonchiffon;
+        }
+    </style>
+</head>
+<body>
+    <!-- 菜園マップの描画領域を作成 -->
+    <canvas id="CultiMap" width="480" height="330"></canvas>
+
+    <!-- 栽培ライブラリの栽培地図クラスを読み込み -->
+    <script src="js/CultivationMap.js"></script>
+
+    <!-- 菜園マップを作成する -->
+    <script>
+        // 栽培地図オブジェクト生成
+        const map = new CultivationMap("CultiMap");
+
+        // 畑全体サイズ設定（単位cm）
+        map.set_garden_size(480, 330);
+
+        map.set_direction(-30, 10, 10); // 方位設定（オプション：角度、X位置、Y位置）
+        map.set_font("14px 'MS P Gothic'"); // フォント設定（オプション）
+
+        // 非栽培エリア設定（色、区画）
+        map.set_dead_color('approach', 'lightsteelblue');   // アプローチ
+        map.set_dead_color('brick', 'sienna');      // 花壇レンガ
+        map.set_dead_color('path', 'BurlyWood');    // 通路
+        map.set_dead_color('cage', 'LightSkyBlue'); // 亀ケージ
+        map.set_dead_color('rose', 'hotpink');      // バラ
+        map.add_dead('path', 0, 124, 48, 86);       // 通路（x,y,w,h）
+        map.add_dead('approach', 0, 190, 35, 140);  // アプローチ
+        map.add_dead('brick', 35, 258.5, 485, 8.5); // 花壇レンガ
+        map.add_dead('path', 35, 209.5, 386, 49);   // 通路横
+        map.add_dead('path', 358, 0, 34, 225);      // 通路縦
+        map.add_dead('cage', 392, 0, 87, 140);      // 亀ケージ
+        map.add_dead('rose', 419, 267, 60, 62);     // バラ
+
+        // 作物エリア設定（色、区画）
+        map.set_plant_color('パクチー', 'greenyellow');
+        map.set_plant_color('ミニトマト', 'tomato');
+        map.set_plant_color('キュウリ', 'springgreen');
+        map.set_plant_color('ニラ', 'mediumseagreen');
+        map.set_plant_color('玉ねぎ', 'khaki');
+        map.set_plant_color('ジャガイモ', 'sandybrown');
+        map.set_plant_color('バジル', 'Plum');
+        map.set_plant_color('九条ネギ', 'DarkTurquoise');
+        map.set_plant_color('にんにく', 'beige');
+        map.add_plant('パクチー', 392, 140, 87, 69);
+        map.add_plant('パクチー', 421, 208, 58, 51);
+        map.add_plant('ミニトマト', 276, 138, 82, 72);
+        map.add_plant('キュウリ', 276, 24, 82, 72);
+        map.add_plant('ニラ', 48, 166, 228, 44);
+        map.add_plant('ニラ', 0, 0, 358, 24);
+        map.add_plant('玉ねぎ', 48, 124, 228, 44);
+        map.add_plant('ジャガイモ', 0, 24, 276, 100);
+        map.add_plant('九条ネギ', 35, 267, 131, 62);
+        map.add_plant('ニラ', 166, 267, 110, 62);
+        map.add_plant('にんにく', 276, 267, 83, 62);
+        map.add_plant('バジル', 359, 267, 60, 62);
+
+
+        // 描画
+        window.addEventListener('load', function() {
+            map.draw();
+        });
+    </script>
+</body>
+</html>

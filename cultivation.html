@@ -27,6 +27,11 @@
         #CultiLog img {
             width: 40%;
         }
+        .notes {
+            font-size: smaller;
+            color: dimgray;
+            margin-left: 1em;
+        }
         @media (max-width: 700px) {
             #topimg {
                 border-radius: 4px;
@@ -42,6 +47,9 @@
             }
             #CultiPlan {
                 width: 28em;
+            }
+            #CultiMap {
+                max-width: 94%;
             }
         }
     </style>
@@ -107,17 +115,29 @@
             <h3 class="mono">菜園カレンダー</h3>
             <p class="article_content">
                 いつ何を植えれば良いかも分かっていない素人が手探りで野菜を育てているが、野菜は時期を逃すと栽培できないため、
-                野菜作りに必要な作業を行う時期が一目でわかる菜園カレンダーを作ることにした。
+                野菜作りに必要な作業を行う時期が一目でわかる菜園カレンダーを作ることにした
                 <canvas id="CultiPlan" width="450" height="620"></canvas>
                 <!-- <h4>栽培記録</h4> -->
-                一般的なツールでは上手く作れず、良い作図ライブラリも見つからなかったため、専用の<a href='cultilib.html'>栽培ライブラリ</a>を開発してから菜園カレンダーを作ることになった。
+                一般的なツールでは上手く作れず、良い作図ライブラリも見つからなかったため、専用の<a href='cultilib.html'>栽培ライブラリ</a>を開発してから菜園カレンダーを作ることになった
+            </p>
+        </article>
+        <article>
+            <h3 class="mono">菜園マップ</h3>
+            <p class="article_content">
+                5月の菜園マップ
+                <canvas id="CultiMap" width="432" height="297"></canvas>
+                開発した<a href='cultilib.html'>栽培ライブラリ</a>に菜園マップを作成する機能を追加した
+                <div class="notes">
+                    現状、栽培区画の座標値を㎝単位の数値で指定する必要がある。
+                    一般的な作図アプリ（ドロー系ソフト）で作成する方が楽かもしれない
+                </div>
             </p>
         </article>
         <article>
             <h3 class="mono">栽培記録</h3>
             <p class="article_content">
                 <div id="CultiLog"></div>
-                開発した<a href='cultilib.html'>栽培ライブラリ</a>に栽培記録を作成する機能を追加し、作物ごとの栽培記録をポップアップ表示する仕組みとした。
+                開発した<a href='cultilib.html'>栽培ライブラリ</a>に栽培記録を作成する機能を追加し、作物ごとの栽培記録をポップアップ表示する仕組みとした
             </p>
         </article>
         <article>
@@ -126,7 +146,7 @@
                 <img src="img/brick1.jpg" class = "floatright">
                 亀池用のタライを埋めるために庭を掘ると土や石や瓦礫が出てできて処分に困る。
                 そこで、石や瓦礫をモルタルで固めて偽レンガを作り、偽レンガを積んで花壇を作り土を入れた。<br>
-                偽レンガを作る時の<a href='brickmold.html'>モルタルレンガ用型枠</a>は3Dプリンタで製作した。
+                偽レンガを作る時の<a href='brickmold.html'>モルタルレンガ用型枠</a>は3Dプリンタで製作した
             </p>
         </article>
 
@@ -151,25 +171,25 @@
 <!-- 栽培ライブラリを読み込み -->
 <script src="js/CultivationPlan.min.js"></script>
 <script src="js/CultivationLog.min.js"></script>
-<!-- <script src="js/CultivationLog.js"></script> -->
+<script src="js/CultivationMap.js"></script>
 
 <!-- 菜園カレンダーと栽培記録を作成する -->
 <script>
     // 栽培計画オブジェクト生成
     const plan = new CultivationPlan("CultiPlan");
 
-    // 作業定義（作業名, 色）
+    // 栽培計画:作業定義（作業名, 色）
     plan.add_action('種蒔き', 'brown');
     plan.add_action('植え付け', 'limegreen');
     plan.add_action('収穫', 'gold');
     plan.add_action('株分け', 'orchid');
     plan.add_action('堀り上げ', 'turquoise');
 
-    // 状態設定
+    // 栽培計画:状態設定
     plan.add_status('invalid', 'gray'); // 状態定義（状態名, 色）
     plan.set_status_opacity(0.5);   // 状態色不透明度
 
-    // データ準備
+    // 栽培計画:データ準備
     const colors = ['Lavender', 'lightcyan'];
     const dataset_0 = [
         // 'name':対象名、作業名:期間、作業名:期間
@@ -198,13 +218,62 @@
     const dataset = dataset_0.filter(data => data.status != 'incomplete');    // 不完全データを取り除く
     for (i = 0; i < dataset.length; i++) if (i % 2 != 0) dataset[i].color = colors[1];  // 奇数番目の色を変える
 
-    // 描画準備
+    // 栽培計画:描画準備
     plan.set_font("14px 'MS P Gothic'");    // フォント設定（オプション）
     plan.set_padding(7);                    // パディング設定（オプション）
     plan.set_border(0.25, 'gray');          // 罫線の幅と色を設定（オプション）
     plan.set_month_bgcolor('LightYellow');  // 月背景色設定（オプション）
     // plan.hide_legend();                  // 凡例非表示（オプション）
     plan.set_today(0.5, 'red');             // 本日線設定（オプション）
+
+    // 栽培地図オブジェクト生成
+    const map = new CultivationMap("CultiMap");
+
+    // 栽培地図:畑全体サイズ設定（単位cm）
+    map.set_garden_size(480, 330);
+
+    // 栽培地図:方位設定（オプション：角度、X位置、Y位置）
+    map.set_direction(-30, 10, 10);
+
+    // 栽培地図:フォント設定（オプション）
+    map.set_font("14px 'MS P Gothic'");
+
+    // 栽培地図:非栽培エリア設定（色、区画）
+    map.set_dead_color('approach', 'lightsteelblue');   // アプローチ
+    map.set_dead_color('brick', 'sienna');      // 花壇レンガ
+    map.set_dead_color('path', 'BurlyWood');    // 通路
+    map.set_dead_color('cage', 'LightSkyBlue'); // 亀ケージ
+    map.set_dead_color('rose', 'hotpink');      // バラ
+    map.add_dead('path', 0, 124, 48, 86);       // 通路（x,y,w,h）
+    map.add_dead('approach', 0, 190, 35, 140);  // アプローチ
+    map.add_dead('brick', 35, 258.5, 485, 8.5); // 花壇レンガ
+    map.add_dead('path', 35, 209.5, 386, 49);   // 通路横
+    map.add_dead('path', 358, 0, 34, 225);      // 通路縦
+    map.add_dead('cage', 392, 0, 87, 140);      // 亀ケージ
+    map.add_dead('rose', 419, 267, 60, 62);     // バラ
+
+    // 栽培地図:作物エリア設定（色、区画）
+    map.set_plant_color('パクチー', 'greenyellow');
+    map.set_plant_color('ミニトマト', 'tomato');
+    map.set_plant_color('キュウリ', 'springgreen');
+    map.set_plant_color('ニラ', 'mediumseagreen');
+    map.set_plant_color('玉ねぎ', 'khaki');
+    map.set_plant_color('ジャガイモ', 'sandybrown');
+    map.set_plant_color('バジル', 'Plum');
+    map.set_plant_color('九条ネギ', 'DarkTurquoise');
+    map.set_plant_color('にんにく', 'beige');
+    map.add_plant('パクチー', 392, 140, 87, 69);
+    map.add_plant('パクチー', 421, 208, 58, 51);
+    map.add_plant('ミニトマト', 276, 138, 82, 72);
+    map.add_plant('キュウリ', 276, 24, 82, 72);
+    map.add_plant('ニラ', 48, 166, 228, 44);
+    map.add_plant('ニラ', 0, 0, 358, 24);
+    map.add_plant('玉ねぎ', 48, 124, 228, 44);
+    map.add_plant('ジャガイモ', 0, 24, 276, 100);
+    map.add_plant('九条ネギ', 35, 267, 131, 62);
+    map.add_plant('ニラ', 166, 267, 110, 62);
+    map.add_plant('にんにく', 276, 267, 83, 62);
+    map.add_plant('バジル', 359, 267, 60, 62);
 
     // 栽培記録
     const log = new CultivationLog("CultiLog"); // 栽培記録オブジェクト生成
@@ -219,7 +288,8 @@
 
     // 描画
     window.addEventListener('load', function() {
-        plan.draw(dataset);
+        plan.draw(dataset); // 栽培計画
+        map.draw(); // 栽培地図
     });
 
 </script>
