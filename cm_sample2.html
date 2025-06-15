@@ -10,8 +10,6 @@
         #CultiMap {
             background-color: lemonchiffon;
             /* 最大幅 for mobile iframe habit */
-            /* max-width: 94%; */
-            /* max-width: 135%; */
             max-width: 130%;
         }
     </style>
@@ -71,10 +69,11 @@
         map.add_plant('にんにく', 276, 267, 83, 62);
         map.add_plant('バジル', 359, 267, 60, 62);
 
-
         // 描画
         window.addEventListener('load', function() {
-            map.draw();
+            setTimeout(function() {
+                map.draw();
+            }, 100);    // 100ms
         });
     </script>
 </body>
