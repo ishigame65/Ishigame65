@@ -173,7 +173,6 @@
 <!-- 栽培ライブラリを読み込み -->
 <script src="js/CultivationPlan.min.js"></script>
 <script src="js/CultivationMap.min.js"></script>
-<!-- <script src="js/CultivationMap.js"></script> -->
 <script src="js/CultivationLog.min.js"></script>
 
 <!-- 菜園カレンダーと栽培記録を作成する -->
@@ -239,7 +238,8 @@
     map.set_direction(-30, 10, 10);
 
     // 栽培地図:フォント設定（オプション）
-    map.set_font("14px 'MS P Gothic'");
+    // map.set_font("14px 'MS P Gothic'");
+    map.set_font("12px 'MS P Gothic'");
 
     // 栽培地図:非栽培エリア設定（色、区画）
     map.set_dead_color('approach', 'lightsteelblue');   // アプローチ
