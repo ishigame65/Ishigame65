@@ -36,7 +36,9 @@
 
         // 描画
         window.addEventListener('load', function() {
-            map.draw();
+            setTimeout(function() { // for iframe対策
+                map.draw();
+            }, 100);    // 100ms
         });
     </script>
 </body>
