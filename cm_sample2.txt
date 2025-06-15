@@ -9,7 +9,6 @@
     <style>
         #CultiMap {
             background-color: lemonchiffon;
-            max-width: 94%;
         }
     </style>
 </head>
