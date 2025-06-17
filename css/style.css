@@ -128,6 +128,11 @@ article h3.mono, section h3.mono {
 .article_content, .section_content {
     margin-left: 0.4em;
 }
+.notes {
+    font-size: smaller;
+    color: dimgray;
+    margin-left: 1em;
+}
 /* 今後検討 */
 /* .scroller {
     scrollbar-color: #FAF8D8 #DE94BF;
