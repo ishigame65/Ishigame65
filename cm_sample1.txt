@@ -26,7 +26,7 @@
         map.set_dead_color('path', 'tan');
         map.add_dead('path', 0, 100, 228, 40); 
 
-        // 作物エリア設定（色、区画）
+        // 栽培エリア設定（色、区画）
         map.set_plant_color('ジャガイモ', 'sandybrown');
         map.set_plant_color('ニラ', 'mediumseagreen');
         map.set_plant_color('玉ねぎ', 'khaki');

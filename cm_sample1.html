@@ -19,14 +19,14 @@
         // 栽培地図オブジェクト生成
         const map = new CultivationMap("CultiMap");
 
-        // 畑全体サイズ設定（単位cm）
-        map.set_garden_size(229, 229);
+        // サイズ設定（単位cm）
+        map.set_size(229, 229);
 
         // 非栽培エリア設定（色、区画）
         map.set_dead_color('path', 'tan');
         map.add_dead('path', 0, 100, 228, 40); 
 
-        // 作物エリア設定（色、区画）
+        // 栽培エリア設定（色、区画）
         map.set_plant_color('ジャガイモ', 'sandybrown');
         map.set_plant_color('ニラ', 'mediumseagreen');
         map.set_plant_color('玉ねぎ', 'khaki');

@@ -24,8 +24,31 @@
         img.floatleft {
             margin-right: 0.5em;
         }
+        /* 栽培記録 */
         #CultiLog img {
             width: 40%;
+        }
+        /* 菜園マップ */
+        #map_container {
+            display: grid;
+            grid-template-rows: 340px 1fr;
+            grid-template-columns: 50px 1fr;
+        }
+        #lplanters {
+            grid-row: 1;
+            grid-column: 1;
+            align-content: center;
+        }
+        #CultiMap {
+            background-color: skyblue;
+            /* 最大幅 for mobile iframe habit */
+            max-width: 130%;
+            grid-row: 1;
+            grid-column: 2;
+        }
+        #splanters {
+            grid-row: 2;
+            grid-column: 2;
         }
         /* .notes {
             font-size: smaller;
@@ -126,7 +149,29 @@
             <h3 class="mono">菜園マップ</h3>
             <p class="article_content">
                 5月の菜園マップ
-                <canvas id="CultiMap" width="432" height="297"></canvas>
+                <!-- <canvas id="CultiMap" width="432" height="297"></canvas> -->
+
+                <div id="map_container">
+                    <div id="lplanters">
+                        <canvas id="LongPlanter0" width="23" height="65.5"></canvas>    <!-- 長プランター -->
+                        <br>
+                        <canvas id="LongPlanter1" width="23" height="65.5"></canvas>    <!-- 長プランター -->
+                        <br>
+                        <canvas id="LongPlanter2" width="26" height="75"></canvas>      <!-- 長プランター2 -->
+                    </div>
+                    <canvas id="CultiMap" width="480" height="330"></canvas>        <!-- メイン畑 -->
+                    <div id="splanters">
+                        <canvas id="SquarePlanter0" width="35" height="35"></canvas>    <!-- 角プランター -->
+                        <canvas id="SquarePlanter1" width="35" height="35"></canvas>
+                        <canvas id="SquarePlanter2" width="35" height="35"></canvas>
+                        <canvas id="SquarePlanter3" width="35" height="35"></canvas>
+                        <canvas id="SquarePlanter4" width="35" height="35"></canvas>
+                        <canvas id="SquarePlanter5" width="35" height="35"></canvas>
+                        <canvas id="SquarePlanter6" width="35" height="35"></canvas>
+                        <canvas id="SquarePlanter7" width="35" height="35"></canvas>
+                    </div>
+                </div>
+
                 開発した<a href='cultilib.html'>栽培ライブラリ</a>に菜園マップを作成する機能を追加した
                 <div class="notes">
                     現状、栽培区画の座標値を㎝単位の数値で指定する必要がある。
@@ -170,128 +215,216 @@
 </div>
 
 <!-- 栽培ライブラリを読み込み -->
+<script src="js/CultivationPlants.min.js"></script>
 <script src="js/CultivationPlan.min.js"></script>
 <script src="js/CultivationMap.min.js"></script>
 <script src="js/CultivationLog.min.js"></script>
 
 <!-- 菜園カレンダーと栽培記録を作成する -->
 <script>
-    // 栽培計画オブジェクト生成
-    const plan = new CultivationPlan("CultiPlan");
+    // 栽培計画作成
+    function make_plan(plan) {
+        // 栽培計画:作業定義（作業名, 色）
+        plan.add_action('種蒔き', 'brown');
+        plan.add_action('植え付け', 'limegreen');
+        plan.add_action('収穫', 'gold');
+        plan.add_action('株分け', 'orchid');
+        plan.add_action('堀り上げ', 'turquoise');
 
-    // 栽培計画:作業定義（作業名, 色）
-    plan.add_action('種蒔き', 'brown');
-    plan.add_action('植え付け', 'limegreen');
-    plan.add_action('収穫', 'gold');
-    plan.add_action('株分け', 'orchid');
-    plan.add_action('堀り上げ', 'turquoise');
+        // 栽培計画:状態設定
+        plan.add_status('invalid', 'gray'); // 状態定義（状態名, 色）
+        plan.set_status_opacity(0.5);   // 状態色不透明度
 
-    // 栽培計画:状態設定
-    plan.add_status('invalid', 'gray'); // 状態定義（状態名, 色）
-    plan.set_status_opacity(0.5);   // 状態色不透明度
+        // 栽培計画:データ準備
+        const colors = ['Lavender', 'lightcyan'];
+        const dataset_0 = [
+            // 'name':対象名、作業名:期間、作業名:期間
+            // 　（期間）開始月-終了月、（オプション）a:上旬, b:中旬, c:下旬
+            { 'name':'ニラ', '種蒔き':'3b-4a', '植え付け':'6b-7a', 'color':colors[0], 'status':'valid' },
+            { 'name':'ニラ/2年目～', '収穫':'4-10', 'color':colors[0], 'status':'valid' },
+            { 'name':'ニラ/3年目～', '株分け':'2c-3a', 'color':colors[0], 'status':'valid' },
+            { 'name':'ジャガイモ', '植え付け':'3-3', '収穫':'6-7a', 'color':colors[0], 'status':'valid' },  // ジャガイモは3月に植え付け、6月～7月上旬に収穫
+            { 'name':'パクチー', '種蒔き':'3-4', '収穫':'6-10', 'color':colors[0], 'status':'valid' },
+            { 'name':'パセリ', '植え付け':'4-5', 'color':colors[0], 'status':'incomplete' },
+            { 'name':'チンゲン菜', '種蒔き':'3b-10b', '収穫':'5c-11b', 'color':colors[0], 'status':'invalid' },
+            { 'name':'空心菜', '種蒔き':'4-5', '植え付け':'5-7', 'color':colors[0], 'status':'valid' },
+            { 'name':'オクラ', '種蒔き':'4b-5a', '植え付け':'5c-6b', '収穫':'7-9', 'color':colors[0], 'status':'valid' },
+            { 'name':'キュウリ苗', '植え付け':'4c-5b', '収穫':'6-8', 'color':colors[0], 'status':'valid' },
+            { 'name':'とうがらし苗', '植え付け':'5-5', 'color':colors[0], 'status':'incomplete' },
+            { 'name':'ミニトマト苗', '植え付け':'5-6b', '収穫':'7-10a', 'color':colors[0], 'status':'valid' },
+            { 'name':'ゴーヤ苗', '植え付け':'5-6', 'color':colors[0], 'status':'invalid' },
+            { 'name':'バジル苗', '植え付け':'5-7', 'color':colors[0], 'status':'invalid' },
+            { 'name':'九条ネギ干苗', '堀り上げ':'5-6a', '植え付け':'8-9a', '収穫':'10-4', 'color':colors[0], 'status':'valid' },
+            { 'name':'菜花', '種蒔き':'8b-10b', '収穫':'11-3', 'color':colors[0], 'status':'valid' },
+            { 'name':'にんにく', '植え付け':'9b-10', '収穫':'5-6', 'color':colors[0], 'status':'valid' },
+            { 'name':'イチゴ苗', '植え付け':'10-11', '収穫':'5-6', 'color':colors[0], 'status':'valid' },
+            { 'name':'スナップえんどう', '種蒔き':'10c-11', '収穫':'4c-7a', 'color':colors[0], 'status':'incomplete' },
+            { 'name':'玉ねぎ苗', '植え付け':'11b-12b', '収穫':'6-7a', 'color':colors[0], 'status':'valid' },
+        ];
+        const dataset = dataset_0.filter(data => data.status != 'incomplete');    // 不完全データを取り除く
+        for (i = 0; i < dataset.length; i++) if (i % 2 != 0) dataset[i].color = colors[1];  // 奇数番目の色を変える
 
-    // 栽培計画:データ準備
-    const colors = ['Lavender', 'lightcyan'];
-    const dataset_0 = [
-        // 'name':対象名、作業名:期間、作業名:期間
-        // 　（期間）開始月-終了月、（オプション）a:上旬, b:中旬, c:下旬
-        { 'name':'ニラ', '種蒔き':'3b-4a', '植え付け':'6b-7a', 'color':colors[0], 'status':'valid' },
-        { 'name':'ニラ/2年目～', '収穫':'4-10', 'color':colors[0], 'status':'valid' },
-        { 'name':'ニラ/3年目～', '株分け':'2c-3a', 'color':colors[0], 'status':'valid' },
-        { 'name':'ジャガイモ', '植え付け':'3-3', '収穫':'6-7a', 'color':colors[0], 'status':'valid' },  // ジャガイモは3月に植え付け、6月～7月上旬に収穫
-        { 'name':'パクチー', '種蒔き':'3-4', '収穫':'6-10', 'color':colors[0], 'status':'valid' },
-        { 'name':'パセリ', '植え付け':'4-5', 'color':colors[0], 'status':'incomplete' },
-        { 'name':'チンゲン菜', '種蒔き':'3b-10b', '収穫':'5c-11b', 'color':colors[0], 'status':'invalid' },
-        { 'name':'空心菜', '種蒔き':'4-5', '植え付け':'5-7', 'color':colors[0], 'status':'valid' },
-        { 'name':'オクラ', '種蒔き':'4b-5a', '植え付け':'5c-6b', '収穫':'7-9', 'color':colors[0], 'status':'valid' },
-        { 'name':'キュウリ苗', '植え付け':'4c-5b', '収穫':'6-8', 'color':colors[0], 'status':'valid' },
-        { 'name':'とうがらし苗', '植え付け':'5-5', 'color':colors[0], 'status':'incomplete' },
-        { 'name':'ミニトマト苗', '植え付け':'5-6b', '収穫':'7-10a', 'color':colors[0], 'status':'valid' },
-        { 'name':'ゴーヤ苗', '植え付け':'5-6', 'color':colors[0], 'status':'invalid' },
-        { 'name':'バジル苗', '植え付け':'5-7', 'color':colors[0], 'status':'invalid' },
-        { 'name':'九条ネギ干苗', '堀り上げ':'5-6a', '植え付け':'8-9a', '収穫':'10-4', 'color':colors[0], 'status':'valid' },
-        { 'name':'菜花', '種蒔き':'8b-10b', '収穫':'11-3', 'color':colors[0], 'status':'valid' },
-        { 'name':'にんにく', '植え付け':'9b-10', '収穫':'5-6', 'color':colors[0], 'status':'valid' },
-        { 'name':'イチゴ苗', '植え付け':'10-11', '収穫':'5-6', 'color':colors[0], 'status':'valid' },
-        { 'name':'スナップえんどう', '種蒔き':'10c-11', '収穫':'4c-7a', 'color':colors[0], 'status':'incomplete' },
-        { 'name':'玉ねぎ苗', '植え付け':'11b-12b', '収穫':'6-7a', 'color':colors[0], 'status':'valid' },
-    ];
-    const dataset = dataset_0.filter(data => data.status != 'incomplete');    // 不完全データを取り除く
-    for (i = 0; i < dataset.length; i++) if (i % 2 != 0) dataset[i].color = colors[1];  // 奇数番目の色を変える
+        // 栽培計画:描画準備
+        plan.set_font("14px 'MS P Gothic'");    // フォント設定（オプション）
+        plan.set_padding(7);                    // パディング設定（オプション）
+        plan.set_border(0.25, 'gray');          // 罫線の幅と色を設定（オプション）
+        plan.set_month_bgcolor('LightYellow');  // 月背景色設定（オプション）
+        // plan.hide_legend();                  // 凡例非表示（オプション）
+        plan.set_today(0.5, 'red');             // 本日線設定（オプション）
+        return dataset;
+    }
 
-    // 栽培計画:描画準備
-    plan.set_font("14px 'MS P Gothic'");    // フォント設定（オプション）
-    plan.set_padding(7);                    // パディング設定（オプション）
-    plan.set_border(0.25, 'gray');          // 罫線の幅と色を設定（オプション）
-    plan.set_month_bgcolor('LightYellow');  // 月背景色設定（オプション）
-    // plan.hide_legend();                  // 凡例非表示（オプション）
-    plan.set_today(0.5, 'red');             // 本日線設定（オプション）
+    // 栽培地図作成
+    function make_map(map, lplanter, splanter) {
+        // 周囲余白指定
+        for (let i = 0; i < lplanter.length; i++) {    // 長プランター
+            lplanter[i].set_margin('0 3px 3px 0');  // 周囲余白指定（上、右、下、左）
+        }
+        splanter[0].set_margin('6px 0 0 35px');     // 周囲余白指定（上、右、下、左）
+        for (let i = 1; i < splanter.length; i++) {    // 角プランター
+            splanter[i].set_margin('6px 0 0 2px');  // 周囲余白指定（上、右、下、左）
+        }
 
-    // 栽培地図オブジェクト生成
-    const map = new CultivationMap("CultiMap");
+        // 栽培地図設定
+        map.set_size(480, 330);         // 栽培エリアサイズ設定（単位cm）
+        map.set_direction(-30, 10, 10); // 方位設定（オプション：角度、X位置、Y位置）
+        map.set_font("14px 'MS P Gothic'"); // フォント設定（オプション）
+        for (let i = 0; i < lplanter.length; i++) {    // 長プランター
+            lplanter[i].set_font("10px 'MS P Gothic'"); // フォント設定（オプション）
+        }
+        for (let i = 0; i < lplanter.length - 1; i++) {    // 長プランター
+            lplanter[i].set_size(23, 65.5);             // 栽培エリアサイズ設定（単位cm）
+        }
+        lplanter[2].set_size(26, 75);           // 栽培エリアサイズ設定（単位cm）
+        for (let i = 0; i < splanter.length; i++) {        // 角プランター
+            splanter[i].set_size(35, 35);               // 栽培エリアサイズ設定（単位cm）
+            splanter[i].set_font("10px 'MS P Gothic'"); // フォント設定（オプション）
+        }
 
-    // 栽培地図:畑全体サイズ設定（単位cm）
-    map.set_garden_size(480, 330);
+        // 非栽培エリア設定（色、区画）
+        map.set_dead_color('approach', 'lightsteelblue');   // アプローチ
+        map.set_dead_color('brick', 'sienna');      // 花壇レンガ
+        map.set_dead_color('path', 'BurlyWood');    // 通路
+        map.set_dead_color('cage', 'LightSkyBlue'); // 亀ケージ
+        map.set_dead_color('rose', 'hotpink');      // バラ
+        map.add_dead('path', 0, 124, 48, 86);       // 通路（x,y,w,h）
+        map.add_dead('approach', 0, 190, 35, 140);  // アプローチ
+        map.add_dead('brick', 35, 258.5, 444, 8.5); // 花壇レンガ
+        map.add_dead('path', 35, 209.5, 386, 49);   // 通路横
+        map.add_dead('path', 358, 0, 34, 225);      // 通路縦
+        map.add_dead('cage', 392, 0, 87, 140);      // 亀ケージ
+        map.add_dead('rose', 419, 267, 60, 62);     // バラ
+        for (let i = 0; i < lplanter.length; i++) {    // 長プランター
+            lplanter[i].set_dead_color('planter', 'gray');
+        }
+        for (let i = 0; i < lplanter.length - 1; i++) {    // 長プランター
+            lplanter[i].add_dead('planter', 0, 0, 2, 65.5);
+            lplanter[i].add_dead('planter', 21, 0, 2, 65.5);
+            lplanter[i].add_dead('planter', 0, 0, 23, 2);
+            lplanter[i].add_dead('planter', 0, 63.5, 23, 2);
+        }
+        lplanter[2].add_dead('planter', 0, 0, 2, 75);
+        lplanter[2].add_dead('planter', 24, 0, 2, 75);
+        lplanter[2].add_dead('planter', 0, 0, 26, 2);
+        lplanter[2].add_dead('planter', 0, 73, 26, 2);
+        for (let i = 0; i < splanter.length; i++) {    // 角プランター
+            splanter[i].set_dead_color('planter', 'gray');
+            splanter[i].add_dead('planter', 0, 0, 2.5, 35);
+            splanter[i].add_dead('planter', 32.5, 0, 2.5, 35);
+            splanter[i].add_dead('planter', 0, 0, 35, 2.5);
+            splanter[i].add_dead('planter', 0, 32.5, 35, 2.5);
+        }
 
-    // 栽培地図:方位設定（オプション：角度、X位置、Y位置）
-    map.set_direction(-30, 10, 10);
+        // 栽培植物設定（色）
+        const plants = new CultivationPlants();     // 栽培植物
+        plants.set_color('パクチー', 'greenyellow');    // 植物色設定
+        plants.set_color('ミニトマト', 'tomato');
+        plants.set_color('キュウリ', 'springgreen');
+        plants.set_color('ニラ', 'mediumseagreen');
+        plants.set_color('玉ねぎ', 'khaki');
+        plants.set_color('ジャガイモ', 'sandybrown');
+        plants.set_color('バジル', 'Plum');
+        plants.set_color('九条ネギ', 'DarkTurquoise');
+        plants.set_color('にんにく', 'beige');
 
-    // 栽培地図:フォント設定（オプション）
-    // map.set_font("14px 'MS P Gothic'");
-    map.set_font("12px 'MS P Gothic'");
+        // 菜園マップに栽培植物設定
+        map.set_plants(plants);                 // 栽培植物設定
+        for (let i = 0; i < lplanter.length; i++) {    // 長プランター
+            lplanter[i].set_plants(plants);         // 栽培植物設定
+        }
+        for (let i = 0; i < splanter.length; i++) {    // 角プランター
+            splanter[i].set_plants(plants);         // 栽培植物設定
+        }
 
-    // 栽培地図:非栽培エリア設定（色、区画）
-    map.set_dead_color('approach', 'lightsteelblue');   // アプローチ
-    map.set_dead_color('brick', 'sienna');      // 花壇レンガ
-    map.set_dead_color('path', 'BurlyWood');    // 通路
-    map.set_dead_color('cage', 'LightSkyBlue'); // 亀ケージ
-    map.set_dead_color('rose', 'hotpink');      // バラ
-    map.add_dead('path', 0, 124, 48, 86);       // 通路（x,y,w,h）
-    map.add_dead('approach', 0, 190, 35, 140);  // アプローチ
-    map.add_dead('brick', 35, 258.5, 444, 8.5); // 花壇レンガ
-    map.add_dead('path', 35, 209.5, 386, 49);   // 通路横
-    map.add_dead('path', 358, 0, 34, 225);      // 通路縦
-    map.add_dead('cage', 392, 0, 87, 140);      // 亀ケージ
-    map.add_dead('rose', 419, 267, 60, 62);     // バラ
+        // 作物区画設定
+        map.add_plant('パクチー', 392, 140, 87, 69);
+        map.add_plant('パクチー', 421, 208, 58, 51);
+        map.add_plant('ミニトマト', 276, 138, 82, 72);
+        map.add_plant('キュウリ', 276, 24, 82, 72);
+        map.add_plant('ニラ', 48, 166, 228, 44);
+        map.add_plant('ニラ', 0, 0, 358, 24);
+        map.add_plant('玉ねぎ', 48, 124, 228, 44);
+        map.add_plant('ジャガイモ', 0, 24, 276, 100);
+        map.add_plant('ニラ', 35, 267, 40, 62);
+        map.add_plant('玉ねぎ', 75, 267, 121, 62);
+        map.add_plant('ニラ', 196, 267, 70, 62);
+        map.add_plant('にんにく', 266, 267, 83, 62);
+        map.add_plant('バジル', 349, 267, 70, 62);
+        for (let i = 0; i < lplanter.length - 1; i++) {    // 長プランター
+            lplanter[i].add_plant('九条ネギ', 2, 2, 19, 61.5);
+        }
+        lplanter[2].add_plant('九条ネギ', 2, 2, 22, 71);
+        for (let i = 0; i < splanter.length; i++) {    // 角プランター
+            splanter[i].add_plant('にんにく', 2.5, 2.5, 30, 30);
+        }        
+    }
 
-    // 栽培地図:作物エリア設定（色、区画）
-    map.set_plant_color('パクチー', 'greenyellow');
-    map.set_plant_color('ミニトマト', 'tomato');
-    map.set_plant_color('キュウリ', 'springgreen');
-    map.set_plant_color('ニラ', 'mediumseagreen');
-    map.set_plant_color('玉ねぎ', 'khaki');
-    map.set_plant_color('ジャガイモ', 'sandybrown');
-    map.set_plant_color('バジル', 'Plum');
-    map.set_plant_color('九条ネギ', 'DarkTurquoise');
-    map.set_plant_color('にんにく', 'beige');
-    map.add_plant('パクチー', 392, 140, 87, 69);
-    map.add_plant('パクチー', 421, 208, 58, 51);
-    map.add_plant('ミニトマト', 276, 138, 82, 72);
-    map.add_plant('キュウリ', 276, 24, 82, 72);
-    map.add_plant('ニラ', 48, 166, 228, 44);
-    map.add_plant('ニラ', 0, 0, 358, 24);
-    map.add_plant('玉ねぎ', 48, 124, 228, 44);
-    map.add_plant('ジャガイモ', 0, 24, 276, 100);
-    map.add_plant('九条ネギ', 35, 267, 131, 62);
-    map.add_plant('ニラ', 166, 267, 110, 62);
-    map.add_plant('にんにく', 276, 267, 83, 62);
-    map.add_plant('バジル', 359, 267, 60, 62);
+    // 栽培記録作成
+    function make_log(log) {
+        log.add_log('九条ネギ', '2025/06/07', 'img/a250607n1.jpg, img/a250607n2.jpg', '干し苗の仮植え');
+        log.add_log('ニラ', '2023/06/25', 'img/a230625nr.jpg', '1年目夏');
+        log.add_log('ニラ', '2024/04/26', 'img/a240426nr.jpg', '2年目春');
+        log.add_log('ニラ', '2025/01/25', 'img/a250113nr1.jpg, img/a250113nr2.jpg', '3年目冬刈取');
+        log.add_log('ニラ', '2025/03/07', 'img/a250307nr.jpg', '3年目春株分け6日後');
+        log.add_log('玉ねぎ', '2025/06/07', 'img/a250607t.jpg', '収穫');
+        log.add_log('ジャガイモ', '2025/06/18', 'img/a250618jg1.jpg', '収穫');
+        
+        log.set_margin('0 0 1em 1em');  // 周囲余白指定（上、右、下、左）
+    }
+
+    // 栽培計画作成
+    const plan = new CultivationPlan("CultiPlan");  // 栽培計画オブジェクト生成
+    const dataset = make_plan(plan);                // 栽培計画作成
+
+    // 菜園マップ作成
+    const map = new CultivationMap("CultiMap");     // 栽培地図オブジェクト生成
+    const lplanter_num = 3;         // 長プランターの数
+    const lplanter = new Array();   // 長プランター格納配列
+    for (let i = 0; i < lplanter_num; i++) { // 長プランター
+        lplanter.push(new CultivationMap(`LongPlanter${i}`));
+    }
+    const splanter_num = 8;         // 角プランターの数
+    const splanter = new Array();   // 角プランター格納配列
+    for (let i = 0; i < splanter_num; i++) { // 角プランター
+        splanter.push(new CultivationMap(`SquarePlanter${i}`));
+    }
+    make_map(map, lplanter, splanter);   // 栽培地図作成
 
     // 栽培記録
     const log = new CultivationLog("CultiLog"); // 栽培記録オブジェクト生成
-    log.add_log('九条ネギ', '2025/06/07', 'img/a250607n1.jpg, img/a250607n2.jpg', '干し苗の仮植え');
-    log.add_log('ニラ', '2023/06/25', 'img/a230625nr.jpg', '1年目夏');
-    log.add_log('ニラ', '2024/04/26', 'img/a240426nr.jpg', '2年目春');
-    log.add_log('ニラ', '2025/01/25', 'img/a250113nr1.jpg, img/a250113nr2.jpg', '3年目冬刈取');
-    log.add_log('ニラ', '2025/03/07', 'img/a250307nr.jpg', '3年目春株分け6日後');
-    log.add_log('玉ねぎ', '2025/06/07', 'img/a250607t.jpg', '収穫');
-    log.set_margin('0 0 1em 1em');  // 周囲余白指定（上、右、下、左）
+    make_log(log);  // 栽培記録作成
     log.set_logs(); // 栽培記録を設定
 
     // 描画
     window.addEventListener('load', function() {
         plan.draw(dataset); // 栽培計画
         map.draw(); // 栽培地図
+        for (let i = 0; i < lplanter_num; i++) {    // 長プランター
+            lplanter[i].draw();
+        }
+        for (let i = 0; i < splanter_num; i++) {    // 角プランター
+            splanter[i].draw();
+        }
     });
 
 </script>

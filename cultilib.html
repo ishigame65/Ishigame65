@@ -120,7 +120,7 @@
             </article>
             <article class="indent">
                 菜園マップ<br>
-                <iframe class="view_frame" src="./cm_sample2.html" frameborder="1" width="530" height="350" style="zoom:0.75"></iframe>
+                <iframe class="view_frame" src="./cm_sample2.html" frameborder="1" width="530" height="400" style="zoom:0.75"></iframe>
             </article>
             <article class="indent">
                 栽培記録<br>
@@ -156,6 +156,11 @@
                         <td><a href="js/CultivationMap.min.js">CultivationMap.min.js</a></td>
                         <td>JavsScriptファイル</td>
                         <td>栽培地図クラス</td>
+                    </tr>
+                    <tr>
+                        <td><a href="js/CultivationPlants.min.js">CultivationPlants.min.js</a></td>
+                        <td>JavsScriptファイル</td>
+                        <td>栽培植物クラス（栽培地図で利用）</td>
                     </tr>
                     <tr>
                         <td><a href="js/CultivationLog.min.js">CultivationLog.min.js</a></td>
@@ -197,6 +202,7 @@
                                     <ul>
                                         <li>CultivationPlan.min.js</li>
                                         <li>CultivationMap.min.js</li>
+                                        <li>CultivationPlants.min.js</li>
                                         <li>CultivationLog.min.js</li>
                                         <li>popup.min.js</li>
                                     </ul>
@@ -325,6 +331,7 @@
                                         <li>js/
                                             <ul>
                                                 <li>CultivationMap.min.js</li>
+                                                <li>CultivationPlants.min.js</li>
                                             </ul>
                                         </li>
                                         <li>img/
@@ -343,6 +350,9 @@
                             <li>描画領域としてcanvasを作成<br>
                                 <code>&lt;canvas id="CultiMap" width="229" height="229"&gt;&lt;/canvas&gt;</code>
                             </li>
+                            <li>栽培植物クラス`CultivationPlants.min.js`を読み込む（栽培植物クラスを利用する場合）<br>
+                                <code>&lt;script src="js/CultivationPlants.min.js"&gt;&lt;/script&gt;</code>
+                            </li>
                             <li>栽培地図クラス`CultivationMap.min.js`を読み込む<br>
                                 <code>&lt;script src="js/CultivationMap.min.js"&gt;&lt;/script&gt;</code>
                             </li>
@@ -358,7 +368,7 @@
                                         <code>map.set_dead_color('path', 'tan');<br>
                                         map.add_dead('path', 0, 100, 228, 40);</code>
                                     </li>
-                                    <li>作物エリア設定（色、区画）<br>
+                                    <li>栽培エリア設定（色、区画）<br>
                                         <code>map.set_plant_color('ジャガイモ', 'sandybrown');<br>
                                         map.set_plant_color('ニラ', 'mediumseagreen');<br>
                                         map.set_plant_color('玉ねぎ', 'khaki');<br>
@@ -380,7 +390,23 @@
                                 map.set_direction(-30, 10, 10); // 方位設定（オプション：角度、X位置、Y位置）<br>
                                 map.set_font("14px 'MS P Gothic'"); // フォント設定（オプション）</code>
                             </li>
-                            <li>WEBページ（HTMLファイル）はテキストエディタ（メモ帳など）で作成することができます</li>
+                            <li>栽培植物クラスを利用して栽培エリアの栽培植物（色）を設定することができます（参照：菜園マップの作成例2）<br>
+                                <code>
+                                    const plants = new CultivationPlants();        // 栽培植物<br>
+                                    plants.set_color('ジャガイモ', 'sandybrown');<br>
+                                    plants.set_color('ニラ', 'mediumseagreen');<br>
+                                    plants.set_color('玉ねぎ', 'khaki');<br>
+                                    map.set_plants(plants);                    // 栽培植物設定</code>
+                            </li>
+                            <li>複数の栽培地図オブジェクトを作成することができます（参照：菜園マップの作成例2）
+                                <ul class="indent">
+                                    <li>複数の栽培地図はHTMLとCSSの機能を利用して配置します</li>
+                                    <li>複数の栽培地図を意図通りに配置するためにはHTMLとCSSの知識が必要になるため、
+                                        単一の栽培地図で栽培エリアと非栽培エリアを適切に設定する方が簡単かもしれません
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>WEBページ（HTMLファイル）はテキストエディタ（メモ帳など）で作成することができます</li>                            
                         </ul>
                     </li>
                     <li>作成したWEBページ（例：`index.html`ファイル）をWEBブラウザで表示する</li>
@@ -398,7 +424,7 @@
             <h4 class="mono">菜園マップの作成例2</h4>
             <article>
                 <h5 class="mono">表示</h5>
-                <iframe class="view_frame" src="./cm_sample2.html" frameborder="1" width="530" height="350" style="zoom:0.75"></iframe>
+                <iframe class="view_frame" src="./cm_sample2.html" frameborder="1" width="530" height="400" style="zoom:0.75"></iframe>
             </article>            
             <article>
                 <h5 class="mono">HTMLファイル</h5>
