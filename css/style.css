@@ -97,6 +97,9 @@ h2 {
 h2.mono {
     background: linear-gradient(90deg, silver, rgba(255,255,255,0.0));
 }
+h4 {
+    margin-top: 0.4em;
+}
 .maxw100 {
     max-width: 100%;
 }
