@@ -28,28 +28,6 @@
         #CultiLog img {
             width: 40%;
         }
-        /* 菜園マップ */
-        #map_container {
-            display: grid;
-            grid-template-rows: 340px 1fr;
-            grid-template-columns: 50px 1fr;
-        }
-        #lplanters {
-            grid-row: 1;
-            grid-column: 1;
-            align-content: center;
-        }
-        #CultiMap {
-            background-color: skyblue;
-            /* 最大幅 for mobile iframe habit */
-            max-width: 130%;
-            grid-row: 1;
-            grid-column: 2;
-        }
-        #splanters {
-            grid-row: 2;
-            grid-column: 2;
-        }
         /* .notes {
             font-size: smaller;
             color: dimgray;
@@ -149,29 +127,7 @@
             <h3 class="mono">菜園マップ</h3>
             <p class="article_content">
                 5月の菜園マップ
-                <!-- <canvas id="CultiMap" width="432" height="297"></canvas> -->
-
-                <div id="map_container">
-                    <div id="lplanters">
-                        <canvas id="LongPlanter0" width="23" height="65.5"></canvas>    <!-- 長プランター -->
-                        <br>
-                        <canvas id="LongPlanter1" width="23" height="65.5"></canvas>    <!-- 長プランター -->
-                        <br>
-                        <canvas id="LongPlanter2" width="26" height="75"></canvas>      <!-- 長プランター2 -->
-                    </div>
-                    <canvas id="CultiMap" width="480" height="330"></canvas>        <!-- メイン畑 -->
-                    <div id="splanters">
-                        <canvas id="SquarePlanter0" width="35" height="35"></canvas>    <!-- 角プランター -->
-                        <canvas id="SquarePlanter1" width="35" height="35"></canvas>
-                        <canvas id="SquarePlanter2" width="35" height="35"></canvas>
-                        <canvas id="SquarePlanter3" width="35" height="35"></canvas>
-                        <canvas id="SquarePlanter4" width="35" height="35"></canvas>
-                        <canvas id="SquarePlanter5" width="35" height="35"></canvas>
-                        <canvas id="SquarePlanter6" width="35" height="35"></canvas>
-                        <canvas id="SquarePlanter7" width="35" height="35"></canvas>
-                    </div>
-                </div>
-
+                <canvas id="CultiMap" width="432" height="297"></canvas>
                 開発した<a href='cultilib.html'>栽培ライブラリ</a>に菜園マップを作成する機能を追加した
                 <div class="notes">
                     現状、栽培区画の座標値を㎝単位の数値で指定する必要がある。
@@ -275,31 +231,16 @@
     }
 
     // 栽培地図作成
-    function make_map(map, lplanter, splanter) {
-        // 周囲余白指定
-        for (let i = 0; i < lplanter.length; i++) {    // 長プランター
-            lplanter[i].set_margin('0 3px 3px 0');  // 周囲余白指定（上、右、下、左）
-        }
-        splanter[0].set_margin('6px 0 0 35px');     // 周囲余白指定（上、右、下、左）
-        for (let i = 1; i < splanter.length; i++) {    // 角プランター
-            splanter[i].set_margin('6px 0 0 2px');  // 周囲余白指定（上、右、下、左）
-        }
-
+    function make_map(map) {
         // 栽培地図設定
         map.set_size(480, 330);         // 栽培エリアサイズ設定（単位cm）
         map.set_direction(-30, 10, 10); // 方位設定（オプション：角度、X位置、Y位置）
         map.set_font("14px 'MS P Gothic'"); // フォント設定（オプション）
-        for (let i = 0; i < lplanter.length; i++) {    // 長プランター
-            lplanter[i].set_font("10px 'MS P Gothic'"); // フォント設定（オプション）
-        }
-        for (let i = 0; i < lplanter.length - 1; i++) {    // 長プランター
-            lplanter[i].set_size(23, 65.5);             // 栽培エリアサイズ設定（単位cm）
-        }
-        lplanter[2].set_size(26, 75);           // 栽培エリアサイズ設定（単位cm）
-        for (let i = 0; i < splanter.length; i++) {        // 角プランター
-            splanter[i].set_size(35, 35);               // 栽培エリアサイズ設定（単位cm）
-            splanter[i].set_font("10px 'MS P Gothic'"); // フォント設定（オプション）
-        }
+        //lplanter[i].set_font("10px 'MS P Gothic'"); // フォント設定（オプション）
+        //lplanter[i].set_size(23, 65.5);             // 栽培エリアサイズ設定（単位cm）
+        //lplanter[2].set_size(26, 75);           // 栽培エリアサイズ設定（単位cm）
+        //splanter[i].set_size(35, 35);               // 栽培エリアサイズ設定（単位cm）
+        //splanter[i].set_font("10px 'MS P Gothic'"); // フォント設定（オプション）
 
         // 非栽培エリア設定（色、区画）
         map.set_dead_color('approach', 'lightsteelblue');   // アプローチ
@@ -314,26 +255,20 @@
         map.add_dead('path', 358, 0, 34, 225);      // 通路縦
         map.add_dead('cage', 392, 0, 87, 140);      // 亀ケージ
         map.add_dead('rose', 419, 267, 60, 62);     // バラ
-        for (let i = 0; i < lplanter.length; i++) {    // 長プランター
-            lplanter[i].set_dead_color('planter', 'gray');
-        }
-        for (let i = 0; i < lplanter.length - 1; i++) {    // 長プランター
-            lplanter[i].add_dead('planter', 0, 0, 2, 65.5);
-            lplanter[i].add_dead('planter', 21, 0, 2, 65.5);
-            lplanter[i].add_dead('planter', 0, 0, 23, 2);
-            lplanter[i].add_dead('planter', 0, 63.5, 23, 2);
-        }
-        lplanter[2].add_dead('planter', 0, 0, 2, 75);
-        lplanter[2].add_dead('planter', 24, 0, 2, 75);
-        lplanter[2].add_dead('planter', 0, 0, 26, 2);
-        lplanter[2].add_dead('planter', 0, 73, 26, 2);
-        for (let i = 0; i < splanter.length; i++) {    // 角プランター
-            splanter[i].set_dead_color('planter', 'gray');
-            splanter[i].add_dead('planter', 0, 0, 2.5, 35);
-            splanter[i].add_dead('planter', 32.5, 0, 2.5, 35);
-            splanter[i].add_dead('planter', 0, 0, 35, 2.5);
-            splanter[i].add_dead('planter', 0, 32.5, 35, 2.5);
-        }
+        //lplanter[i].set_dead_color('planter', 'gray');
+        //lplanter[i].add_dead('planter', 0, 0, 2, 65.5);
+        //lplanter[i].add_dead('planter', 21, 0, 2, 65.5);
+        //lplanter[i].add_dead('planter', 0, 0, 23, 2);
+        //lplanter[i].add_dead('planter', 0, 63.5, 23, 2);
+        //lplanter[2].add_dead('planter', 0, 0, 2, 75);
+        //lplanter[2].add_dead('planter', 24, 0, 2, 75);
+        //lplanter[2].add_dead('planter', 0, 0, 26, 2);
+        //lplanter[2].add_dead('planter', 0, 73, 26, 2);
+        //splanter[i].set_dead_color('planter', 'gray');
+        //splanter[i].add_dead('planter', 0, 0, 2.5, 35);
+        //splanter[i].add_dead('planter', 32.5, 0, 2.5, 35);
+        //splanter[i].add_dead('planter', 0, 0, 35, 2.5);
+        //splanter[i].add_dead('planter', 0, 32.5, 35, 2.5);
 
         // 栽培植物設定（色）
         const plants = new CultivationPlants();     // 栽培植物
@@ -349,12 +284,6 @@
 
         // 菜園マップに栽培植物設定
         map.set_plants(plants);                 // 栽培植物設定
-        for (let i = 0; i < lplanter.length; i++) {    // 長プランター
-            lplanter[i].set_plants(plants);         // 栽培植物設定
-        }
-        for (let i = 0; i < splanter.length; i++) {    // 角プランター
-            splanter[i].set_plants(plants);         // 栽培植物設定
-        }
 
         // 作物区画設定
         map.add_plant('パクチー', 392, 140, 87, 69);
@@ -370,13 +299,9 @@
         map.add_plant('ニラ', 196, 267, 70, 62);
         map.add_plant('にんにく', 266, 267, 83, 62);
         map.add_plant('バジル', 349, 267, 70, 62);
-        for (let i = 0; i < lplanter.length - 1; i++) {    // 長プランター
-            lplanter[i].add_plant('九条ネギ', 2, 2, 19, 61.5);
-        }
-        lplanter[2].add_plant('九条ネギ', 2, 2, 22, 71);
-        for (let i = 0; i < splanter.length; i++) {    // 角プランター
-            splanter[i].add_plant('にんにく', 2.5, 2.5, 30, 30);
-        }        
+        //lplanter[i].add_plant('九条ネギ', 2, 2, 19, 61.5);
+        //lplanter[2].add_plant('九条ネギ', 2, 2, 22, 71);
+        //splanter[i].add_plant('にんにく', 2.5, 2.5, 30, 30);
     }
 
     // 栽培記録作成
@@ -398,17 +323,7 @@
 
     // 菜園マップ作成
     const map = new CultivationMap("CultiMap");     // 栽培地図オブジェクト生成
-    const lplanter_num = 3;         // 長プランターの数
-    const lplanter = new Array();   // 長プランター格納配列
-    for (let i = 0; i < lplanter_num; i++) { // 長プランター
-        lplanter.push(new CultivationMap(`LongPlanter${i}`));
-    }
-    const splanter_num = 8;         // 角プランターの数
-    const splanter = new Array();   // 角プランター格納配列
-    for (let i = 0; i < splanter_num; i++) { // 角プランター
-        splanter.push(new CultivationMap(`SquarePlanter${i}`));
-    }
-    make_map(map, lplanter, splanter);   // 栽培地図作成
+    make_map(map);  // 栽培地図作成
 
     // 栽培記録
     const log = new CultivationLog("CultiLog"); // 栽培記録オブジェクト生成
@@ -419,12 +334,6 @@
     window.addEventListener('load', function() {
         plan.draw(dataset); // 栽培計画
         map.draw(); // 栽培地図
-        for (let i = 0; i < lplanter_num; i++) {    // 長プランター
-            lplanter[i].draw();
-        }
-        for (let i = 0; i < splanter_num; i++) {    // 角プランター
-            splanter[i].draw();
-        }
     });
 
 </script>
