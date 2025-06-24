@@ -30,7 +30,7 @@
         // 栽培地図設定
         map.set_size(480, 330);         // 栽培エリアサイズ設定（単位cm）
         map.set_direction(-30, 10, 10); // 方位設定（オプション：角度、X位置、Y位置）
-        map.set_font("14px 'MS P Gothic'"); // フォント設定（オプション）
+        map.set_basic_font("14px 'MS P Gothic'"); // 基本フォント設定（オプション）
 
         // 非栽培エリア設定（色、区画）
         map.set_dead_color('approach', 'lightsteelblue');   // アプローチ
@@ -46,7 +46,7 @@
         map.add_dead('cage', 392, 0, 87, 140);      // 亀ケージ
         map.add_dead('rose', 419, 267, 60, 62);     // バラ
 
-        // 栽培植物設定（色）
+        // 栽培植物（色）設定
         const plants = new CultivationPlants();        // 栽培植物
         plants.set_color('パクチー', 'greenyellow');    // 植物色設定
         plants.set_color('ミニトマト', 'tomato');

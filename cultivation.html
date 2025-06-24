@@ -127,7 +127,7 @@
             <h3 class="mono">菜園マップ</h3>
             <p class="article_content">
                 5月の菜園マップ
-                <canvas id="CultiMap" width="432" height="297"></canvas>
+                <canvas id="CultiMap" width="432" height="310"></canvas>
                 開発した<a href='cultilib.html'>栽培ライブラリ</a>に菜園マップを作成する機能を追加した
                 <div class="notes">
                     現状、栽培区画の座標値を㎝単位の数値で指定する必要がある。
@@ -233,14 +233,9 @@
     // 栽培地図作成
     function make_map(map) {
         // 栽培地図設定
-        map.set_size(480, 330);         // 栽培エリアサイズ設定（単位cm）
+        map.set_size(530, 381);         // 栽培エリアサイズ設定（単位cm）
         map.set_direction(-30, 10, 10); // 方位設定（オプション：角度、X位置、Y位置）
-        map.set_font("14px 'MS P Gothic'"); // フォント設定（オプション）
-        //lplanter[i].set_font("10px 'MS P Gothic'"); // フォント設定（オプション）
-        //lplanter[i].set_size(23, 65.5);             // 栽培エリアサイズ設定（単位cm）
-        //lplanter[2].set_size(26, 75);           // 栽培エリアサイズ設定（単位cm）
-        //splanter[i].set_size(35, 35);               // 栽培エリアサイズ設定（単位cm）
-        //splanter[i].set_font("10px 'MS P Gothic'"); // フォント設定（オプション）
+        map.set_basic_font("14px 'MS P Gothic'"); // 基本フォント設定（オプション）
 
         // 非栽培エリア設定（色、区画）
         map.set_dead_color('approach', 'lightsteelblue');   // アプローチ
@@ -248,28 +243,39 @@
         map.set_dead_color('path', 'BurlyWood');    // 通路
         map.set_dead_color('cage', 'LightSkyBlue'); // 亀ケージ
         map.set_dead_color('rose', 'hotpink');      // バラ
-        map.add_dead('path', 0, 124, 48, 86);       // 通路（x,y,w,h）
-        map.add_dead('approach', 0, 190, 35, 140);  // アプローチ
-        map.add_dead('brick', 35, 258.5, 444, 8.5); // 花壇レンガ
-        map.add_dead('path', 35, 209.5, 386, 49);   // 通路横
-        map.add_dead('path', 358, 0, 34, 225);      // 通路縦
-        map.add_dead('cage', 392, 0, 87, 140);      // 亀ケージ
-        map.add_dead('rose', 419, 267, 60, 62);     // バラ
-        //lplanter[i].set_dead_color('planter', 'gray');
-        //lplanter[i].add_dead('planter', 0, 0, 2, 65.5);
-        //lplanter[i].add_dead('planter', 21, 0, 2, 65.5);
-        //lplanter[i].add_dead('planter', 0, 0, 23, 2);
-        //lplanter[i].add_dead('planter', 0, 63.5, 23, 2);
-        //lplanter[2].add_dead('planter', 0, 0, 2, 75);
-        //lplanter[2].add_dead('planter', 24, 0, 2, 75);
-        //lplanter[2].add_dead('planter', 0, 0, 26, 2);
-        //lplanter[2].add_dead('planter', 0, 73, 26, 2);
-        //splanter[i].set_dead_color('planter', 'gray');
-        //splanter[i].add_dead('planter', 0, 0, 2.5, 35);
-        //splanter[i].add_dead('planter', 32.5, 0, 2.5, 35);
-        //splanter[i].add_dead('planter', 0, 0, 35, 2.5);
-        //splanter[i].add_dead('planter', 0, 32.5, 35, 2.5);
-
+        map.set_dead_color('planter', 'gray');  // プランター
+        const ox = 50;   // メイン区画左位置
+        map.add_dead('path', ox, 124, 48, 86);       // 通路（x,y,w,h）
+        map.add_dead('approach', ox, 190, 35, 140);  // アプローチ
+        map.add_dead('brick', ox + 35, 258.5, 444, 8.5); // 花壇レンガ
+        map.add_dead('path', ox + 35, 209.5, 386, 49);   // 通路横
+        map.add_dead('path', ox + 358, 0, 34, 225);      // 通路縦
+        map.add_dead('cage', ox + 392, 0, 87, 140);      // 亀ケージ
+        map.add_dead('rose', ox + 419, 267, 60, 62);     // バラ
+        const spy = 345;
+        let spx = ox + 37;
+        const splanter_num = 8;
+        for (let spi = 0; spi < splanter_num; spi++) { // 角プランター
+            map.add_dead('planter', spx, spy, 2.5, 35);
+            map.add_dead('planter', spx + 32.5, spy, 2.5, 35);
+            map.add_dead('planter', spx, spy, 35, 2.5);
+            map.add_dead('planter', spx, spy + 32.5, 35, 2.5);
+            spx += 40;
+        }
+        let lpy = 70;
+        const lplanter_num = 2; 
+        for (let lpi = 0; lpi < lplanter_num; lpi++) { // 長プランター
+            map.add_dead('planter', 0, lpy, 2, 65.5);
+            map.add_dead('planter', 21, lpy, 2, 65.5);
+            map.add_dead('planter', 0, lpy, 23, 2);
+            map.add_dead('planter', 0, lpy + 63.5, 23, 2);
+            lpy += 70;
+        }
+        map.add_dead('planter', 0, lpy, 2, 75); // 長大プランター
+        map.add_dead('planter', 24, lpy, 2, 75);
+        map.add_dead('planter', 0, lpy, 26, 2);
+        map.add_dead('planter', 0, lpy + 73, 26, 2);
+        
         // 栽培植物設定（色）
         const plants = new CultivationPlants();     // 栽培植物
         plants.set_color('パクチー', 'greenyellow');    // 植物色設定
@@ -286,22 +292,33 @@
         map.set_plants(plants);                 // 栽培植物設定
 
         // 作物区画設定
-        map.add_plant('パクチー', 392, 140, 87, 69);
-        map.add_plant('パクチー', 421, 208, 58, 51);
-        map.add_plant('ミニトマト', 276, 138, 82, 72);
-        map.add_plant('キュウリ', 276, 24, 82, 72);
-        map.add_plant('ニラ', 48, 166, 228, 44);
-        map.add_plant('ニラ', 0, 0, 358, 24);
-        map.add_plant('玉ねぎ', 48, 124, 228, 44);
-        map.add_plant('ジャガイモ', 0, 24, 276, 100);
-        map.add_plant('ニラ', 35, 267, 40, 62);
-        map.add_plant('玉ねぎ', 75, 267, 121, 62);
-        map.add_plant('ニラ', 196, 267, 70, 62);
-        map.add_plant('にんにく', 266, 267, 83, 62);
-        map.add_plant('バジル', 349, 267, 70, 62);
-        //lplanter[i].add_plant('九条ネギ', 2, 2, 19, 61.5);
-        //lplanter[2].add_plant('九条ネギ', 2, 2, 22, 71);
-        //splanter[i].add_plant('にんにく', 2.5, 2.5, 30, 30);
+        map.add_plant('パクチー', ox + 392, 140, 87, 69);
+        map.add_plant('パクチー', ox + 421, 208, 58, 51);
+        map.add_plant('ミニトマト', ox + 276, 138, 82, 72);
+        map.add_plant('キュウリ', ox + 276, 24, 82, 72);
+        map.add_plant('ニラ', ox + 48, 166, 228, 44);
+        map.add_plant('ニラ', ox, 0, 358, 24);
+        map.add_plant('玉ねぎ', ox + 48, 124, 228, 44);
+        map.add_plant('ジャガイモ', ox, 24, 276, 100);
+        map.add_plant('ニラ', ox + 35, 267, 40, 62);
+        map.add_plant('玉ねぎ', ox + 75, 267, 121, 62);
+        map.add_plant('ニラ', ox + 196, 267, 70, 62);
+        map.add_plant('にんにく', ox + 266, 267, 83, 62);
+        map.add_plant('バジル', ox + 349, 267, 70, 62);
+
+        const small_font = "10px 'MS P Gothic'";
+        const spy2 = spy + 2.5;
+        let spx2 = ox + 37 + 2.5;
+        for (let spi = 0; spi < splanter_num; spi++) { // 角プランター
+            map.add_plant_font('にんにく', spx2, spy2, 30, 30, small_font);
+            spx2 += 40;
+        }
+        let lpy2 = 70 + 2;
+        for (let lpi = 0; lpi < lplanter_num; lpi++) { // 長プランター
+            map.add_plant_font('九条ネギ', 2, lpy2, 19, 61.5, small_font);
+            lpy2 += 70;
+        }
+        map.add_plant_font('九条ネギ', 2, lpy2, 22, 71, small_font);    // 長大プランター
     }
 
     // 栽培記録作成

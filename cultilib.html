@@ -368,11 +368,13 @@
                                         <code>map.set_dead_color('path', 'tan');<br>
                                         map.add_dead('path', 0, 100, 228, 40);</code>
                                     </li>
-                                    <li>栽培エリア設定（色、区画）<br>
+                                    <li>栽培植物（色）設定（栽培植物クラスを利用しない方法）<br>
                                         <code>map.set_plant_color('ジャガイモ', 'sandybrown');<br>
                                         map.set_plant_color('ニラ', 'mediumseagreen');<br>
-                                        map.set_plant_color('玉ねぎ', 'khaki');<br>
-                                        map.add_plant('ジャガイモ', 0, 0, 228, 100);<br>
+                                        map.set_plant_color('玉ねぎ', 'khaki');</code>
+                                    </li>
+                                    <li>栽培区画設定<br>
+                                        <code>map.add_plant('ジャガイモ', 0, 0, 228, 100);<br>
                                         map.add_plant('ニラ', 0, 140, 228, 44);<br>
                                         map.add_plant('玉ねぎ', 0, 184, 228, 44);</code>
                                     </li>
@@ -388,9 +390,9 @@
                             <li>方位設定や見栄え調整（オプション設定）については「菜園マップの作成例2」をご確認ください<br>
                                 <code>
                                 map.set_direction(-30, 10, 10); // 方位設定（オプション：角度、X位置、Y位置）<br>
-                                map.set_font("14px 'MS P Gothic'"); // フォント設定（オプション）</code>
+                                map.set_basic_font("14px 'MS P Gothic'"); // 基本フォント設定（オプション）</code>
                             </li>
-                            <li>栽培植物クラスを利用して栽培エリアの栽培植物（色）を設定することができます（参照：菜園マップの作成例2）<br>
+                            <li>栽培植物クラスを利用して栽培エリアの栽培植物（色）を設定できます（参照：菜園マップの作成例2）<br>
                                 <code>
                                     const plants = new CultivationPlants();        // 栽培植物<br>
                                     plants.set_color('ジャガイモ', 'sandybrown');<br>
@@ -398,12 +400,14 @@
                                     plants.set_color('玉ねぎ', 'khaki');<br>
                                     map.set_plants(plants);                    // 栽培植物設定</code>
                             </li>
-                            <li>複数の栽培地図オブジェクトを作成することができます
-                                <ul class="indent">
-                                    <li>複数の栽培地図はHTMLとCSSの機能を利用して配置することになるため、意図通りに配置するためにはHTMLとCSSの知識が必要になります</li>
-                                    <li>レスポンシブデザイン（スマホ対応）では、単一の栽培地図で栽培エリアを適切に設定する方が簡単かもしれません</li>
-                                </ul>
+                            <li>栽培区画設定時にadd_plant_font関数を利用して個別フォントを指定できます<br>
+                                <code>
+                                    const small_font = "10px 'MS P Gothic'";<br>
+                                    map.add_plant_font('にんにく', 0, 0, 30, 30, small_font);
+                                </code>
                             </li>
+                            <li>複数の栽培地図オブジェクトを作成できますが、レスポンシブデザイン（スマホ対応）で意図通りに配置したい場合は、
+                                一つの栽培地図に複数の栽培エリアを設定する方が簡単です</li>
                             <li>WEBページ（HTMLファイル）はテキストエディタ（メモ帳など）で作成することができます</li>                            
                         </ul>
                     </li>
