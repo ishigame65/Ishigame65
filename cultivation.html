@@ -118,21 +118,27 @@
             <p class="article_content">
                 いつ何を植えれば良いかも分かっていない素人が手探りで野菜を育てているが、野菜は時期を逃すと栽培できないため、
                 野菜作りに必要な作業を行う時期が一目でわかる菜園カレンダーを作ることにした
+            </p>
+            <p class="article_content">
+                一般的なツールでは上手く作れず、良い作図ライブラリも見つからなかったため、
+                専用の<a href='cultilib.html'>栽培ライブラリ</a>を開発してから菜園カレンダーを作ることになった
+            </p>
+            <p class="article_content">
                 <canvas id="CultiPlan" width="450" height="700"></canvas>
-                <!-- <h4>栽培記録</h4> -->
-                一般的なツールでは上手く作れず、良い作図ライブラリも見つからなかったため、専用の<a href='cultilib.html'>栽培ライブラリ</a>を開発してから菜園カレンダーを作ることになった
             </p>
         </article>
         <article>
             <h3 class="mono">菜園マップ</h3>
             <p class="article_content">
-                5月の菜園マップ
-                <canvas id="CultiMap" width="432" height="310"></canvas>
                 開発した<a href='cultilib.html'>栽培ライブラリ</a>に菜園マップを作成する機能を追加した
                 <div class="notes">
                     現状、栽培区画の座標値を㎝単位の数値で指定する必要がある。
                     一般的な作図ツール（ドロー系ソフト）で作成する方が楽かもしれない
                 </div>
+            </p>
+            <p class="article_content">
+                5月の菜園マップ
+                <canvas id="CultiMap" width="432" height="310"></canvas>
             </p>
             <p class="article_content">
                 7月の菜園マップ
@@ -142,8 +148,10 @@
         <article>
             <h3 class="mono">栽培記録</h3>
             <p class="article_content">
-                <div id="CultiLog"></div>
                 開発した<a href='cultilib.html'>栽培ライブラリ</a>に栽培記録を作成する機能を追加し、作物ごとの栽培記録をポップアップ表示する仕組みとした
+            </p>
+            <p class="article_content">
+                <div id="CultiLog"></div>
             </p>
         </article>
         <article>
