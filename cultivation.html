@@ -376,19 +376,23 @@
         map_set_lplanter_(map, lptop, lplanter_num);    // 長プランター設定
         const small_font = "10px 'MS P Gothic'";
 
-        // 作物区画設定
+        // 非栽培エリア追加設定
+        map.add_dead('path', ox + 105, 65, 110, 30);   // 追加レンガ通路
+
+        // 栽培区画設定
         map.add_plant('パクチー', ox + 392, 140, 87, 69);
         map.add_plant('パクチー', ox + 421, 208, 58, 51);
         map.add_plant('ミニトマト', ox + 276, 138, 82, 72);
-        map.add_plant('キュウリ', ox + 276, 24, 82, 72);
+        map.add_plant('キュウリ', ox + 276, 34, 82, 62);
         map.add_plant('ニラ', ox + 48, 166, 228, 44);
-        map.add_plant('ニラ', ox, 0, 358, 24);
-        map.add_plant('トウモロコシ', ox, 50, 220, 73);
-        map.add_plant('インゲン', ox + 48, 124, 220, 42);
-        map.add_plant_font('インゲン', ox + 105, 26, 40, 22, small_font);
-        map.add_plant('ゴーヤ', ox + 150, 24+2, 71, 22);
-        map.add_plant_font('インゲン', ox + 225, 26, 40, 22, small_font);
-        map.add_plant('ナス', ox + 225, 52, 40, 30);
+        map.add_plant('ニラ', ox, 0, 358, 34);
+        map.add_plant('トウモロコシ', ox, 34, 100, 90);
+        map.add_plant_font('トウモロコシ', ox + 50, 124, 50, 35, 'noname');  // 栽培植物名非表示
+        map.add_plant('インゲン', ox + 110, 100, 164, 60);
+        map.add_plant_font('インゲン', ox + 105, 36, 40, 26, small_font);
+        map.add_plant('ゴーヤ', ox + 150, 36, 71, 26);
+        map.add_plant_font('インゲン', ox + 225, 36, 40, 26, small_font);
+        map.add_plant('ナス', ox + 225, 65, 40, 30);
         map.add_plant('ニラ', ox + 35, 267, 40, 62);
         map.add_plant('九条ネギ', ox + 75, 267, 121, 62);
         map.add_plant('ニラ', ox + 196, 267, 70, 62);

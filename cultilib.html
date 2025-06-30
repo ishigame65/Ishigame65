@@ -391,8 +391,8 @@
                             </li>
                             <li>方位設定や見栄え調整（オプション設定）については「菜園マップの作成例2」をご確認ください<br>
                                 <code>
-                                map.set_direction(-30, 10, 10); // 方位設定（オプション：角度、X位置、Y位置）<br>
-                                map.set_basic_font("14px 'MS P Gothic'"); // 基本フォント設定（オプション）</code>
+                                    map.set_direction(-30, 10, 10); // 方位設定（オプション：角度、X位置、Y位置）<br>
+                                    map.set_basic_font("14px 'MS P Gothic'"); // 基本フォント設定（オプション）</code>
                             </li>
                             <li>栽培植物クラスを利用して栽培エリアの栽培植物（色）を設定できます（参照：菜園マップの作成例2）<br>
                                 <code>
@@ -405,8 +405,10 @@
                             <li>栽培区画設定時にadd_plant_font関数を利用して個別フォントを指定できます<br>
                                 <code>
                                     const small_font = "10px 'MS P Gothic'";<br>
-                                    map.add_plant_font('にんにく', 0, 0, 30, 30, small_font);
-                                </code>
+                                    map.add_plant_font('にんにく', 0, 0, 30, 30, small_font);</code>
+                            </li>
+                            <li>add_plant_font関数でフォント'noname'を指定すると栽培植物名が非表示となります<br>
+                                <code>map.add_plant_font('にんにく', 0, 0, 30, 30, 'noname');</code>
                             </li>
                             <!-- <li>複数の栽培地図オブジェクトを作成できますが、レスポンシブデザイン（スマホ対応）で意図通りに配置したい場合は、 -->
                                 <!-- 一つの栽培地図に複数の栽培エリアを設定する方が簡単です</li> -->
