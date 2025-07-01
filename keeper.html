@@ -230,10 +230,7 @@
         </section>
     </main>
     <footer> <!-- フッターコンテンツ -->
-        <div id="footicons">
-            <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
-            <a href="#logo"><span class="arrow-up"></span></a>    
-        </div>
+        <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
         <div id="footlinks">
             <ul>
                 <li><a href="keeper.html">飼育係</a></li>
@@ -243,6 +240,7 @@
                 <li><a href="sitemap.html">サイトマップ</a></li>
             </ul>
         </div>
+        <a href="#logo"><span class="arrow-up"></span></a>    
     </footer>
 </div>
 
@@ -250,8 +248,6 @@
     // 現住所地図切替
     function map3over(){
         document.getElementById("map3").style.display = "none";
-        // document.getElementById("map3").classList.add("fadeout");
-        // document.getElementById("map3").style.zIndex = 10;
         document.getElementById("map3mark").style.display = "none";
         document.getElementById("map3label").style.display = "none";
         document.getElementById("map2").style.display = "block";
@@ -260,8 +256,6 @@
     }
     function map2over(){
         document.getElementById("map2").style.display = "none";
-        // document.getElementById("map2").classList.add("fadeout");
-        // document.getElementById("map2").style.zIndex = 10;
         document.getElementById("map2mark").style.display = "none";
         document.getElementById("map2label").style.display = "none";
         document.getElementById("map1").style.display = "block";

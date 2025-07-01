@@ -23,18 +23,6 @@
         display: flex;
         /* justify-content: space-between; */
     }
-    /* #thumbnail {
-        display: flex;
-        flex-direction: column;
-        margin-right: 0.5em;
-        height: 400px;
-        overflow-y: scroll;
-    }
-    #thumbnail img {
-        width: 160px;
-        margin: 0 0 4px 4px;
-        border-radius: 0.15em;
-    } */
     #main_movie {
         position: relative;
         margin-left: auto;
@@ -76,9 +64,8 @@
     }
     /* 検索 */
     section#search {
-        /* margin: 1em 0.5em 0 0; */
         margin-top: 0.5em;
-        background: linear-gradient(90deg, rgb(218, 234, 176), rgba(255,255,255,0.0));
+        background: linear-gradient(90deg, rgba(255,255,255,0.0), rgb(218, 234, 176) 1%, rgba(255,255,255,0.0));
         border-radius: 0.15em;
     }
     #TextSearch {
@@ -170,7 +157,6 @@
     </ul>
 </div>
 
-<!-- main_movie thumbnail -->
 <header>
     <h1><a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a></h1>
     <nav>
@@ -201,7 +187,6 @@
             </div>
         </section>
         <section id="search">
-            <!-- <h2>検索</h2> -->
             <div id="TextSearch">
                 <!-- <img id="turtles" class="floatright" src="img/turtle.png"> -->
                 <small>1つの語句を入力してサイト内を[検索]</small>
@@ -217,10 +202,7 @@
         </section>
     </main>
     <footer> <!-- フッターコンテンツ -->
-        <div id="footicons">
-            <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
-            <a href="#logo"><span class="arrow-up"></span></a>    
-        </div>
+        <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
         <div id="footlinks">
             <ul>
                 <li><a href="keeper.html">飼育係</a></li>
@@ -230,6 +212,7 @@
                 <li><a href="sitemap.html">サイトマップ</a></li>
             </ul>
         </div>
+        <a href="#logo"><span class="arrow-up"></span></a>    
     </footer>
 </div>
 <script>
