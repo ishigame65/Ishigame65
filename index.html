@@ -20,10 +20,10 @@
 </head>
 <style>
     section#movies {
-        display: flex;  /* 2列 */
-        justify-content: space-between;
+        display: flex;
+        /* justify-content: space-between; */
     }
-    #thumbnail {
+    /* #thumbnail {
         display: flex;
         flex-direction: column;
         margin-right: 0.5em;
@@ -34,7 +34,7 @@
         width: 160px;
         margin: 0 0 4px 4px;
         border-radius: 0.15em;
-    }
+    } */
     #main_movie {
         position: relative;
         margin-left: auto;
@@ -56,23 +56,28 @@
         font-weight: normal;
         font-size: x-large;
         font-family:'Times New Roman', Times, serif;
+        filter: sepia(100%);
     }
     #movie {
         max-width: 640px;
-        /* filter: grayscale(100%); */
         filter: sepia(100%);
         border-radius: 0.2em;
     }
-    #catchphrase {
-        /* filter: grayscale(100%); */
+    #buttons button {
+        margin-left: 0.5em;
+        padding: 0.2em 0.5em;
+        /* background-color: khaki; */
+        border: 1px solid gray;
+    }
+    #mbut0 {
+        background-color: YellowGreen;
+    }
+    #mbut1, #mbut2, #mbut3, #mbut4, #mbut5 {
+        background-color: khaki;
+    }
+    /* #catchphrase {
         filter: sepia(100%);
-    }
-    #joke_art {
-        width: fit-content;
-        margin-left: auto;
-        margin-right: auto;
-        color: lightsteelblue;
-    }
+    } */
     /* 検索 */
     section#search {
         margin: 1em 0.5em 0 0;
@@ -99,11 +104,6 @@
         background-color: khaki;
         border-radius: 0.2em;
     }
-    /* #turtles {
-        width: 270px;
-        margin-right: 4em;
-        opacity: 0;
-    } */
     #turtle0 {
         height: 40px;
         position: absolute;
@@ -117,28 +117,22 @@
         100%{ transform:translateX(-350px);}
     }
     @media (max-width: 840px) {
-        section#movies {
+        /* section#movies {
             display: initial;
-        }
-        #thumbnail {
+        } */
+        /* #thumbnail {
             display: grid;
             height: initial;
             grid-template-columns: repeat(auto-fit, minmax(128px,128px));
             gap: 4px;
             justify-content: center;
-        }
+        } */
         #catchphrase {
             font-size: 1rem;
         }
         #movie {
             width: 100%;
             margin-bottom: 10px;
-        }
-        #thumbnail img {
-            width: 128px;
-        }
-        #joke_art {
-            display: none;
         }
         /* 検索 */
         #TextSearch {
@@ -147,9 +141,6 @@
         #wordText, #checkButton {
             font-size: 16px;
         }
-        /* #turtles {
-            display: none;
-        } */
         #turtle0 {
             display: none;
         }
@@ -210,23 +201,16 @@
     <main>
         <section id="movies">
             <div id="main_movie">
-                <video id="movie" src="img/igwm01.mp4" controls muted playsinline loop poster="img/start1.jpg" onclick="this.play();"></video>
+                <video id="movie" src="img/igwm01s.mp4" controls muted playsinline loop poster="img/igwm01s_0.jpg" onclick="this.play();"></video>
                 <h2 id="catchphrase">イシガメが快適に暮らす環境を作る</h2>
-                <!-- <h4 class="uc">一部工事中</h4> -->
-                <div id="joke_art">
-                    ஜப்பானிய குளம் ஆமைகளுக்கு வசதியான சூழலை உருவாக்குதல்.
+                <div id="buttons">
+                    <button id="mbut0" onclick="mChange(0)">1</button>
+                    <button id="mbut1" onclick="mChange(1)">2</button>
+                    <button id="mbut2" onclick="mChange(2)">3</button>
+                    <button id="mbut3" onclick="mChange(3)">4</button>
+                    <button id="mbut4" onclick="mChange(4)">5</button>
+                    <button id="mbut5" onclick="mChange(5)">6</button>
                 </div>
-            </div>
-            <div id="thumbnail">
-                <img src="img/igwm08p.jpg" onclick="setmovie('img/igwm08s.mp4')">
-                <!-- <img src="img/igwm07p.jpg" onclick="setmovie('img/igwm07s.mp4')"> -->
-                <!-- <img src="img/igwm06p.jpg" onclick="setmovie('img/igwm06s.mp4')"> -->
-                <img src="img/igwm05p.jpg" onclick="setmovie('img/igwm05s.mp4')">
-                <img src="img/igwm02p.jpg" onclick="setmovie('img/igwm02s.mp4')">
-                <!-- <img src="img/igwm03p.jpg" onclick="setmovie('img/igwm03s.mp4')"> -->
-                <img src="img/igwm04p.jpg" onclick="setmovie('img/igwm04s.mp4')">
-                <img src="img/igwm09p.jpg" onclick="setmovie('img/igwm09s.mp4')">
-                <img src="img/igwm01p.jpg" onclick="setmovie('img/igwm01s.mp4')">
             </div>
         </section>
         <section id="search">
@@ -261,18 +245,39 @@
         </div>
     </footer>
 </div>
-
 <script>
-    const mov = document.getElementById("movie");
-    function setmovie(moviefile){
-        document.getElementById("catchphrase").style.display = "none";
-        mov.src=moviefile;
-        mov.autoplay=true;
-        window.scrollTo({top:0,behavior:'smooth'});
+    const mov = document.getElementById('movie');
+    const phrase = document.getElementById('catchphrase');
+    // igwm07s, igwm06s, igwm03s
+    const movies = [ 'igwm01s', 'igwm05s', 'igwm02s', 'igwm04s', 'igwm09s', 'igwm08s' ];
+    const buttons = [];
+    for (let i = 0; i < movies.length; i++) {
+        buttons.push(document.getElementById(`mbut${i}`));
     }
+    function mChange(no) {
+        mno = no;
+        for (let i = 0; i < movies.length; i++) {
+            buttons[i].style.background = 'khaki';
+        }
+        buttons[mno].style.background = 'YellowGreen';
+        mov.src = 'img/' + movies[mno] + '.mp4';
+        mov.poster = 'img/' + movies[mno] + '_0.jpg';
+    }
+    let mno = 0;
+    const timer = setInterval( function(){
+        mChange((mno + 1) % movies.length);
+    }, 8000);
+    // function setmovie(moviefile){
+    //     document.getElementById("catchphrase").style.display = "none";
+    //     mov.src=moviefile;
+    //     mov.autoplay=true;
+    //     window.scrollTo({top:0,behavior:'smooth'});
+    // }
     // 映像初期状態だけモノクロにする
     mov.addEventListener("play", atplay);
     function atplay() {
+        clearInterval(timer);
+        phrase.style.display = "none";
         mov.style.filter = 'none';  // モノクロ解除
         mov.style.transition = '10s';
     }
