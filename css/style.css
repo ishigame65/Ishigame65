@@ -22,6 +22,9 @@ footer {
     padding-top: 1em;
     margin-bottom: 1em;
     border-top: 1px dashed darkgrey;
+
+    display: flex;
+    justify-content: space-between;
 }
 img, video {
     max-width: 100%;
@@ -41,16 +44,13 @@ dd {
 .noborder td, th {
 	border: 0px none;
 }
-#footicons {
-    font-size: larger;
-    display: flex;
-    justify-content: space-between;
-}
 #instaicon2 {
+    font-size: larger;
     width: 1.2em;
     height: 1.2em;
 }
 .arrow-up {
+    font-size: larger;
     vertical-align: top;
     margin-right: 1em;
     color: #CE5D8B;
