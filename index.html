@@ -66,7 +66,6 @@
     #buttons button {
         margin-left: 0.5em;
         padding: 0.2em 0.5em;
-        /* background-color: khaki; */
         border: 1px solid gray;
     }
     #mbut0 {
@@ -75,20 +74,23 @@
     #mbut1, #mbut2, #mbut3, #mbut4, #mbut5 {
         background-color: khaki;
     }
-    /* #catchphrase {
-        filter: sepia(100%);
-    } */
     /* 検索 */
     section#search {
-        margin: 1em 0.5em 0 0;
+        /* margin: 1em 0.5em 0 0; */
+        margin-top: 0.5em;
+        background: linear-gradient(90deg, rgb(218, 234, 176), rgba(255,255,255,0.0));
+        border-radius: 0.15em;
     }
     #TextSearch {
-		margin: 1.5em 0 1.5em 20px;
+		/* margin: 1.5em 0 1.5em 20px; */
+        padding-top: 0.5em;
         position: relative;
+        margin-left: 1.5em;
+        margin-top: 1em;
     }
-    #msg {
-        margin-top: 1.5em;
-        margin-bottom: .75em;
+    #hitlist {
+        padding-bottom: 1em;
+        margin-bottom: 0;
     }
 	#TextSearch input {
         -webkit-appearance: none;
@@ -107,9 +109,12 @@
     #turtle0 {
         height: 40px;
         position: absolute;
-        bottom: -1.5em;
+        bottom: -2px;
         right: 1em;
         animation: turtlemove 90s linear 1 forwards;
+    }
+    footer {
+        margin-top: 0;
     }
     @keyframes turtlemove {
         0%{ transform:translateX(-0px);}
@@ -117,16 +122,6 @@
         100%{ transform:translateX(-350px);}
     }
     @media (max-width: 840px) {
-        /* section#movies {
-            display: initial;
-        } */
-        /* #thumbnail {
-            display: grid;
-            height: initial;
-            grid-template-columns: repeat(auto-fit, minmax(128px,128px));
-            gap: 4px;
-            justify-content: center;
-        } */
         #catchphrase {
             font-size: 1rem;
         }
@@ -144,14 +139,6 @@
         #turtle0 {
             display: none;
         }
-    }
-    .uc { /* 工事中 */
-        margin-top: 20px;
-        text-align: center;
-        background-color: beige;
-        padding: 15px;
-        border-radius: 30px;
-        color: burlywood;
     }
 </style>
 <body>
@@ -214,7 +201,7 @@
             </div>
         </section>
         <section id="search">
-            <h2>検索</h2>
+            <!-- <h2>検索</h2> -->
             <div id="TextSearch">
                 <!-- <img id="turtles" class="floatright" src="img/turtle.png"> -->
                 <small>1つの語句を入力してサイト内を[検索]</small>
@@ -246,6 +233,7 @@
     </footer>
 </div>
 <script>
+    // ToDO: 映像再生一時停止操作が効かない
     const mov = document.getElementById('movie');
     const phrase = document.getElementById('catchphrase');
     // igwm07s, igwm06s, igwm03s
