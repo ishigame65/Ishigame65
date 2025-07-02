@@ -254,7 +254,12 @@
                 mChange((mno + 1) % movies.length);
             }, 8000);
             auto_but.innerText = '⏸';
-            // auto_but.textContent = '⏸';
+            // for iPhone
+            auto_but.style.border = 'none';
+            auto_but.style.backgroundColor ='rgba(255,255,255,0.0)';
+            auto_but.style.color = 'DodgerBlue';
+            auto_but.style.scale = '1.7 1.4';
+            auto_but.style.marginRight = '0.3em';
         } else {
             clearInterval(timer);
             timer = null;
