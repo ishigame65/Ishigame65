@@ -230,7 +230,7 @@
     // ToDO: 映像再生一時停止操作が効かないauto
     const mov = document.getElementById('movie');
     const phrase = document.getElementById('catchphrase');
-    const auto = document.getElementById('auto');
+    const auto_but = document.getElementById('auto');
     // igwm07s, igwm06s, igwm03s
     const movies = [ 'igwm01s', 'igwm05s', 'igwm02s', 'igwm04s', 'igwm09s', 'igwm08s' ];
     const buttons = [];
@@ -253,11 +253,11 @@
             timer = setInterval( function(){
                 mChange((mno + 1) % movies.length);
             }, 8000);
-            auto.innerText = '⏸';
+            auto_but.innerText = '⏸';
         } else {
             clearInterval(timer);
             timer = null;
-            auto.innerText = '▶';
+            auto_but.innerText = '▶';
         }
     }
     // 映像初期状態だけモノクロにする
@@ -265,7 +265,7 @@
     function atplay() {
         clearInterval(timer);
         timer = null;
-        auto.innerText = '▶';
+        auto_but.innerText = '▶';
         phrase.style.display = "none";
         mov.style.filter = 'none';  // モノクロ解除
         mov.style.transition = '10s';
