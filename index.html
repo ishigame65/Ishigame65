@@ -65,7 +65,7 @@
     #mbut1, #mbut2, #mbut3, #mbut4, #mbut5 {
         background-color: khaki;
     }
-    button#auto {
+    button#autoButton {
         border: none;
         background-color: rgba(255,255,255,0.0);
         color: DodgerBlue;
@@ -187,7 +187,7 @@
                 <video id="movie" src="img/igwm01s.mp4" controls muted playsinline loop poster="img/igwm01s_0.jpg" onclick="this.play();"></video>
                 <h2 id="catchphrase">イシガメが快適に暮らす環境を作る</h2>
                 <div id="buttons">
-                    <button id="auto" onclick="autoSwitch()">▶</button>
+                    <button id="autoButton" onclick="autoSwitch()">▶</button>
                     <button id="mbut0" onclick="mChange(0)">1</button>
                     <button id="mbut1" onclick="mChange(1)">2</button>
                     <button id="mbut2" onclick="mChange(2)">3</button>
@@ -230,7 +230,7 @@
     // ToDO: 映像再生一時停止操作が効かないauto
     const mov = document.getElementById('movie');
     const phrase = document.getElementById('catchphrase');
-    const auto_but = document.getElementById('auto');
+    const auto_but = document.getElementById('autoButton');
     // igwm07s, igwm06s, igwm03s
     const movies = [ 'igwm01s', 'igwm05s', 'igwm02s', 'igwm04s', 'igwm09s', 'igwm08s' ];
     const buttons = [];
@@ -253,13 +253,13 @@
             timer = setInterval( function(){
                 mChange((mno + 1) % movies.length);
             }, 8000);
-            // auto_but.innerText = '⏸';
-            auto_but.textContent = '⏸';
+            auto_but.innerText = '⏸';
+            // auto_but.textContent = '⏸';
         } else {
             clearInterval(timer);
             timer = null;
-            // auto_but.innerText = '▶';
-            auto_but.textContent = '▶';
+            auto_but.innerText = '▶';
+            // auto_but.textContent = '▶';
         }
     }
     // 映像初期状態だけモノクロにする
@@ -267,8 +267,8 @@
     function atplay() {
         clearInterval(timer);
         timer = null;
-        // auto_but.innerText = '▶';
-        auto_but.textContent = '▶';
+        auto_but.innerText = '▶';
+        // auto_but.textContent = '▶';
         phrase.style.display = "none";
         mov.style.filter = 'none';  // モノクロ解除
         mov.style.transition = '10s';
