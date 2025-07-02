@@ -21,10 +21,15 @@
 <style>
     #obi {
         position: absolute;
-        background-color: rgb(107,74,43);
         width: 100%;
         height: 360px;
-        opacity: 0.6;
+        /* background-color: rgb(107,74,43); */
+        /* opacity: 0.6; */
+        background-image: url(img/ph86xian1.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: sepia(100%);
+        opacity: 1;
     }
     section#movies {
         display: flex;
@@ -279,11 +284,14 @@
         timer = null;
         auto_but.innerText = '▶';
         phrase.style.display = 'none';
-        mov.style.filter = 'none';  // モノクロ解除
+        mov.style.filter = 'none';  // セピア解除
         mov.style.transition = '10s';
         obi.style.opacity = '0';
         obi.style.transition = '10s';
     }
+    const obimages = [ 'sh92istanbul4', 'ph86xian1', 'sh92istanbul6', 'ph88iu3' ];
+    const rndno = Math.floor(Math.random() * obimages.length);
+    obi.style.backgroundImage = `url(img/${obimages[rndno]}.jpg)`;
 </script>
 
 <!-- 検索 -->
