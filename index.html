@@ -65,6 +65,7 @@
     #mbut1, #mbut2, #mbut3, #mbut4, #mbut5 {
         background-color: khaki;
     }
+    /* iPhoneでは一時停止マークのスタイル変更は無効（OS管理） */
     button#autoButton {
         border: none;
         background-color: rgba(255,255,255,0.0);
@@ -253,19 +254,11 @@
             timer = setInterval( function(){
                 mChange((mno + 1) % movies.length);
             }, 8000);
-            // auto_but.innerText = '⏸';
-            auto_but.innerText = '\u23F8';
-            // for iPhone
-            // auto_but.style.border = 'none';
-            // auto_but.style.backgroundColor ='rgba(255,255,255,0.0)';
-            // auto_but.style.color = 'DodgerBlue';
-            // auto_but.style.scale = '1.7 1.4';
-            // auto_but.style.marginRight = '0.3em';
+            auto_but.innerText = '⏸';
         } else {
             clearInterval(timer);
             timer = null;
             auto_but.innerText = '▶';
-            // auto_but.textContent = '▶';
         }
     }
     // 映像初期状態だけモノクロにする
@@ -274,7 +267,6 @@
         clearInterval(timer);
         timer = null;
         auto_but.innerText = '▶';
-        // auto_but.textContent = '▶';
         phrase.style.display = "none";
         mov.style.filter = 'none';  // モノクロ解除
         mov.style.transition = '10s';
