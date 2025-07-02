@@ -51,16 +51,26 @@
         filter: sepia(100%);
         border-radius: 0.2em;
     }
+    #buttons {
+        text-align: center;
+    }
     #buttons button {
         margin-left: 0.5em;
         padding: 0.2em 0.5em;
         border: 1px solid gray;
     }
     #mbut0 {
-        background-color: YellowGreen;
+        background-color: DeepSkyBlue;
     }
     #mbut1, #mbut2, #mbut3, #mbut4, #mbut5 {
         background-color: khaki;
+    }
+    button#auto {
+        border: none;
+        background-color: rgba(255,255,255,0.0);
+        color: DodgerBlue;
+        scale: 1.7 1.4;
+        margin-right: 0.3em;
     }
     /* 検索 */
     section#search {
@@ -177,6 +187,7 @@
                 <video id="movie" src="img/igwm01s.mp4" controls muted playsinline loop poster="img/igwm01s_0.jpg" onclick="this.play();"></video>
                 <h2 id="catchphrase">イシガメが快適に暮らす環境を作る</h2>
                 <div id="buttons">
+                    <button id="auto" onclick="autoSwitch()">▶</button>
                     <button id="mbut0" onclick="mChange(0)">1</button>
                     <button id="mbut1" onclick="mChange(1)">2</button>
                     <button id="mbut2" onclick="mChange(2)">3</button>
@@ -216,9 +227,10 @@
     </footer>
 </div>
 <script>
-    // ToDO: 映像再生一時停止操作が効かない
+    // ToDO: 映像再生一時停止操作が効かないauto
     const mov = document.getElementById('movie');
     const phrase = document.getElementById('catchphrase');
+    const auto = document.getElementById('auto');
     // igwm07s, igwm06s, igwm03s
     const movies = [ 'igwm01s', 'igwm05s', 'igwm02s', 'igwm04s', 'igwm09s', 'igwm08s' ];
     const buttons = [];
@@ -230,24 +242,30 @@
         for (let i = 0; i < movies.length; i++) {
             buttons[i].style.background = 'khaki';
         }
-        buttons[mno].style.background = 'YellowGreen';
+        buttons[mno].style.background = 'DeepSkyBlue';
         mov.src = 'img/' + movies[mno] + '.mp4';
         mov.poster = 'img/' + movies[mno] + '_0.jpg';
     }
     let mno = 0;
-    const timer = setInterval( function(){
-        mChange((mno + 1) % movies.length);
-    }, 8000);
-    // function setmovie(moviefile){
-    //     document.getElementById("catchphrase").style.display = "none";
-    //     mov.src=moviefile;
-    //     mov.autoplay=true;
-    //     window.scrollTo({top:0,behavior:'smooth'});
-    // }
+    let timer = null;
+    function autoSwitch() {
+        if (timer == null) {
+            timer = setInterval( function(){
+                mChange((mno + 1) % movies.length);
+            }, 8000);
+            auto.innerText = '⏸';
+        } else {
+            clearInterval(timer);
+            timer = null;
+            auto.innerText = '▶';
+        }
+    }
     // 映像初期状態だけモノクロにする
     mov.addEventListener("play", atplay);
     function atplay() {
         clearInterval(timer);
+        timer = null;
+        auto.innerText = '▶';
         phrase.style.display = "none";
         mov.style.filter = 'none';  // モノクロ解除
         mov.style.transition = '10s';
@@ -336,7 +354,6 @@
 	  }
 	  return [head, '<b>', body.substring(start, end), '</b>', tail].join('');
 	}
-
 	window.onload = function() {
 	    let wordText = document.getElementById('wordText');
 	    let checkButton = document.getElementById('checkButton');
