@@ -19,9 +19,15 @@
 	<title>Ishigame65</title>
 </head>
 <style>
+    #obi {
+        position: absolute;
+        background-color: rgb(107,74,43);
+        width: 100%;
+        height: 360px;
+        opacity: 0.6;
+    }
     section#movies {
         display: flex;
-        /* justify-content: space-between; */
     }
     #main_movie {
         position: relative;
@@ -120,6 +126,9 @@
         100%{ transform:translateX(-350px);}
     }
     @media (max-width: 840px) {
+        #obi {
+            display: none;
+        }
         #catchphrase {
             font-size: 1rem;
         }
@@ -182,6 +191,7 @@
 </header>
 
 <div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
+    <div id="obi"></div>
     <main>
         <section id="movies">
             <div id="main_movie">
@@ -232,6 +242,7 @@
     const mov = document.getElementById('movie');
     const phrase = document.getElementById('catchphrase');
     const auto_but = document.getElementById('autoButton');
+    const obi = document.getElementById('obi');
     // igwm07s, igwm06s, igwm03s
     const movies = [ 'igwm01s', 'igwm05s', 'igwm02s', 'igwm04s', 'igwm09s', 'igwm08s' ];
     const buttons = [];
@@ -262,14 +273,16 @@
         }
     }
     // 映像初期状態だけモノクロにする
-    mov.addEventListener("play", atplay);
+    mov.addEventListener('play', atplay);
     function atplay() {
         clearInterval(timer);
         timer = null;
         auto_but.innerText = '▶';
-        phrase.style.display = "none";
+        phrase.style.display = 'none';
         mov.style.filter = 'none';  // モノクロ解除
         mov.style.transition = '10s';
+        obi.style.opacity = '0';
+        obi.style.transition = '10s';
     }
 </script>
 
