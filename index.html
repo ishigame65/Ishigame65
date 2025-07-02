@@ -253,11 +253,13 @@
             timer = setInterval( function(){
                 mChange((mno + 1) % movies.length);
             }, 8000);
-            auto_but.innerText = '⏸';
+            // auto_but.innerText = '⏸';
+            auto_but.textContent = '⏸';
         } else {
             clearInterval(timer);
             timer = null;
-            auto_but.innerText = '▶';
+            // auto_but.innerText = '▶';
+            auto_but.textContent = '▶';
         }
     }
     // 映像初期状態だけモノクロにする
@@ -265,7 +267,8 @@
     function atplay() {
         clearInterval(timer);
         timer = null;
-        auto_but.innerText = '▶';
+        // auto_but.innerText = '▶';
+        auto_but.textContent = '▶';
         phrase.style.display = "none";
         mov.style.filter = 'none';  // モノクロ解除
         mov.style.transition = '10s';
