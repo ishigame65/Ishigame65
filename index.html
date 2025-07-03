@@ -197,7 +197,7 @@
 </header>
 
 <div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
-    <div id="obi"></div>
+    <div id="obi" onclick="changeBackImage()"></div>
     <main>
         <section id="movies">
             <div id="main_movie">
@@ -290,9 +290,12 @@
         obi.style.opacity = '0';
         obi.style.transition = '10s';
     }
-    const obimages = [ 'sh92istanbul4', 'sh92istanbul6', 'ph88iu3', 'ph89ayutthaya1', 'phgd1', 'bkmmiyagi2' ];
-    const rndno = Math.floor(Math.random() * obimages.length);
-    obi.style.backgroundImage = `url(img/${obimages[rndno]}.jpg)`;
+    function changeBackImage() {
+        const obimages = [ 'sh92istanbul4', 'sh92istanbul6', 'ph88iu3', 'ph89ayutthaya1', 'phgd1', 'bkmmiyagi2' ];
+        const rndno = Math.floor(Math.random() * obimages.length);
+        obi.style.backgroundImage = `url(img/${obimages[rndno]}.jpg)`;
+    }
+    changeBackImage();
 </script>
 
 <!-- 検索 -->
