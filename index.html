@@ -22,9 +22,8 @@
     #obi {
         position: absolute;
         width: 100%;
-        height: 360px;
+        /* height: 260px; */
         /* background-color: rgb(107,74,43); */
-        /* opacity: 0.6; */
         background-image: url(img/ph86xian1.jpg);
         background-repeat: no-repeat;
         background-size: cover;
@@ -311,6 +310,8 @@
         mov.style.opacity = '1';
         // obi.style.opacity = '0';
     }, 2000);
+    const videostyle = window.getComputedStyle(mov);
+    obi.style.height = `${videostyle.height}`;
 </script>
 
 <!-- 検索 -->
