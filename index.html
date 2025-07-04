@@ -63,6 +63,8 @@
         max-width: 640px;
         filter: sepia(100%);
         border-radius: 0.2em;
+        opacity: 0;
+        transition: opacity 4s ease-in;
     }
     #buttons {
         text-align: center;
@@ -305,6 +307,9 @@
         obi.style.backgroundImage = `url(img/${obimages[rndno]}.jpg)`;
     }
     changeBackImage();
+    setInterval( function(){
+        mov.style.opacity = '1';
+    }, 2000);
 </script>
 
 <!-- 検索 -->
