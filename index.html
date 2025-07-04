@@ -246,8 +246,9 @@
         <a href="#logo"><span class="arrow-up"></span></a>    
     </footer>
 </div>
-<!-- メイン映像と背景画像 -->
+
 <script>
+    // メイン映像と背景画像 ----------------------------------------
     const mov = document.getElementById('movie');
     const phrase = document.getElementById('catchphrase');
     const auto_but = document.getElementById('autoButton');
@@ -306,10 +307,8 @@
     }, 2000);
     const videostyle = window.getComputedStyle(mov);
     obi.style.height = `${videostyle.height}`;
-</script>
 
-<!-- その他 -->
-<script>
+    // その他 ----------------------------------------
     const turtle0 = document.getElementById('turtle0');
     function turtleClick() {
         turtle0.style.opacity = '0';
