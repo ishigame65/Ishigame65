@@ -135,9 +135,9 @@
         100%{ transform:translateX(-380px);}
     }
     @media (max-width: 840px) {
-        #obi {
+        /* #obi {
             display: none;
-        }
+        } */
         #catchphrase {
             font-size: 1rem;
         }
@@ -309,6 +309,7 @@
     changeBackImage();
     setInterval( function(){
         mov.style.opacity = '1';
+        // obi.style.opacity = '0';
     }, 2000);
 </script>
 
@@ -316,18 +317,13 @@
 <script src='js/search.js'></script>
 <script>
 	function butClick(){
-        //   var turtles_el = document.getElementById('turtles');
-        //   turtles_el.style.opacity = '1.0';
-        var turtle0_el = document.getElementById('turtle0');
-        turtle0_el.style.animation = 'none';
-        turtle0_el.style.right = '1em';
-
+        var turtle0 = document.getElementById('turtle0');
+        turtle0.style.animation = 'none';
+        turtle0.style.right = '1em';
         var msg_el = document.getElementById('msg');
 	    var hitlist_el = document.getElementById('hitlist');
-	  
 	    var result = searchData(wordText.value);
 	    msg_el.innerHTML = '<b>' + result.length + '</b> 件見つかりました（' + i_body.length + '件中）';
-
 	    var html = createHtml(result);
 	    hitlist_el.innerHTML = html;
 	}
