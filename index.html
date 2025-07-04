@@ -247,11 +247,13 @@
 </div>
 <!-- その他 -->
 <script>
+    const turtle0 = document.getElementById('turtle0');
     function turtleClick() {
-        const turtle0 = document.getElementById('turtle0');
         turtle0.style.opacity = '0';
         turtle0.style.transition = 'opacity 20s linear';
     }
+    const rnd0 = Math.floor(Math.random() * 10);
+    if (rnd0 != 0) turtle0.style.display = 'none';
 </script>
 <!-- メイン映像と背景画像 -->
 <script>
