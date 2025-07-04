@@ -124,6 +124,7 @@
         bottom: -2px;
         right: 1em;
         animation: turtlemove 90s linear 1 forwards;
+        opacity: 0;
     }
     footer {
         margin-top: 0;
@@ -151,9 +152,9 @@
         #wordText, #checkButton {
             font-size: 16px;
         }
-        #turtle0 {
+        /* #turtle0 {
             display: none;
-        }
+        } */
     }
 </style>
 <body>
@@ -245,16 +246,6 @@
         <a href="#logo"><span class="arrow-up"></span></a>    
     </footer>
 </div>
-<!-- その他 -->
-<script>
-    const turtle0 = document.getElementById('turtle0');
-    function turtleClick() {
-        turtle0.style.opacity = '0';
-        turtle0.style.transition = 'opacity 20s linear';
-    }
-    const rnd0 = Math.floor(Math.random() * 10);
-    if (rnd0 != 0) turtle0.style.display = 'none';
-</script>
 <!-- メイン映像と背景画像 -->
 <script>
     const mov = document.getElementById('movie');
@@ -313,6 +304,19 @@
     }, 2000);
     const videostyle = window.getComputedStyle(mov);
     obi.style.height = `${videostyle.height}`;
+</script>
+
+<!-- その他 -->
+<script>
+    const turtle0 = document.getElementById('turtle0');
+    function turtleClick() {
+        turtle0.style.opacity = '0';
+        turtle0.style.transition = 'opacity 20s linear';
+    }
+    if (!(window.matchMedia && window.matchMedia('(max-device-width: 840px)').matches)) {
+        const rnd0 = Math.floor(Math.random() * 10);
+        if (rnd0 == 0) turtle0.style.opacity = '1';
+    }
 </script>
 
 <!-- 検索 -->
