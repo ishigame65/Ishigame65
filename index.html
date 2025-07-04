@@ -50,13 +50,14 @@
         z-index: 10;
         text-align: center;
         width: fit-content;
-        padding: 0 1em;
-        background-color: rgba(128,128,0,0.5);
+        padding: 0.4em 1em;
+        background-color: rgba(128,128,0,0.4);
         color: whitesmoke;
         font-weight: normal;
         font-size: x-large;
         font-family:'Times New Roman', Times, serif;
         filter: sepia(100%);
+        text-shadow: 2px 3px 4px black;
     }
     #movie {
         max-width: 640px;
@@ -129,7 +130,7 @@
     @keyframes turtlemove {
         0%{ transform:translateX(-0px);}
         10%{ transform:translateX(-0px);}
-        100%{ transform:translateX(-350px);}
+        100%{ transform:translateX(-380px);}
     }
     @media (max-width: 840px) {
         #obi {
@@ -225,7 +226,7 @@
                 </p>
                 <p id="msg"></p>
                 <p id="hitlist"></p>
-                <img id="turtle0" src="img/turtle0.png">
+                <img id="turtle0" src="img/turtle0.png" onclick="turtleClick()">
             </div>
         </section>
     </main>
@@ -243,8 +244,16 @@
         <a href="#logo"><span class="arrow-up"></span></a>    
     </footer>
 </div>
+<!-- その他 -->
 <script>
-    // ToDO: 映像再生一時停止操作が効かないauto
+    function turtleClick() {
+        const turtle0 = document.getElementById('turtle0');
+        turtle0.style.opacity = '0';
+        turtle0.style.transition = 'opacity 20s linear';
+    }
+</script>
+<!-- メイン映像と背景画像 -->
+<script>
     const mov = document.getElementById('movie');
     const phrase = document.getElementById('catchphrase');
     const auto_but = document.getElementById('autoButton');
