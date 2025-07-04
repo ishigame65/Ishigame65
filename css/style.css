@@ -159,7 +159,8 @@ article h3.mono, section h3.mono, h4.mono, section h4.mono{
     }
     article, section {
         min-width: none;
-        max-width: 95%;
+        /* max-width: 95%; */
+        max-width: 97%;
         padding: 0;
     }
     .article_content, .section_content {
