@@ -22,7 +22,6 @@ footer {
     padding-top: 1em;
     margin-bottom: 1em;
     border-top: 1px dashed darkgrey;
-
     display: flex;
     justify-content: space-between;
 }
@@ -140,6 +139,14 @@ article h3.mono, section h3.mono, h4.mono, section h4.mono{
 /* .scroller {
     scrollbar-color: #FAF8D8 #DE94BF;
 } */
+@media (min-width: 1000px) {
+    h1 {
+        position: absolute;
+    }
+    nav {
+        padding-right: 0;
+    }
+}
 @media (max-width: 700px) {
     body {
         font-size: smaller;
