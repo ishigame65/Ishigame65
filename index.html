@@ -134,9 +134,9 @@
         100%{ transform:translateX(-380px);}
     }
     @media (max-width: 840px) {
-        /* #obi {
+        #obi {
             display: none;
-        } */
+        }
         #catchphrase {
             font-size: 1rem;
         }
@@ -308,7 +308,6 @@
     changeBackImage();
     setInterval( function(){
         mov.style.opacity = '1';
-        // obi.style.opacity = '0';
     }, 2000);
     const videostyle = window.getComputedStyle(mov);
     obi.style.height = `${videostyle.height}`;
