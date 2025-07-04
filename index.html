@@ -41,7 +41,7 @@
     }
     #catchphrase {
 		background: none;
-        position:absolute;
+        position: absolute;
         top: 0;
         left: 0;
         right: 0;
@@ -294,7 +294,9 @@
         obi.style.transition = '10s';
     }
     function changeBackImage() {
-        const obimages = [ 'sh92istanbul4', 'sh92istanbul6', 'ph88iu3', 'ph89ayutthaya1', 'phgd1', 'bkmmiyagi2' ];
+        const obimages = [
+            'sh92istanbul4', 'sh92istanbul6', 'ph88iu3', 'ph89ayutthaya1', 'phgd1',
+            'bkmmiyagi2', 'sh92istanbul1' ];
         const rndno = Math.floor(Math.random() * obimages.length);
         obi.style.backgroundImage = `url(img/${obimages[rndno]}.jpg)`;
     }
