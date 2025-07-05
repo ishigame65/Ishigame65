@@ -64,6 +64,21 @@
         border-radius: 0.2em;
         opacity: 0;
         transition: opacity 4s ease-in;
+        mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    }
+    @keyframes fadeOut {
+        0% { mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); }
+        10% { mask-image: linear-gradient(to right, transparent 0%, black 4.5%, black 95.5%, transparent 100%); }
+        20% { mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%); }
+        30% { mask-image: linear-gradient(to right, transparent 0%, black 3.5%, black 96.5%, transparent 100%); }
+        40% { mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%); }
+        50% { mask-image: linear-gradient(to right, transparent 0%, black 2.5%, black 97.5%, transparent 100%); }
+        60% { mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%); }
+        70% { mask-image: linear-gradient(to right, transparent 0%, black 1.5%, black 98.5%, transparent 100%); }
+        80% { mask-image: linear-gradient(to right, transparent 0%, black 1%, black 99%, transparent 100%); }
+        90% { mask-image: linear-gradient(to right, transparent 0%, black 0.5%, black 99.5%, transparent 100%); }
+        100% { mask-image: linear-gradient(to right, transparent 0%, black 0%, black 100%, transparent 100%); }
     }
     #buttons {
         text-align: center;
@@ -142,6 +157,8 @@
         #movie {
             width: 100%;
             margin-bottom: 10px;
+            mask-image: none;
+            -webkit-mask-image: none; 
         }
         /* 検索 */
         #TextSearch {
@@ -289,6 +306,9 @@
         mov.style.transition = '10s';
         obi.style.opacity = '0';
         obi.style.transition = '10s';
+        setTimeout(function() {
+            mov.style.animation = 'fadeOut 200ms linear forwards';
+        }, 1000);
     }
     function changeBackImage() {
         const obimages = [
@@ -396,7 +416,6 @@
         return [head, '<b>', body.substring(start, end), '</b>', tail].join('');
 	}
 	window.onload = function() {
-	    //const wordText = document.getElementById('wordText');
 	    const checkButton = document.getElementById('checkButton');
 	    checkButton.addEventListener('click', butClick);
 	}
