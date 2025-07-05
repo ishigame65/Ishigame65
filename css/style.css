@@ -64,6 +64,7 @@ nav {
     margin-left: auto;
     margin-right: auto;
     padding-right: 4em;
+    height: 70px;
 }
 nav ul, #footlinks ul {
     display: flex;
@@ -160,6 +161,7 @@ article h3.mono, section h3.mono, h4.mono, section h4.mono{
     }
     img#logo {
         width: 130px;
+        margin-bottom: 10px;
     }
     nav, #footlinks {
         display: none;
