@@ -308,9 +308,11 @@
         mov.style.transition = '10s';
         obi.style.opacity = '0';
         obi.style.transition = '10s';
-        setTimeout(function() {
-            mov.style.animation = 'fadeOut 200ms linear forwards';
-        }, 1000);
+        if (!(window.matchMedia && window.matchMedia('(max-device-width: 840px)').matches)) {
+            setTimeout(function() {
+                mov.style.animation = 'fadeOut 200ms linear forwards';
+            }, 1000);
+        }
     }
     function changeBackImage() {
         const obimages = [
@@ -319,12 +321,14 @@
         const rndno = Math.floor(Math.random() * obimages.length);
         obi.style.backgroundImage = `url(img/${obimages[rndno]}.jpg)`;
     }
-    changeBackImage();
-    setInterval( function(){
-        mov.style.opacity = '1';
-    }, 2000);
-    const videostyle = window.getComputedStyle(mov);
-    obi.style.height = `${videostyle.height}`;
+    if (!(window.matchMedia && window.matchMedia('(max-device-width: 840px)').matches)) {
+        changeBackImage();
+        setInterval( function(){
+            mov.style.opacity = '1';
+        }, 2000);
+        const videostyle = window.getComputedStyle(mov);
+        obi.style.height = `${videostyle.height}`;
+    }
 
     // その他 ----------------------------------------
     const turtle0 = document.getElementById('turtle0');
