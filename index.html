@@ -111,7 +111,7 @@
         max-width: 11em;
 		font-size: larger;
 		padding: 0 0.5em;
-		margin-right: 0.5em;
+        margin: 0.2em 0.5em 0.4em 0;
 	}
     #checkButton {
         color: black;
@@ -219,14 +219,12 @@
         </section>
         <section id="search">
             <div id="TextSearch">
-                <!-- <img id="turtles" class="floatright" src="img/turtle.png"> -->
-                <small>1つの語句を入力してサイト内を[検索]</small>
-                <p>
+                <div>
                     <label><input type="text" id="wordText"></label>
-                    <!-- <label><input type="text" id="wordText" maxlength="5" required></label> -->
                     <input type="button" value="検索" id="checkButton">
-                </p>
-                <p id="msg"></p>
+                </div>
+                <small id="usage" class="indent">1つの語句を入力してサイト内を[検索]</small>
+                <div id="msg" class="indent"></div>
                 <p id="hitlist"></p>
                 <img id="turtle0" src="img/turtle0.png" onclick="turtleClick()">
             </div>
@@ -324,82 +322,84 @@
 <script src='js/search.js'></script>
 <script>
 	function butClick(){
-        var turtle0 = document.getElementById('turtle0');
+        const usage = document.getElementById('usage');
+        usage.style.display = 'none';
+        const turtle0 = document.getElementById('turtle0');
         turtle0.style.animation = 'none';
         turtle0.style.right = '1em';
-        var msg_el = document.getElementById('msg');
-	    var hitlist_el = document.getElementById('hitlist');
-	    var result = searchData(wordText.value);
+        const msg_el = document.getElementById('msg');
+	    const hitlist_el = document.getElementById('hitlist');
+	    const result = searchData(wordText.value);
 	    msg_el.innerHTML = '<b>' + result.length + '</b> 件見つかりました（' + i_body.length + '件中）';
-	    var html = createHtml(result);
+	    const html = createHtml(result);
 	    hitlist_el.innerHTML = html;
 	}
 
 	function searchData(query) {
-	  var result = [];
-	  query = query.trim();
-	  if (query.length < 1) {
-		return result;
-	  }
-	  var re = new RegExp(query, 'i');
-	  for (var i = 0; i < i_body.length; ++i) {
-		var pos = i_body[i].search(re);
-		if (pos != -1) {
-			result.push([i, pos, pos + query.length]);
-		}
-	  }
-	  return result;
+        const result = [];
+	    query = query.trim();
+	    if (query.length < 1) {
+		    return result;
+	    }
+	    const re = new RegExp(query, 'i');
+	    for (let i = 0; i < i_body.length; ++i) {
+		    const pos = i_body[i].search(re);
+		    if (pos != -1) {
+			    result.push([i, pos, pos + query.length]);
+		    }
+	    }
+	    return result;
 	}
 
 	function createHtml(result) {
-	  var htmls = [];
-	  for (var i = 0; i < result.length; ++i) {
-		var index = result[i][0];
-		var start = result[i][1];
-		var end = result[i][2];
-		var url = i_url[index];
-		var title = i_title[index];
-		var body = i_body[index]
-		htmls.push(createEntry(url, title, body, start, end));
-	  }
-	  return htmls.join('');
+        const htmls = [];
+        for (let i = 0; i < result.length; ++i) {
+            const index = result[i][0];
+            const start = result[i][1];
+            const end = result[i][2];
+            const url = i_url[index];
+            const title = i_title[index];
+            const body = i_body[index]
+            htmls.push(createEntry(url, title, body, start, end));
+        }
+        return htmls.join('');
 	}
 
 	function createEntry(url, title, body, start, end) {
-	  return '<div class=\"item\">' +
-		  '<a class=\"item_title\" href=\"' + url + '\" target=\"_parent\">' + title + '</a>' +
-		  '<blockquote>' + excerpt(body, start, end) + '</blockquote>' +
-		  '</div>';
+        return '<div class=\"item\">' +
+            '<a class=\"item_title\" href=\"' + url + '\" target=\"_parent\">' + title + '</a>' +
+            '<blockquote>' + excerpt(body, start, end) + '</blockquote>' +
+            '</div>';
 	}
 
 	function excerpt(body, start, end) {
-	  var head = body.substring(start - 80, start);
-	  pos = head.lastIndexOf('<br>');
-	  if (pos != -1) {
-		next_pos = head.lastIndexOf('<br>', pos - 1);
-		if (next_pos != -1) {
-		  pos = next_pos
-		}
-		head = head.substring(pos + 4)
-	  }
-	  var tail = body.substring(end, end + 180);
-	  pos = tail.indexOf('<br>');
-	  if (pos != -1) {
-		next_pos = tail.indexOf('<br>', pos + 1);
-		if (next_pos != -1) {
-		  pos = next_pos
-		  next_pos = tail.indexOf('<br>', pos + 1);
-		  if (next_pos != -1) {
-			pos = next_pos
-		  }
-		}
-		tail = tail.substring(0, pos - 4)
-	  }
-	  return [head, '<b>', body.substring(start, end), '</b>', tail].join('');
+        let head = body.substring(start - 80, start);
+        pos = head.lastIndexOf('<br>');
+        if (pos != -1) {
+            next_pos = head.lastIndexOf('<br>', pos - 1);
+            if (next_pos != -1) {
+                pos = next_pos
+            }
+            head = head.substring(pos + 4)
+        }
+        let tail = body.substring(end, end + 180);
+        pos = tail.indexOf('<br>');
+        if (pos != -1) {
+            next_pos = tail.indexOf('<br>', pos + 1);
+            if (next_pos != -1) {
+                pos = next_pos
+                next_pos = tail.indexOf('<br>', pos + 1);
+                if (next_pos != -1) {
+                    pos = next_pos
+                }
+            }
+            tail = tail.substring(0, pos - 4)
+        }
+        return [head, '<b>', body.substring(start, end), '</b>', tail].join('');
 	}
 	window.onload = function() {
-	    let wordText = document.getElementById('wordText');
-	    let checkButton = document.getElementById('checkButton');
+	    //const wordText = document.getElementById('wordText');
+	    const checkButton = document.getElementById('checkButton');
 	    checkButton.addEventListener('click', butClick);
 	}
 </script>
