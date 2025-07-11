@@ -24,7 +24,7 @@
         plan.add_action('植え付け', '#32cd32');     // 'limegreen'のカラーコード
         plan.add_action('収穫', 'rgb(255,215,0)');  // 'gold'のRGB値
 
-        // データ準備
+        // 栽培期間データ準備
         const dataset = [
             // 'name':作物名、作業名:期間、作業名:期間
             // 　（期間）開始月-終了月、（オプション）a:上旬, b:中旬, c:下旬
@@ -36,11 +36,28 @@
             { 'name':'菜花', '種蒔き':'8b-10b', '収穫':'11-3' },
             { 'name':'玉ねぎ苗', '植え付け':'11b-12b', '収穫':'6-7a' },
         ];
+        plan.set_dataset(dataset);    // 栽培期間データ設定
+
+        // 栽培方法説明準備
+        const methodset = new Map();
+        methodset.set('ジャガイモ:植え付け', '畝幅65㎝、間隔25㎝、深さ8㎝。種芋は50g程度に切り分け');
+        methodset.set('菜花:種蒔き', '条間30㎝、株間15㎝、深さ3㎝に4粒。本葉2枚で2本、本葉4枚で1本残す');
+        plan.set_methodset(methodset);  // 栽培方法説明設定
 
         // 描画
         window.addEventListener('load', function() {
-            plan.draw(dataset);
+            plan.draw();
         });
+
+        // 作業選択（栽培方法説明表示）
+        const canvas = document.getElementById('CultiPlan');
+        canvas.addEventListener('click', (event) => {
+            plan.draw();
+            const rect = canvas.getBoundingClientRect();
+            const mx = event.clientX - rect.left;
+            const my = event.clientY - rect.top;
+            plan.action_clicked(mx, my);
+        });   
     </script>
 </body>
 </html>

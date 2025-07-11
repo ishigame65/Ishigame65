@@ -41,7 +41,7 @@
         plan.add_status('invalid', 'gray'); // 状態定義（状態名, 色）
         plan.set_status_opacity(0.5);   // 状態色不透明度
 
-        // データ準備
+        // 栽培期間データ準備
         const colors = ['Lavender', 'lightcyan'];
         const dataset = [
             // 'name':作物名、作業名:期間、作業名:期間
@@ -56,6 +56,15 @@
         ];
         // 奇数番目の色を変える
         for (i = 0; i < dataset.length; i++) if (i % 2 != 0) dataset[i].color = colors[1];
+        plan.set_dataset(dataset);    // 栽培期間データ設定
+
+        // 栽培方法説明準備
+        const methodset = new Map();
+        methodset.set('ジャガイモ:植え付け', '畝幅65㎝、間隔25㎝、深さ8㎝。種芋は50g程度に切り分け');
+        methodset.set('オクラ:種蒔き', '条間40㎝、株間25㎝、深さ4㎝に4粒。本葉2枚で2本、最終的に1本残す');
+        methodset.set('菜花:種蒔き', '条間30㎝、株間15㎝、深さ3㎝に4粒。本葉2枚で2本、本葉4枚で1本残す');
+        methodset.set('玉ねぎ苗:植え付け', '間隔15cm、白い部分を少し出す。苗は鉛筆と同じかやや細い方が良い');
+        plan.set_methodset(methodset);  // 栽培方法説明設定
 
         // 見栄え調整（オプション設定）
         plan.set_font("14px 'MS P Gothic'");    // フォント設定（オプション）
@@ -67,8 +76,18 @@
 
         // 描画
         window.addEventListener('load', function() {
-            plan.draw(dataset);
+            plan.draw();
         });
+
+        // 作業選択（栽培方法説明表示）
+        const canvas = document.getElementById('CultiPlan');
+        canvas.addEventListener('click', (event) => {
+            plan.draw();
+            const rect = canvas.getBoundingClientRect();
+            const mx = event.clientX - rect.left;
+            const my = event.clientY - rect.top;
+            plan.action_clicked(mx, my);
+        });   
     </script>
 </body>
 </html>

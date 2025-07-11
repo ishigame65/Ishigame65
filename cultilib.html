@@ -115,10 +115,10 @@
         <p class="indent">
             菜園カレンダー・菜園マップ・栽培記録を作成するために開発したJavsScriptライブラリです。
             ライブラリを利用して栽培データをJavaScriptで簡単に記述することにより、菜園カレンダー・菜園マップ・栽培記録を作成できます。
-            栽培記録は作物名を選択して表示します
             <article class="indent">
                 菜園カレンダー<br>
                 <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="330" style="zoom:0.75"></iframe>
+                <div class="notes">中央が薄くなっている作業を選択すると説明が表示されます</div>
             </article>
             <article class="indent">
                 菜園マップ<br>
@@ -127,6 +127,7 @@
             <article class="indent">
                 栽培記録<br>
                 <iframe class="view_frame" src="./cl_sample2.html" frameborder="1" width="600" height="480" style="zoom:0.75"></iframe>
+                <div class="notes">作物名を選択して表示します</div>
             </article>
         </p>
         <dl class="indent">
@@ -265,23 +266,47 @@
                                     <li>作業（作業名、色）を定義<br>
                                         <code>plan.add_action('種蒔き', 'brown');</code>
                                     </li>
-                                    <li>データ準備<br>
+                                    <li>栽培期間データ準備<br>
                                         <code>
-                                            const dataset = [
-                                                { 'name':'ニラ', '種蒔き':'3b-4a', '植え付け':'6b-7a' },
-                                                （省略）
-                                            ];
+                                            const dataset = [<br>
+                                                { 'name':'ニラ', '種蒔き':'3b-4a', '植え付け':'6b-7a' },<br>
+                                                （省略）<br>
+                                            ];<br>
+                                            plan.set_dataset(dataset);
                                         </code>
                                         <ul class="indent">
                                             <li>作物ごとに作業期間を「作業名:期間」の形で記載する</li>
                                             <li>期間は、開始月-終了月の形で記載し、末尾にa（上旬）,b（中旬）,c（下旬）を付加できる</li>
                                         </ul>
                                     </li>
+                                    <li>栽培方法説明準備<br>
+                                        <code>
+                                            const methodset = new Map();<br>
+                                            methodset.set('ジャガイモ:植え付け', '畝幅65㎝、間隔25㎝、深さ8㎝。種芋は50g程度に切り分け');<br>
+                                            （省略）<br>
+                                            plan.set_methodset(methodset);
+                                        </code>
+                                        <ul class="indent">
+                                            <li>作物＆作業ごとに栽培方法の説明を「作物:作業,栽培方法説明」の形で記載する</li>
+                                        </ul>
+                                    </li>
                                     <li>描画<br>
                                         <code>
-                                            window.addEventListener('load', function() {
-                                                plan.draw(dataset);
+                                            window.addEventListener('load', function() {<br>
+                                                plan.draw();<br>
                                             });
+                                        </code>
+                                    </li>
+                                    <li>作業選択（栽培方法説明表示）<br>
+                                        <code>
+                                            const canvas = document.getElementById('CultiPlan');<br>
+                                            canvas.addEventListener('click', (event) => {<br>
+                                                plan.draw();<br>
+                                                const rect = canvas.getBoundingClientRect();<br>
+                                                const mx = event.clientX - rect.left;<br>
+                                                const my = event.clientY - rect.top;<br>
+                                                plan.action_clicked(mx, my);<br>
+                                            });   
                                         </code>
                                     </li>
                                 </ol>
@@ -304,6 +329,7 @@
             <article>
                 <h5 class="mono">表示</h5>
                 <iframe class="view_frame" src="./cp_sample1.html" frameborder="1" width="600" height="300" style="zoom:0.75"></iframe>
+                <div class="notes">中央が薄くなっている作業を選択すると説明が表示されます</div>
             </article>
             <article>
                 <h5 class="mono">HTMLファイル</h5>
@@ -313,7 +339,8 @@
             <article>
                 <h5 class="mono">表示</h5>
                 <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="330" style="zoom:0.75"></iframe>
-            </article>            
+                <div class="notes">中央が薄くなっている作業を選択すると説明が表示されます</div>
+            </article>
             <article>
                 <h5 class="mono">HTMLファイル</h5>
                 <iframe class="html_frame" src="./cp_sample2.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe>
@@ -520,6 +547,7 @@
             <article>
                 <h5 class="mono">表示</h5>
                 <iframe class="view_frame" src="./cl_sample1.html" frameborder="1" width="600" height="400" style="zoom:0.75"></iframe>
+                <div class="notes">作物名を選択して表示します</div>
             </article>
             <article>
                 <h5 class="mono">HTMLファイル</h5>
@@ -529,6 +557,7 @@
             <article>
                 <h5 class="mono">表示</h5>
                 <iframe class="view_frame" src="./cl_sample2.html" frameborder="1" width="600" height="480" style="zoom:0.75"></iframe>
+                <div class="notes">作物名を選択して表示します</div>
             </article>
             <article>
                 <h5 class="mono">HTMLファイル</h5>

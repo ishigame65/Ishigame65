@@ -124,7 +124,7 @@
                 専用の<a href='cultilib.html'>栽培ライブラリ</a>を開発してから菜園カレンダーを作ることになった
             </p>
             <p class="article_content">
-                <canvas id="CultiPlan" width="450" height="700"></canvas>
+                <canvas id="CultiPlan" width="450" height="730"></canvas>
             </p>
         </article>
         <article>
@@ -183,6 +183,7 @@
 <!-- 栽培ライブラリを読み込み -->
 <script src="js/CultivationPlants.min.js"></script>
 <script src="js/CultivationPlan.min.js"></script>
+<!-- <script src="js/CultivationPlan.js"></script> -->
 <script src="js/CultivationMap.min.js"></script>
 <!-- <script src="js/CultivationMap.js"></script> -->
 <script src="js/CultivationLog.min.js"></script>
@@ -192,7 +193,7 @@
     // 栽培計画作成
     function make_plan(plan) {
         // 栽培計画:作業定義（作業名, 色）
-        plan.add_action('種蒔き', 'brown');
+        plan.add_action('種蒔き', 'sienna');
         plan.add_action('植え付け', 'limegreen');
         plan.add_action('収穫', 'gold');
         plan.add_action('株分け', 'orchid');
@@ -202,7 +203,7 @@
         plan.add_status('invalid', 'gray'); // 状態定義（状態名, 色）
         plan.set_status_opacity(0.5);   // 状態色不透明度
 
-        // 栽培計画:データ準備
+        // 栽培計画:栽培期間データ準備
         const colors = ['Lavender', 'lightcyan'];
         const dataset_0 = [
             // 'name':対象名、作業名:期間、作業名:期間
@@ -224,6 +225,7 @@
             { 'name':'バジル苗', '植え付け':'5-7', '収穫':'7-10', 'color':colors[0], 'status':'valid' },
             { 'name':'インゲン', '種蒔き':'5-6', '収穫':'6c-10b', 'color':colors[0], 'status':'valid' },
             { 'name':'チンゲン菜(秋)', '種蒔き':'7-11b', '収穫':'9-2a', 'color':colors[0], 'status':'valid' },
+            // { 'name':'九条ネギ', '種蒔き':'4-9', '植え付け':'6-10', '収穫':'10-4', 'color':colors[0], 'status':'valid' },
             { 'name':'九条ネギ干苗', '堀り上げ':'5-6a', '植え付け':'8-9a', '収穫':'10-4', 'color':colors[0], 'status':'valid' },
             { 'name':'菜花', '種蒔き':'8b-10b', '収穫':'11-3', 'color':colors[0], 'status':'valid' },
             { 'name':'にんにく', '植え付け':'9b-10', '収穫':'5-6', 'color':colors[0], 'status':'valid' },
@@ -233,6 +235,24 @@
         ];
         const dataset = dataset_0.filter(data => data.status != 'incomplete');    // 不完全データを取り除く
         for (i = 0; i < dataset.length; i++) if (i % 2 != 0) dataset[i].color = colors[1];  // 奇数番目の色を変える
+        plan.set_dataset(dataset);    // 栽培期間データ設定
+
+        // 栽培計画:栽培方法説明準備
+        const methodset = new Map();
+        methodset.set('ジャガイモ:植え付け', '畝幅65㎝、間隔25㎝、深さ8㎝。種芋は50g程度に切り分け');
+        methodset.set('オクラ:種蒔き', '条間40㎝、株間25㎝、深さ4㎝に4粒。本葉2枚で2本、最終的に1本残す');
+        methodset.set('トウモロコシ:種蒔き', '条間45㎝、株間30㎝、深さ3㎝に3粒。本葉4枚で1本残す');
+        methodset.set('キュウリ苗:植え付け', '条間60㎝、株間50㎝');
+        methodset.set('バジル苗:植え付け', '一株で十分な量を収穫できる');
+        methodset.set('インゲン:種蒔き', '株間30㎝、深さ2㎝に3粒。本葉2枚で2本、最終的に1本残す');
+        methodset.set('チンゲン菜(春):種蒔き', '条間20㎝、株間15㎝、深さ3㎝に4粒。本葉2枚で2本、最終的に1本残す');
+        methodset.set('チンゲン菜(秋):種蒔き', '条間20㎝、株間15㎝、深さ3㎝に4粒。本葉2枚で2本、最終的に1本残す');
+        methodset.set('菜花:種蒔き', '条間30㎝、株間15㎝、深さ3㎝に4粒。本葉2枚で2本、本葉4枚で1本残す');
+        methodset.set('にんにく:植え付け', '株間10cm、深さ5㎝、とがった方を上。脇芽は抜き取る');
+        methodset.set('にんにく:収穫', 'トウ（花茎）が葉と同じ高さになったら摘み取る（ニンニクの芽）。葉が2/3枯れたら収穫');
+        methodset.set('玉ねぎ苗:植え付け', '間隔15cm、白い部分を少し出す。苗は鉛筆と同じかやや細い方が良い');
+        // methodset.set('九条ネギ干苗:収穫', '動作テスト');
+        plan.set_methodset(methodset);  // 栽培方法説明設定
 
         // 栽培計画:描画準備
         plan.set_font("14px 'MS P Gothic'");    // フォント設定（オプション）
@@ -241,7 +261,6 @@
         plan.set_month_bgcolor('LightYellow');  // 月背景色設定（オプション）
         // plan.hide_legend();                  // 凡例非表示（オプション）
         plan.set_today(0.5, 'red');             // 本日線設定（オプション）
-        return dataset;
     }
 
     // 非栽培エリア設定（色、区画）
@@ -403,7 +422,8 @@
         for (let spi = 0; spi < splanter_num; spi++) { // 角プランター
             if (spi == 0) map.add_plant_font('バジル', spx2, spy2, 30, 30, small_font);
             else if (spi == 1 || spi == 2) map.add_plant_font('オクラ', spx2, spy2, 30, 30, small_font);
-            else if (spi == 5) map.add_plant_font('空心菜', spx2, spy2, 30, 30, small_font);
+            // else if (spi == 3) map.add_plant_font('トウモロコシ', spx2, spy2, 30, 30, small_font);
+            else if (spi >= 3 && spi <= 6) map.add_plant_font('空心菜', spx2, spy2, 30, 30, small_font);
             // else map.add_plant_font('にんにく', spx2, spy2, 30, 30, small_font);
             spx2 += 40;
         }
@@ -430,9 +450,9 @@
 
     // 栽培計画作成
     const plan = new CultivationPlan("CultiPlan");  // 栽培計画オブジェクト生成
-    const dataset = make_plan(plan);                // 栽培計画作成
+    make_plan(plan);    // 栽培計画作成
 
-    // 栽培植物作成
+    // 栽培植物作成 ★今後★栽培計画も共通化する？
     const plants = new CultivationPlants();     // 栽培植物オブジェクト生成
     set_plants(plants);   // 栽培植物設定（色）
 
@@ -451,10 +471,20 @@
 
     // 描画
     window.addEventListener('load', function() {
-        plan.draw(dataset); // 栽培計画
-        map.draw(); // 栽培地図
-        map257.draw(); // 栽培地図25年7月
+        plan.draw();    // 栽培計画
+        map.draw();     // 栽培地図
+        map257.draw();  // 栽培地図25年7月
     });
+
+    // 栽培計画：作業選択（栽培方法説明）
+    const canvas = document.getElementById('CultiPlan');
+    canvas.addEventListener('click', (event) => {
+        plan.draw();    // 栽培計画
+        const rect = canvas.getBoundingClientRect();
+        const mx = event.clientX - rect.left;
+        const my = event.clientY - rect.top;
+        plan.action_clicked(mx, my);
+    });   
 
 </script>
 <!-- ポップアップライブラリを読み込み -->
