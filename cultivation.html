@@ -28,11 +28,6 @@
         #CultiLog img {
             width: 40%;
         }
-        /* .notes {
-            font-size: smaller;
-            color: dimgray;
-            margin-left: 1em;
-        } */
         @media (max-width: 700px) {
             #topimg {
                 border-radius: 4px;
@@ -453,7 +448,7 @@
     const plan = new CultivationPlan("CultiPlan");  // 栽培計画オブジェクト生成
     make_plan(plan);    // 栽培計画作成
 
-    // 栽培植物作成 ★今後★栽培計画も共通化する？
+    // 栽培植物作成 （栽培計画も共通化？）
     const plants = new CultivationPlants();     // 栽培植物オブジェクト生成
     set_plants(plants);   // 栽培植物設定（色）
 
@@ -484,7 +479,10 @@
         const rect = canvas.getBoundingClientRect();
         const mx = event.clientX - rect.left;
         const my = event.clientY - rect.top;
-        plan.action_clicked(mx, my);
+        // 元々のcanvasサイズ：450 x 730
+        const rx = 450 / rect.width;
+        const ry = 730 / rect.height;
+        plan.action_clicked(mx * rx, my * ry);
     });   
 
 </script>
