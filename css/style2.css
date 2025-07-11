@@ -1,10 +1,12 @@
 @charset "utf-8";
 
 body {
-    background: WhiteSmoke;
+    /* background: WhiteSmoke; */
+    background: none;
 }
 #menu_btn, #menu_cont {
-    background-color: WhiteSmoke;
+    /* background-color: WhiteSmoke; */
+    background-color: transparent;
 }
 #menu_btn span,
 #menu_btn span::before,
@@ -18,11 +20,11 @@ body {
     color: black;
 }
 .breadcrumb, a {
-    color: gray;
+    color: DarkSlateGray;
 }
 a, .popup-open {
     text-decoration-color: black;
 }
 ul.marker01 li:before {
-    color: gray;
+    color: DarkSlateGray;
 }

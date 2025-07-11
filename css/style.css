@@ -81,7 +81,7 @@ nav ul {
 nav a, #footlinks a {
     padding: 0 0.5em;
     text-decoration: none;
-    color: dimgray;
+    color: DarkSlateGray;
 }
 nav li:hover, #footlinks li:hover {
     scale: 1.0 1.2;
