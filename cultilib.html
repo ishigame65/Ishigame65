@@ -112,38 +112,40 @@
         </div> <!-- breadcrumb -->
 
         <h2 class="mono">栽培ライブラリ</h2>
-        <p class="indent">
-            菜園カレンダー・菜園マップ・栽培記録を作成するために開発したJavsScriptライブラリです。
-            ライブラリを利用して栽培データをJavaScriptで簡単に記述することにより、菜園カレンダー・菜園マップ・栽培記録を作成できます。
-            <article class="indent">
-                菜園カレンダー<br>
-                <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="330" style="zoom:0.75"></iframe>
-                <div class="notes">中央が薄くなっている作業を選択すると説明が表示されます</div>
-            </article>
-            <article class="indent">
-                菜園マップ<br>
-                <iframe class="view_frame" src="./cm_sample2.html" frameborder="1" width="530" height="400" style="zoom:0.75"></iframe>
-            </article>
-            <article class="indent">
-                栽培記録<br>
-                <iframe class="view_frame" src="./cl_sample2.html" frameborder="1" width="600" height="480" style="zoom:0.75"></iframe>
-                <div class="notes">作物名を選択して表示します</div>
-            </article>
-        </p>
-        <dl class="indent">
-            <dt>開発の経緯</dt>
-            <dd>
-                <ul>
+        <section>
+            <p class="indent">
+                菜園カレンダー・菜園マップ・栽培記録を作成するために開発したJavsScriptライブラリです。
+                ライブラリを利用して栽培データをJavaScriptで簡単に記述することにより、菜園カレンダー・菜園マップ・栽培記録を作成できます。
+                <article class="indent">
+                    菜園カレンダー<br>
+                    <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="330" style="zoom:0.75"></iframe>
+                    <div class="notes">中央が薄くなっている作業を選択すると説明が表示されます</div>
+                </article>
+                <article class="indent">
+                    菜園マップ<br>
+                    <iframe class="view_frame" src="./cm_sample2.html" frameborder="1" width="530" height="400" style="zoom:0.75"></iframe>
+                </article>
+                <article class="indent">
+                    栽培記録<br>
+                    <iframe class="view_frame" src="./cl_sample2.html" frameborder="1" width="600" height="480" style="zoom:0.75"></iframe>
+                    <div class="notes">作物名を選択して表示します</div>
+                </article>
+            </p>
+            <h4 class="mono">開発の経緯</h4>
+            <div class="indent">
+                <ul class="indent">
                     <li>いつ何を植えれば良いかも分かっていない素人が手探りで野菜を育てているが、野菜は時期を逃すと栽培できないため、野菜作りに必要な作業を行う時期が一目でわかる菜園カレンダーを作ることにした</li>
                     <li>最初は一般的な作表ツール（Excelなど123的なやつ）や作図ツール（ドロー系ソフト）で作ってみたが、どうにも使いにくい（修正に余計な手間と時間が掛かる）し、見た目が不細工になってしまう</li>
                     <li>それなら優秀な先人が開発した作図ライブラリを利用して作ろうと考えたが、一般的なカレンダーやガントチャートを作成するライブラリは多くあるものの、菜園カレンダーに利用できる作図ライブラリが何故か見つからない</li>
                     <li>以上のことから、先ず専用のライブラリを開発してから、菜園カレンダーを作ることにした</li>
                     <li>次に、菜園マップと作物ごとの栽培記録を作成する機能をライブラリに追加した</li>
+                    <li>菜園カレンダー・菜園マップ・栽培記録を作成するためには、栽培データをJavaScriptで簡単に記述
+                        （つまりJavaScript言語でプログラミング）する必要があり、一般的には面倒かもしれない。
+                        もし他に利用する人がいるなら、Excelで作成した栽培データを読み込んで自動生成する仕組みを用意しても良いかも。                        
+                    </li>
                 </ul>
-
-            </dd>
-        </dl>
-
+            </div>
+        </section>
         <section>
             <h3 class="mono">ダウンロード</h3>
             <div class="section_content">
