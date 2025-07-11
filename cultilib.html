@@ -255,7 +255,7 @@
                     <li>WEBページ（HTMLファイル）を作成する（例：`index.html`ファイル）
                         <ul class="indent">
                             <li>描画領域としてcanvasを作成<br>
-                                <code>&lt;canvas id="CultiPlan"&gt;&lt;/canvas&gt;</code>
+                                <code>&lt;canvas id="CultiPlan" width="520" height="280"&gt;&lt;/canvas&gt;</code>
                             </li>
                             <li>栽培計画クラス`CultivationPlan.min.js`を読み込む<br>
                                 <code>&lt;script src="js/CultivationPlan.min.js"&gt;&lt;/script&gt;</code>
@@ -308,7 +308,10 @@
                                                 const rect = canvas.getBoundingClientRect();<br>
                                                 const mx = event.clientX - rect.left;<br>
                                                 const my = event.clientY - rect.top;<br>
-                                                plan.action_clicked(mx, my);<br>
+                                                // canvasタグ指定canvasサイズ：520 x 280<br>
+                                                const rx = 520 / rect.width;<br>
+                                                const ry = 280 / rect.height;<br>
+                                                plan.action_clicked(mx * rx, my * ry);<br>
                                             });   
                                         </code>
                                     </li>

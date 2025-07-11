@@ -479,7 +479,7 @@
         const rect = canvas.getBoundingClientRect();
         const mx = event.clientX - rect.left;
         const my = event.clientY - rect.top;
-        // 元々のcanvasサイズ：450 x 730
+        // canvasタグ指定canvasサイズ：450 x 730
         const rx = 450 / rect.width;
         const ry = 730 / rect.height;
         plan.action_clicked(mx * rx, my * ry);
