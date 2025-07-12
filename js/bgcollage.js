@@ -33,6 +33,7 @@ function collage(base_num, pic_num, white_ratio) {
     bg_collage.style.zIndex = '-2';
     document.body.appendChild(bg_collage);
     const bg_cover = document.createElement('div');
+    bg_cover.id = 'bg_cover';
     cover_whole_(bg_cover);
     bg_cover.style.backgroundColor = `rgba(245,245,255,0.5)`;
     bg_cover.style.zIndex = '-1';
@@ -55,4 +56,11 @@ function collage(base_num, pic_num, white_ratio) {
         style_random_(img, bg_rect, pic_sz, white_ratio);
         bg_collage.appendChild(img);
     }
+}
+
+function clear() {
+    const bg_collage = document.getElementById('bg_collage');
+    const bg_cover = document.getElementById('bg_cover');
+    document.body.removeChild(bg_collage);
+    document.body.removeChild(bg_cover);
 }
