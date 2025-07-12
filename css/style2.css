@@ -1,11 +1,10 @@
 @charset "utf-8";
 
 body {
-    /* background: WhiteSmoke; */
-    background: none;
+    /* background: none; */
+    background: rgb(245,245,255);
 }
 #menu_btn, #menu_cont {
-    /* background-color: WhiteSmoke; */
     background-color: transparent;
 }
 #menu_btn span,
