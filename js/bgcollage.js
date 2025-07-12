@@ -1,5 +1,5 @@
 
-function style_fixed100_(elem) {
+function cover_whole_(elem) {
     elem.style.position = 'absolute';
     elem.style.top = '0';
     elem.style.left = '0';
@@ -22,15 +22,21 @@ function style_random_(elem, rect, szset, white_ratio) {
     elem.style.left = `${px}px`;
     elem.style.top = `${py}px`;
     elem.style.transform = `rotate(${rotang}deg)`;
-    elem.style.opacity = `${1 - white_ratio}`;
+    const opa = (1 - white_ratio);
+    elem.style.opacity = `${opa}`;
 }
 
 function collage(base_num, pic_num, white_ratio) {
     const bg_collage = document.createElement('div');
     bg_collage.id = 'bg_collage';
-    style_fixed100_(bg_collage);
+    cover_whole_(bg_collage);
     bg_collage.style.zIndex = '-2';
     document.body.appendChild(bg_collage);
+    const bg_cover = document.createElement('div');
+    cover_whole_(bg_cover);
+    bg_cover.style.backgroundColor = `rgba(245,245,255,0.5)`;
+    bg_cover.style.zIndex = '-1';
+    document.body.appendChild(bg_cover);
     const base_sz = [ 512, 768, 896 ];
     const pic_sz = [ 192, 256, 384 ];
     const bg_rect = bg_collage.getBoundingClientRect();
