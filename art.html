@@ -16,12 +16,18 @@
         max-height: 140px;
         margin: 2px;
     }
+    #inputSlideBar {
+        width: 320px;
+    }
     @media (max-width: 700px) {
         main img {
             border-radius: 3px;
             max-width: 80px;
             max-height: 80px;
             margin: 1px;
+        }
+        #inputSlideBar {
+            width: 90%;
         }
     }
 </style>
@@ -94,7 +100,7 @@
         <article>
             <h3 class="mono">背景</h3>
             <p>
-                <input type="range" id="inputSlideBar" min="0" max="100" step="10" value="10" style="width: 320px">
+                <input type="range" id="inputSlideBar" min="0" max="100" step="10" value="10">
             </p>
         </article>
     </main>
