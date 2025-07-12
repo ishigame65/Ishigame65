@@ -41,18 +41,26 @@ function collage(base_num, pic_num, white_ratio) {
     const base_sz = [ 512, 768, 896 ];
     const pic_sz = [ 192, 256, 384 ];
     const bg_rect = bg_collage.getBoundingClientRect();
-    for (let n = 1; n <= base_num; n++) {
+    const b123 = new Array(base_num).fill(0).map((_, i) => i + 1);  // [1,2,3,...,base_num]
+    const b312 = b123.sort(() => Math.random() - 0.5);  // [random 1,...,base_num]
+    // for (let n = 1; n <= base_num; n++) {
+    for (let i = 0; i < b312.length; i++) {
         const img = document.createElement('div');
-        img.id = `b${n}`;
-        img.style.backgroundImage = `url("img/bliub${n}.jpg")`;
+        // img.id = `b${n}`;
+        // img.style.backgroundImage = `url("img/bliub${n}.jpg")`;
+        img.style.backgroundImage = `url("img/bliub${b312[i]}.jpg")`;
         style_random_(img, bg_rect, base_sz, white_ratio);
         img.style.filter = 'grayscale(100%)';
         bg_collage.appendChild(img);
     }
-    for (let n = 1; n <= pic_num; n++) {
+    const f123 = new Array(pic_num).fill(0).map((_, i) => i + 1);  // [1,2,3,...,base_num]
+    const f312 = b123.sort(() => Math.random() - 0.5);  // [random 1,...,base_num]
+    // for (let n = 1; n <= pic_num; n++) {
+    for (let i = 0; i < f312.length; i++) {
         const img = document.createElement('div');
-        img.id = `f${n}`;
-        img.style.backgroundImage = `url("img/bliuf${n}.jpg")`;
+        // img.id = `f${n}`;
+        // img.style.backgroundImage = `url("img/bliuf${n}.jpg")`;
+        img.style.backgroundImage = `url("img/bliuf${f312[i]}.jpg")`;
         style_random_(img, bg_rect, pic_sz, white_ratio);
         bg_collage.appendChild(img);
     }
