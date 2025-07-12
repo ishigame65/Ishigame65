@@ -87,6 +87,16 @@
             <img src="img/art3s.jpg">
             <img src="img/art4s.jpg">
         </article>
+        <!-- 遊び -->
+        <!-- <h2 class="mono">क्रीडतु</h2> -->
+        <br><br>
+        <h2 class="mono">සෙල්ලම් කරනවා</h2>
+        <article>
+            <h3 class="mono">背景</h3>
+            <p>
+                <input type="range" id="inputSlideBar" min="0" max="100" step="10" value="10" style="width: 320px">
+            </p>
+        </article>
     </main>
     <footer> <!-- フッターコンテンツ -->
         <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
@@ -106,6 +116,15 @@
 <script src="js/bgcollage.js"></script>
 <script>
     collage(6, 18, 0.9);    // base_num, pic_num, white_ratio
+</script>
+
+<script>
+    const inputSlideBarElement = document.getElementById('inputSlideBar');
+    inputSlideBarElement.addEventListener('change', function(){        
+        const ratio = 1 - inputSlideBarElement.value / 100;
+        clear();
+        collage(6, 18, ratio);    // base_num, pic_num, white_ratio
+    });
 </script>
 
 </body>
