@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style2.css">
-	<meta name="description" content="観艦式">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.0/dist/leaflet.css" />
+
+    <meta name="description" content="観艦式">
 	<link rel="shortcut icon" href="img/kame.ico">
 	<title>観艦式</title>
 </head>
@@ -16,12 +18,20 @@
         max-height: 200px;
         margin: 2px;
     }
+    #mapcontainer {
+        width: 600px;
+        height: 600px;
+        background-color: yellow;
+    }
     @media (max-width: 700px) {
         main img {
             border-radius: 3px;
             max-width: 126px;
             max-height: 126px;
             margin: 1px;
+        }
+        #mapcontainer {
+            width: 95%;
         }
     }
 </style>
@@ -108,6 +118,8 @@
             <img src="img/ph09kongo23.jpg">
             <img src="img/ph09kongo24.jpg">
             <img src="img/ph09kongo25.jpg">
+            <h3 class="mono">実施海域と航路</h3>
+            <div id="mapcontainer"></div>
         </article>
     </main>
     <footer> <!-- フッターコンテンツ -->
@@ -128,6 +140,42 @@
 <script src="js/bgcollage.js"></script>
 <script>
     collage(6, 18, 0.9);    // base_num, pic_num, white_ratio
+</script>
+
+<script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
+<script>
+    function init() {
+      var map = L.map('mapcontainer', { zoomControl: false });
+      map.setView([35.2,139.5], 10);  //地図の中心とズームレベルを指定
+
+      L.tileLayer('http://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png',
+        {attribution: "<a href='http://portal.cyberjapan.jp/help/termsofuse.html' target='_blank'>地理院タイル</a>"
+      }).addTo(map);    //地理院地図の淡色地図タイル
+
+      //スケールコントロールを最大幅200px、右下、m単位で地図に追加
+      L.control.scale({ maxWidth: 200, position: 'bottomright', imperial: false }).addTo(map);
+      //ズームコントロールを左下で地図に追加
+      L.control.zoom({ position: 'bottomleft' }).addTo(map);
+
+      var yport = [35.45,139.6472]; // 横浜港大さん橋
+      var ypopup = L.popup().setContent("こんごうは横浜港大さん橋からの出港でした");
+      L.circleMarker(yport, { radius: 10, color: 'red', weight: 2, fill: false }).bindPopup(ypopup).bindTooltip("横浜港大さん橋").addTo(map);
+
+      var route = [yport, [35.455,139.652], [35.456,139.67], [35.43,139.72], [35.32,139.73], [35.267,139.77], [35.17,139.75],
+                        [35.1,139.7], [35.075,139.6], [35.075,139.33], [35.06,139.33], [35.06,139.6], [35.09,139.71],
+                        [35.17,139.76], [35.268,139.78], [35.32,139.74], [35.435,139.73], [35.456,139.67]];
+      L.polyline(route, { color: 'blue', weight: 2 }).addTo(map);      //経路座標
+
+      L.polyline([[35.075,139.41], [35.075,139.44]], { color: 'red', weight: 2.5 }).addTo(map);      //矢印
+      L.polyline([[35.07,139.42], [35.075,139.41], [35.08,139.42]], { color: 'red', weight: 2.5 }).addTo(map);      //矢印
+
+      L.polyline([[35.06,139.4], [35.06,139.43]], { color: 'red', weight: 2.5 }).addTo(map);      //矢印
+      L.polyline([[35.055,139.42], [35.06,139.43], [35.065,139.42]], { color: 'red', weight: 2.5 }).addTo(map);      //矢印
+
+      var arealatlons = [[35.1,139.29], [35.1,139.55], [35.035,139.55], [35.035,139.29]];
+      L.polygon(arealatlons, { color: 'orange', weight: 2, fill: true, fillColor: 'orange', opacity: 0.5 }).addTo(map);      //観艦式海域
+    }
+    init();
 </script>
 
 </body>
