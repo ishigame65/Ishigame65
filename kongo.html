@@ -159,8 +159,9 @@
       L.control.zoom({ position: 'bottomleft' }).addTo(map);
 
       var yport = [35.45,139.6472]; // 横浜港大さん橋
-      var ypopup = L.popup().setContent("こんごうは横浜港大さん橋からの出港でした");
-      L.circleMarker(yport, { radius: 10, color: 'red', weight: 2, fill: false }).bindPopup(ypopup).bindTooltip("横浜港大さん橋").addTo(map);
+    //   var ypopup = L.popup().setContent("こんごうは横浜港大さん橋からの出港でした");
+    //   L.circleMarker(yport, { radius: 10, color: 'red', weight: 2, fill: false }).bindPopup(ypopup).bindTooltip("横浜港大さん橋").addTo(map);
+      L.circleMarker(yport, { radius: 10, color: 'red', weight: 2, fill: false }).bindTooltip("横浜港大さん橋").addTo(map);
 
       var route = [yport, [35.455,139.652], [35.456,139.67], [35.43,139.72], [35.32,139.73], [35.267,139.77], [35.17,139.75],
                         [35.1,139.7], [35.075,139.6], [35.075,139.33], [35.06,139.33], [35.06,139.6], [35.09,139.71],
