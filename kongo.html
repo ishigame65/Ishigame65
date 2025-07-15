@@ -149,8 +149,8 @@
       var map = L.map('mapcontainer', { zoomControl: false });
       map.setView([35.2,139.5], zoomlevel);  //地図の中心とズームレベルを指定
 
-      L.tileLayer('http://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png',
-        {attribution: "<a href='http://portal.cyberjapan.jp/help/termsofuse.html' target='_blank'>地理院タイル</a>"
+      L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png',
+        {attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"
       }).addTo(map);    //地理院地図の淡色地図タイル
 
       //スケールコントロールを最大幅200px、右下、m単位で地図に追加
