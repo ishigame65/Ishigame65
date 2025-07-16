@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style2.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.0/dist/leaflet.css" />
-
     <meta name="description" content="観艦式">
 	<link rel="shortcut icon" href="img/kame.ico">
 	<title>観艦式</title>
@@ -90,11 +88,12 @@
         <h2 class="mono">観艦式</h2>
         <article class="maxw100">
             <div class="article_content">
+                海上自衛隊の護衛艦「こんごう」に乗船して撮影。
                 <ul class="indent">
-                    <li>海上自衛隊の護衛艦「こんごう」に乗船して撮影。こんごうは日本で最初にイージスシステムを搭載した艦で比較的古い。</li>
+                    <li>こんごうは日本で最初にイージスシステムを搭載した艦で比較的古い。</li>
                     <li>主砲はイタリア製で（昔の戦艦に比べて）驚くほど細い。
                         乗組員にどうやって敵機に命中させるのか尋ねたところ「対空戦では当たるまで撃ち続ける」とのこと。</li>
-                    <li>操舵室はアナログ機器が多く時代を感じさせる。</li>
+                    <li>操舵室はアナログ機器が並び時代を感じさせる。</li>
                     <li>イージス艦でこの程度かとある意味驚いた。有事に役に立つのか？</li>
                 </ul>
             </div>
@@ -142,28 +141,25 @@
     collage(6, 18, 0.9);    // base_num, pic_num, white_ratio
 </script>
 
-<script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
+<!-- 地図 -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
     function init() {
       const zoomlevel = (window.matchMedia && window.matchMedia('(max-device-width: 700px)').matches) ? 9: 10;
-      var map = L.map('mapcontainer', { zoomControl: false });
+      const map = L.map('mapcontainer');
       map.setView([35.2,139.5], zoomlevel);  //地図の中心とズームレベルを指定
 
       L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png',
         {attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"
       }).addTo(map);    //地理院地図の淡色地図タイル
 
-      //スケールコントロールを最大幅200px、右下、m単位で地図に追加
-      L.control.scale({ maxWidth: 200, position: 'bottomright', imperial: false }).addTo(map);
-      //ズームコントロールを左下で地図に追加
-      L.control.zoom({ position: 'bottomleft' }).addTo(map);
+      L.control.scale({ imperial: false, metric: true  }).addTo(map);   //スケールバー
 
-      var yport = [35.45,139.6472]; // 横浜港大さん橋
-    //   var ypopup = L.popup().setContent("こんごうは横浜港大さん橋からの出港でした");
-    //   L.circleMarker(yport, { radius: 10, color: 'red', weight: 2, fill: false }).bindPopup(ypopup).bindTooltip("横浜港大さん橋").addTo(map);
+      const yport = [35.45,139.6472]; // 横浜港大さん橋
       L.circleMarker(yport, { radius: 10, color: 'red', weight: 2, fill: false }).bindTooltip("横浜港大さん橋").addTo(map);
 
-      var route = [yport, [35.455,139.652], [35.456,139.67], [35.43,139.72], [35.32,139.73], [35.267,139.77], [35.17,139.75],
+      const route = [yport, [35.455,139.652], [35.456,139.67], [35.43,139.72], [35.32,139.73], [35.267,139.77], [35.17,139.75],
                         [35.1,139.7], [35.075,139.6], [35.075,139.33], [35.06,139.33], [35.06,139.6], [35.09,139.71],
                         [35.17,139.76], [35.268,139.78], [35.32,139.74], [35.435,139.73], [35.456,139.67]];
       L.polyline(route, { color: 'blue', weight: 2 }).addTo(map);      //経路座標
