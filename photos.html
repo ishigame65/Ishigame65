@@ -11,6 +11,14 @@
 	<title>あの日あの時あの場所の写真</title>
 </head>
 <style>
+    #earthmap {
+        position: relative;
+        height: 490px;
+        /* display: none; */
+    }
+    #all_photo {
+        display: none;
+    }
     main img {
         border-radius: 4px;
         max-width: 300px;
@@ -34,24 +42,7 @@
             max-width: 270px;
         }
     }
-    /* 以下のツールチップ表示スマホ対応は全く機能しない */
-    /* @media (pointer: coarse), (hover: none) {
-        .type3[title] {
-            position: relative;
-            display: inline-flex;
-            justify-content: center;
-        }
-        .type3[title]:focus::after {
-            content: attr(title);
-            position: absolute;
-            top: 90%;
-            color: #000;
-            background-color: #fff;
-            border: 1px solid;
-            width: fit-content;
-            padding: 3px;
-        }
-    } */
+
 </style>
 <body>
  
@@ -106,7 +97,13 @@
             </ul>
         </div> <!-- breadcrumb -->
         <h2 class="mono">あの日あの時あの場所の写真</h2>
-        <section class="indent photos">
+        <section id="earthmap">
+            <div id="map"></div>
+            <div class="map-overlay">
+                <select name="selectTarget" id="selectTarget"></select>
+            </div>
+        </section>
+        <section id ="all_photo" class="indent photos">
             <a href="javascript:mapup(135, 7.3, -58.4, '2021 埼玉');">
                 <img class="type3" title="2021 埼玉" src="img/ph21sai1.jpg">
             </a>
@@ -231,11 +228,55 @@
     </footer>
 </div>
 
-<script src="js/popup2.js"></script><!-- 検討中 -->
+<script src="js/popup2.js"></script>
 
 <script src="js/bgcollage.js"></script>
 <script>
     collage(6, 18, 0.9);    // base_num, pic_num, white_ratio
+</script>
+
+<!-- 地球地図 -->
+<link rel='stylesheet' href='css/mapearth.css' />
+<link rel='stylesheet' href='https://unpkg.com/maplibre-gl/dist/maplibre-gl.css' />
+<script src='https://unpkg.com/maplibre-gl/dist/maplibre-gl.js'></script>
+<script src="js/mapearth.min.js"></script>
+<script>
+    const targets = {
+        '2023 埼玉': { center: [139.7, 34.95], zoom: 3, contents: '<img src="img/phhasuda1.jpg">' },
+        '2021 埼玉': { center: [139.7, 34.95], zoom: 3, contents: '<img src="img/ph21sai1.jpg">' },
+        '2011 熊本 1': { center: [131, 32.05], zoom: 3, contents: '<img src="img/phkumamoto1.jpg">' },
+        '2011 熊本 2': { center: [131, 32.05], zoom: 3, contents: '<img src="img/phkumamoto2.jpg">' },
+        '2011 新竹': { center: [121, 24], zoom: 3, contents: '<img src="img/phtaiwan1.jpg">' },
+        '2010 東京': { center: [139.17, 34.82], zoom: 3, contents: '<img src="img/phome1.jpg">' },
+        '2010 Bangkok': { center: [100.5, 12.85], zoom: 3, contents: '<img src="img/ph10bangkok1.jpg">' },
+        '2009 広東 1': { center: [113.2, 22.2], zoom: 3, contents: '<img src="img/phgz1.jpg">' },
+        '2009 広東 2': { center: [112.2, 22.2], zoom: 3, contents: '<img src="img/phgd1.jpg">' },
+        '2009 広東 3': { center: [112.2, 22.2], zoom: 3, contents: '<img src="img/ph09gd2.jpg">' },
+        '2005 Napoli': { center: [14.2, 40.1], zoom: 3, contents: '<img src="img/ph2005napoli1.jpg">' },
+        '2005 Bari': { center: [16.82, 40.17], zoom: 3, contents: '<img src="img/ph2005bari1.jpg">' },
+        '1993 Bali 1': { center: [115.4, -9.2], zoom: 3, contents: '<img src="img/ph93bali1.jpg">' },
+        '1993 Bali 2': { center: [115.4, -9.2], zoom: 3, contents: '<img src="img/ph93bali2.jpg">' },
+        '1992 Saipan': { center: [145.75, 14.24], zoom: 3, contents: '<img src="img/ph92saipan1.jpg">' },
+        '1992 Istanbul 1': { center: [29.04, 40.2], zoom: 3, contents: '<img src="img/sh92istanbul1.jpg">' },
+        '1992 Istanbul 2': { center: [29.0, 40.05], zoom: 3, contents: '<img src="img/sh92istanbul2.jpg">' },
+        '1992 Istanbul 3': { center: [29.0, 40.05], zoom: 3, contents: '<img src="img/sh92istanbul3.jpg">' },
+        '1992 Istanbul 4': { center: [29.0, 40.05], zoom: 3, contents: '<img src="img/sh92istanbul4.jpg">' },
+        '1992 Istanbul 5': { center: [29.0, 40.05], zoom: 3, contents: '<img src="img/sh92istanbul5.jpg">' },
+        '1992 Istanbul 6': { center: [29.0, 40.05], zoom: 3, contents: '<img src="img/sh92istanbul6.jpg">' },
+        '1992 Istanbul 7': { center: [29.0, 40.05], zoom: 3, contents: '<img src="img/sh92istanbul7.jpg">' },
+        '1992 Izmir': { center: [26.5, 37.7], zoom: 3, contents: '<img src="img/sh92izmir1.jpg">' },
+        '1989 Ayutthaya': { center: [100.6, 13.5], zoom: 3, contents: '<img src="img/ph89ayutthaya1.jpg">' },
+        '1989 Singapore': { center: [103.8, 0.28], zoom: 3, contents: '<img src="img/ph89singapore1.jpg">' },
+        '1988 D.C.': { center: [283, 38], zoom: 3, contents: '<img src="img/ph88dc1.jpg">' },
+        '1988 Ontario': { center: [280.2, 42.2], zoom: 3, contents: '<img src="img/ph88ontario1.jpg">' },
+        '1987 Indiana': { center: [273.84, 38.83], zoom: 3, contents: '<img src="img/ph87indiana1.jpg">' },
+        '1986 上海 1': { center: [121.5, 30.3], zoom: 3, contents: '<img src="img/ph86shanghai1.jpg">' },
+        '1986 上海 2': { center: [121.5, 30.3], zoom: 3, contents: '<img src="img/ph86shanghai2.jpg">' },
+        '1986 陝西': { center: [108.93, 33.22], zoom: 3, contents: '<img src="img/ph86xian1.jpg">' },
+    }
+    const start = Math.floor(Math.random() * Object.keys(targets).length);
+    build_earth(targets, start);
+    // window.addEventListener('DOMContentLoaded', build_earth(targets));
 </script>
 
 </body>
