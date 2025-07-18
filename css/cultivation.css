@@ -109,7 +109,8 @@
 .popup-contents img {
   float: left;
   max-width: 460px;
-  /* margin-right: 15px; */
+  max-height: 230px;
+  object-fit: contain;
   margin-right: 1em;
   border-radius: 5px;
 }
@@ -184,22 +185,22 @@ ul.marker01 li:before {
 
 @media (max-width: 700px) {
   .popup-inner {
-    /* padding: 15px; */
     max-height: 320px;
-  }
-
-  .popup-contents img {
-    /* margin-right: 10px; */
-    width: 192px;
-  }
-
-  .popup-contents iframe {
-    width: 192px;
   }
 
   .popup-contents {
     max-height: 280px;
     font-size: 12px;
+  }
+
+  .popup-contents img {
+    max-width: 192px;
+    max-height: 96px;
+    object-fit: contain;
+  }
+
+  .popup-contents iframe {
+    width: 192px;
   }
 
   ul.marker01 {
@@ -208,4 +209,3 @@ ul.marker01 li:before {
     margin-left: 0;
   }
 }
-
