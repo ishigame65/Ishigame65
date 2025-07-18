@@ -153,24 +153,14 @@
                 <table class="download">
                     <tr><th>ファイル名</th><th>種類</th><th>説明</th></tr>
                     <tr>
-                        <td><a href="js/CultivationPlan.min.js">CultivationPlan.min.js</a></td>
+                        <td><a href="js/cultivation.min.js">cultivation.min.js</a></td>
                         <td>JavsScriptファイル</td>
-                        <td>栽培計画クラス</td>
+                        <td>栽培ライブラリ</td>
                     </tr>
                     <tr>
-                        <td><a href="js/CultivationMap.min.js">CultivationMap.min.js</a></td>
-                        <td>JavsScriptファイル</td>
-                        <td>栽培地図クラス</td>
-                    </tr>
-                    <tr>
-                        <td><a href="js/CultivationPlants.min.js">CultivationPlants.min.js</a></td>
-                        <td>JavsScriptファイル</td>
-                        <td>栽培植物クラス（栽培地図で利用）</td>
-                    </tr>
-                    <tr>
-                        <td><a href="js/CultivationLog.min.js">CultivationLog.min.js</a></td>
-                        <td>JavsScriptファイル</td>
-                        <td>栽培記録クラス</td>
+                        <td><a href="css/cultivation.css">cultivation.css</a></td>
+                        <td>CSSファイル</td>
+                        <td>栽培ライブラリ用の体裁を整えるスタイルシート</td>
                     </tr>
                     <tr>
                         <td><a href="img/pluspat1.png">pluspat1.png</a></td>
@@ -182,21 +172,6 @@
                         <td>PNG画像ファイル</td>
                         <td>栽培地図の方位マーク画像</td>
                     </tr>
-                    <tr>
-                        <td><a href="css/CultiLog.css">CultiLog.css</a></td>
-                        <td>CSSファイル</td>
-                        <td>栽培記録の体裁を整えるスタイルシート</td>
-                    </tr>
-                    <tr>
-                        <td><a href="js/popup.min.js">popup.min.js</a></td>
-                        <td>JavsScriptファイル</td>
-                        <td>栽培記録ポップアップ画面用ライブラリ</td>
-                    </tr>
-                    <tr>
-                        <td><a href="css/popup.css">popup.css</a></td>
-                        <td>CSSファイル</td>
-                        <td>栽培記録ポップアップ画面用スタイルシート</td>
-                    </tr>
                 </table>
                 ダウンロードした各ファイルを下図に示すフォルダに格納します<br>
                 <div class="sitemap">
@@ -205,17 +180,12 @@
                             <ul>
                                 <li>js/
                                     <ul>
-                                        <li>CultivationPlan.min.js</li>
-                                        <li>CultivationMap.min.js</li>
-                                        <li>CultivationPlants.min.js</li>
-                                        <li>CultivationLog.min.js</li>
-                                        <li>popup.min.js</li>
+                                        <li>cultivation.min.js</li>
                                     </ul>
                                 </li>
                                 <li>css/
                                     <ul>
-                                        <li>CultiLog.css</li>
-                                        <li>popup.css</li>
+                                        <li>cultivation.css</li>
                                     </ul>
                                 </li>
                                 <li>img/
@@ -244,7 +214,7 @@
                                         <li>index.html（次項で作成、任意ファイル名）</li>                                        
                                         <li>js/
                                             <ul>
-                                                <li>CultivationPlan.min.js</li>
+                                                <li>cultivation.min.js</li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -257,8 +227,8 @@
                             <li>描画領域としてcanvasを作成<br>
                                 <code>&lt;canvas id="CultiPlan" width="520" height="280"&gt;&lt;/canvas&gt;</code>
                             </li>
-                            <li>栽培計画クラス`CultivationPlan.min.js`を読み込む<br>
-                                <code>&lt;script src="js/CultivationPlan.min.js"&gt;&lt;/script&gt;</code>
+                            <li>栽培ライブラリ`cultivation.min.js`を読み込む<br>
+                                <code>&lt;script src="js/cultivation.min.js"&gt;&lt;/script&gt;</code>
                             </li>
                             <li>菜園カレンダーを作成する処理を記述
                                 <ol class="indent">
@@ -365,8 +335,7 @@
                                         <li>index.html（次項で作成、任意ファイル名）</li>                                        
                                         <li>js/
                                             <ul>
-                                                <li>CultivationMap.min.js</li>
-                                                <li>CultivationPlants.min.js</li>
+                                                <li>cultivation.min.js</li>
                                             </ul>
                                         </li>
                                         <li>img/
@@ -385,11 +354,8 @@
                             <li>描画領域としてcanvasを作成<br>
                                 <code>&lt;canvas id="CultiMap" width="229" height="229"&gt;&lt;/canvas&gt;</code>
                             </li>
-                            <li>栽培植物クラス`CultivationPlants.min.js`を読み込む（栽培植物クラスを利用する場合）<br>
-                                <code>&lt;script src="js/CultivationPlants.min.js"&gt;&lt;/script&gt;</code>
-                            </li>
-                            <li>栽培地図クラス`CultivationMap.min.js`を読み込む<br>
-                                <code>&lt;script src="js/CultivationMap.min.js"&gt;&lt;/script&gt;</code>
+                            <li>栽培ライブラリ`cultivation.min.js`を読み込む<br>
+                                <code>&lt;script src="js/cultivation.min.js"&gt;&lt;/script&gt;</code>
                             </li>
                             <li>菜園マップを作成する処理を記述
                                 <ol class="indent">
@@ -481,14 +447,12 @@
                                         <li>index.html（次項で作成、任意ファイル名）</li>                                        
                                         <li>js/
                                             <ul>
-                                                <li>CultivationLog.min.js</li>
-                                                <li>popup.min.js</li>
+                                                <li>cultivation.min.js</li>
                                             </ul>
                                         </li>
                                         <li>css/
                                             <ul>
-                                                <li>CultiLog.css</li>
-                                                <li>popup.css</li>
+                                                <li>cultivation.css</li>
                                             </ul>
                                         </li>
                                         <li>img/</li>
@@ -499,14 +463,14 @@
                     </li>
                     <li>WEBページ（HTMLファイル）を作成する（例：`index.html`ファイル）
                         <ul class="indent">
-                            <li>栽培記録の体裁を整えるスタイルシートを読み込む<br>
-                                <code>&lt;link rel="stylesheet" href="css/CultiLog.css"&gt;</code>
+                            <li>栽培ライブラリ用の体裁を整えるスタイルシートを読み込む<br>
+                                <code>&lt;link rel="stylesheet" href="css/cultivation.css"&gt;</code>
                             </li>
                             <li>栽培記録用のdiv領域を作成<br>
                                 <code>&lt;div id="CultiLog"&gt;&lt;/div&gt;</code>
                             </li>
-                            <li>栽培記録クラス`CultivationLog.min.js`を読み込む<br>
-                                <code>&lt;script src="js/CultivationLog.min.js"&gt;&lt;/script&gt;</code>
+                            <li>栽培ライブラリ`cultivation.min.js`を読み込む<br>
+                                <code>&lt;script src="js/cultivation.min.js"&gt;&lt;/script&gt;</code>
                             </li>
                             <li>栽培記録を作成する処理を記述
                                 <ol class="indent">

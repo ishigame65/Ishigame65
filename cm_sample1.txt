@@ -11,8 +11,8 @@
     <!-- 菜園マップの描画領域を作成 -->
     <canvas id="CultiMap" width="229" height="229"></canvas>
 
-    <!-- 栽培ライブラリの栽培地図クラスを読み込み -->
-    <script src="js/CultivationMap.min.js"></script>
+    <!-- 栽培ライブラリを読み込み -->
+    <script src="js/cultivation.min.js"></script>
 
     <!-- 菜園マップを作成する -->
     <script>
