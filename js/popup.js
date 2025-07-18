@@ -1,12 +1,11 @@
 'use strict';
 
 // モーダル（ポップアップ）
-const modalBtn = document.querySelectorAll('.popup-open');
-const modalWindow = document.querySelectorAll('.popup-wrap');
-const modalClose = document.querySelectorAll('.popup-close');
-const modalBG = document.querySelectorAll('.popup-back');
-
 window.addEventListener('DOMContentLoaded', function () {
+  const modalBtn = document.querySelectorAll('.popup-open');
+  const modalWindow = document.querySelectorAll('.popup-wrap');
+  const modalClose = document.querySelectorAll('.popup-close');
+  const modalBG = document.querySelectorAll('.popup-back');
   for (let i = 0; i < modalBtn.length; i++) {
     modalBtn[i].addEventListener('click', function (e) {
       e.preventDefault();
