@@ -147,6 +147,7 @@
 <script>
     function init() {
         const zoomlevel = (window.matchMedia && window.matchMedia('(max-device-width: 700px)').matches) ? 9: 10;
+        // alert(zoomlevel);
         const map = L.map('mapcontainer');
         map.setView([35.2,139.5], zoomlevel);  //地図の中心とズームレベルを指定
 
