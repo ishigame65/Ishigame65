@@ -26,8 +26,11 @@
     border: 1px solid gray;
 }
 .mapPopup {
-    line-height: 12px;
+    line-height: 1em;
     /* opacity: 0.5; */
+}
+.mapPopup div{
+    padding: 0;
 }
 .mapPopup img {
     position: relative;
