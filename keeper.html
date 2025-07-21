@@ -243,9 +243,9 @@
 <script src="js/mapzoom.min.js"></script>
 <script>
     const targets = {
-        'Japan': { center: [139.694, 35.958], zoom: 1.5, speed:0.5, contents: '<p>日本（Japan）</p>' },
-        'Kanto': { center: [139.694, 35.958], zoom: 3, speed:0.5, contents: '<p>関東（Kanto）</p>' },
-        'Saitama': { center: [139.694, 35.958], zoom: 6, speed:0.2, contents: '<p>埼玉（Saitama）</p>' },
+        'Japan': { center: [139.694, 35.958], zoom: 1.5, yoff: 7, speed:0.5, contents: '<p>日本（Japan）</p>' },
+        'Kanto': { center: [139.694, 35.958], zoom: 3, yoff: 2.4, speed:0.5, contents: '<p>関東（Kanto）</p>' },
+        'Saitama': { center: [139.694, 35.958], zoom: 6, yoff: 0.3, speed:0.2, contents: '<p>埼玉（Saitama）</p>' },
     }
     mapzoom(targets, "saitamap.html");
 </script>
