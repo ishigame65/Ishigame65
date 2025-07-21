@@ -44,7 +44,7 @@
         0% { transform: translateX(0)}
         100% { transform: translateX(-100%)}
     }
-    .mapcase {
+    /* .mapcase {
         position: relative;
         width: 160px;
         height: 160px;
@@ -53,8 +53,8 @@
         position: absolute;
         top: 0;
         left: 0;
-    }
-    .fadein {
+    } */
+    /* .fadein {
         animation: fadein 1.5s forwards;
     }
     .fadein03 {
@@ -67,7 +67,7 @@
     @keyframes fadein03 {
         0% { opacity: 0; }
         100% { opacity: 0.3; }
-    }
+    } */
     /* .fadeout {
         animation: fadeout 1s both;
     }
@@ -75,7 +75,7 @@
         0% { opacity: 1; }
         100% { opacity: 0; }
     } */
-    .mapmark {
+    /* .mapmark {
         opacity: 0.3;
         border-bottom: 2px solid blue;
     }
@@ -106,7 +106,7 @@
         right: 0.5em;
         line-height: 1;
         background-color: yellow;
-    }
+    } */
     .mailto a {
         color: #5a5c5f;
         text-decoration: none;
@@ -205,16 +205,8 @@
             <dl>
             <dt>現住所（飼育場所）</dt>
             <dd>
-                <div class="mapcase">
-                    <img id="map1" class="fadein" src="img/cmapjpc1200c.png">
-                    <a href="saitamap.html"><img id="map1mark" class="mapmark fadein03" src="img/en50.png"></a>
-                    <p id="map1label">埼玉</p>
-                    <img id="map2" class="fadein" src="img/cmapjpa400.png">
-                    <img id="map2mark" class="mapmark fadein03" src="img/en50.png" onmouseover="map2over()">
-                    <p id="map2label">関東地方</p>
-                    <img id="map3" src="img/cmap115s400.png">
-                    <img id="map3mark" src="img/en50.png" class="mapmark" onmouseover="map3over()">
-                    <p id="map3label">日本</p>
+                <div id="mapwrap">
+                    <div id="map"></div>
                 </div>
             <dt>連絡先</dt>
             <dd>
@@ -243,25 +235,22 @@
         <a href="#logo"><span class="arrow-up"></span></a>    
     </footer>
 </div>
+        
+<!-- 以下OpenLayersのJavaScriptとCSS -->
+<link rel='stylesheet' href='css/mapzoom.css' />
+<link rel='stylesheet' href='https://unpkg.com/maplibre-gl/dist/maplibre-gl.css' />
+<script src='https://unpkg.com/maplibre-gl/dist/maplibre-gl.js'></script>
+<script src="js/mapzoom.min.js"></script>
+<script>
+    const targets = {
+        'Japan': { center: [139.694, 35.958], zoom: 1.5, speed:0.5, contents: '<p>日本（Japan）</p>' },
+        'Kanto': { center: [139.694, 35.958], zoom: 3, speed:0.5, contents: '<p>関東（Kanto）</p>' },
+        'Saitama': { center: [139.694, 35.958], zoom: 6, speed:0.2, contents: '<p>埼玉（Saitama）</p>' },
+    }
+    mapzoom(targets, "saitamap.html");
+</script>
 
 <script>
-    // 現住所地図切替
-    function map3over(){
-        document.getElementById("map3").style.display = "none";
-        document.getElementById("map3mark").style.display = "none";
-        document.getElementById("map3label").style.display = "none";
-        document.getElementById("map2").style.display = "block";
-        document.getElementById("map2mark").style.display = "block";
-        document.getElementById("map2label").style.display = "block";
-    }
-    function map2over(){
-        document.getElementById("map2").style.display = "none";
-        document.getElementById("map2mark").style.display = "none";
-        document.getElementById("map2label").style.display = "none";
-        document.getElementById("map1").style.display = "block";
-        document.getElementById("map1mark").style.display = "block";
-        document.getElementById("map1label").style.display = "block";
-    }
     // プロファイル画像ランダム切替
     var msrc = new Array("me01.jpg","me02.jpg","me03.jpg","me04.jpg","me05.jpg","me06.jpg","me07.jpg","me08.jpg");
     var mindex = -1
