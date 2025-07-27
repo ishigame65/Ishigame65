@@ -61,6 +61,9 @@
         font-size: 14px;
         list-style-type:none;
     }
+    .marker {
+        font-weight: bold;
+    }
     @media (max-width: 700px) {
         .desc ul li:before {
             margin-left: 0px;
@@ -166,7 +169,9 @@
                                     <div class="clear"></div>
                                 </div>
                                 <ul class="sublist">
-                                    <li>→ <a href="bikeindex.html">銀輪はたまに唄う</a></li>
+                                    <li><span class="marker">→</span>
+                                        <a href="bikeindex.html">銀輪はたまに唄う</a>
+                                    </li>
                                 </ul>
                             </li>
                             <li>何かを作ったり描いたり撮ったり<br>
@@ -176,9 +181,12 @@
                                     <div class="clear"></div>
                                 </div>
                                 <ul class="sublist">
-                                    <li><span id="markerp">・</span> <a href='photos.html'>あの日あの時あの場所の写真</a></li>
-                                    <!-- <li><span id="markerc">・</span> <a href='cultivation/cultilib.html'>栽培ライブラリ</a></li> -->
-                                    <li><span id="markert">・</span> <a href="software.html">自作ソフトウェア</a></li>
+                                    <li><span id="markerp" class="marker">・</span>
+                                        <a href='photos.html'>あの日あの時あの場所の写真</a>
+                                    </li>
+                                    <li><span id="markert" class="marker">・</span>
+                                        <a href="software.html">自作ソフトウェア</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -299,7 +307,6 @@
             "本サイトの画像や映像を編集するツールはDIY",
             "<a href='circuit.html'>回路</a>"
         );
-        const markc = document.getElementById("markerc");
         const markp = document.getElementById("markerp");
         const markt = document.getElementById("markert");
         let mindex = -1
@@ -309,12 +316,8 @@
             } while (index == mindex);
             document.getElementById("mpic").src = "img/" + msrc[index];
             document.getElementById("mtext").innerHTML = mdsc[index];
-            // markc.innerHTML = "・";
             markp.innerHTML = "・";
             markt.innerHTML = "・";
-            // if (index == 0) {
-            //     markc.innerHTML = "→";  // 栽培ライブラリ
-            // } else 
             if (index == 4) {
                 markp.innerHTML = "→";  // あの日あの時あの場所の写真
             } else if (index == 5) {
