@@ -1,5 +1,3 @@
-<!-- ★★　トライ＆エラー編集中、moriuchi65に合わせて復旧できる -->
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -12,6 +10,7 @@
     <title>地番区画データ取得ライブラリ</title>
 </head>
 <style>
+    /* 画面サイズに合わせた縮小表示はせず、スクロール表示で操作する前提 */
     #mapWrap {
         margin: 1em 0;
         position: relative;
@@ -19,16 +18,12 @@
         height: 928px;
         background-color: white;
         border: 1px solid gray;
-        /* try */
-        /* max-width: 97%;
-        min-width: 520px; */
     }  
     #normWrap {
         position: relative;
         width: 500px;
         height: 500px;
         border: 1px solid gray;
-        /* max-width: 98%; */
     }
     #mapBack {
         position: absolute;
@@ -36,7 +31,6 @@
         height: 100%;
         background-image: url(./gmapphoto.png);
         background-repeat: no-repeat;
-        /* background-size: contain; */
         opacity: 0.3;
         display: none;
     }
@@ -107,13 +101,9 @@
         text-decoration: none;
         line-height: 40px;
     }
-    /* try */
-    /* @media (max-width: 700px) {
-        #mapWrap, #mapCanvas, #mapBack {
-            width: 309px;
-            height: 309px;
-        }
-    } */
+    #note1, #note2 {
+        margin-top: 1em;
+    }
 </style>
 <body>
 
@@ -283,6 +273,7 @@
                         </code>
                     </li>
                     <li>取得した区画形状データ（ポリゴンデータ）座標を500x500サイズのキャンバスに描画する
+                        <div id="note2" class="notes">画面サイズに合わせて縮小表示しないため、小さい画面で利用される場合はスクロールしてご確認ください</div>
                         <div id="normWrap">
                             <canvas id="normCanvas"></canvas>
                         </div>
@@ -309,6 +300,7 @@
                         </code>
                     </li>
                     <li>取得した区画形状データ（ポリゴンデータ）座標をdst_ptsに合わせたサイズのキャンバスに描画する
+                        <div id="note1" class="notes">画面サイズに合わせて縮小表示しないため、小さい画面で利用される場合はスクロールしてご確認ください</div>
                         <div id="mapWrap">
                             <div id="mapBack"></div>
                             <canvas id="mapCanvas"></canvas>
@@ -385,7 +377,6 @@
 </div>
 
 <script src="landview.min.js"></script>
-<!-- <script src="landview.js"></script> -->
 <script>
     const norm_shape = {
         '6150-1':[[366.559, 234.957], [328.57, 329.133], [231.131, 290.308], [223.549, 267.553], [228.142, 255.582], [294.08, 84.631], [312.949, 76.858], [412.738, 118.778]],

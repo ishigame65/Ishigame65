@@ -10,6 +10,7 @@
     <title>所有地を可視化する</title>
 </head>
 <style>
+    /* 画面サイズに合わせた縮小表示はせず、スクロール表示で操作する前提 */
     #mapWrap {
         margin: 1em 0;
         position: relative;
@@ -24,7 +25,6 @@
         height: 100%;
         background-image: url(./gmapphoto.png);
         background-repeat: no-repeat;
-        /* background-size: contain; */
         opacity: 0.3;
         display: none;
     }
@@ -71,12 +71,9 @@
     code {
         color: darkgoldenrod;
     }
-    /* @media (max-width: 700px) {
-        #mapWrap, #mapCanvas, #mapBack {
-            width: 309px;
-            height: 309px;
-        }
-    } */
+    #note1 {
+        margin-top: 1em;
+    }
 </style>
 <body>
 
@@ -151,6 +148,7 @@
                     </li>
                     <li>地番は区画面積に応じたサイズで表示され、最小サイズで表示される地番は表示の度に若干異なる位置に表示される。</li>
                 </ul>
+                <div id="note1" class="notes">画面サイズに合わせて縮小表示しないため、小さい画面で利用される場合はスクロールしてご確認ください</div>
                 <div id="mapWrap">
                     <div id="mapBack"></div>
                     <canvas id="mapCanvas"></canvas>
@@ -245,7 +243,6 @@
     </footer>
 </div>
 
-<!-- <script src="landview.js"></script> -->
 <script src="landview.min.js"></script>
 <script>
     const owners = {
@@ -290,9 +287,7 @@
         '6155-15':[[635.898, 631.373], [669.258, 660.741], [654.829, 677.439], [620.861, 648.767]],
     }
 
-    // mapview = new LandView('mapCanvas');
-    mapview = new LandView('mapCanvas', 1);
-
+    mapview = new LandView('mapCanvas');
     mapview.draw(fit_shape, 1, ...[owners, '未指定']);
 
     const checkChiban = document.getElementById('checkChiban');
