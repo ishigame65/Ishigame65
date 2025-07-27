@@ -17,7 +17,6 @@
         height: 928px;
         background-color: white;
         border: 1px solid gray;
-        max-width: 98%;
     }  
     #normWrap {
         position: relative;
@@ -32,6 +31,7 @@
         height: 100%;
         background-image: url(./gmapphoto.png);
         background-repeat: no-repeat;
+        background-size: contain;
         opacity: 0.3;
         display: none;
     }
@@ -101,6 +101,12 @@
         color: #5a5c5f;
         text-decoration: none;
         line-height: 40px;
+    }
+    @media (max-width: 700px) {
+        #mapWrap, #mapCanvas, #mapBack {
+            width: 309px;
+            height: 309px;
+        }
     }
 </style>
 <body>
