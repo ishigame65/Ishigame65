@@ -1,0 +1,45 @@
+<!-- 栽培ライブラリを利用して栽培記録を作成するサンプル -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cultivation.css">
+    <meta name="description" content="栽培記録2">
+    <title>栽培記録2</title>
+    <style>
+        #CultiLog img {
+            width: 40%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 栽培記録用のdiv領域を作成 -->
+    <div id="CultiLog"></div>
+
+    <!-- 栽培ライブラリを読み込み -->
+    <script src="cultivation.min.js"></script>
+
+    <!-- 栽培記録を作成する -->
+    <script>
+        // 栽培記録オブジェクト生成
+        const log = new CultivationLog("CultiLog");
+
+        // 作物と日付ごとに栽培記録を追加
+        log.add_log('玉ねぎ', '2025/06/07', 'a250607t.jpg', '収穫');
+        log.add_log('ニラ', '2024/04/26', 'a240426nr.jpg', '2年目春');
+        log.add_log('ニラ', '2025/01/25', 'a250113nr1.jpg, a250113nr2.jpg', '3年目冬刈取');
+
+        // 見栄え調整（オプション設定）
+        // log.set_label_style(0);  // マーカー付き縦並びスタイル（デフォルト）
+        // log.set_label_style(1);  // 縦並びスタイル
+        log.set_label_style(2);  // 横並びスタイル
+        log.set_label_lineheight('2');  // 行高さ指定
+        log.set_label_gap('3em');       // 横並び時の間隔指定
+        log.set_margin('1em 0 1em 0');  // 周囲余白指定（上、右、下、左）
+
+        // 栽培記録用div領域に栽培記録を設定
+        log.set_logs();
+    </script>
+</body>
+</html>
