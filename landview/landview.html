@@ -71,11 +71,11 @@
     code {
         color: darkgoldenrod;
     }
-    /* @media (max-width: 700px) {
-        #mapWrap {
-            max-width: 98%;
-        }  
-    } */
+    @media (max-width: 700px) {
+        #mapWrap, #mapCanvas, #mapBack {
+            height: 464px;
+        }
+    }
 </style>
 <body>
 
@@ -244,6 +244,7 @@
     </footer>
 </div>
 
+<!-- <script src="landview.js"></script> -->
 <script src="landview.min.js"></script>
 <script>
     const owners = {
