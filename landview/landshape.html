@@ -208,12 +208,12 @@
                 <dl class="classdescript">
                     <dt>LandShape(xmlpath, chiban_set)</dt>
                         <dd>
+                            コンストラクタ: 地図XMLファイルを解析して指定された地番の区画形状データを抽出する
+                        </dd>
+                        <dd>
                             <dl><dt>引数</dt>
                             <dd>xmlpath: 地図XMLファイルパス</dd>
                             <dd>chiban_set: 対象の地番リスト</dd></dl>
-                        </dd>
-                        <dd>
-                            コンストラクタ: 地図XMLファイルを解析して指定された地番の区画形状データを抽出する
                         </dd>
                     <dt>raw_shape()</dt>
                         <dd>
@@ -221,21 +221,21 @@
                         </dd>
                     <dt>norm_shape(min, max)</dt>
                         <dd>
+                            区画形状データ（ポリゴンデータ）を指定値域に正規化した座標値で取得する
+                        </dd>
+                        <dd>
                             <dl><dt>引数</dt>
                             <dd>min: 正規化座標の最小値</dd>
                             <dd>max: 正規化座標の最大値</dd></dl>
                         </dd>
-                        <dd>
-                            区画形状データ（ポリゴンデータ）を指定値域に正規化した座標値で取得する
-                        </dd>
                     <dt>fit_shape(src_pts, dst_pts)</dt>
+                        <dd>                            
+                            区画形状データ（ポリゴンデータ）を指定した四辺形に合わせるよう射影変換した座標値で取得する
+                        </dd>
                         <dd>
                             <dl><dt>引数</dt>
                             <dd>src_pts: 地図XMLファイルにおける四辺形四隅の頂点座標リスト</dd>
                             <dd>dst_pts: src_ptsの座標変換後の頂点座標リスト</dd></dl>
-                        </dd>
-                        <dd>                            
-                            区画形状データ（ポリゴンデータ）を指定した四辺形に合わせるよう射影変換した座標値で取得する
                         </dd>
                 </dl>
             </div>
