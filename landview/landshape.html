@@ -318,6 +318,7 @@
                                     <input type="button" id="buttonRedraw" value="再描画">
                                 </div>
                             </div>
+                            <div id="copyGoogle">&copy; Google</div>
                         </div>
                     </li>
                     <li>指定住所居住者が所有する土地を赤系の色で塗りつぶす機能を追加した例は <a href="landview.html">所有地を可視化する</a> を参照</li>
@@ -464,8 +465,10 @@
     checkPhoto.addEventListener('change', function() {
         if (this.checked) {
             mapBack.style.display = 'block';
+            copyGoogle.style.display = 'block';
         } else {
             mapBack.style.display = 'none';
+            copyGoogle.style.display = 'none';
         }
     });
 
