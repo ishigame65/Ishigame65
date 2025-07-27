@@ -3,16 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/menu.css">
-	<meta name="description" content="Ishigame65 - 飼育環境">
+    <link rel="stylesheet" href="css/style.css">    
+	<meta name="description" content="Ishigame65 - 周りの生きもの">
 	<link rel="shortcut icon" href="img/kame.ico">
-	<title>Ishigame65 - 飼育環境</title>
+	<title>Ishigame65 - 周りの生きもの</title>
 </head>
 <style>
-h2 {
-    margin-bottom: 1em;
-}
+    main img {
+        margin: 0.2em;
+    }
+    article {
+        position: relative;
+    }
+    #photoset {
+        display: flex;
+    }
+    @media (max-width: 700px) {
+        main img {
+            max-width: 45%;
+        }
+    }
 </style>
 <body>
  
@@ -61,31 +71,22 @@ h2 {
         <div class="breadcrumb">
             <ul>
                 <li><a href="index.html">Top</a></li>
-                <li>飼育環境</li>
+                <li><a href="menu.html">飼育環境</a></li>
+                <li>周りの生きもの</li>
             </ul>
         </div> <!-- breadcrumb -->
-        <h2>飼育環境</h2>
-        <section>
-            <div id="overlap">
-                <img src="img/igcg1.png">
-                <div id="cage"><a class="col1" href="igcage.html">ケージ</a></div>
-                <div id="filter"><a class="col1" href="igfilter.html">外部濾過器</a></div>
-                <div id="feeder"><a class="col1" href="igfeeder.html">自動給餌器</a></div>
-                <div id="pond"><a class="col1" href="igpond.html">人工池</a></div>
-                <div id="plant"><a class="col2" href="igplant.html">水草</a></div>
-                <div id="dish"><a class="col1" href="igdish.html">餌皿</a></div>
-            </div>        
-        </section>
-        <article>
-            <h3>その他</h3>
+        <h2>周りの生きもの</h2>
+        <article class="maxw100">
             <div class="article_content">
-                <ul class="indent">
-                    <li><a href="igcamera.html">カメラ</a>
-                    <li><a href="animal.html">周りの生きもの</a>
-                </ul>            
+
             </div>
+            <img src="img/ani_ageha1.jpg">
+            <img src="img/ani_tombo1.jpg">
+            <img src="img/ani_abu1.jpg">
+            <img src="img/ani_abu2.jpg">
         </article>
     </main>
+
     <footer> <!-- フッターコンテンツ -->
         <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
         <div id="footlinks">
