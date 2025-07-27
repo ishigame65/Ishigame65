@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style2.css">
+    <meta name="description" content="所有地を可視化する">
+    <link rel="shortcut icon" href="../img/kame.ico">
+    <title>所有地を可視化する</title>
+</head>
+<style>
+    #mapWrap {
+        margin: 1em 0;
+        position: relative;
+        width: 928px;
+        height: 928px;
+        background-color: white;
+        border: 1px solid gray;
+        max-width: 98%;
+    }  
+    #mapBack {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url(./gmapphoto.png);
+        background-repeat: no-repeat;
+        opacity: 0.3;
+        display: none;
+    }
+    #mapCanvas {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    #controlPanel {
+        position: absolute;
+        width: 100%;
+        margin-top: 1em;
+        display: flex;
+        justify-content: space-between;
+    }
+    #leftControl {
+        margin-left: 1em;
+    }
+    #rightControl {
+        padding: 0.1em 0.4em;
+    }
+    #selectAddress {
+        margin-left: 0.5em;
+        padding: 0.1em 0.4em;
+    }
+    #checkPhoto, #checkChiban {
+        margin-left: 2em;
+        margin-right: 0.5em;
+    }
+    #buttonRedraw {
+        padding: 0.15em 0.7em;
+        background-color: gainsboro;
+        border: solid 1px gray;
+        border-radius: 2px;
+        margin-left: 2em;
+        margin-right: 1em;
+    }
+    #copyGoogle {
+        position: absolute;
+        bottom: 1em;
+        right: 1em;
+        display: none;
+    }
+    code {
+        color: darkgoldenrod;
+    }
+    /* @media (max-width: 700px) {
+        #mapWrap {
+            max-width: 98%;
+        }  
+    } */
+</style>
+<body>
+
+<!-- input・label・ドロワーメニューはbody直下 -->
+<input id="check_input" type="checkbox">
+<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+    <span></span><div id="title">MENU</div>
+</label>
+<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+
+<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+    <ul>
+        <li><a href="../index.html">TOP</a></li>
+        <li><a href="../intro.html">経緯と方針</a></li>
+        <li><a href="../menu.html">飼育環境</a></li>
+        <li><a href="../maintenance.html">日々の管理</a></li>
+        <li><a href="../trouble.html">トラブル</a></li>
+        <li><a href="../baby.html">成長記録</a></li>
+    </ul>
+    <ul id="menu2nd">
+        <li>&nbsp;</li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li><a href="../keeper.html">飼育係</a></li>
+        <li><a href="../entertainment.html">遊び</a></li>
+        <li><a href="../links.html">リンク</a></li>
+        <li><a href="../copyright.html">サイトポリシー</a></li>
+        <li><a href="../sitemap.html">サイトマップ</a></li>
+    </ul>
+</div>
+
+<header>
+    <h1><a href="../index.html"><img id="logo" src="../img/logo.png" alt="Ishigame65"></a></h1>
+    <nav>
+        <ul>
+            <li><a href="../intro.html">経緯と方針</a></li>
+            <li><a href="../menu.html">飼育環境</a></li>
+            <li><a href="../maintenance.html">日々の管理</a></li>
+            <li><a href="../trouble.html">トラブル</a></li>
+            <li><a href="../baby.html">成長記録</a></li>
+        </ul>    
+    </nav>
+</header>
+
+<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
+    <main> <!-- メインコンテンツ -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="../index.html">Top</a></li>
+                <li><a href="../keeper.html">飼育係</a></li>
+                <li><a href="../profile.html">プロフィール</a></li>
+                <li><a href='../software.html'>自作ソフトウェア</a></li>
+                <li>所有地を可視化する</li>
+            </ul>
+        </div> <!-- breadcrumb -->
+
+        <h2 class="mono">所有地を可視化する</h2>
+        <div class="indent">
+            所有地が複数の地番で構成され共用部分や私道持分などがある場合に、ご近所を含む地番区画を分かりやすく可視化できると良い。
+            地番ごとの区画形状データは地図XMLファイルとして法務省から公開されているものの、
+            都市部の多くでは統一された座標系のデータとなっておらず、一般的な地図アプリケーションでは表示できない。
+            そこで、公開された地図XMLファイルから地番ごとの区画形状データ（ポリゴンデータ）を抽出するとともに座標系を合わせ込む機能を有するライブラリを開発し、
+            所有地を分かりやすく可視化することにした。
+        </div>
+
+        <section>
+            <h3 class="mono">可視化の例</h3>
+            <div class="section_content">
+                <ul class="indent">
+                    <li>住所を指定すると、指定住所居住者が所有する土地が赤系の色で塗りつぶされ、持分割合が色の濃さで表現される。</li>
+                    <li>座標系（位置と向きと大きさ）はGoogleマップに合わせてあり、Googleマップの航空写真に重ねて表示できる。
+                        <div class="notes">本例ではGoogleマップに合わせたが他の座標系に合わせることもできる</div>
+                    </li>
+                    <li>地番は区画面積に応じたサイズで表示され、最小サイズで表示される地番は表示の度に若干異なる位置に表示される。</li>
+                </ul>
+                <div id="mapWrap">
+                    <div id="mapBack"></div>
+                    <canvas id="mapCanvas"></canvas>
+                    <div id="controlPanel">
+                        <div id="leftControl">
+                            <label for="selectAddress">住所</label>
+                            <select id="selectAddress">
+                                <option>未指定</option>
+                                <option>3-15</option>
+                                <option>3-14-1</option>
+                                <option>3-14-2</option>
+                                <option>3-14-3</option>
+                                <option>3-14-4</option>
+                                <option>3-14-5</option>
+                                <option>3-14-6</option>
+                                <option>3-15-4</option>
+                                <option>3-15-5</option>
+                                <option>3-15-6</option>
+                            </select>
+                        </div>
+                        <div id="rightControl">
+                            <input type="checkbox" id="checkChiban" value="1" checked><label for="checkChiban">地番表示</label>
+                            <input type="checkbox" id="checkPhoto" value="1"><label for="checkPhoto">航空写真表示</label>
+                            <input type="button" id="buttonRedraw" value="再描画">
+                        </div>
+                    </div>
+                    <div id="copyGoogle">&copy; Google</div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3 class="mono">可視化する方法</h3>
+            <div class="section_content">
+                <ul class="indent">
+                    <li>開発した<a href="landshape.html">地番区画データ取得ライブラリ</a>を利用した簡単なPythonスクリプトで、地図XMLファイルから区画形状データを抽出し、
+                        Googleマップに合わせるよう座標変換したポリゴンデータをテキストファイルに出力<br>
+                        <code>
+                            from landshape import LandShape<br>
+                            xmlpath = （地図XMLファイルパス）<br>
+                            chiban_set = （対象の地番リスト）<br>
+                            land = LandShape(xmlpath, chiban_set)<br>
+                            src_pts = （地図XMLファイルにおける四辺形四隅の頂点座標リスト）<br>
+                            dst_pts = （Googleマップにおける四辺形四隅の頂点座標リスト）<br>
+                            fitshape = land.fit_shape(src_pts, dst_pts)<br>
+                            print_shape(fitshape)
+                        </code>
+                        <div class="notes">詳細は<a href="landshape.html">地番区画データ取得ライブラリ</a>を参照</div>
+                    </li>
+                    <li>地番区画データ描画ライブラリ（JavsScriptファイル）を読み込む<br>
+                        <code>
+                            &lt;script src="landview.min.js"&gt;&lt;/script&gt;
+                        </code>
+                    </li>
+                    <li>テキストファイルに出力されたポリゴンデータ（座標点列）をJavsScript配列（連想配列＋配列）にコピペで格納<br>
+                        <code>
+                            const fit_shape = {<br>
+                                '6155-5':[[262.372, 343.333], [354.864, 422.832], [209.02, 588.94], [116.978, 508.382]],<br>
+                            ...<br>
+                        </code>
+                    </li>
+                    <li>住所ごとの所有地データ（地番＋持分割合）をJavsScript配列に記述<br>
+                        <code>
+                        const owners = {<br>
+                            '3-14-2': [{lot:'6155-5'}, {lot:'6150-3',ratio:1/12},{lot:'6155-3',ratio:1/12},],<br>                            
+                            ...<br>
+                        </code>
+                    </li>
+                    <li>地番区画データ描画ライブラリの描画関数にポリゴンデータと所有地データを渡して描画<br>
+                        <code>
+                            mapview = new LandView('mapCanvas');<br>
+                            mapview.draw(fit_shape, 1, ...[owners, '未指定']);<br>
+                            <br>
+                        </code>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main> <!-- メインコンテンツ -->
+    <footer> <!-- フッターコンテンツ -->
+        <a href="https://www.instagram.com/ishigame65/"><img src="../img/insta60.png" alt="" id="instaicon2"></a>
+        <div id="footlinks">
+            <ul>
+                <li><a href="../keeper.html">飼育係</a></li>
+                <li><a href="../entertainment.html">遊び</a></li>
+                <li><a href="../links.html">リンク</a></li>
+                <li><a href="../copyright.html">サイトポリシー</a></li>
+                <li><a href="../sitemap.html">サイトマップ</a></li>
+            </ul>
+        </div>
+        <a href="#logo"><span class="arrow-up"></span></a>    
+    </footer>
+</div>
+
+<script src="landview.min.js"></script>
+<script>
+    const owners = {
+        '3-15': [{lot:'6150-1'},{lot:'6150-5',ratio:1/2}, {lot:'6150-3',ratio:3/12},{lot:'6150-4',ratio:2/8},{lot:'6155-1',ratio:2/8},{lot:'6155-3',ratio:3/12},],
+        '3-14-1': [{lot:'6155-4'}, {lot:'6150-3',ratio:1/12},{lot:'6155-3',ratio:1/12},],
+        '3-14-2': [{lot:'6155-5'}, {lot:'6150-3',ratio:1/12},{lot:'6155-3',ratio:1/12},],
+        '3-14-3': [{lot:'6155-6'}, {lot:'6150-3',ratio:1/12},{lot:'6155-3',ratio:1/12},],
+        '3-14-4': [{lot:'6155-7'}, {lot:'6150-3',ratio:1/12},{lot:'6150-4',ratio:1/8},{lot:'6155-1',ratio:1/8},{lot:'6155-3',ratio:1/12},],
+        '3-14-5': [{lot:'6155-8'},{lot:'6155-9'},{lot:'6155-13'}, {lot:'6150-3',ratio:1/12},{lot:'6150-4',ratio:1/8},{lot:'6155-1',ratio:1/8},{lot:'6155-3',ratio:1/12},],
+        '3-14-6': [{lot:'6155-10'},{lot:'6155-11'}, {lot:'6150-3',ratio:1/12},{lot:'6150-4',ratio:1/8},{lot:'6155-1',ratio:1/8},{lot:'6155-3',ratio:1/12},],
+        '3-15-4': [{lot:'6150-6'},{lot:'6150-5',ratio:1/2}, {lot:'6150-3',ratio:1/12},{lot:'6150-4',ratio:1/8},{lot:'6155-1',ratio:1/8},{lot:'6155-3',ratio:1/12},],
+        '3-15-5': [{lot:'6150-7'},{lot:'6150-8'},{lot:'6150-11'}, {lot:'6150-3',ratio:1/12},{lot:'6150-4',ratio:1/8},{lot:'6155-1',ratio:1/8},{lot:'6155-3',ratio:1/12},],
+        '3-15-6': [{lot:'6150-9'},{lot:'6150-10'},{lot:'6150-12'},{lot:'6155-12'},{lot:'6155-14'},{lot:'6155-15'}, {lot:'6150-3',ratio:1/12},{lot:'6150-4',ratio:1/8},{lot:'6155-1',ratio:1/8},{lot:'6155-3',ratio:1/12},],
+    }
+    const fit_shape = {
+        '6150-1':[[533.894, 202.536], [674.471, 327.578], [546.446, 474.483], [502.274, 473.956], [484.29, 458.711], [224.956, 238.082], [222.656, 199.73], [357.866, 47.565]],
+        '6150-2':[[180.416, 230.244], [347.0, 38.0], [357.866, 47.565], [222.656, 199.73], [188.905, 237.722]],
+        '6150-3':[[224.956, 238.082], [484.29, 458.711], [465.683, 481.473], [188.905, 237.722], [222.656, 199.73]],
+        '6150-4':[[527.945, 495.723], [574.58, 535.282], [556.095, 556.091], [553.606, 558.899], [465.683, 481.473], [484.29, 458.711], [502.274, 473.956]],
+        '6150-5':[[502.274, 473.956], [546.446, 474.483], [527.945, 495.723]],
+        '6150-6':[[674.471, 327.578], [751.587, 396.173], [607.149, 563.126], [574.58, 535.282], [527.945, 495.723], [546.446, 474.483]],
+        '6150-7':[[789.828, 430.204], [834.557, 469.991], [691.373, 635.14], [657.602, 606.266], [607.149, 563.126], [751.587, 396.173]],
+        '6150-8':[[607.149, 563.126], [657.602, 606.266], [639.275, 627.46], [556.095, 556.091], [574.58, 535.282]],
+        '6150-9':[[834.557, 469.991], [911.0, 538.0], [843.951, 612.884], [742.963, 725.658], [669.258, 660.741], [673.051, 656.333], [691.373, 635.14]],
+        '6150-10':[[556.095, 556.091], [639.275, 627.46], [635.898, 631.373], [553.606, 558.899]],
+        '6150-11':[[657.602, 606.266], [691.373, 635.14], [673.051, 656.333], [639.275, 627.46]],
+        '6150-12':[[639.275, 627.46], [673.051, 656.333], [669.258, 660.741], [635.898, 631.373]],
+        '6155-1':[[465.683, 481.473], [553.606, 558.899], [536.967, 577.962], [516.311, 560.532], [495.008, 542.549], [484.327, 533.535], [448.248, 503.09]],
+        '6155-2':[[180.416, 230.244], [188.905, 237.722], [150.972, 281.471], [24.459, 427.407], [16.0, 420.0]],
+        '6155-3':[[188.905, 237.722], [465.683, 481.473], [448.248, 503.09], [354.864, 422.832], [262.372, 343.333], [187.528, 279.007], [150.972, 281.471]],
+        '6155-4':[[187.528, 279.007], [262.372, 343.333], [116.978, 508.382], [32.532, 434.468], [24.459, 427.407], [150.972, 281.471]],
+        '6155-5':[[262.372, 343.333], [354.864, 422.832], [209.02, 588.94], [116.978, 508.382]],
+        '6155-6':[[354.864, 422.832], [448.248, 503.09], [301.486, 669.861], [246.737, 621.947], [209.02, 588.94]],
+        '6155-7':[[459.104, 585.019], [509.857, 627.97], [400.23, 756.281], [301.486, 669.861], [448.248, 503.09], [484.327, 533.535], [485.976, 553.249], [485.905, 553.328], [485.625, 553.66]],
+        '6155-8':[[584.425, 691.094], [617.038, 718.697], [505.951, 848.818], [400.23, 756.281], [509.857, 627.97]],
+        '6155-9':[[498.163, 581.568], [602.743, 669.82], [584.425, 691.094], [509.857, 627.97], [459.104, 585.019], [485.625, 553.66], [485.905, 553.328], [485.976, 553.249], [486.031, 553.179], [486.058, 553.144], [486.162, 553.017], [495.008, 542.549], [516.311, 560.532]],
+        '6155-10':[[620.861, 648.767], [654.829, 677.439], [729.619, 740.558], [577.0, 911.0], [505.951, 848.818], [617.038, 718.697], [584.425, 691.094], [602.743, 669.82]],
+        '6155-11':[[536.967, 577.962], [620.861, 648.767], [602.743, 669.82], [498.163, 581.568], [516.311, 560.532]],
+        '6155-12':[[669.258, 660.741], [742.963, 725.658], [729.619, 740.558], [654.829, 677.439]],
+        '6155-13':[[484.327, 533.535], [495.008, 542.549], [486.162, 553.017], [486.058, 553.144], [486.031, 553.179], [485.976, 553.249]],
+        '6155-14':[[553.606, 558.899], [635.898, 631.373], [620.861, 648.767], [536.967, 577.962]],
+        '6155-15':[[635.898, 631.373], [669.258, 660.741], [654.829, 677.439], [620.861, 648.767]],
+    }
+
+    mapview = new LandView('mapCanvas');
+
+    mapview.draw(fit_shape, 1, ...[owners, '未指定']);
+
+    const checkChiban = document.getElementById('checkChiban');
+    let mode = checkChiban.checked ? 1 : 0;
+    checkChiban.addEventListener('change', function() {
+        mode = this.checked ? 1 : 0;
+        mapview.draw(fit_shape, mode, ...[owners, selectAddress.value]);
+    });
+
+    const selectAddress = document.getElementById('selectAddress');
+    selectAddress.addEventListener("change", () => {
+        mapview.draw(fit_shape, mode, ...[owners, selectAddress.value]);
+    });
+
+    const mapBack = document.getElementById('mapBack');
+    const copyGoogle = document.getElementById('copyGoogle');
+    const checkPhoto = document.getElementById('checkPhoto');
+    checkPhoto.addEventListener('change', function() {
+        if (this.checked) {
+            mapBack.style.display = 'block';
+            copyGoogle.style.display = 'block';
+        } else {
+            mapBack.style.display = 'none';
+            copyGoogle.style.display = 'none';
+        }
+    });
+
+    const buttonRedraw = document.getElementById('buttonRedraw');
+    buttonRedraw.addEventListener('click', function() {
+        mapview.draw(fit_shape, mode, ...[owners, selectAddress.value]);
+    });
+
+</script>
+</body>
+</html>
