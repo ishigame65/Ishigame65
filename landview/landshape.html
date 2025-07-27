@@ -1,3 +1,5 @@
+<!-- ★★　トライ＆エラー編集中、moriuchi65に合わせて復旧できる -->
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -17,6 +19,9 @@
         height: 928px;
         background-color: white;
         border: 1px solid gray;
+        /* try */
+        /* max-width: 97%;
+        min-width: 520px; */
     }  
     #normWrap {
         position: relative;
@@ -31,7 +36,7 @@
         height: 100%;
         background-image: url(./gmapphoto.png);
         background-repeat: no-repeat;
-        background-size: contain;
+        /* background-size: contain; */
         opacity: 0.3;
         display: none;
     }
@@ -102,12 +107,13 @@
         text-decoration: none;
         line-height: 40px;
     }
-    @media (max-width: 700px) {
+    /* try */
+    /* @media (max-width: 700px) {
         #mapWrap, #mapCanvas, #mapBack {
             width: 309px;
             height: 309px;
         }
-    }
+    } */
 </style>
 <body>
 
@@ -379,6 +385,7 @@
 </div>
 
 <script src="landview.min.js"></script>
+<!-- <script src="landview.js"></script> -->
 <script>
     const norm_shape = {
         '6150-1':[[366.559, 234.957], [328.57, 329.133], [231.131, 290.308], [223.549, 267.553], [228.142, 255.582], [294.08, 84.631], [312.949, 76.858], [412.738, 118.778]],
