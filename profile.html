@@ -297,11 +297,10 @@
             bindex = index
         }
         const msrc = new Array(
-            "garden1.jpg", "miniature1.jpg", "miniature2.jpg", "melon.jpg", "phasagao.jpg", "noimage.png", "phcircuit.jpg");
+            "garden1.jpg", "miniature1.jpg", "melon.jpg", "phasagao.jpg", "noimage.png", "phcircuit.jpg");
         const mdsc = new Array(
             "<a href='cultivation/cultivation.html'>野菜作り</a>" + "<ul><li>亀池の横で野菜を育てている</li></ul>",
             "<a href='miniature.html'>小さなもの</a>",
-            "屋内水槽用の電源タップカバー" + "<ul><li>廃墟みたいと家族には概ね不評</li></ul>",
             "メロンパンナちゃん" + "<ul><li><a href='art.html'>習作</a></li></ul>",
             "朝顔の<a href='photos.html'>写真</a>",
             "本サイトの画像や映像を編集するツールはDIY",
@@ -318,9 +317,9 @@
             document.getElementById("mtext").innerHTML = mdsc[index];
             markp.innerHTML = "・";
             markt.innerHTML = "・";
-            if (index == 4) {
+            if (index == 3) {
                 markp.innerHTML = "→";  // あの日あの時あの場所の写真
-            } else if (index == 5) {
+            } else if (index == 4) {
                 markt.innerHTML = "→";  // 自作ソフトウェア
             }
             mindex = index
