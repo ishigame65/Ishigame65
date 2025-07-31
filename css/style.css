@@ -8,7 +8,6 @@
 body {
     background: linear-gradient(0deg, honeydew, lightcyan, honeydew);
 }
-
 header, main, footer {
     margin-left: 1rem;
     margin-right: 1rem;
@@ -135,6 +134,17 @@ article h3.mono, section h3.mono, h4.mono, section h4.mono{
     font-size: smaller;
     color: dimgray;
     margin-left: 1em;
+}
+.extlink {
+    margin-left: 1em;
+    margin-right: 0;
+    width: 1em;
+    vertical-align: baseline;
+}
+span.notes {
+    font-size: smaller;
+    color: dimgray;
+    margin-left: 0.4em;
 }
 /* 今後検討 */
 /* .scroller {
