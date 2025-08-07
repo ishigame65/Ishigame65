@@ -83,7 +83,7 @@
         </div> <!-- breadcrumb -->
         <h2 id="scrollhere" class="mono">走行経路</h2>
         <section class="indent">
-            <div class="overlap">
+            <div class="overlap">                
                 <img src="img/bkmap1.png">
                 <div id="markers">
                     <div id="miyagi1">★</div>
@@ -109,41 +109,14 @@
                     <div id="kumamoto1">★</div>
                     <div id="fukuoka1">★</div>
                     <div id="saga1">★</div>
-                    <div id="nagasaki1">★</div>
+                    <div id="nagasaki1">★</div>                    
                 </div>
                 <div id="note"></div>
             </div>
-            <div class="thumbnail">
-                <div class="scroll">
-                    <a href="javascript:map_display('shiga1')"><img src="img/bkmshiga1.jpg"></a>
-                    <a href="javascript:map_display('fukuoka1')"><img src="img/bkmfukuoka1.jpg"></a>
-                    <a href="javascript:map_display('oita2')"><img src="img/bkmoita2.jpg"></a>
-                    <a href="javascript:map_display('oita1')"><img src="img/bkmoita1.jpg"></a>
-                    <a href="javascript:map_display('miyazaki1')"><img src="img/bkmmiyazaki1.jpg"></a>
-                    <a href="javascript:map_display('miyazaki2')"><img src="img/bkmmiyazaki2.jpg"></a>
-                    <a href="javascript:map_display('miyazaki3')"><img src="img/bkmmiyazaki3.jpg"></a>
-                    <a href="javascript:map_display('kagoshima1')"><img src="img/bkmkagoshima1.jpg"></a>
-                    <a href="javascript:map_display('kagoshima2')"><img src="img/bkmkagoshima2.jpg"></a>
-                    <a href="javascript:map_display('kumamoto1')"><img src="img/bkmkumamoto1.jpg"></a>
-                    <a href="javascript:map_display('saga1')"><img src="img/bkmsaga1.jpg"></a>
-                    <a href="javascript:map_display('nagasaki1')"><img src="img/bkmnagasaki1.jpg"></a>
-                    <a href="javascript:map_display('kochi1')"><img src="img/bkmkochi1.jpg"></a>
-                    <a href="javascript:map_display('tokushima1')"><img src="img/bkmtokushima1.jpg"></a>
-                    <a href="javascript:map_display('kagawa1')"><img src="img/bkmkagawa1.jpg"></a>
-                    <a href="javascript:map_display('yamaguchi1')"><img src="img/bkmyamaguchi1.jpg"></a>
-                    <a href="javascript:map_display('shimane1')"><img src="img/bkmshimane1.jpg"></a>
-                    <a href="javascript:map_display('shimane2')"><img src="img/bkmshimane2.jpg"></a>
-                    <a href="javascript:map_display('tottori2')"><img src="img/bkmtottori2.jpg"></a>
-                    <a href="javascript:map_display('tottori1')"><img src="img/bkmtottori1.jpg"></a>
-                    <a href="javascript:map_display('chiba1')"><img src="img/bkmchiba1.jpg"></a>
-                    <a href="javascript:map_display('chiba2')"><img src="img/bkmchiba2.jpg"></a>
-                    <a href="javascript:map_display('miyagi2')"><img src="img/bkmmiyagi2.jpg"></a>
-                    <a href="javascript:map_display('miyagi1')"><img src="img/bkmmiyagi1.jpg"></a>
-                </div>
-                <img id="arrow" src="img/arrow64.png">
-            </div>
-            <div class="center">
+            <div id="photo_block">
+                <a id="prevphoto" href="">←</a>
                 <img id="photo" src="">
+                <a id="nextphoto" href="">→</a>
             </div>
         </section>
     </main>
@@ -164,32 +137,33 @@
     
 <script>
     var notes = {
-        miyagi1:'宮城県 石巻<ul><li>帰路は女川から輪行</li><li>嫌いな言葉：リアス式海岸</li></ul>', 
-        miyagi2:'宮城県 松島', 
-        chiba1:'千葉県 九十九里浜', 
-        chiba2:'千葉県 犬吠埼灯台', 
-        shiga1:'滋賀県 長浜<ul><li>クロモリ初号機</li><li>ブリジストンAtrantisスポルティーフ</li></ul>', 
-        kagawa1:'香川県 金刀比羅宮（こんぴらさん）', 
-        tokushima1:'徳島県 日和佐<ul><li>うみがめ博物館（うみがめ産卵場所）</li></ul>', 
-        kochi1:'高知県 足摺岬', 
-        tottori1: '鳥取県 鳥取砂丘<ul><li>帰路は鳥取から輪行</li><li>嫌いな言葉：リアス式海岸</li></ul>',
-        tottori2: '鳥取県 境港',
-        shimane1: '島根県 温泉津温泉',
-        shimane2: '島根県 出雲大社',
-        yamaguchi1:'山口県 錦帯橋', 
-        oita1:'大分県 国東半島', 
-        oita2:'大分県 耶馬渓', 
-        miyazaki1:'宮崎県 宗太郎越え', 
-        miyazaki2:'宮崎県 高千穂峡', 
-        miyazaki3:'宮崎県 日南海岸', 
-        kagoshima1:'鹿児島県 志布志湾', 
-        kagoshima2:'鹿児島県 枕崎', 
-        kumamoto1:'熊本県 八代', 
-        fukuoka1:'福岡県 英彦山', 
-        saga1:'佐賀県 吉野ヶ里遺跡', 
-        nagasaki1:'長崎県 平戸<ul><li>帰路は平戸口から輪行</li><li>嫌いな言葉：リアス式海岸</li></ul>' };
+        shiga1:['bkmshiga1', '滋賀県 長浜<ul><li>クロモリ初号機</li><li>ブリジストンAtrantisスポルティーフ</li></ul>'],
+        saga1:['bkmsaga1', '佐賀県 吉野ヶ里遺跡'], 
+        nagasaki1:['bkmnagasaki1', '長崎県 平戸<ul><li>帰路は平戸口から輪行</li><li>嫌いな言葉：リアス式海岸</li></ul>'],
+        oita2:['bkmoita2', '大分県 耶馬渓'], 
+        fukuoka1:['bkmfukuoka1', '福岡県 英彦山'], 
+        oita1:['bkmoita1', '大分県 国東半島'], 
+        miyazaki1:['bkmmiyazaki1', '宮崎県 宗太郎越え'], 
+        miyazaki2:['bkmmiyazaki2', '宮崎県 高千穂峡'], 
+        miyazaki3:['bkmmiyazaki3', '宮崎県 日南海岸'], 
+        kagoshima1:['bkmkagoshima1', '鹿児島県 志布志湾'], 
+        kumamoto1:['bkmkumamoto1', '熊本県 八代'], 
+        kagoshima2:['bkmkagoshima2', '鹿児島県 枕崎'], 
+        yamaguchi1:['bkmyamaguchi1', '山口県 錦帯橋'], 
+        kochi1:['bkmkochi1', '高知県 足摺岬'], 
+        tokushima1:['bkmtokushima1', '徳島県 日和佐<ul><li>うみがめ博物館（うみがめ産卵場所）</li></ul>'], 
+        kagawa1:['bkmkagawa1', '香川県 金刀比羅宮（こんぴらさん）'], 
+        shimane1:['bkmshimane1', '島根県 温泉津温泉'],
+        shimane2:['bkmshimane2', '島根県 出雲大社'],
+        tottori2:['bkmtottori2', '鳥取県 境港'],
+        tottori1:['bkmtottori1', '鳥取県 鳥取砂丘<ul><li>帰路は鳥取から輪行</li><li>嫌いな言葉：リアス式海岸</li></ul>'],
+        chiba1:['bkmchiba1', '千葉県 九十九里浜'], 
+        chiba2:['bkmchiba2', '千葉県 犬吠埼灯台'], 
+        miyagi2:['bkmmiyagi2', '宮城県 松島'], 
+        miyagi1:['bkmmiyagi1', '宮城県 石巻<ul><li>帰路は女川から輪行</li><li>嫌いな言葉：リアス式海岸</li></ul>'], 
+     };
     function map_clear(){
-        markers = document.getElementById('markers');
+        const markers = document.getElementById('markers');
         tags = markers.children;
         for (let i = 0; i < tags.length; i++) {
             tags[i].style.visibility='hidden';
@@ -201,12 +175,34 @@
         map_clear();
         tag = document.getElementById(target);
         tag.style.visibility='visible';
-        document.getElementById("note").innerHTML=notes[target];
+        document.getElementById("note").innerHTML=notes[target][1];
+        const prevkey = prev_key(notes, target);
+        const nextkey = next_key(notes, target);
+        document.getElementById("prevphoto").href=`javascript:map_display('${prevkey}')`;
+        document.getElementById("nextphoto").href=`javascript:map_display('${nextkey}')`;
         document.getElementById("photo").src="img/bkm" + target + ".jpg";
         const here = document.getElementById("scrollhere");
         here.scrollIntoView({ behavior: 'smooth'});
         return false;
     }
+    function next_key(keyvals, key) {
+        const keys = Object.keys(keyvals);
+        let next_idx = keys.indexOf(key) + 1;
+        if (next_idx >= keys.length) next_idx = 0;
+        return keys[next_idx];
+    }
+    function prev_key(keyvals, key) {
+        const keys = Object.keys(keyvals);
+        let next_idx = keys.indexOf(key) - 1;
+        if (next_idx < 0) next_idx = keys.length - 1;
+        return keys[next_idx];
+    }
+    function random_key(keyvals) {
+        const keys = Object.keys(keyvals);
+        const r_idx = Math.floor(Math.random() * keys.length);
+        return keys[r_idx];
+    }
+    map_display(random_key(notes));
 </script>
 
 <script src="js/bgcollage.js"></script>
