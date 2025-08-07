@@ -21,16 +21,31 @@
 	height: 160px;
 	overflow: auto;
 }
+#photo_block {
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	/* background-color: yellow;
+	color:red; */
+	align-items: center;
+}
 #photo {
 	display: block;
-	/* margin: 0 auto 10px auto; */
 	margin: 1em auto;
-	/* margin-left: auto;
-	margin-right: auto; */
+	max-width: 350px;
+	max-height: 350px;
 }
 #note {
 	text-align: left;
 	position:absolute; top: 15px; left: 20px; z-index:1;
+}
+#prevphoto, #nextphoto {
+	color: navy;
+	font-size: large;
+	font-weight: bold;
+	text-decoration: none;
+	margin: 0 0.5em;
 }
 #markers {
 	font-size:20px;
@@ -117,9 +132,11 @@
 		font-size:11px;
 	}
 	#photo {
-		max-width: 250px;
-		max-height: 250px;
-	}	
+		/* max-width: 250px;
+		max-height: 250px; */
+		max-width: 230px;
+		max-height: 230px;
+	}
 	#markers {
 		font-size:16px;
 	}	
