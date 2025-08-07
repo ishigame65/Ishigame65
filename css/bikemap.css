@@ -8,7 +8,7 @@
 	border-radius: 1em;
 	margin-bottom: -20px;
 } */
-.thumbnail img {
+/* .thumbnail img {
 	border-radius: 5px;
 	margin-left: 0;
 	margin-right: 0;
@@ -16,23 +16,22 @@
 	width: 75px;
 	height: 75px;
 	object-fit: cover;
-}
-.scroll {
+} */
+/* .scroll {
 	height: 160px;
 	overflow: auto;
-}
+} */
 #photo_block {
 	width: fit-content;
 	margin-left: auto;
 	margin-right: auto;
 	display: flex;
-	/* background-color: yellow;
-	color:red; */
 	align-items: center;
 }
 #photo {
 	display: block;
-	margin: 1em auto;
+	/* margin: 1em auto; */
+	margin: 0.5em auto;
 	max-width: 350px;
 	max-height: 350px;
 }
@@ -114,16 +113,16 @@
 		/* border-radius: 8px; */
 		width: 200px;
 	}
-	.thumbnail img {
+	/* .thumbnail img {
 		border-radius: 3px;
 		margin-left: 3px;
 		margin-right: 0;
 		width: 50px;
 		height: 50px;
-	}
-	.scroll {
+	} */
+	/* .scroll {
 		height: 106px;
-	}
+	} */
 	#note {
 		top: 0;
 	}
@@ -134,8 +133,8 @@
 	#photo {
 		/* max-width: 250px;
 		max-height: 250px; */
-		max-width: 230px;
-		max-height: 230px;
+		max-width: 210px;
+		max-height: 210px;
 	}
 	#markers {
 		font-size:16px;
