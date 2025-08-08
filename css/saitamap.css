@@ -1,8 +1,11 @@
 @charset "utf-8";
-
-.overlap {
-    position: relative;
+#wrapper {
 	text-align: center;
+}
+.overlap {
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
 	width: 460px;
 }
 .overlap img {
@@ -17,13 +20,15 @@
 	object-fit: cover;
 }
 .scroll {
-	height: 160px;
 	overflow: auto;
 	margin-top: 10px;
 }
+#photoarea {
+	text-align: center;
+}
 #photo {
-	margin-left: 25px;
-	margin-bottom: 10px;
+	margin-top: 1em;
+	max-width: 400px;
 }
 #note {
 	text-align: left;
@@ -51,9 +56,8 @@
     position:absolute; top: 60px; right:0; bottom:0; left: 260px; margin:auto; z-index:1; }
 #yono1 {
     position:absolute; top: 129px; right:0; bottom:0; left: 183px; margin:auto; z-index:1; }
-#joshi1k {
+#joshi1k, #motoara1k {
     position:absolute; top: 105px; right:0; bottom:0; left: 228px; margin:auto; z-index:1; }
-
 #clear{
     color: steelblue;
 	text-decoration: none;
@@ -75,9 +79,6 @@
 		margin-right: 0;
 		width: 50px;
 		height: 50px;
-	}
-	.scroll {
-		height: 106px;
 	}
 	#note {
 		top: 0;
@@ -106,7 +107,7 @@
 		position:absolute; top: 32px; right:0; bottom:0; left: 150px; margin:auto; z-index:1; }
 	#yono1 {
 		position:absolute; top: 71px; right:0; bottom:0; left: 108px; margin:auto; z-index:1; }
-	#joshi1k {
+	#joshi1k, #motoara1k {
 		position:absolute; top: 57px; right:0; bottom:0; left: 132px; margin:auto; z-index:1; }
 		
 }
