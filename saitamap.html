@@ -97,6 +97,7 @@
                     <div id="satte1">★</div>
                     <div id="yono1">★</div>
                     <div id="joshi1k">★</div>
+                    <div id="motoara1k">★</div>
                 </div>
                 <div id="note">　</div>
             </div>
@@ -108,8 +109,9 @@
                 <a href="javascript:map_display('satte1')"><img src="img/saisatte1.jpg"></a>
                 <a href="javascript:map_display('yono1')"><img src="img/saiyono1.jpg"></a>
                 <a href="javascript:map_display('joshi1k')"><img src="img/saijoshi1k.jpg"></a>
+                <a href="javascript:map_display('motoara1k')"><img src="img/saimotoara1k.jpg"></a>
             </div>
-            <div class="center">
+            <div id="photoarea" class="center2">
                 <img id="photo" src="">
             </div>
         
@@ -138,7 +140,9 @@
         omiya1:'大宮 鉄道博物館', 
         satte1:'幸手 権現堂堤', 
         yono1:'与野 与野公園',
-        joshi1k: '岩槻 城址公園' };
+        joshi1k: '岩槻 城址公園',
+        motoara1k: '元荒川調整池',
+     };
     function map_clear(){
         markers = document.getElementById('markers');
         tags = markers.children;
