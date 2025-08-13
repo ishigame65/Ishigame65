@@ -129,6 +129,8 @@ article h3.mono, section h3.mono, h4.mono, section h4.mono{
 }
 .article_content, .section_content {
     margin-left: 0.4em;
+    margin-top: 0.4em;
+    margin-bottom: 0.8em;
 }
 .notes {
     font-size: smaller;

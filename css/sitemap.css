@@ -7,7 +7,6 @@
 .sitemap ul li ul {
   margin-top: .5em;
   margin-bottom: .65em;
-  /* margin-left: 48px; */
   margin-left: 2em;
 }
 .sitemap ul li ul li {
@@ -36,22 +35,13 @@
 }
 .extra a {
 	font-size: smaller;
-	color: darkseagreen;
-	text-decoration-color: aquamarine;
-}
-.sidenote {
-	display: inline;
-	font-size: smaller;
-	color: tomato;
-	margin-left: 20px;
+	color: OliveDrab;
+	text-decoration-color: CadetBlue;
 }
 @media (max-width: 700px) {
   .sitemap a {
     font-size: 90%;
   }
-  /* .sitemap ul li ul li {
-    margin-bottom: .15em;
-  } */
 	.sitemap ul li ul {
 	  margin-top: .5em;
 	  margin-bottom: .65em;
