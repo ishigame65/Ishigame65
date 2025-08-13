@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
+	<meta name="description" content="平成以降">
+	<link rel="shortcut icon" href="img/kame.ico">
+	<title>平成以降</title>
+</head>
+<style>
+    article img {
+        border-radius: 4px;
+        max-width: 442px;
+        max-height: 312px;
+        margin: 0.2em;
+    }
+    @media (max-width: 700px) {
+        article img {
+            border-radius: 3px;
+            max-width: 95%;
+        }
+    }
+</style>
+<body>
+ 
+<!-- input・label・ドロワーメニューはbody直下 -->
+<input id="check_input" type="checkbox">
+<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+    <span></span><div id="title">MENU</div>
+</label>
+<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+
+<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+    <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="intro.html">経緯と方針</a></li>
+        <li><a href="menu.html">飼育環境</a></li>
+        <li><a href="maintenance.html">日々の管理</a></li>
+        <li><a href="trouble.html">トラブル</a></li>
+        <li><a href="baby.html">成長記録</a></li>
+    </ul>
+    <ul id="menu2nd">
+        <li>&nbsp;</li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li><a href="keeper.html">飼育係</a></li>
+        <li><a href="entertainment.html">遊び</a></li>
+        <li><a href="links.html">リンク</a></li>
+        <li><a href="copyright.html">サイトポリシー</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+    </ul>
+</div>
+
+<header>
+    <h1><a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a></h1>
+    <nav>
+        <ul>
+            <li><a href="intro.html">経緯と方針</a></li>
+            <li><a href="menu.html">飼育環境</a></li>
+            <li><a href="maintenance.html">日々の管理</a></li>
+            <li><a href="trouble.html">トラブル</a></li>
+            <li><a href="baby.html">成長記録</a></li>
+        </ul>    
+    </nav>
+</header>
+
+<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
+    <main> <!-- メインコンテンツ -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html">Top</a></li>
+                <li><a href="keeper.html">飼育係</a></li>
+                <li><a href="profile.html">プロフィール</a></li>
+                    <li>平成以降</li>
+            </ul>
+        </div> <!-- breadcrumb -->
+        <h2 class="mono">平成以降</h2>
+        <section>
+            <h3 class="mono">平成</h3><!-- 1989年1月以降 -->
+            <div class="section_content">
+                1989年  ベルリンの壁が壊される<br>
+                1990年  湾岸戦争開戦、Python言語誕生<br>
+                1991年  湾岸戦争終戦、ソ連解体、Linux開発<br>
+                1992年  X Window SystemをLinuxに移植<br>
+                1993年  マイクロソフト[Windows3.1]日本語版発売、Slackwareリリース<br>
+                1994年  ソニー[PlayStation]発売、PHP言語誕生<br>
+                1995年  マイクロソフト[Windows95]発売、Netscape Navigatorリリース、Java言語誕生、JavaScript言語誕生<br>
+                1996年  マイクロソフト[WindowsNT]発売、バンダイ[たまごっち]発売<br>
+                1997年  米国Google設立<br>
+                1999年  ソニー[AIBO]発表<br>
+                2000年  C#言語誕生<br>
+                2001年  米国Microsoft[WindowsXP]、米国アップル[iPod]発売（5GBハードディスク内蔵）<br>
+                2003年  イラク戦争開戦、米国スペースシャトルコロンビア号空中分解事故、地上デジタル放送開始<br>
+                2007年  米国アップル[iPhone]発売<br>
+                2011年  世界人口70億人到達<br>
+                2015年  英国DeepMind[AlphaGo]開発、米国Joseph Redomon氏[YOLO]開発<br>
+            </div>
+        </section>
+        <section>
+            <h3 class="mono">令和</h3><!-- 2019年5月以降 -->
+            <div class="section_content">
+                2020年  米国OpenAI[GPT-3]開発<br>
+                2022年  世界人口80億人到達、ドイツミュンヘン大学[StableDiffusion]公開<br>
+                2023年  Ultralytics[YOLOv8]リリース<br>
+            </div>
+        </section>
+    </main>
+    <footer> <!-- フッターコンテンツ -->
+        <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+        <div id="footlinks">
+            <ul>
+                <li><a href="keeper.html">飼育係</a></li>
+                <li><a href="entertainment.html">遊び</a></li>
+                <li><a href="links.html">リンク</a></li>
+                <li><a href="copyright.html">サイトポリシー</a></li>
+                <li><a href="sitemap.html">サイトマップ</a></li>
+            </ul>
+        </div>
+        <a href="#logo"><span class="arrow-up"></span></a>    
+    </footer>
+</div>
+
+<script src="js/bgcollage.js"></script>
+<script>
+    collage(6, 18, 0.9);    // base_num, pic_num, white_ratio
+</script>
+
+</body>
+</html>
