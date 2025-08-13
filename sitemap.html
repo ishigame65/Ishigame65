@@ -10,9 +10,23 @@
 	<title>Ishigame65 - サイトマップ</title>
 </head>
 <style>
-    /* ul li {
-        margin-left: 0;
-    } */
+    #profContents {
+        display: none;
+    }
+    .profBut {
+        font-size: smaller;
+        margin-left: 2em;
+        padding: 0.1em 0.5em;
+        border: 1px solid gray;
+        border-radius: 0.3em;
+        background-color: LightSkyBlue;
+    }
+    .sidenote {
+        display: inline;
+        font-size: smaller;
+        color: gray;
+        margin-left: 0.5em;
+    }
 </style>
 <body>
  
@@ -90,9 +104,11 @@
                     <li><a href="keeper.html">飼育係</a>
                         <ul>
                             <li><a href="saitamap.html">埼玉</a></li>
-                            <li class="extra"><a href="profile.html">プロフィール</a> <div class="sidenote">※1</div>
+                            <li id="profInit" class="extra"><a href="profile.html">プロフィール</a><span class="profBut" onclick="profOn()">表示</span><br>
+                                <div class="sidenote">※ イシガメ飼育と関係ない個人的な趣味の内容</div>
+                            </li>
+                            <li id="profContents" class="extra"><a href="profile.html">プロフィール</a><span class="profBut" onclick="profOff()">非表示</span>
                                 <ul>
-                                    <li><a href="showa.html">昭和</a></li>
                                     <li><a href="kure.html">出身地</a></li>
                                     <li><a href="bikeindex.html">銀輪はたまに唄う</a>
                                         <ul>
@@ -115,8 +131,13 @@
                                     <li><a href='art.html'>習作</a></li>
                                     <li><a href='circuit.html'>回路</a></li>
                                     <li><a href="brickmold.html">モルタルレンガ用型枠</a></li>
-                                </ul></li>
-                        </ul></li>
+                                    <li><a href="before.html">大正以前</a></li>
+                                    <li><a href="showa.html">昭和</a></li>
+                                    <li><a href="after.html">平成以降</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                     <li><a href="entertainment.html">遊び</a>
                         <ul>
                             <li><a href="blockcrushing.html">亀のブロックつぶし</a></li>
@@ -130,7 +151,6 @@
                 </ul>
             </ul>
         </div>
-        <div class="sidenote">※1 イシガメ飼育と関係ない個人的な趣味の内容</div>
     </main>
     <footer> <!-- フッターコンテンツ -->
         <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
@@ -146,6 +166,19 @@
         <a href="#logo"><span class="arrow-up"></span></a>    
     </footer>
 </div>
-    
+
+<script>
+    const profInit = document.getElementById('profInit');
+    const profContents = document.getElementById('profContents');
+    function profOn() {
+        profInit.style.display = 'none';
+        profContents.style.display = 'block';
+    }
+    function profOff() {
+        profInit.style.display = 'block';
+        profContents.style.display = 'none';
+    }
+</script>
+
 </body>
 </html>
