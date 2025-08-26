@@ -5,21 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/history.css">
 	<meta name="description" content="大正以前">
 	<link rel="shortcut icon" href="img/kame.ico">
 	<title>大正以前</title>
 </head>
 <style>
-    dl.compact dt, dl.compact2 dt {
-        float: left;
-        margin-right: 1em;
-    }
-    dl.compact dd {
-        margin-left: 4em;
-    }
-    dl.compact2 dd {
-        margin-left: 8em;
-    }
+
 </style>
 <body>
  
@@ -74,11 +66,17 @@
             </ul>
         </div> <!-- breadcrumb -->
         <h2 class="mono">大正以前</h2>
+        <p>
+            <div class="rect" id="world"></div>いざこざ的な出来事（日本国内のみは除く）
+            <div class="rect" id="japan"></div>日本の出来事
+            <div class="rect" id="abroad"></div>海外の出来事
+            <div class="rect" id="computer"></div>計算機方面の出来事
+        </p>
         <section>
             <h3 class="mono">大昔</h3>
             <div class="section_content">
                 <dl class="compact2">
-                    <dt>138億年前</dt><dd>宇宙誕生</dd>
+                    <dt>138億年前</dt><dd>宇宙誕生</dd><dd>test</dd>
                     <dt>46億年前</dt><dd>太陽系形成</dd>
                     <dt>40億年前</dt><dd>最古の海（地球表面が冷えて液体の水が存在できるようになった）</dd>
                     <dt>40億年前～38億年前</dt><dd>生命の痕跡</dd>
@@ -103,189 +101,198 @@
                     <dt>1万8500年前</dt><dd>アルタミラ洞窟壁画</dd>
                 </dl>
             </div>
+            <div class="clear"></div>
         </section>
         <section>
             <h3 class="mono">縄文時代</h3>
             <div class="section_content">
                 <dl class="compact2">
                     <dt>1万年前</dt><dd>最終氷期終了、日本列島大陸から分離</dd>
-                    <dt>紀元前3000年頃</dt><dd>稲作西日本伝来</dd>
-                    <dt>紀元前2500年頃</dt><dd>エジプト・ギザの三大ピラミッド建設</dd>
-                    <dt>紀元前660年</dt><dd>神武天皇即位（日本建国）</dd>                    
-                    <dt>紀元前6世紀</dt><dd>釈迦（ガウタマ・シッダールタ、ブッタ）仏教</dd>
-                    <dt>紀元前500年頃</dt><dd>メソポタミア文明にて位がゼロであることを示す記号が使用される</dd>
-                    <dt>紀元前5世紀</dt><dd>孔子、儒教</dd> 
-                    <dt>紀元前4世紀</dt><dd>プラトン、アリストテレス</dd>
+                    <dt>紀元前3000年頃</dt><dd class="japan">稲作西日本伝来</dd>
+                    <dt>紀元前2500年頃</dt><dd class="abroad">エジプト・ギザの三大ピラミッド建設</dd>
+                    <dt>紀元前660年</dt><dd class="japan">神武天皇即位（日本建国）</dd>                    
+                    <dt>紀元前6世紀</dt><dd class="abroad">釈迦（ガウタマ・シッダールタ、ブッタ）仏教</dd>
+                    <dt>紀元前500年頃</dt><dd class="abroad">メソポタミア文明にて位がゼロであることを示す記号が使用される</dd>
+                    <dt>紀元前5世紀</dt><dd class="abroad">孔子、儒教</dd> 
+                    <dt>紀元前4世紀</dt><dd class="abroad">プラトン、アリストテレス</dd>
                 </dl>
             </div>
+            <div class="clear"></div>
         </section>
         <section>
             <h3 class="mono">弥生時代</h3>
             <div class="section_content">
                 <dl class="compact2">
-                    <dt>紀元前340年</dt><dd>ヨーロッパ最古の現存する文書</dd>
-                    <dt>紀元前334年</dt><dd>アレクサンドロス3世東方遠征</dd>
-                    <dt>紀元前300年頃</dt><dd>最古のアルゴリズム「ユークリッドの互除法」で最大公約数を求める</dd>
-                    <dt>紀元前221年</dt><dd>秦始皇帝中国統一</dd>
-                    <dt>紀元前200年～紀元後800年</dt><dd>ナスカ地上絵</dd>
-                    <dt>紀元前170年</dt><dd>前漢（中国）世界最古の紙</dd>
-                    <dt>紀元前150～100年</dt><dd>アンティキティラ島の機械が製作される</dd>
-                    <dt>紀元前27年</dt><dd>ローマ帝国</dd>
+                    <dt>紀元前340年</dt><dd class="abroad">ヨーロッパ最古の現存する文書</dd>
+                    <dt>紀元前334年</dt><dd class="world">アレクサンドロス3世東方遠征</dd>
+                    <dt>紀元前300年頃</dt><dd class="computer">最古のアルゴリズム「ユークリッドの互除法」で最大公約数を求める</dd>
+                    <dt>紀元前221年</dt><dd class="world">秦始皇帝中国統一</dd>
+                    <dt>紀元前200年～紀元後800年</dt><dd class="abroad">ナスカ地上絵</dd>
+                    <dt>紀元前170年</dt><dd class="abroad">前漢（中国）世界最古の紙</dd>
+                    <dt>紀元前150～100年</dt><dd class="computer">アンティキティラ島の機械が製作される</dd>
+                    <dt>紀元前27年</dt><dd class="world">ローマ帝国</dd>
                 </dl>
             </div>
+            <div class="clear"></div>
         </section>
         <section>
             <h3 class="mono">古墳時代・奈良時代</h3><!-- x年-794年 -->
             <div class="section_content">
                 <dl class="compact2">
-                    <dt>70年</dt><dd>ローマ帝国第1次ユダヤ戦争エルサレム陥落（ユダヤ人離散開始）</dd>
-                    <dt>135年</dt><dd>ローマ帝国第2次ユダヤ戦争エルサレム陥落（ユダヤ国家消滅）</dd>
-                    <dt>395年</dt><dd>東ローマ帝国</dd>
-                    <dt>450年頃</dt><dd>仁徳天皇陵古墳</dd>
-                    <dt>538年頃</dt><dd>百済から仏教伝来</dd>
-                    <dt>6世紀</dt><dd>インド数としてのゼロを使用</dd>
-                    <dt>6世紀～8世紀</dt><dd>万葉かな</dd>
-                    <dt>600年～618年</dt><dd>遣隋使</dd>
-                    <dt>607年</dt><dd>法隆寺建立（聖徳太子）</dd>
-                    <dt>630年～838年</dt><dd>遣唐使</dd>
-                    <dt>645年～650年</dt><dd>大化の改新（最初の元号）</dd>
-                    <dt>660年</dt><dd>百済滅亡</dd>
-                    <dt>663年</dt><dd>白村江の戦い（日本・百済遺民vs唐・新羅）</dd>
-                    <dt>701年</dt><dd>大宝律令</dd>
-                    <dt>712年</dt><dd>古事記</dd>
-                    <dt>720年</dt><dd>日本書紀</dd>
-                    <dt>759年</dt><dd>唐招提寺建立（鑑真）</dd>
+                    <dt>70年</dt><dd class="world">ローマ帝国第1次ユダヤ戦争エルサレム陥落（ユダヤ人離散開始）</dd>
+                    <dt>135年</dt><dd class="world">ローマ帝国第2次ユダヤ戦争エルサレム陥落（ユダヤ国家消滅）</dd>
+                    <dt>395年</dt><dd class="world">東ローマ帝国</dd>
+                    <dt>450年頃</dt><dd class="japan">仁徳天皇陵古墳</dd>
+                    <dt>538年頃</dt><dd class="japan">百済から仏教伝来</dd>
+                    <dt>562年</dt><dd class="world">任那滅亡</dd>
+                    <dt>6世紀</dt><dd class="abroad">インド数としてのゼロを使用</dd>
+                    <dt>6世紀～8世紀</dt><dd class="japan">万葉かな</dd>
+                    <dt>600年～618年</dt><dd class="japan">遣隋使</dd>
+                    <dt>607年</dt><dd class="japan">法隆寺建立（聖徳太子）</dd>
+                    <dt>630年～838年</dt><dd class="japan">遣唐使</dd>
+                    <dt>645年～650年</dt><dd class="japan">大化の改新（最初の元号）</dd>
+                    <dt>660年</dt><dd class="world">百済滅亡</dd>
+                    <dt>663年</dt><dd class="world">白村江の戦い（日本・百済遺民vs唐・新羅）</dd>
+                    <dt>701年</dt><dd class="japan">大宝律令</dd>
+                    <dt>712年</dt><dd class="japan">古事記</dd>
+                    <dt>720年</dt><dd class="japan">日本書紀</dd>
+                    <dt>759年</dt><dd class="japan">唐招提寺建立（鑑真）</dd>
                 </dl>
             </div>
+            <div class="clear"></div>
         </section>
         <section>
             <h3 class="mono">平安時代</h3><!-- 794年-1185年 -->
             <div class="section_content">
                 <dl class="compact2">
-                    <dt>9世紀</dt><dd>唐（中国）火薬発明</dd>
-                    <dt>9世紀～11世紀</dt><dd>ひらがな、カタカナ</dd>
-                    <dt>10世紀頃</dt><dd>竹取物語</dd>
-                    <dt>11世紀</dt><dd>宋（中国）羅針盤・活版印刷発明</dd>
-                    <dt>1008年</dt><dd>源氏物語</dd>
-                    <dt>1173年</dt><dd>伊ピサの斜塔第1工期始まる</dd>
+                    <dt>9世紀</dt><dd class="abroad">唐（中国）火薬発明</dd>
+                    <dt>9世紀～11世紀</dt><dd class="japan">ひらがな、カタカナ</dd>
+                    <dt>10世紀頃</dt><dd class="japan">竹取物語</dd>
+                    <dt>11世紀</dt><dd class="abroad">宋（中国）羅針盤・活版印刷発明</dd>
+                    <dt>1008年</dt><dd class="japan">源氏物語</dd>
+                    <dt>1173年</dt><dd class="abroad">伊ピサの斜塔第1工期始まる</dd>
                 </dl>
             </div>
+            <div class="clear"></div>
         </section>
         <section>
             <h3 class="mono">鎌倉時代・室町時代</h3><!-- 1185年-1573年 -->
             <div class="section_content">
                 <dl class="compact">
-                    <dt>1206年</dt><dd>モンゴル帝国</dd>
-                    <dt>1274年</dt><dd>元寇（文永の役）</dd>
-                    <dt>1281年</dt><dd>元寇（弘安の役）</dd>
-                    <dt>1299年</dt><dd>オスマン帝国</dd>
-                    <dt>14世紀</dt><dd>明（中国）多段式ロケット発明</dd>
-                    <dt>1404年</dt><dd>日明貿易</dd>
-                    <dt>1455年</dt><dd>独グーテンベルク聖書の印刷</dd>
-                    <dt>1492年</dt><dd>コロンブス大西洋横断西インド諸島上陸</dd>
-                    <dt>1543年</dt><dd>ポルトガル人種子島漂着、火縄銃伝来</dd>
+                    <dt>1206年</dt><dd class="world">モンゴル帝国</dd>
+                    <dt>1274年</dt><dd class="world">元寇（文永の役）</dd>
+                    <dt>1281年</dt><dd class="world">元寇（弘安の役）</dd>
+                    <dt>1299年</dt><dd class="world">オスマン帝国</dd>
+                    <dt>14世紀</dt><dd class="abroad">明（中国）多段式ロケット発明</dd>
+                    <dt>1404年</dt><dd class="japan">日明貿易</dd>
+                    <dt>1455年</dt><dd class="abroad">独グーテンベルク聖書の印刷</dd>
+                    <dt>1492年</dt><dd class="abroad">コロンブス大西洋横断西インド諸島上陸</dd>
+                    <dt>1543年</dt><dd class="japan">ポルトガル人種子島漂着、火縄銃伝来</dd>
                 </dl>
             </div>
+            <div class="clear"></div>
         </section>
         <section>
             <h3 class="mono">安土桃山時代</h3><!-- 1573年-1603年 -->
             <div class="section_content">
                 <dl class="compact">
-                    <dt>1582年</dt><dd>ユリウス暦からグレゴリオ暦に移行</dd>
-                    <dt>1588年</dt><dd>スペイン無敵艦隊英艦隊に敗北</dd>
-                    <dt>1600年</dt><dd>関ケ原の合戦</dd>
+                    <dt>1588年</dt><dd class="world">スペイン無敵艦隊英艦隊に敗北</dd>
+                    <dt>1600年</dt><dd class="japan">関ケ原の合戦</dd>
                 </dl>
             </div>
+            <div class="clear"></div>
         </section>
         <section>
             <h3 class="mono">江戸</h3>
             <div class="section_content">
                 <dl class="compact">
-                    <dt>1624年</dt><dd>オランダ台湾統治</dd>
-                    <dt>1632年</dt><dd>伊ガリレオが地動説を唱える</dd>
-                    <dt>1637年</dt><dd>デカルト[方法序説]</dd>
-                    <dt>1661年</dt><dd>台湾鄭氏政権（東寧王国）</dd>                    
-                    <dt>1666年</dt><dd>英アイザック・ニュートン「万有引力の法則」考案</dd>
-                    <dt>1675年</dt><dd>英グリニッジ天文台建設開始</dd>
-                    <dt>1677年</dt><dd>スピノザ[エティカ]</dd>
-                    <dt>1683年</dt><dd>清（中国）台湾征服</dd>
-                    <dt>1697年</dt><dd>ライプニッツ二進法提唱</dd>
-                    <dt>1726年</dt><dd>英スウィフト「ガリヴァー旅行記」発表</dd>
-                    <dt>1752年</dt><dd>米ベンジャミン・フランクリンが凧の実験</dd>
-                    <dt>1776年</dt><dd>アメリカ独立宣言</dd>
-                    <dt>1781年</dt><dd>カント[純粋理性批判]</dd>
-                    <dt>1789年</dt><dd>フランス革命</dd>
-                    <dt>1791年</dt><dd>仏地球の大きさを基準にメートルが定義される</dd>
-                    <dt>1793年</dt><dd>仏質量の単位Grave導入(1795年キログラムに改名)</dd>
-                    <dt>1800年</dt><dd>伊能忠敬日本測量開始</dd>
-                    <dt>1814年</dt><dd>ナポレオン没落</dd>
-                    <dt>1822年</dt><dd>仏ロゼッタ・ストーンのヒエログリフ（聖刻文字）を解読</dd>
-                    <dt>1827年</dt><dd>仏世界初の写真</dd>
-                    <dt>1828年</dt><dd>シーボルト事件（日本地図などの禁制品を国外に持ち出そうとした）</dd>
-                    <dt>1840年</dt><dd>清英アヘン戦争</dd>
-                    <dt>1842年</dt><dd>清英アヘン戦争終結（南京条約、香港割譲）</dd>
-                    <dt>1851年</dt><dd>清太平天国の乱</dd>
-                    <dt>1853年</dt><dd>ペリー来航</dd>
-                    <dt>1854年</dt><dd>日米和親条約</dd>
-                    <dt>1861年</dt><dd>米南北戦争開戦</dd>
-                    <dt>1865年</dt><dd>米南北戦争終戦、英ルイス・キャロル[不思議の国のアリス]</dd>
-                    <dt>1866年</dt><dd>スウェーデンのノーベルがダイナマイト製作</dd>
-                    <dt>1867年</dt><dd>大政奉還、米アラスカ購入</dd>
+                    <dt>1624年</dt><dd class="world">オランダ台湾統治</dd>
+                    <dt>1632年</dt><dd class="abroad">伊ガリレオが地動説を唱える</dd>
+                    <dt>1637年</dt><dd class="abroad">デカルト[方法序説]</dd>
+                    <dt>1661年</dt><dd class="world">台湾鄭氏政権（東寧王国）</dd>                    
+                    <dt>1666年</dt><dd class="abroad">英アイザック・ニュートン[万有引力の法則]</dd>
+                    <dt>1675年</dt><dd class="abroad">英グリニッジ天文台建設開始</dd>
+                    <dt>1677年</dt><dd class="abroad">スピノザ[エティカ]</dd>
+                    <dt>1683年</dt><dd class="world">清（中国）台湾征服</dd>
+                    <dt>1697年</dt><dd class="computer">ライプニッツ二進法提唱</dd>
+                    <dt>1726年</dt><dd class="abroad">英スウィフト[ガリヴァー旅行記]</dd>
+                    <dt>1752年</dt><dd class="abroad">米ベンジャミン・フランクリンが凧の実験</dd>
+                    <dt>1776年</dt><dd class="world">アメリカ独立宣言</dd>
+                    <dt>1781年</dt><dd class="abroad">カント[純粋理性批判]</dd>
+                    <dt>1789年</dt><dd class="world">フランス革命</dd>
+                    <dt>1791年</dt><dd class="abroad">仏地球の大きさを基準にメートルが定義される</dd>
+                    <dt>1793年</dt><dd class="abroad">仏質量の単位Grave導入(1795年キログラムに改名)</dd>
+                    <dt>1800年</dt><dd class="japan">伊能忠敬日本測量開始</dd>
+                    <dt>1814年</dt><dd class="world">ナポレオン没落</dd>
+                    <dt>1822年</dt><dd class="abroad">仏ロゼッタ・ストーンのヒエログリフ（聖刻文字）解読</dd>
+                    <dt>1827年</dt><dd class="abroad">仏世界初の写真</dd>
+                    <dt>1828年</dt><dd class="japan">シーボルト事件（日本地図などの禁制品を国外に持ち出そうとした）</dd>
+                    <dt>1840年</dt><dd class="world">清英アヘン戦争</dd>
+                    <dt>1842年</dt><dd class="world">清英アヘン戦争終結（南京条約、香港割譲）</dd>
+                    <dt>1851年</dt><dd class="world">清太平天国の乱</dd>
+                    <dt>1853年</dt><dd class="world">ペリー来航</dd>
+                    <dt>1854年</dt><dd class="world">日米和親条約</dd>
+                    <dt>1861年</dt><dd class="world">米南北戦争開戦</dd>
+                    <dt>1865年</dt><dd class="world">米南北戦争終戦</dd><dd class="abroad">英ルイス・キャロル[不思議の国のアリス]</dd>
+                    <dt>1866年</dt><dd class="abroad">スウェーデンのノーベルがダイナマイト製作</dd>
+                    <dt>1867年</dt><dd class="japan">大政奉還</dd><dd class="abroad">米アラスカ購入</dd>
                 </dl>
             </div>
+            <div class="clear"></div>
         </section>
         <section>
             <h3 class="mono">明治</h3>
             <div class="section_content">
                 <dl class="compact">
-                    <dt>1868年</dt><dd>明治維新</dd>
+                    <dt>1868年</dt><dd class="japan">明治維新</dd>
                     <dt>1869年</dt><dd>スエズ運河開通</dd>
-                    <dt>1870年</dt><dd>仏ジュール・ヴェルヌ[海底二万里]</dd>
-                    <dt>1871年</dt><dd>廃藩置県、英国医師リチャード・リーチ・マドックスが写真乾板を発明</dd>
-                    <dt>1872年</dt><dd>福沢諭吉[学問のすゝめ]、天保暦明治5年最後の日</dd>
-                    <dt>1873年</dt><dd>日本グレゴリオ暦開始（明治6年1月1日）</dd>
-                    <dt>1874年</dt><dd>英東インド会社解散</dd>
-                    <dt>1878年</dt><dd>米トーマス・エジソンが機械の不具合をバグ(Bugs)と表現</dd>
-                    <dt>1880年</dt><dd>英グリニッジ標準時を使用することを法制化</dd>
-                    <dt>1880年</dt><dd>米ジョージ・イーストマンが写真乾板の商業生産を開始</dd>
-                    <dt>1882年</dt><dd>スペインサクラダ・ファミリア着工</dd>
-                    <dt>1883年</dt><dd>ニーチェ[ツァラトゥストラはかく語りき]</dd>
-                    <dt>1884年</dt><dd>仏ベトナム植民地化</dd>
-                    <dt>1889年</dt><dd>大日本帝国憲法、仏エッフェル塔開業</dd>
-                    <dt>1890年</dt><dd>オスマン帝国（トルコ）軍艦エルトゥールル号和歌山県沖遭難</dd>
-                    <dt>1894年</dt><dd>日清戦争開戦</dd>
-                    <dt>1895年</dt><dd>日清戦争終戦（下関条約、台湾日本割譲）、李氏朝鮮（朝鮮王国）独立、独レントゲンがX線を発見</dd>
-                    <dt>1897年</dt><dd>第1回シオニスト会議</dd>
-                    <dt>1898年</dt><dd>米ハワイ併合</dd>
-                    <dt>1900年</dt><dd>仏パリ万国博覧会開催</dd>
-                    <dt>1901年</dt><dd>第1回ノーベル賞</dd>
-                    <dt>1903年</dt><dd>日本海軍が三六式無線機を採用（日露戦争で情報伝達に使用）、米ライト兄弟有人動力飛行</dd>
-                    <dt>1904年</dt><dd>日露戦争開戦</dd>
-                    <dt>1905年</dt><dd>日露戦争終戦（ポーツマス条約、満鉄譲渡）、アインシュタイン特殊相対性理論を発表</dd>
-                    <dt>1909年</dt><dd>伊藤博文暗殺</dd>
-                    <dt>1910年</dt><dd>韓国併合</dd>
-                    <dt>1911年</dt><dd>辛亥革命（孫文）</dd>
-                    <dt>1912年</dt><dd>中華民国建国（孫文）、チベット独立</dd>
+                    <dt>1870年</dt><dd class="abroad">仏ジュール・ヴェルヌ[海底二万里]</dd>
+                    <dt>1871年</dt><dd class="japan">廃藩置県</dd><dd class="abroad">英国医師リチャード・リーチ・マドックスが写真乾板を発明</dd>
+                    <dt>1872年</dt><dd class="japan">福沢諭吉[学問のすゝめ]</dd>
+                    <dt>1874年</dt><dd class="world">英東インド会社解散</dd>
+                    <dt>1878年</dt><dd class="abroad">米トーマス・エジソンが機械の不具合をバグ(Bugs)と表現</dd>
+                    <dt>1880年</dt><dd class="abroad">英グリニッジ標準時を使用することを法制化</dd>
+                    <dt>1880年</dt><dd class="abroad">米ジョージ・イーストマンが写真乾板の商業生産を開始</dd>
+                    <dt>1882年</dt><dd class="abroad">スペインサクラダ・ファミリア着工</dd>
+                    <dt>1883年</dt><dd class="abroad">ニーチェ[ツァラトゥストラはかく語りき]</dd>
+                    <dt>1884年</dt><dd class="world">仏ベトナム植民地化</dd>
+                    <dt>1889年</dt><dd class="japan">大日本帝国憲法</dd><dd class="abroad">仏エッフェル塔開業</dd>
+                    <dt>1890年</dt><dd class="japan">オスマン帝国（トルコ）軍艦エルトゥールル号和歌山県沖遭難</dd>
+                    <dt>1894年</dt><dd class="world">日清戦争開戦</dd>
+                    <dt>1895年</dt><dd class="world">日清戦争終戦（下関条約、台湾日本割譲）、李氏朝鮮（朝鮮王国）独立</dd><dd class="abroad">独レントゲンがX線を発見</dd>
+                    <dt>1897年</dt><dd class="world">第1回シオニスト会議</dd>
+                    <dt>1898年</dt><dd class="world">米ハワイ併合</dd>
+                    <dt>1900年</dt><dd class="abroad">仏パリ万国博覧会開催</dd>
+                    <dt>1901年</dt><dd class="abroad">第1回ノーベル賞</dd>
+                    <dt>1903年</dt><dd class="japan">日本海軍が三六式無線機を採用（日露戦争で情報伝達に使用）</dd><dd class="abroad">米ライト兄弟有人動力飛行</dd>
+                    <dt>1904年</dt><dd class="world">日露戦争開戦</dd>
+                    <dt>1905年</dt><dd class="world">日露戦争終戦（ポーツマス条約、満鉄譲渡）</dd><dd class="abroad">アインシュタイン特殊相対性理論を発表</dd>
+                    <dt>1909年</dt><dd class="world">伊藤博文暗殺</dd>
+                    <dt>1910年</dt><dd class="world">韓国併合</dd>
+                    <dt>1911年</dt><dd class="world">辛亥革命（孫文）</dd>
+                    <dt>1912年</dt><dd class="world">中華民国建国（孫文）、チベット独立</dd>
                 </dl>                
             </div>
+            <div class="clear"></div>
         </section>
         <section>
             <h3 class="mono">大正</h3>
             <div class="section_content">
                 <dl class="compact">
-                    <dt>1914年</dt><dd>第一次世界大戦開戦</dd>
-                    <dt>1915年</dt><dd>アインシュタイン一般相対性理論を発表</dd>
-                    <dt>1917年</dt><dd>ロシア革命</dd>
-                    <dt>1918年</dt><dd>第一次世界大戦終戦、連合国シベリア出兵、ウィトゲンシュタイン[論理哲学論考]</dd>
-                    <dt>1919年</dt><dd>ベルサイユ条約</dd>
-                    <dt>1920年</dt><dd>国際連盟設立</dd>
-                    <dt>1921年</dt><dd>モンゴル独立、中国共産党創立</dd>
-                    <dt>1922年</dt><dd>ソ連成立</dd>
-                    <dt>1923年</dt><dd>関東大震災、トルコ共和国成立、独カール・ツァイス投影式プラネタリウム開発</dd>
-                    <dt>1924年</dt><dd>八木・宇田アンテナ原理発見</dd>
-                    <dt>1925年</dt><dd>米ベル研究所設立</dd>
+                    <dt>1914年</dt><dd class="world">第一次世界大戦開戦、日本対独参戦（青島・南洋諸島占領）</dd>
+                    <dt>1915年</dt><dd class="abroad">アインシュタイン一般相対性理論を発表</dd>
+                    <dt>1917年</dt><dd class="world">ロシア革命</dd>
+                    <dt>1918年</dt><dd class="world">第一次世界大戦終戦、連合国シベリア出兵</dd><dd class="abroad">ウィトゲンシュタイン[論理哲学論考]</dd>
+                    <dt>1919年</dt><dd class="world">ベルサイユ条約</dd>
+                    <dt>1920年</dt><dd class="world">国際連盟設立</dd>
+                    <dt>1921年</dt><dd class="world">モンゴル独立、中国共産党創立</dd>
+                    <dt>1922年</dt><dd class="world">ソ連成立</dd>
+                    <dt>1923年</dt><dd class="world">トルコ共和国成立</dd><dd class="japan">関東大震災</dd><dd class="abroad">独カール・ツァイス投影式プラネタリウム開発</dd>
+                    <dt>1924年</dt><dd class="japan">八木・宇田アンテナ原理発見</dd>
+                    <dt>1925年</dt><dd class="computer">米ベル研究所設立</dd>
                 </dl> 
            </div>
+            <div class="clear"></div>
         </section>
     </main>
     <footer> <!-- フッターコンテンツ -->
