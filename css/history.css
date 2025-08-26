@@ -14,23 +14,19 @@ dl.compact dd, dl.compact2 dd {
     float: left;
     margin-left: 0;
 }
-dl.compact dd+dd, dl.compact2 dd+dd {
+dd span+span {
     margin-left: 1em;
 }
 /* 世界情勢 */
-dd.world {
+span.world {
     color: tomato;
 }
 /* 日本 */
-dd.japan {
+span.japan {
     color: royalblue;
 }
-/* 海外 */
-dd.abroad {
-    color: olive;
-}
 /* 計算機 */
-dd.computer {
+span.computer {
     color: darkorchid;
 }
 .rect{
@@ -45,9 +41,6 @@ dd.computer {
 }
 #japan {
     background-color: royalblue;
-}
-#abroad {
-    background-color: olive;
 }
 #computer {
     background-color: darkorchid;
