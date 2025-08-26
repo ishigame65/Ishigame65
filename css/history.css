@@ -1,0 +1,54 @@
+@charset "utf-8";
+dl.compact dt, dl.compact2 dt {
+    float: left;
+    clear: left;
+    margin-right: 1em;
+}
+dl.compact dt {
+    min-width: 3em;
+}
+dl.compact2 dt {
+    min-width: 7em;
+}
+dl.compact dd, dl.compact2 dd {
+    float: left;
+    margin-left: 0;
+}
+dl.compact dd+dd, dl.compact2 dd+dd {
+    margin-left: 1em;
+}
+/* 世界情勢 */
+dd.world {
+    color: tomato;
+}
+/* 日本 */
+dd.japan {
+    color: royalblue;
+}
+/* 海外 */
+dd.abroad {
+    color: olive;
+}
+/* 計算機 */
+dd.computer {
+    color: darkorchid;
+}
+.rect{
+    display: inline-block;
+    width: 1.3em;
+    height: 1em;
+    margin-left: 0.5em;
+    margin-right: 0.3em;
+}
+#world {
+    background-color: tomato;
+}
+#japan {
+    background-color: royalblue;
+}
+#abroad {
+    background-color: olive;
+}
+#computer {
+    background-color: darkorchid;
+}
