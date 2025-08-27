@@ -67,32 +67,33 @@
         </div> <!-- breadcrumb -->
         <h2 class="mono">平成以降</h2>
         <p>
-            <div class="rect" id="world"></div>いざこざ（国内を除く）
-            <div class="rect" id="japan"></div>日本
-            <div class="rect" id="computer"></div>計算機方面
+            <label><input type="checkbox" id="world" checked>いざこざ（国内を除く）</label>
+            <label><input type="checkbox" id="japan" checked>日本</label>
+            <label><input type="checkbox" id="computer" checked>計算機方面</label>
+            <label><input type="checkbox" id="bike" checked>自転車方面</label>
         </p>
         <section>
             <h3 class="mono">平成</h3><!-- 1989年1月以降 -->
             <div class="section_content">
                 <dl class="compact">
-                    <dt>1989年</dt><dd><span class="world">独ベルリンの壁が壊される</span><span class="computer">スイスCERN[WWW]</span></dd>
-                    <dt>1990年</dt><dd><span class="world">湾岸戦争開戦</span><span class="computer">Python言語誕生</span></dd>
-                    <dt>1991年</dt><dd><span class="world">湾岸戦争終戦、ソ連解体、ユーゴスラビア内戦</span><span class="computer">Linux開発</span></dd>
-                    <dt>1992年</dt><dd><span class="computer">X Window SystemをLinuxに移植</span></dd>
-                    <dt>1993年</dt><dd><span class="computer">米マイクロソフト[Windows3.1日本語版]、Slackwareリリース</span></dd>
-                    <dt>1994年</dt><dd><span class="computer">ソニー[PlayStation]、PHP言語誕生</span></dd>
-                    <dt>1995年</dt><dd><span class="japan">阪神淡路大震災</span><span class="computer">米マイクロソフト[Windows95]、Netscape Navigatorリリース、Java言語誕生、JavaScript言語誕生</span></dd>
-                    <dt>1996年</dt><dd><span class="world">パレスチナ自治政府発足</span><span class="japan">バンダイ[たまごっち]</span><span class="computer">米マイクロソフト[WindowsNT]</span></dd>
-                    <dt>1997年</dt><dd><span class="world">英香港主権返還</span><span class="computer">米Google設立</span></dd>
-                    <dt>1999年</dt><dd><span class="world">ポルトガルマカオ主権返還</span><span class="japan">ソニー[AIBO]</span></dd>
-                    <dt>2000年</dt><dd><span>米ITバブル崩壊</span><span class="computer">C#言語誕生</span></dd>
-                    <dt>2001年</dt><dd><span class="world">米同時多発テロ</span><span class="computer">米マイクロソフト[WindowsXP]、米アップル[iPod]（5GBハードディスク内蔵）</span></dd>
-                    <dt>2002年</dt><dd><span>通貨ユーロ</span><span class="computer">インターネット普及率50%超え</span></dd>
-                    <dt>2003年</dt><dd><span class="world">イラク戦争開戦</span><span class="japan">地上デジタル放送開始</span><span>米スペースシャトルコロンビア号空中分解事故</span></dd>
-                    <dt>2007年</dt><dd><span class="computer">米アップル[iPhone]</span></dd>
-                    <dt>2008年</dt><dd><span>米リーマンショック</span></dd>
-                    <dt>2011年</dt><dd><span>世界人口70億人到達</span><span class="japan">東日本大震災</span></dd>
-                    <dt>2015年</dt><dd><span class="computer">英DeepMind[AlphaGo]、米Joseph Redomon氏[YOLO]</span></dd>
+                    <dt>1989年</dt><dd><span class="world">独ベルリンの壁が壊される</span><span class="computer">スイスCERN[WWW]</span><span class="ghost">*</span></dd>
+                    <dt>1990年</dt><dd><span class="world">湾岸戦争開戦</span><span class="computer">Python言語誕生</span><span class="bike">シマノ[STIレバー]</span><span class="ghost">*</span></dd>
+                    <dt>1991年</dt><dd><span class="world">湾岸戦争終戦、ソ連解体、ユーゴスラビア内戦</span><span class="computer">Linux開発</span><span class="ghost">*</span></dd>
+                    <dt>1992年</dt><dd><span class="computer">X Window SystemをLinuxに移植</span><span class="bike">カンパニョーロ[エルゴパワー]</span><span class="ghost">*</span></dd>
+                    <dt>1993年</dt><dd><span class="computer">米マイクロソフト[Windows3.1日本語版]、Slackwareリリース</span><span class="ghost">*</span></dd>
+                    <dt>1994年</dt><dd><span class="computer">ソニー[PlayStation]、PHP言語誕生</span><span class="ghost">*</span></dd>
+                    <dt>1995年</dt><dd><span class="japan">阪神淡路大震災</span><span class="computer">米マイクロソフト[Windows95]、Netscape Navigatorリリース、Java言語誕生、JavaScript言語誕生</span><span class="ghost">*</span></dd>
+                    <dt>1996年</dt><dd><span class="world">パレスチナ自治政府発足</span><span class="japan">バンダイ[たまごっち]</span><span class="computer">米マイクロソフト[WindowsNT]</span><span class="ghost">*</span></dd>
+                    <dt>1997年</dt><dd><span class="world">英香港主権返還</span><span class="computer">米Google設立</span><span class="ghost">*</span></dd>
+                    <dt>1999年</dt><dd><span class="world">ポルトガルマカオ主権返還</span><span class="japan">ソニー[AIBO]</span><span class="ghost">*</span></dd>
+                    <dt>2000年</dt><dd><span>米ITバブル崩壊</span><span class="computer">C#言語誕生</span><span class="ghost">*</span></dd>
+                    <dt>2001年</dt><dd><span class="world">米同時多発テロ</span><span class="computer">米マイクロソフト[WindowsXP]、米アップル[iPod]（5GBハードディスク内蔵）</span><span class="ghost">*</span></dd>
+                    <dt>2002年</dt><dd><span>通貨ユーロ</span><span class="computer">インターネット普及率50%超え</span><span class="ghost">*</span></dd>
+                    <dt>2003年</dt><dd><span class="world">イラク戦争開戦</span><span class="japan">地上デジタル放送開始</span><span>米スペースシャトルコロンビア号空中分解事故</span><span class="ghost">*</span></dd>
+                    <dt>2007年</dt><dd><span class="computer">米アップル[iPhone]</span><span class="ghost">*</span></dd>
+                    <dt>2008年</dt><dd><span>米リーマンショック</span><span class="ghost">*</span></dd>
+                    <dt>2011年</dt><dd><span>世界人口70億人到達</span><span class="japan">東日本大震災</span><span class="ghost">*</span></dd>
+                    <dt>2015年</dt><dd><span class="computer">英DeepMind[AlphaGo]、米Joseph Redomon氏[YOLO]</span><span class="ghost">*</span></dd>
                 </dl>
             </div>
             <div class="clear"></div>
@@ -101,9 +102,9 @@
             <h3 class="mono">令和</h3><!-- 2019年5月以降 -->
             <div class="section_content">
                 <dl class="compact">
-                    <dt>2020年</dt><dd><span>新型コロナウィルス</span><span class="computer">米OpenAI[GPT-3]</span></dd>
-                    <dt>2022年</dt><dd><span>世界人口80億人到達</span><span class="computer">独ミュンヘン大学[StableDiffusion]</span></dd>
-                    <dt>2023年</dt><dd><span>インド人口世界一</span><span class="computer">Ultralytics[YOLOv8]</span></dd>
+                    <dt>2020年</dt><dd><span>新型コロナウィルス</span><span class="computer">米OpenAI[GPT-3]</span><span class="ghost">*</span></dd>
+                    <dt>2022年</dt><dd><span>世界人口80億人到達</span><span class="computer">独ミュンヘン大学[StableDiffusion]</span><span class="ghost">*</span></dd>
+                    <dt>2023年</dt><dd><span>インド人口世界一</span><span class="computer">Ultralytics[YOLOv8]</span><span class="ghost">*</span></dd>
                 </dl>
            </div>
             <div class="clear"></div>
@@ -112,16 +113,16 @@
             <h3 class="mono">将来</h3>
             <div class="section_content">
                 <dl class="compact">
-                    <dt>2026年</dt><dd><span class="computer">AIバブル沈静化（学習データ枯渇）</span></dd>
-                    <dt>2027年</dt><dd><span class="world">台湾危機</span></dd>
-                    <dt>2030年</dt><dd><span>先端技術中国1強顕在化</span></dd>
-                    <dt>2032年</dt><dd><span class="world">中台（国共）合作</span></dd>
-                    <dt>2035年</dt><dd><span>中国GDP世界1位</span></dd>
-                    <dt>2050年</dt><dd><span>インドネシアGDP世界4位</span></dd>
-                    <dt>2075年</dt><dd><span>インドGDP世界2位</span></dd>
-                    <dt>2192年</dt><dd><span>ガミラス帝国地球攻撃開始</span></dd>
-                    <dt>2199年</dt><dd><span>ヤマト発進</span></dd>
-                    <dt>2200年</dt><dd><span>ヤマト帰還、地球復興</span></dd>
+                    <dt>2026年</dt><dd><span class="computer">AIバブル沈静化（学習データ枯渇）</span><span class="ghost">*</span></dd>
+                    <dt>2027年</dt><dd><span class="world">台湾危機</span><span class="ghost">*</span></dd>
+                    <dt>2030年</dt><dd><span>先端技術中国1強顕在化</span><span class="ghost">*</span></dd>
+                    <dt>2032年</dt><dd><span class="world">中台（国共）合作</span><span class="ghost">*</span></dd>
+                    <dt>2035年</dt><dd><span>中国GDP世界1位</span><span class="ghost">*</span></dd>
+                    <dt>2050年</dt><dd><span>インドネシアGDP世界4位</span><span class="ghost">*</span></dd>
+                    <dt>2075年</dt><dd><span>インドGDP世界2位</span><span class="ghost">*</span></dd>
+                    <dt>2192年</dt><dd><span>ガミラス帝国地球攻撃開始</span><span class="ghost">*</span></dd>
+                    <dt>2199年</dt><dd><span>ヤマト発進</span><span class="ghost">*</span></dd>
+                    <dt>2200年</dt><dd><span>ヤマト帰還、地球復興</span><span class="ghost">*</span></dd>
                 </dl>
             </div>
             <div class="clear"></div>
@@ -142,6 +143,7 @@
     </footer>
 </div>
 
+<script src="js/history.js"></script>
 <script src="js/bgcollage.js"></script>
 <script>
     collage(6, 18, 0.9);    // base_num, pic_num, white_ratio
