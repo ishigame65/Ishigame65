@@ -15,6 +15,8 @@ span {
 }
 span.ghost {
     visibility: hidden;
+    margin-right: 0;
+    margin-left: 0;
 }
 /* 世界情勢 */
 span.world {
@@ -35,7 +37,7 @@ span.bike {
 input[type=checkbox] {
     margin-left: 1.2em;
     margin-right: 0.8em;
-    transform: scale(1.8, 1.5);
+    transform: scale(1.5, 1.3);
 }
 #world {
     accent-color: tomato;
