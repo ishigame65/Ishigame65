@@ -1,21 +1,20 @@
 @charset "utf-8";
 dl.compact dt, dl.compact2 dt {
-    float: left;
     clear: left;
+    float: left;
     margin-right: 1em;
 }
-dl.compact dt {
-    min-width: 3em;
+dl.compact dd {
+    margin-left: 3em;
 }
-dl.compact2 dt {
-    min-width: 7em;
+dl.compact2 dd {
+    margin-left: 7em;
 }
-dl.compact dd, dl.compact2 dd {
-    float: left;
-    margin-left: 0;
+span {
+    margin-right: 1em;    
 }
-dd span+span {
-    margin-left: 1em;
+span.ghost {
+    visibility: hidden;
 }
 /* 世界情勢 */
 span.world {
@@ -29,19 +28,24 @@ span.japan {
 span.computer {
     color: darkorchid;
 }
-.rect{
-    display: inline-block;
-    width: 1.3em;
-    height: 1em;
-    margin-left: 0.5em;
-    margin-right: 0.3em;
+/* 自転車 */
+span.bike {
+    color: darkkhaki;
+}
+input[type=checkbox] {
+    margin-left: 1.2em;
+    margin-right: 0.8em;
+    transform: scale(1.8, 1.5);
 }
 #world {
-    background-color: tomato;
+    accent-color: tomato;
 }
 #japan {
-    background-color: royalblue;
+    accent-color: royalblue;
 }
 #computer {
-    background-color: darkorchid;
+    accent-color: darkorchid;
+}
+#bike {
+    accent-color: darkkhaki;
 }
