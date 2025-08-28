@@ -9,17 +9,27 @@
 	<title>Ishigame65 - 周りの生きもの</title>
 </head>
 <style>
-    main img {
-        margin: 0.2em;
-    }
-    article {
+    /* article {
+        background-color: yellow;
+    } */
+    figure {
         position: relative;
+        margin: 0.2em;
+        width: 300px;
+        float: left;
     }
-    #photoset {
-        display: flex;
+    figure figcaption {
+        position: absolute;
+        bottom:0;
+        width: 100%;
+        text-align: center;
+    }
+    figcaption span {
+        background-color: rgba(255,255,255,50%);
+        padding: 0.1em 0.5em;
     }
     @media (max-width: 700px) {
-        main img {
+        figure {
             max-width: 45%;
         }
     }
@@ -62,7 +72,7 @@
             <li><a href="maintenance.html">日々の管理</a></li>
             <li><a href="trouble.html">トラブル</a></li>
             <li><a href="baby.html">成長記録</a></li>
-        </ul>    
+        </ul>
     </nav>
 </header>
 
@@ -80,12 +90,13 @@
             <div class="article_content">
 
             </div>
-            <img src="img/ani_ageha1.jpg">
-            <img src="img/ani_tombo1.jpg">
-            <img src="img/ani_abu1.jpg">
-            <img src="img/ani_abu2.jpg">
-            <img src="img/ani_tghyomon1.jpg">
-            <img src="img/ani_tabakoga1.jpg">
+            <figure><img src="img/ani_ageha1.jpg"><figcaption><span>アゲハ蝶</span></figcaption></figure>
+            <figure><img src="img/ani_tombo1.jpg"><figcaption><span>赤トンボ</span></figcaption></figure>
+            <figure><img src="img/ani_abu1.jpg"><figcaption><span>シオヤアブ</span></figcaption></figure>
+            <figure><img src="img/ani_abu2.jpg"><figcaption><span>アオメアブ</span></figcaption></figure>
+            <figure><img src="img/ani_tghyomon1.jpg"><figcaption><span>ツマグロヒョウモン</span></figcaption></figure>
+            <figure><img src="img/ani_tabakoga1.jpg"><figcaption><span>オオタバコガ</span></figcaption></figure>
+            <figure><img src="img/ani_kama1.jpg"><figcaption><span>オオカマキリ</span></figcaption></figure>
         </article>
     </main>
 
