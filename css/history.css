@@ -2,7 +2,7 @@
 dl.compact dt, dl.compact2 dt {
     clear: left;
     float: left;
-    margin-right: 1em;
+    margin-right: 0.5em;
 }
 dl.compact dd {
     margin-left: 3em;
