@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">    
+	<meta name="description" content="Ishigame65 - 雨水補給器">
+	<link rel="shortcut icon" href="img/kame.ico">
+	<title>Ishigame65 - 雨水補給器</title>
+</head>
+<style>
+    main img {
+        float:right;
+        margin-right: 0.7em;
+        max-height: 500px;
+    }
+    @media (max-width: 700px) {
+        main img {
+            max-width: 45%;
+            max-height: 300px;
+        }
+    }
+</style>
+<body>
+ 
+<!-- input・label・ドロワーメニューはbody直下 -->
+<input id="check_input" type="checkbox">
+<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+    <span></span><div id="title">MENU</div>
+</label>
+<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+
+<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+    <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="intro.html">経緯と方針</a></li>
+        <li><a href="menu.html">飼育環境</a></li>
+        <li><a href="maintenance.html">日々の管理</a></li>
+        <li><a href="trouble.html">トラブル</a></li>
+        <li><a href="baby.html">成長記録</a></li>
+    </ul>
+    <ul id="menu2nd">
+        <li>&nbsp;</li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li><a href="keeper.html">飼育係</a></li>
+        <li><a href="entertainment.html">遊び</a></li>
+        <li><a href="links.html">リンク</a></li>
+        <li><a href="copyright.html">サイトポリシー</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+    </ul>
+</div>
+
+<header>
+    <h1><a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a></h1>
+    <nav>
+        <ul>
+            <li><a href="intro.html">経緯と方針</a></li>
+            <li><a href="menu.html">飼育環境</a></li>
+            <li><a href="maintenance.html">日々の管理</a></li>
+            <li><a href="trouble.html">トラブル</a></li>
+            <li><a href="baby.html">成長記録</a></li>
+        </ul>    
+    </nav>
+</header>
+
+<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
+    <main> <!-- メインコンテンツ -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html">Top</a></li>
+                <li><a href="menu.html">飼育環境</a></li>
+                <li>雨水補給器</li>
+            </ul>
+        </div> <!-- breadcrumb -->
+        <h2>雨水補給器</h2>
+        <section class="indent">
+            <p>
+                （工事中）
+            </p>
+            <p>
+                晴れの日が続くと池の水が蒸発して徐々に減るため、雨水を補給できる仕組みを用意している。
+                実際の雨水補給は、池の水質や水温が急激に変化しないように雨の状況に合わせてその都度調整している。
+                いちおうPH値とともにヌマエビやメダカの様子を見ているが、池の水量がある程度あるためか、
+                強い雨でなければあまり神経質にならなくても大丈夫な様子である。
+                <!--
+                ミナミヌマエビ: PH 6.0-7.5
+                メダカ: PH 6.0-8.0
+                ヒメタニシ: PH 5.0-9.0
+                -->
+            </p>
+            <p>
+                <div>
+                </div>
+                <img src="img/igcgrain1.png">
+                <dl>
+                    <dt>作り方</dt>
+                    <dd>
+                        <ul>
+                            <li>家の雨どいにノコギリで斜め45度上向きの切れ目を入れる</li>
+                            <li>半分に切ったペットボトルを差し込む（台風で飛んでいかないように紐を付けておいた）</li>
+                            <li>ペットボトルの口に給水キャップを介してホースを取り付ける</li>
+                            <li>ゴミ箱に電動ドリルでホース用と塩ビ配管用の穴を開ける</li>
+                            <li>塩ビ配管をゴミ箱に取り付ける</li>
+                            <li>ホースをゴミ箱に差し込む</li>
+                        </ul>
+                    </dd>
+                    <dt>材料</dt>
+                    <dd>
+                        <ul>
+                            <li>ペットボトル</li>
+                            <li>給水キャップ（百均）</li>
+                            <li>ホース（ホームセンター切売り）</li>
+                            <li>蓋付きゴミ箱（百均）</li>
+                            <li>塩ビ配管資材（家にあった呼び径20mmを利用）
+                                <ul class="indent">
+                                    <li>水栓エルボ</li>
+                                    <li>ユニオンパッキンPP40-36x26</li>
+                                    <li>Oリングゴム26</li>
+                                    <li>バルブソケット</li>
+                                    <li>エルボ</li>
+                                    <li>パイプ</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+            </p>
+            <div class="clear"></div>
+        </section>
+    </main>
+    <footer> <!-- フッターコンテンツ -->
+        <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+        <div id="footlinks">
+            <ul>
+                <li><a href="keeper.html">飼育係</a></li>
+                <li><a href="entertainment.html">遊び</a></li>
+                <li><a href="links.html">リンク</a></li>
+                <li><a href="copyright.html">サイトポリシー</a></li>
+                <li><a href="sitemap.html">サイトマップ</a></li>
+            </ul>
+        </div>
+        <a href="#logo"><span class="arrow-up"></span></a>    
+    </footer>
+</div>
+    
+</body>
+</html>
