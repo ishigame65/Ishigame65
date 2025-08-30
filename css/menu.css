@@ -1,16 +1,20 @@
 @charset "utf-8";
 #overlap {
-	text-align: center;
     position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px;
+    height: 400px;
 }
 #overlap a {
     cursor: pointer;
     text-decoration: underline;
     text-decoration-color: #A0A0FF;
-    /* font-size:12pt; */
-    /* font-size:small; */
 }
 #overlap img {
+    position: absolute;
+    display: block;
     pointer-events: none;
 }
 #overlap .col1 {
@@ -21,106 +25,52 @@
 }
 #filter {
     position: absolute;
-    top: 30px;
-    right: 0;
-    bottom: 0;
-    left: -350px;
-    margin: auto;
+    left: 40%;
+    top: 18%;
     z-index: 1;
 }
 #cage {
     position: absolute;
-    top: 55px;
-    right: 0;
-    bottom: 0;
-    left: 320px;
-    margin: auto;
+    left: 80%;
+    top: 36%;
     z-index: 2;
 }
 #feeder {
     position: absolute;
-    top: 74px;
-    right: 0;
-    bottom: 0;
-    left: 80px;
-    margin: auto;
+    left: 53%;
+    top: 40%;
     z-index: 3;
 }
 #pond {
     position: absolute;
-    top: 135px;
-    right: 0;
-    bottom: 0;
-    left: -420px;
-    margin: auto;
+    left: 7%;
+    top: 50%;
     z-index: 4;
 }
 #plant {
     position: absolute;
-    top: 180px;
-    right: 0;
-    bottom: 0;
-    left: -120px;
-    margin: auto;
+    left: 37%;
+    top: 56%;
     z-index: 5;
 }
 #dish {
     position: absolute;
-    top: 272px;
-    right: 0;
-    bottom: 0;
-    left: 165px;
-    margin: auto;
+    left: 63%;
+    top: 81%;
     z-index: 6;
+}
+#rain {
+    position: absolute;
+    left: 7%;
+    top: 18%;
+    z-index: 7;
 }
 @media (max-width: 700px) {
     main {
 		font-size: small;
     }
-    #overlap img {
+    #overlap {
 		width: 260px;
+        height: 230px;
 	}
-	#filter {
-		top: -10px;
-		/* left: 55px; */
-		left: 35px;
-	}
-	#cage {
-		top: 22px;
-		left: 180px;
-	}
-	#feeder {
-		top: 50px;
-		left: 90px;
-	}
-	#pond {
-        top: 60px;
-		left: -230px;
-	}
-	#plant {
-		top: 95px;
-		left: -50px;
-	}
-	#dish {
-		top: 140px;
-		left: 100px;
-	}
-    #filter a{
-        font-size: small;
-    }
-    #plant a{
-        font-size: small;
-    }
-    div#cage a{
-        font-size: small;
-    }
-    #dish a{
-        font-size: small;
-    }
-    #pond a{
-        font-size: small;
-    }
-    #feeder a{
-        font-size: small;
-    }
 }
