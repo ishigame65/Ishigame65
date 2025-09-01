@@ -51,3 +51,11 @@ input[type=checkbox] {
 #bike {
     accent-color: ForestGreen;
 }
+.flex_menu {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+.flex_menu li.now a {
+    text-decoration: none;
+}
