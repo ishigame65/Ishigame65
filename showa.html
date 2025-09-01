@@ -17,6 +17,14 @@
         max-height: 312px;
         margin: 0.2em;
     }
+    .flex_menu {
+        display: flex;
+        justify-content: space-around;
+        list-style-type: none;
+    }
+    .flex_menu li.now a {
+        text-decoration: none;
+    }
     @media (max-width: 700px) {
         article img {
             border-radius: 3px;
@@ -180,6 +188,11 @@
             </div>
             <div class="clear"></div>
         </section>
+        <ul class="flex_menu">
+            <li><a href="before.html">大正以前</a></li>
+            <li class="now"><a href="showa.html">昭和</a></li>
+            <li><a href="after.html">平成以降</a></li>
+        </ul>
     </main>
     <footer> <!-- フッターコンテンツ -->
         <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
