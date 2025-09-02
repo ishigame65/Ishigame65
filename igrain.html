@@ -9,15 +9,22 @@
 	<title>Ishigame65 - 雨水補給器</title>
 </head>
 <style>
-    main img {
+    #cgrain {
         float:right;
         margin-right: 0.7em;
-        max-height: 500px;
+        max-height: 450px;
+    }
+    img {
+        max-width: 300px;
+        max-height: 300px;
     }
     @media (max-width: 700px) {
-        main img {
+        #cgrain {
             max-width: 45%;
             max-height: 300px;
+        }
+        img {
+            max-width: 45%;
         }
     }
 </style>
@@ -91,7 +98,7 @@
             <p>
                 <div>
                 </div>
-                <img src="img/igcgrain1.png">
+                <img id="cgrain" src="img/igcgrain1.png">
                 <dl>
                     <dt>作り方</dt>
                     <dd>
@@ -125,6 +132,9 @@
                     </dd>
                 </dl>
             </p>
+            <br>
+            <img src="img/igrain1.jpg">
+            <img src="img/igrain2.jpg">
             <div class="clear"></div>
         </section>
     </main>
