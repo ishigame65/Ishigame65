@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/popup.css">
     <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="css/history.css">
 	<meta name="description" content="昭和">
@@ -11,19 +12,15 @@
 	<title>昭和</title>
 </head>
 <style>
+    a.popup-open {
+        color: royalblue;
+        text-decoration-style: dotted;
+    }
     article img {
         border-radius: 4px;
         max-width: 442px;
         max-height: 312px;
         margin: 0.2em;
-    }
-    .flex_menu {
-        display: flex;
-        justify-content: space-around;
-        list-style-type: none;
-    }
-    .flex_menu li.now a {
-        text-decoration: none;
     }
     @media (max-width: 700px) {
         article img {
@@ -180,10 +177,11 @@
                     <dt>1984年</dt><dd><span>ソ連[テトリス]</span><span class="ghost">*</span></dd>
                     <dt>1985年</dt><dd><span>米映画[バック・トゥ・ザ・フューチャー]</span><span class="ghost">*</span></dd>
                     <dt>1986年</dt><dd><span>ソ連チェルノブイリ原発事故、米スペースシャトルチャレンジャー号爆発事故</span>
+                        <span class="japan"><a href="" class="popup-open" data-modal-btn="modal01">REBECCA[早稲田祭ライブ]</a></span>
                         <span class="bike">米カーボンフレーム開発</span><span class="ghost">*</span></dd>
                     <dt>1987年</dt><dd><span class="world">台湾民主化(戒厳令解除)</span><span>米ブラックマンデー、世界人口50億人超え</span>
                         <span class="computer">Perl言語誕生</span><span class="ghost">*</span></dd>
-                    <dt>1988年</dt><dd><span class="world">イラン・イラク戦争終戦</span><span class="japan">青函トンネル開通</span><span class="ghost">*</span></dd>
+                    <dt>1988年</dt><dd><span class="world">イラン・イラク戦争終戦</span><span class="japan">青函トンネル開通、<a href="" class="popup-open" data-modal-btn="modal02">THE TIMERS[デイ・ドリーム・ビリーバー]</a></span><span class="ghost">*</span></dd>
                 </dl>
             </div>
             <div class="clear"></div>
@@ -193,6 +191,31 @@
             <li class="now"><a href="showa.html">昭和</a></li>
             <li><a href="after.html">平成以降</a></li>
         </ul>
+
+        <!--POPUP-->
+        <div class="popup-wrap" data-modal-cont="modal01"><div class="popup-back"></div>
+        <div class="popup-inner"><span class="popup-close"></span>
+        <div class="popup-contents">
+            <div class="youtube">
+                <iframe width="480" height="315" src="https://www.youtube.com/embed/NNKi0yIsgsM?si=pFs3m1YQLxBKTaC9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <p class="popup-text">
+                レベッカ早稲田大学熱狂ライブ!!
+            </p>
+        </div></div></div>
+        <!--POPUP-->
+        <div class="popup-wrap" data-modal-cont="modal02"><div class="popup-back"></div>
+        <div class="popup-inner"><span class="popup-close"></span>
+        <div class="popup-contents">
+            <div class="youtube">
+                <iframe width="480" height="315" src="https://www.youtube.com/embed/8RqQleIKqTU?si=-RFyoZJbj7dEiCDi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <p class="popup-text">
+                THE TIMERS『デイ・ドリーム・ビリーバー』
+                <span class="sidenote">(1988年 横浜国立大学学園祭LIVEより)</span>
+            </p>
+        </div></div></div>
+
     </main>
     <footer> <!-- フッターコンテンツ -->
         <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
@@ -209,6 +232,7 @@
     </footer>
 </div>
 
+<script src="js/popup.js"></script>
 <script src="js/history.js"></script>
 <script src="js/bgcollage.js"></script>
 <script>
