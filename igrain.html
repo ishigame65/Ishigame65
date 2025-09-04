@@ -18,12 +18,34 @@
         max-width: 300px;
         max-height: 300px;
     }
+    figure {
+        position: relative;
+        margin: 0.2em;
+        float: left;
+    }
+    figure img {
+        max-width: 400px;
+        max-height: none;
+    }
+    figure figcaption {
+        position: absolute;
+        bottom:0;
+        width: 100%;
+        text-align: center;
+    }
+    figcaption span {
+        background-color: rgba(255,255,255,50%);
+        padding: 0.1em 0.5em;
+    }
     @media (max-width: 700px) {
         #cgrain {
             max-width: 45%;
             max-height: 300px;
         }
         img {
+            max-width: 45%;
+        }
+        figure {
             max-width: 45%;
         }
     }
@@ -80,63 +102,80 @@
             </ul>
         </div> <!-- breadcrumb -->
         <h2>雨水補給器</h2>
-        <section class="indent">
-            <!-- <p>
-                （工事中）
-            </p> -->
-            <p>
-                晴れの日が続くと池の水が蒸発して徐々に減るため、雨水を補給できる仕組みを用意している。
-                実際の雨水補給は、池の水質や水温が急激に変化しないように雨の状況に合わせてその都度調整している。
-                いちおうPH値とともにヌマエビやメダカの様子を見ているが、池の水量がある程度あるためか、
-                強い雨でなければあまり神経質にならなくても大丈夫な様子である。
-                <!--
-                ミナミヌマエビ: PH 6.0-7.5
-                メダカ: PH 6.0-8.0
-                ヒメタニシ: PH 5.0-9.0
-                -->
-            </p>
-            <p>
-                <div>
-                </div>
-                <img id="cgrain" src="img/igcgrain1.png">
-                <dl>
-                    <dt>作り方</dt>
-                    <dd>
-                        <ul>
-                            <li>家の雨どいにノコギリで斜め45度上向きの切れ目を入れる</li>
-                            <li>半分に切ったペットボトルを差し込む（台風で飛んでいかないように紐を付けておいた）</li>
-                            <li>ペットボトルの口に給水キャップを介してホースを取り付ける</li>
-                            <li>ゴミ箱に電動ドリルでホース用と塩ビ配管用の穴を開ける</li>
-                            <li>塩ビ配管をゴミ箱に取り付ける</li>
-                            <li>ホースをゴミ箱に差し込む</li>
-                        </ul>
-                    </dd>
-                    <dt>材料</dt>
-                    <dd>
-                        <ul>
-                            <li>ペットボトル</li>
-                            <li>給水キャップ（百均）</li>
-                            <li>ホース（ホームセンター切売り）</li>
-                            <li>蓋付きゴミ箱（百均）</li>
-                            <li>塩ビ配管資材（家にあった呼び径20の資材を利用）
-                                <ul class="indent">
-                                    <li>水栓エルボ</li>
-                                    <li>ユニオンパッキンPP40-36x26</li>
-                                    <li>Oリングゴム26</li>
-                                    <li>バルブソケット</li>
-                                    <li>エルボ</li>
-                                    <li>パイプ</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </dd>
-                </dl>
-            </p>
-            <br>
-            <img src="img/igrain1.jpg">
-            <img src="img/igrain2.jpg">
-            <div class="clear"></div>
+        <section>
+            <div class="section_content">
+                <p>
+                    晴れの日が続くと池の水が蒸発して徐々に減るため、雨水を補給できる仕組みを用意している。
+                    実際の雨水補給は、池の水質や水温が急激に変化しないように雨の状況に合わせてその都度調整しているが、
+                    池の水量があるためか、あまり神経質にならなくても大丈夫な様子である。
+                    <!--
+                    ミナミヌマエビ: PH 6.0-7.5
+                    メダカ: PH 6.0-8.0
+                    ヒメタニシ: PH 5.0-9.0
+                    -->
+                </p>
+                <p>
+                    <div>
+                    </div>
+                    <img id="cgrain" src="img/igcgrain1.png">
+                    <dl>
+                        <dt>作り方</dt>
+                        <dd>
+                            <ul>
+                                <li>家の雨どいにノコギリで斜め45度上向きの切れ目を入れる</li>
+                                <li>半分に切ったペットボトルを差し込む（台風で飛んでいかないように紐を付けておいた）</li>
+                                <li>ペットボトルの口に給水キャップを介してホースを取り付ける</li>
+                                <li>ゴミ箱に電動ドリルでホース用と塩ビ配管用の穴を開ける</li>
+                                <li>塩ビ配管をゴミ箱に取り付ける</li>
+                                <li>ホースをゴミ箱に差し込む</li>
+                            </ul>
+                        </dd>
+                        <dt>材料</dt>
+                        <dd>
+                            <ul>
+                                <li>ペットボトル</li>
+                                <li>給水キャップ（百均）</li>
+                                <li>ホース（ホームセンター切売り）</li>
+                                <li>蓋付きゴミ箱（百均）</li>
+                                <li>塩ビ配管資材（家にあった呼び径20の資材を利用）
+                                    <ul class="indent">
+                                        <li>水栓エルボ</li>
+                                        <li>ユニオンパッキンPP40-36x26</li>
+                                        <li>Oリングゴム26</li>
+                                        <li>バルブソケット</li>
+                                        <li>エルボ</li>
+                                        <li>パイプ</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+                </p>
+                <br>
+                <img src="img/igrain1.jpg">
+                <img src="img/igrain2.jpg">
+                <div class="clear"></div>
+            </div>
         </section>
+        <section>
+            <h3>雨水の水質</h3>
+            <div class="section_content">
+                激しい雨が降って、減っていた池の水量が満杯に復活したタイミングで、タンク（ゴミ箱）内の雨水と池の水質を検査した。<br>
+                <figure>
+                    <img class="testimg" src="img/igraintest1.png">
+                    <figcaption><span>雨水</span></figcaption>
+                </figure>
+                <figure>
+                    <img class="testimg" src="img/igraintest2.png">
+                    <figcaption><span>池</span></figcaption>
+                </figure>
+                <div class="clear"></div>
+                雨水は二酸化炭素濃度が高いもののPH値はやや酸性よりの正常値であり、
+                池の水は二酸化炭素濃度が低くPH値がアルカリ性寄りだった。
+                この結果を見る限り、もっと雨水を投入しても問題なさそうである。
+            </div>
+        </section>
+
     </main>
     <footer> <!-- フッターコンテンツ -->
         <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>

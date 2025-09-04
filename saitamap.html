@@ -11,12 +11,13 @@
 </head>
 <style>
     h2 {
-        display: inline;
+        min-width: 8em;
+        float: left;
     }
-    h3 {
-        display: inline;
-        margin-left: 0.5em;
-    }
+    /* h3 {
+        clear: both;
+        float: left;
+    } */
     #mapmark {
         position: absolute;
         top: 92px;
@@ -74,63 +75,61 @@
     </nav>
 </header>
 
-<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
-    <main> <!-- メインコンテンツ -->
-        <div class="breadcrumb">
-            <ul>
-                <li><a href="index.html">Top</a></li>
-                <li><a href="keeper.html">飼育係</a></li>
-                <li>埼玉</li>
-            </ul>
-        </div> <!-- breadcrumb -->
-        <h2 id="scrollhere">埼玉</h2>
-        <h3>～ 飼育場所 ～</h3>
-        <section class="indent">
-            <div class="overlap">
-                <img src="img/smap1.png">
-                <img id="mapmark" src="img/en50.png">
-                <div id="markers">
-                    <div id="asaka1">★</div>
-                    <div id="chichibu1">★</div>
-                    <div id="kawagoe1">★</div>
-                    <div id="omiya1">★</div>
-                    <div id="satte1">★</div>
-                    <div id="yono1">★</div>
-                    <div id="joshi1k">★</div>
-                    <div id="motoara1k">★</div>
-                </div>
-                <div id="note">　</div>
+<main> <!-- メインコンテンツ -->
+    <div class="breadcrumb">
+        <ul>
+            <li><a href="index.html">Top</a></li>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li>埼玉</li>
+        </ul>
+    </div> <!-- breadcrumb -->
+    <!-- <span id="scrollhere"></span> -->
+    <h2 id="scrollhere">埼玉</h2>
+    <!-- <h3>～ 飼育場所 ～</h3> -->
+    <section id="wrapper">
+        <div class="overlap">
+            <img src="img/smap1.png">
+            <img id="mapmark" src="img/en50.png">
+            <div id="markers">
+                <div id="asaka1">★</div>
+                <div id="chichibu1">★</div>
+                <div id="kawagoe1">★</div>
+                <div id="omiya1">★</div>
+                <div id="satte1">★</div>
+                <div id="yono1">★</div>
+                <div id="joshi1k">★</div>
+                <div id="motoara1k">★</div>
             </div>
-            <div class="scroll">
-                <a href="javascript:map_display('asaka1')"><img src="img/saiasaka1.jpg"></a>
-                <a href="javascript:map_display('chichibu1')"><img src="img/saichichibu1.jpg"></a>
-                <a href="javascript:map_display('kawagoe1')"><img src="img/saikawagoe1.jpg"></a>
-                <a href="javascript:map_display('omiya1')"><img src="img/saiomiya1.jpg"></a>
-                <a href="javascript:map_display('satte1')"><img src="img/saisatte1.jpg"></a>
-                <a href="javascript:map_display('yono1')"><img src="img/saiyono1.jpg"></a>
-                <a href="javascript:map_display('joshi1k')"><img src="img/saijoshi1k.jpg"></a>
-                <a href="javascript:map_display('motoara1k')"><img src="img/saimotoara1k.jpg"></a>
-            </div>
-            <div id="photoarea" class="center2">
-                <img id="photo" src="">
-            </div>
-        
-        </section>
-    </main>
-    <footer> <!-- フッターコンテンツ -->
-        <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
-        <div id="footlinks">
-            <ul>
-                <li><a href="keeper.html">飼育係</a></li>
-                <li><a href="entertainment.html">遊び</a></li>
-                <li><a href="links.html">リンク</a></li>
-                <li><a href="copyright.html">サイトポリシー</a></li>
-                <li><a href="sitemap.html">サイトマップ</a></li>
-            </ul>
+            <div id="note">　</div>
         </div>
-        <a href="#logo"><span class="arrow-up"></span></a>    
-    </footer>
-</div>
+        <div class="scroll">
+            <a href="javascript:map_display('asaka1')"><img src="img/saiasaka1.jpg"></a>
+            <a href="javascript:map_display('chichibu1')"><img src="img/saichichibu1.jpg"></a>
+            <a href="javascript:map_display('kawagoe1')"><img src="img/saikawagoe1.jpg"></a>
+            <a href="javascript:map_display('omiya1')"><img src="img/saiomiya1.jpg"></a>
+            <a href="javascript:map_display('satte1')"><img src="img/saisatte1.jpg"></a>
+            <a href="javascript:map_display('yono1')"><img src="img/saiyono1.jpg"></a>
+            <a href="javascript:map_display('joshi1k')"><img src="img/saijoshi1k.jpg"></a>
+            <a href="javascript:map_display('motoara1k')"><img src="img/saimotoara1k.jpg"></a>
+        </div>
+        <div id="photoarea" class="center2">
+            <img id="photo" src="">
+        </div>    
+    </section>
+</main>
+<footer> <!-- フッターコンテンツ -->
+    <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+    <div id="footlinks">
+        <ul>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li><a href="entertainment.html">遊び</a></li>
+            <li><a href="links.html">リンク</a></li>
+            <li><a href="copyright.html">サイトポリシー</a></li>
+            <li><a href="sitemap.html">サイトマップ</a></li>
+        </ul>
+    </div>
+    <a href="#logo"><span class="arrow-up"></span></a>    
+</footer>
 
 <script>
     var notes = {
