@@ -30,14 +30,35 @@
         max-height: none;
     }
     figure figcaption {
-        position: absolute;
-        bottom:0;
+        position: absolute;        
+        top:0;
         width: 100%;
         text-align: center;
     }
     figcaption span {
-        background-color: rgba(125,225,255,50%);
-        padding: 0.1em 0.5em;
+        background-color: paleTurquoise;
+        padding: 0.1em 0.75em;
+        margin-left: 4em;
+    }
+    dl.compact {
+        margin: 0.5em 1em;
+        background-color:paleTurquoise;
+        width: fit-content;
+        border: 1px dashed gray;
+    }
+    dl.compact dt {
+        clear: left;
+        float: left;
+        margin-right: 0.5em;
+        padding-left: 0.25em;
+        padding-right: 0;
+        /* border: 1px dashed gray; */
+    }
+    dl.compact dd {
+        margin-left: 8.0em;
+        padding-left: 0.25em;
+        background-color: HoneyDew;
+        border: 1px dotted gray;
     }
     @media (max-width: 700px) {
         #cgrain {
@@ -48,6 +69,7 @@
             max-width: 45%;
         }
         figure, figure img {
+            width: 350px;
             max-width: 95%;
         }        
     }
@@ -108,8 +130,7 @@
             <div class="section_content">
                 <p>
                     晴れの日が続くと池の水が蒸発して徐々に減るため、雨水を補給できる仕組みを用意している。
-                    実際の雨水補給は、池の水質や水温が急激に変化しないように雨の状況に合わせてその都度調整しているが、
-                    池の水量があるためか、あまり神経質にならなくても大丈夫な様子である。
+                    実際の雨水補給は、池の水質や水温が急激に変化しないように雨の状況に合わせてその都度調整している。
                     <!--
                     ミナミヌマエビ: PH 6.0-7.5
                     メダカ: PH 6.0-8.0
@@ -160,21 +181,33 @@
             </div>
         </section>
         <section>
-            <h3>雨水の水質</h3>
+            <h3>雨水と池の水質</h3>
             <div class="section_content">
-                久しぶりに激しい雨が降って、減っていた池の水が満杯に復活したタイミングで、タンク（ゴミ箱）内の雨水と池の水質を検査した。<br>
+                夏期に晴れ続きで池の水が1割ぐらい減っていた状況で久しぶりに強い雨が降った時に、雨水と池の水質を検査した。
+                <dl class="compact">
+                    <dt>雨水</dt><dd>タンク（ゴミ箱）内の雨水（降り始めから1.5時間後）</dd>
+                    <dt>池（1.5時間後）</dt><dd>減っていた池の水が満杯に復活したタイミングの池の水（降り始めから1.5時間後）</dd>
+                    <dt>池（半日後）</dt><dd>雨水注入を続けて半日後の池の水（降り始めから半日後）</dd>
+                </dl>
                 <figure>
                     <img class="testimg" src="img/igraintest1.png">
                     <figcaption><span>雨水</span></figcaption>
                 </figure>
                 <figure>
                     <img class="testimg" src="img/igraintest2.png">
-                    <figcaption><span>池</span></figcaption>
+                    <figcaption><span>池（1.5時間後）</span></figcaption>
+                </figure>
+                <figure>
+                    <img class="testimg" src="img/igraintest3.png">
+                    <figcaption><span>池（半日後）</span></figcaption>
                 </figure>
                 <div class="clear"></div>
-                雨水は二酸化炭素濃度が高いもののPH値はやや酸性よりの正常値であり、
-                池の水は二酸化炭素濃度が低くPH値がアルカリ性寄りだった。
-                この結果を見る限り、もっと雨水を投入しても問題なさそうである。
+                <ul class="indent">
+                    <li>雨水は二酸化炭素濃度が高いもののPH値はやや酸性よりの正常値だった。ちなみに総硬度ゼロの超軟水。</li>
+                    <li>池（1.5時間後）は二酸化炭素濃度が低くPH値がアルカリ性寄りだった。もっと雨水を注入しても良さそうな状況。</li>
+                    <li>池（半日後）はかなり雨水に入れ替わった様子で、総硬度ゼロはヒメタニシやミナミヌマエビにあまり良くなさそう。</li>
+                    <li>強い雨が降った時の雨水注入は3時間程度（池の水が満杯に復活して少し経過したタイミング）がちょうど良さげ。</li>
+                </ul>
             </div>
         </section>
 
