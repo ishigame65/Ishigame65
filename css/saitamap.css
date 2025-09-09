@@ -14,9 +14,6 @@
 	width: 344px;
 	/* background-color: green; */
 }
-.overlap #mapmark {
-	border-radius: 15px;
-}
 .scroll img {
 	border-radius: 5px;
 	margin-left: 0;
@@ -74,9 +71,6 @@
     }
 	.overlap #map {
 		width: 204px;
-	}
-	.overlap #mapmark {
-		border-radius: 5px;
 	}
 	.scroll img {
 		border-radius: 3px;
