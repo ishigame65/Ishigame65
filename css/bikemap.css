@@ -4,23 +4,6 @@
 	text-align: center;
     position: relative;
 }
-/* .overlap img {
-	border-radius: 1em;
-	margin-bottom: -20px;
-} */
-/* .thumbnail img {
-	border-radius: 5px;
-	margin-left: 0;
-	margin-right: 0;
-	margin-bottom: 5px;
-	width: 75px;
-	height: 75px;
-	object-fit: cover;
-} */
-/* .scroll {
-	height: 160px;
-	overflow: auto;
-} */
 #photo_block {
 	width: fit-content;
 	margin-left: auto;
@@ -30,7 +13,6 @@
 }
 #photo {
 	display: block;
-	/* margin: 1em auto; */
 	margin: 0.5em auto;
 	max-width: 350px;
 	max-height: 350px;
