@@ -37,7 +37,13 @@
 }
 #note {
 	text-align: left;
-	position:absolute; top: 15px; left: 20px; z-index:1;
+	position:absolute;
+	top: 15px;
+	left: 20px;
+	z-index:1;
+}
+#note ul {
+	margin-left: 1em;
 }
 #prevphoto, #nextphoto {
 	color: navy;
@@ -64,8 +70,10 @@
     position:absolute; top: 124px; right:0; bottom:0; left: 56px; margin:auto; z-index:1; }
 #kagawa1 {
     position:absolute; top: 164px; right:0; bottom:0; left: -99px; margin:auto; z-index:1; }
+#tokushima2 {
+    position:absolute; top: 185px; right:0; bottom:0; left: -68px; margin:auto; z-index:1; }
 #tokushima1 {
-    position:absolute; top: 184px; right:0; bottom:0; left: -66px; margin:auto; z-index:1; }
+    position:absolute; top: 183px; right:0; bottom:0; left: -65px; margin:auto; z-index:1; }
 #kochi1 {
     position:absolute; top: 216px; right:0; bottom:0; left: -160px; margin:auto; z-index:1; }
 #tottori1 {
@@ -113,26 +121,13 @@
 		/* border-radius: 8px; */
 		width: 200px;
 	}
-	/* .thumbnail img {
-		border-radius: 3px;
-		margin-left: 3px;
-		margin-right: 0;
-		width: 50px;
-		height: 50px;
-	} */
-	/* .scroll {
-		height: 106px;
-	} */
 	#note {
 		top: 0;
 	}
 	#note ul {
-		margin-left: 20px;
 		font-size:11px;
 	}
 	#photo {
-		/* max-width: 250px;
-		max-height: 250px; */
 		max-width: 210px;
 		max-height: 210px;
 	}
