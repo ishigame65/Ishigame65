@@ -105,7 +105,9 @@
 #fukuoka1 {
     position:absolute; top: 185px; right:0; bottom:0; left: -286px; margin:auto; z-index:1; }
 #saga1 {
-    position:absolute; top: 192px; right:0; bottom:0; left: -330px; margin:auto; z-index:1; }
+    position:absolute; top: 192px; right:0; bottom:0; left: -332px; margin:auto; z-index:1; }
+#saga2 {
+    position:absolute; top: 193px; right:0; bottom:0; left: -344px; margin:auto; z-index:1; }
 #nagasaki1 {
     position:absolute; top: 189px; right:0; bottom:0; left: -377px; margin:auto; z-index:1; }
 
@@ -147,7 +149,9 @@
 	#kagawa1 {
 		position:absolute; top: 78px; right:0; bottom:0; left: -49px; margin:auto; z-index:1; }
 	#tokushima1 {
-		position:absolute; top: 89px; right:0; bottom:0; left: -30px; margin:auto; z-index:1; }
+		position:absolute; top: 88px; right:0; bottom:0; left: -30px; margin:auto; z-index:1; }
+	#tokushima2 {
+		position:absolute; top: 89px; right:0; bottom:0; left: -33px; margin:auto; z-index:1; }
 	#kochi1 {
 		position:absolute; top: 104px; right:0; bottom:0; left: -80px; margin:auto; z-index:1; }
 	#tottori1 {
@@ -179,7 +183,9 @@
 	#fukuoka1 {
 		position:absolute; top: 90px; right:0; bottom:0; left: -144px; margin:auto; z-index:1; }
 	#saga1 {
-		position:absolute; top: 92px; right:0; bottom:0; left: -163px; margin:auto; z-index:1; }
+		position:absolute; top: 91px; right:0; bottom:0; left: -163px; margin:auto; z-index:1; }
+	#saga2 {
+		position:absolute; top: 92px; right:0; bottom:0; left: -168px; margin:auto; z-index:1; }
 	#nagasaki1 {
 		position:absolute; top: 90px; right:0; bottom:0; left: -188px; margin:auto; z-index:1; }
 }
