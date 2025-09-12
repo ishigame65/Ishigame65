@@ -11,21 +11,13 @@
 	<title>走行経路</title>
 </head>
 <style>
-.thumbnail {
-    position: relative;
-}
-#arrow {
+.arrow {
     position: absolute;
-    top: 40px;
-    right: 10px;
-    opacity: 0.65;
-    pointer-events: none;
+    bottom: 0;
+    width: 100%;
+    z-index: 9;
 }
 @media (max-width: 700px) {
-    #arrow {
-        top: 27px;
-        right: 5px;
-    }
 }
 </style>
 <body>
@@ -81,10 +73,15 @@
                     <li>走行経路</li>
             </ul>
         </div> <!-- breadcrumb -->
-        <h2 id="scrollhere" class="mono">走行経路</h2>
-        <section class="indent">
+        <h2 class="mono">走行経路</h2>
+        <section id="scrollhere">
             <div class="overlap">                
                 <img src="img/bkmap1.png">
+                <div class="arrow">
+                    <a id="prevphoto" href="">←</a>
+                    <span id="autoplay" onclick="play();">▶</span>
+                    <a id="nextphoto" href="">→</a>
+                </div>
                 <div id="markers">
                     <div id="miyagi1">★</div>
                     <div id="miyagi2">★</div>
@@ -116,9 +113,7 @@
                 <div id="note"></div>
             </div>
             <div id="photo_block">
-                <a id="prevphoto" href="">←</a>
                 <img id="photo" src="">
-                <a id="nextphoto" href="">→</a>
             </div>
         </section>
     </main>
@@ -175,6 +170,8 @@
         document.getElementById("note").innerHTML="";
         return false;
     }
+    const prevphoto = document.getElementById("prevphoto");
+    const nextphoto = document.getElementById("nextphoto");
     function map_display(target){
         map_clear();
         tag = document.getElementById(target);
@@ -182,11 +179,11 @@
         document.getElementById("note").innerHTML=notes[target][1];
         const prevkey = prev_key(notes, target);
         const nextkey = next_key(notes, target);
-        document.getElementById("prevphoto").href=`javascript:map_display('${prevkey}')`;
-        document.getElementById("nextphoto").href=`javascript:map_display('${nextkey}')`;
+        prevphoto.href=`javascript:map_display('${prevkey}')`;
+        nextphoto.href=`javascript:map_display('${nextkey}')`;
         document.getElementById("photo").src="img/bkm" + target + ".jpg";
-        // const here = document.getElementById("scrollhere");
-        // here.scrollIntoView({ behavior: 'smooth'});
+        const here = document.getElementById("scrollhere");
+        here.scrollIntoView({ behavior: 'smooth'});
         return false;
     }
     function next_key(keyvals, key) {
@@ -207,6 +204,20 @@
         return keys[r_idx];
     }
     map_display(random_key(notes));
+    const autoplay = document.getElementById('autoplay');
+    let timer = null;
+    function play() {
+        if (timer == null) {
+            timer = setInterval( function(){
+                nextphoto.click();
+            }, 2000);
+            autoplay.innerText = "⏸";
+        } else {
+            clearInterval(timer);
+            timer = null;
+            autoplay.innerText = '▶';
+        }
+    }
 </script>
 
 <script src="js/bgcollage.js"></script>
