@@ -17,6 +17,9 @@
     width: 100%;
     z-index: 9;
 }
+#autoplay {
+    text-decoration: none;
+}
 @media (max-width: 700px) {
 }
 </style>
@@ -79,7 +82,7 @@
                 <img src="img/bkmap1.png">
                 <div class="arrow">
                     <a id="prevphoto" href="">←</a>
-                    <span id="autoplay" onclick="play();">▶</span>
+                    <a id="autoplay" href="javascript:play();">▶</a>
                     <a id="nextphoto" href="">→</a>
                 </div>
                 <div id="markers">
