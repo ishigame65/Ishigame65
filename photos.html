@@ -15,15 +15,33 @@
         position: relative;
         height: 490px;
     }
-    #all_photo {
+    /* #all_photo {
         display: none;
-    }
+    } */
     main img {
         border-radius: 4px;
         margin: 6px 4px;
     }
     section.photos a {
         text-decoration: none;
+    }
+    #control {
+        display: grid;
+        grid-template-columns: 1fr 2.5em 1fr;
+    }
+    #autoplay {
+        color: navy;
+        font-size: large;
+        font-weight: bold;
+        text-decoration: none;
+        margin: 0 0.5em;
+        text-align: center;
+    }
+    #autoplaytext {
+        color: navy;
+        font-size: smaller;
+        margin-top: 0.35em;
+        margin-left: 0;
     }
     @media (max-width: 700px) {
         #earthmap {
@@ -34,7 +52,6 @@
             margin: 3px 2px;
         }
     }
-
 </style>
 <body>
  
@@ -78,87 +95,42 @@
     </nav>
 </header>
 
-<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
-    <main> <!-- メインコンテンツ -->
-        <div class="breadcrumb">
-            <ul>
-                <li><a href="index.html">Top</a></li>
-                <li><a href="keeper.html">飼育係</a></li>
-                <li><a href="profile.html">プロフィール</a></li>
-                    <li>あの日あの時あの場所の写真</li>
-            </ul>
-        </div> <!-- breadcrumb -->
-        <h2 class="mono">あの日あの時あの場所の写真</h2>
-        <section>
-            <div id="earthmap">
-                <div id="map"></div>
-                <div class="map-overlay">
-                    <select name="selectTarget" id="selectTarget"></select>
-                </div>
+<main> <!-- メインコンテンツ -->
+    <div class="breadcrumb">
+        <ul>
+            <li><a href="index.html">Top</a></li>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li><a href="profile.html">プロフィール</a></li>
+                <li>あの日あの時あの場所の写真</li>
+        </ul>
+    </div> <!-- breadcrumb -->
+    <h2 class="mono">あの日あの時あの場所の写真</h2>
+    <section>
+        <div id="earthmap">
+            <div id="map"></div>
+            <div class="map-overlay">
+                <select name="selectTarget" id="selectTarget"></select>
             </div>
-            <div class="notes">写真を選択すると次の写真が表示されます</div>
-        </section>
-        <!-- <section id ="all_photo" class="indent photos">
-            <a href="javascript:mapup(135, 7.3, -58.4, '2021 埼玉');"><img class="type3" title="2021 埼玉" src="img/ph21sai1.jpg"></a>
-            <a href="javascript:mapup(135, -5.5, -53.5, '2011 熊本');"><img class="type3" title="2011 熊本" src="img/phkumamoto1.jpg"></a>
-            <a href="javascript:mapup(135, -5.5, -53.5, '2011 熊本');"><img class="type3" title="2011 熊本" src="img/phkumamoto2.jpg"></a>
-            <a href="javascript:mapup(135, -22, -41, '2011 新竹');"><img class="type3" title="2011 新竹" src="img/phtaiwan1.jpg"></a>
-            <a href="javascript:mapup(105, 14, -39, '2009 広東');"><img class="type3" title="2009 広東" src="img/phgz1.jpg"></a>
-            <a href="javascript:mapup(20, -8, -65.5, '2005 Napoli');"><img class="type3" title="2005 Napoli" src="img/ph2005napoli1.jpg"></a>
-            <a href="javascript:mapup(20, -5.4, -65.3, '2005 Bari');"><img class="type3" title="2005 Bari" src="img/ph2005bari1.jpg"></a>
-            <a href="javascript:mapup(105, 17.5, 15, '1993 Bali');"><img class="type3" title="1993 Bali" src="img/ph93bali1.jpg"></a>
-            <a href="javascript:mapup(105, 17.5, 15, '1993 Bali');"><img class="type3" title="1993 Bali" src="img/ph93bali2.jpg"></a>
-            <a href="javascript:mapup(135, 20, -25, '1992 Saipan');"><img class="type3" title="1992 Saipan" src="img/ph92saipan1.jpg"></a>
-            <a href="javascript:mapup(20, 11.3, -65.6, '1992 Istanbul');"><img class="type3" title="1992 Istanbul" src="img/sh92istanbul2.jpg"></a>
-            <a href="javascript:mapup(20, 11.3, -65.6, '1992 Istanbul');"><img class="type3" title="1992 Istanbul" src="img/sh92istanbul3.jpg"></a>
-            <a href="javascript:mapup(20, 11.3, -65.6, '1992 Istanbul');"><img class="type3" title="1992 Istanbul" src="img/sh92istanbul7.jpg"></a>
-            <a href="javascript:mapup(-90, 18.2, -61.3, '1988 D.C.');"><img class="type3" title="1988 D.C." src="img/ph88dc1.jpg"></a>
-            <a href="javascript:mapup(105, 24.4, -51, '1986 上海');"><img class="type3" title="1986 上海" src="img/ph86shanghai2.jpg"></a>
-            <br>
-            <a href="javascript:mapup(135, 7.2, -58.2, '2010 東京');"><img class="type3" title="2010 東京" src="img/phome1.jpg"></a>
-            <a href="javascript:mapup(105, -7, -23.5, '2010 Bangkok');"><img class="type3" title="2010 Bangkok" src="img/ph10bangkok1.jpg"></a>
-            <a href="javascript:mapup(105, 12.5, -38.8, '2009 広東');"><img class="type3" title="2009 広東" src="img/phgd1.jpg"></a>
-            <a href="javascript:mapup(105, 12.5, -38.8, '2009 広東');"><img class="type3" title="2009 広東" src="img/ph09gd2.jpg"></a>
-            <a href="javascript:mapup(20, 11.3, -65.6, '1992 Istanbul');"><img class="type3" title="1992 Istanbul" src="img/sh92istanbul1.jpg"></a>
-            <a href="javascript:mapup(20, 11.3, -65.6, '1992 Istanbul');"><img class="type3" title="1992 Istanbul" src="img/sh92istanbul4.jpg"></a>
-            <a href="javascript:mapup(20, 11.3, -65.6, '1992 Istanbul');"><img class="type3" title="1992 Istanbul" src="img/sh92istanbul5.jpg"></a>
-            <a href="javascript:mapup(20, 11.3, -65.6, '1992 Istanbul');"><img class="type3" title="1992 Istanbul" src="img/sh92istanbul6.jpg"></a>
-            <a href="javascript:mapup(20, 9.5, -62.5, '1992 Izmir');"><img class="type3" title="1992 Izmir" src="img/sh92izmir1.jpg"></a>
-            <a href="javascript:mapup(105, -7, -24.6, '1989 Ayutthaya');"><img class="type3" title="1989 Ayutthaya" src="img/ph89ayutthaya1.jpg"></a>
-            <a href="javascript:mapup(105, -1.1, -2, '1989 Singapore');"><img class="type3" title="1989 Singapore" src="img/ph89singapore1.jpg"></a>
-            <a href="javascript:mapup(-90, 13, -67.3, '1988 Ontario');"><img class="type3" title="1988 Ontario" src="img/ph88ontario1.jpg"></a>
-            <a href="javascript:mapup(-90, 5, -63, '1987 Indiana');"><img class="type3" title="1987 Indiana" src="img/ph87indiana1.jpg"></a>
-            <a href="javascript:mapup(105, 24.4, -51, '1986 上海');"><img class="type3" title="1986 上海" src="img/ph86shanghai1.jpg"></a>
-            <a href="javascript:mapup(105, 5.2, -56.5, '1986 陝西');"><img class="type3" title="1986 陝西" src="img/ph86xian1.jpg"></a>
-            <br>
-            <a href="javascript:mapup(135, 7.3, -58.4, '2023 埼玉');"><img class="type3 panorama" title="2023 埼玉" src="img/phhasuda1.jpg"></a>
-            <br>
-            <small class="textright">Photo by moriuchi</small>
-            <div id="popup-base"></div>
-            <div id="popup-wrapper">
-                <div id="popup-inside">
-                    <div id="close">X</div>
-                    <img id="popup-pics" src="img/cmap135s400.png" alt="map400x400">
-                    <img id="popup-marker" src="img/mk50r.png">
-                    <div id="popup-text">テキスト</div>
-                </div>
-            </div>
-        </section> -->
-    </main>
-    <footer> <!-- フッターコンテンツ -->
-        <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
-        <div id="footlinks">
-            <ul>
-                <li><a href="keeper.html">飼育係</a></li>
-                <li><a href="entertainment.html">遊び</a></li>
-                <li><a href="links.html">リンク</a></li>
-                <li><a href="copyright.html">サイトポリシー</a></li>
-                <li><a href="sitemap.html">サイトマップ</a></li>
-            </ul>
         </div>
-        <a href="#logo"><span class="arrow-up"></span></a>    
-    </footer>
-</div>
+        <div id="control">
+            <span class="notes">写真を選択すると次の写真が表示されます</span>
+            <a id="autoplay" href="javascript:play(2000);">▶</a><span id="autoplaytext" onclick="play(2000);">自動再生</span>
+        </div>
+    </section>
+</main>
+<footer> <!-- フッターコンテンツ -->
+    <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+    <div id="footlinks">
+        <ul>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li><a href="entertainment.html">遊び</a></li>
+            <li><a href="links.html">リンク</a></li>
+            <li><a href="copyright.html">サイトポリシー</a></li>
+            <li><a href="sitemap.html">サイトマップ</a></li>
+        </ul>
+    </div>
+    <a href="#logo"><span class="arrow-up"></span></a>    
+</footer>
 
 <script src="js/popup2.js"></script>
 
@@ -214,7 +186,6 @@
     const start = Math.floor(Math.random() * Object.keys(targets).length);
     const yview = (window.matchMedia && window.matchMedia('(max-device-width: 700px)').matches) ? 10: 15;
     build_earth(targets, start, yview);
-    // window.addEventListener('DOMContentLoaded', build_earth(targets));
 </script>
 
 </body>

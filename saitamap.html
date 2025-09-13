@@ -10,20 +10,29 @@
 	<title>埼玉</title>
 </head>
 <style>
+.arrow {    
+    bottom: -1em;
+}
+#photo_block {
+    margin-top: 1em;
+}
+#mapmark {
+    position: absolute;
+    top: 46px;
+    left: 220px;
+    right:0;
+    bottom:0; 
+    margin:auto; 
+    opacity: 0.3;
+}
+@media (max-width: 700px) {
     #mapmark {
-        position: absolute;
-        top: 93px;
-        left: 259px;
-        opacity: 0.3;
+        top: 24px;
+        left: 132px;
+        width: 30px;
+        height: 30px;
     }
-    @media (max-width: 700px) {
-        #mapmark {
-            top: 56px;
-            left: 153px;
-            width: 30px;
-            height: 30px;
-        }
-    }
+}
 </style>
 <body>
  
@@ -75,38 +84,24 @@
             <li>埼玉</li>
         </ul>
     </div> <!-- breadcrumb -->
-    <!-- <span id="scrollhere"></span> -->
-    <h2 id="scrollhere2">埼玉</h2>
-    <div id="scrollhere"></div>
-    <section id="wrapper">
+    <h2>埼玉</h2>
+    <section id="scrollhere">
         <div class="overlap">
-            <img id="map" src="img/smap1.png">
-            <img id="mapmark" src="img/en50.png">
-            <div id="markers">
-                <div id="asaka1">★</div>
-                <div id="chichibu1">★</div>
-                <div id="kawagoe1">★</div>
-                <div id="omiya1">★</div>
-                <div id="satte1">★</div>
-                <div id="yono1">★</div>
-                <div id="joshi1k">★</div>
-                <div id="motoara1k">★</div>
+            <img id="map" src="img/smap1.png"><br>
+            <div>
+                <img id="mapmark" src="img/en50.png">
             </div>
+            <div class="arrow">
+                <a id="prevphoto" href="">←</a>
+                <a id="autoplay" href="javascript:play(2000);">▶</a>
+                <a id="nextphoto" href="">→</a>
+            </div>
+            <div id="markers"></div>
             <div id="note">　</div>
         </div>
-        <div class="scroll">
-            <a href="javascript:map_display('asaka1')"><img src="img/saiasaka1.jpg"></a>
-            <a href="javascript:map_display('chichibu1')"><img src="img/saichichibu1.jpg"></a>
-            <a href="javascript:map_display('kawagoe1')"><img src="img/saikawagoe1.jpg"></a>
-            <a href="javascript:map_display('omiya1')"><img src="img/saiomiya1.jpg"></a>
-            <a href="javascript:map_display('satte1')"><img src="img/saisatte1.jpg"></a>
-            <a href="javascript:map_display('yono1')"><img src="img/saiyono1.jpg"></a>
-            <a href="javascript:map_display('joshi1k')"><img src="img/saijoshi1k.jpg"></a>
-            <a href="javascript:map_display('motoara1k')"><img src="img/saimotoara1k.jpg"></a>
-        </div>
-        <div id="photoarea" class="center2">
+        <div id="photo_block">
             <img id="photo" src="">
-        </div>    
+        </div>
     </section>
     <section>
         <h3>歴史</h3>
@@ -234,35 +229,18 @@
 
 <script>
     var notes = {
-        asaka1:'朝霞 りっくんランド', 
-        chichibu1:'秩父 羊山 芝桜の丘', 
-        kawagoe1:'川越', 
-        omiya1:'大宮 鉄道博物館', 
-        satte1:'幸手 権現堂堤', 
-        yono1:'与野 与野公園',
-        joshi1k: '岩槻 城址公園',
-        motoara1k: '元荒川調整池',
+        asaka1:['saiasaka1','朝霞 りっくんランド'], 
+        chichibu1:['saichichibu1','秩父 羊山 芝桜の丘'], 
+        kawagoe1:['saikawagoe1','川越'], 
+        omiya1:['saiomiya1','大宮 鉄道博物館'], 
+        satte1:['saisatte1','幸手 権現堂堤'], 
+        yono1:['saiyono1','与野 与野公園'],
+        joshi1k:['saijoshi1k','岩槻 城址公園'],
+        motoara1k:['saimotoara1k','元荒川調整池'],
      };
-    function map_clear(){
-        markers = document.getElementById('markers');
-        tags = markers.children;
-        for (let i = 0; i < tags.length; i++) {
-            tags[i].style.visibility='hidden';
-        }
-        document.getElementById("note").innerHTML="";
-        return false;
-    }
-    function map_display(target){
-        map_clear();
-        tag = document.getElementById(target);
-        tag.style.visibility='visible';
-        document.getElementById("note").innerHTML=notes[target];
-        document.getElementById("photo").src="img/sai" + target + ".jpg";
-        const here = document.getElementById("scrollhere");
-        here.scrollIntoView({ behavior: 'smooth'});
-        return false;
-    }
 </script>
+<!-- <script src="js/mapphoto.js"></script> -->
+<script src="js/mapphoto.min.js"></script>
 
 </body>
 </html>

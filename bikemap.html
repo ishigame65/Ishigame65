@@ -12,15 +12,7 @@
 </head>
 <style>
 .arrow {
-    position: absolute;
     bottom: 0;
-    width: 100%;
-    z-index: 9;
-}
-#autoplay {
-    text-decoration: none;
-}
-@media (max-width: 700px) {
 }
 </style>
 <body>
@@ -65,75 +57,46 @@
     </nav>
 </header>
 
-<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
-    <main> <!-- メインコンテンツ -->
-        <div class="breadcrumb">
-            <ul>
-                <li><a href="index.html">Top</a></li>
-                <li><a href="keeper.html">飼育係</a></li>
-                <li><a href="profile.html">プロフィール</a></li>
-                <li><a href="bikeindex.html">銀輪はたまに唄う</a>
-                    <li>走行経路</li>
-            </ul>
-        </div> <!-- breadcrumb -->
-        <h2 class="mono">走行経路</h2>
-        <section id="scrollhere">
-            <div class="overlap">                
-                <img src="img/bkmap1.png">
-                <div class="arrow">
-                    <a id="prevphoto" href="">←</a>
-                    <a id="autoplay" href="javascript:play();">▶</a>
-                    <a id="nextphoto" href="">→</a>
-                </div>
-                <div id="markers">
-                    <div id="miyagi1">★</div>
-                    <div id="miyagi2">★</div>
-                    <div id="chiba1">★</div>
-                    <div id="chiba2">★</div>
-                    <div id="shiga1">★</div>
-                    <div id="kagawa1">★</div>
-                    <div id="tokushima1">★</div>
-                    <div id="tokushima2">★</div>
-                    <div id="kochi1">★</div>
-                    <div id="tottori1">★</div>
-                    <div id="tottori2">★</div>
-                    <div id="shimane1">★</div>
-                    <div id="shimane2">★</div>		
-                    <div id="yamaguchi1">★</div>
-                    <div id="miyazaki1">★</div>
-                    <div id="miyazaki2">★</div>
-                    <div id="miyazaki3">★</div>
-                    <div id="oita1">★</div>
-                    <div id="oita2">★</div>
-                    <div id="kagoshima1">★</div>
-                    <div id="kagoshima2">★</div>
-                    <div id="kumamoto1">★</div>
-                    <div id="fukuoka1">★</div>
-                    <div id="saga1">★</div>
-                    <div id="saga2">★</div>
-                    <div id="nagasaki1">★</div>                    
-                </div>
-                <div id="note"></div>
+<main> <!-- メインコンテンツ -->
+    <div class="breadcrumb">
+        <ul>
+            <li><a href="index.html">Top</a></li>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li><a href="profile.html">プロフィール</a></li>
+            <li><a href="bikeindex.html">銀輪はたまに唄う</a>
+                <li>走行経路</li>
+        </ul>
+    </div> <!-- breadcrumb -->
+    <h2 class="mono">走行経路</h2>
+    <section id="scrollhere">
+        <div class="overlap">                
+            <img id="map" src="img/bkmap1.png">
+            <div class="arrow">
+                <a id="prevphoto" href="">←</a>
+                <a id="autoplay" href="javascript:play(2000);">▶</a>
+                <a id="nextphoto" href="">→</a>
             </div>
-            <div id="photo_block">
-                <img id="photo" src="">
-            </div>
-        </section>
-    </main>
-    <footer> <!-- フッターコンテンツ -->
-        <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
-        <div id="footlinks">
-            <ul>
-                <li><a href="keeper.html">飼育係</a></li>
-                <li><a href="entertainment.html">遊び</a></li>
-                <li><a href="links.html">リンク</a></li>
-                <li><a href="copyright.html">サイトポリシー</a></li>
-                <li><a href="sitemap.html">サイトマップ</a></li>
-            </ul>
+            <div id="markers"></div>
+            <div id="note"></div>
         </div>
-        <a href="#logo"><span class="arrow-up"></span></a>    
-    </footer>
-</div>
+        <div id="photo_block">
+            <img id="photo" src="">
+        </div>
+    </section>
+</main>
+<footer> <!-- フッターコンテンツ -->
+    <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+    <div id="footlinks">
+        <ul>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li><a href="entertainment.html">遊び</a></li>
+            <li><a href="links.html">リンク</a></li>
+            <li><a href="copyright.html">サイトポリシー</a></li>
+            <li><a href="sitemap.html">サイトマップ</a></li>
+        </ul>
+    </div>
+    <a href="#logo"><span class="arrow-up"></span></a>    
+</footer>
     
 <script>
     var notes = {
@@ -163,65 +126,10 @@
         chiba2:['bkmchiba2', '千葉県 犬吠埼灯台'], 
         miyagi2:['bkmmiyagi2', '宮城県 松島'], 
         miyagi1:['bkmmiyagi1', '宮城県 石巻<ul><li>帰路は女川から輪行</li><li>嫌いな言葉：リアス海岸</li></ul>'], 
-     };
-    function map_clear(){
-        const markers = document.getElementById('markers');
-        tags = markers.children;
-        for (let i = 0; i < tags.length; i++) {
-            tags[i].style.visibility='hidden';
-        }
-        document.getElementById("note").innerHTML="";
-        return false;
-    }
-    const prevphoto = document.getElementById("prevphoto");
-    const nextphoto = document.getElementById("nextphoto");
-    function map_display(target){
-        map_clear();
-        tag = document.getElementById(target);
-        tag.style.visibility='visible';
-        document.getElementById("note").innerHTML=notes[target][1];
-        const prevkey = prev_key(notes, target);
-        const nextkey = next_key(notes, target);
-        prevphoto.href=`javascript:map_display('${prevkey}')`;
-        nextphoto.href=`javascript:map_display('${nextkey}')`;
-        document.getElementById("photo").src="img/bkm" + target + ".jpg";
-        const here = document.getElementById("scrollhere");
-        here.scrollIntoView({ behavior: 'smooth'});
-        return false;
-    }
-    function next_key(keyvals, key) {
-        const keys = Object.keys(keyvals);
-        let next_idx = keys.indexOf(key) + 1;
-        if (next_idx >= keys.length) next_idx = 0;
-        return keys[next_idx];
-    }
-    function prev_key(keyvals, key) {
-        const keys = Object.keys(keyvals);
-        let next_idx = keys.indexOf(key) - 1;
-        if (next_idx < 0) next_idx = keys.length - 1;
-        return keys[next_idx];
-    }
-    function random_key(keyvals) {
-        const keys = Object.keys(keyvals);
-        const r_idx = Math.floor(Math.random() * keys.length);
-        return keys[r_idx];
-    }
-    map_display(random_key(notes));
-    const autoplay = document.getElementById('autoplay');
-    let timer = null;
-    function play() {
-        if (timer == null) {
-            timer = setInterval( function(){
-                nextphoto.click();
-            }, 2000);
-            autoplay.innerText = "⏸";
-        } else {
-            clearInterval(timer);
-            timer = null;
-            autoplay.innerText = '▶';
-        }
-    }
+    };
 </script>
+<!-- <script src="js/mapphoto.js"></script> -->
+<script src="js/mapphoto.min.js"></script>
 
 <script src="js/bgcollage.js"></script>
 <script>
