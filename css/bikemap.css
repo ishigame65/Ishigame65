@@ -1,44 +1,11 @@
 @charset "utf-8";
 
-.overlap {
-	text-align: center;
-    position: relative;
-}
-#photo_block {
-	width: fit-content;
-	margin-left: auto;
-	margin-right: auto;
-	display: flex;
-	align-items: center;
-}
+@import url(mapphoto.css);
+
 #photo {
-	display: block;
 	margin: 0.5em auto;
 	max-width: 350px;
 	max-height: 350px;
-}
-#note {
-	text-align: left;
-	position:absolute;
-	top: 15px;
-	left: 20px;
-	z-index:1;
-}
-#note ul {
-	margin-left: 1em;
-}
-#prevphoto, #nextphoto {
-	color: navy;
-	font-size: large;
-	font-weight: bold;
-	text-decoration: none;
-	margin: 0 0.5em;
-}
-#markers {
-	font-size:20px;
-	font-weight: bold;
-    color: deepskyblue;
-	visibility: hidden;
 }
 #miyagi1 {
     position:absolute; top: 6px; right:0; bottom:0; left: 365px; margin:auto; z-index:1; }
@@ -93,31 +60,14 @@
 #nagasaki1 {
     position:absolute; top: 189px; right:0; bottom:0; left: -377px; margin:auto; z-index:1; }
 
-#clear{
-    color: steelblue;
-	text-decoration: none;
-}
 @media (max-width: 700px) {
-    main {
-		font-size: 12px;
-    }
-	.overlap img {
-		/* border-radius: 8px; */
+	.overlap img#map {
 		width: 200px;
-	}
-	#note {
-		top: 0;
-	}
-	#note ul {
-		font-size:11px;
 	}
 	#photo {
 		max-width: 210px;
 		max-height: 210px;
 	}
-	#markers {
-		font-size:16px;
-	}	
 	#miyagi1 {
 		position:absolute; top: 0px; right:0; bottom:0; left: 182px; margin:auto; z-index:1; }
 	#miyagi2 {

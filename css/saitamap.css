@@ -1,52 +1,15 @@
 @charset "utf-8";
-#wrapper {
-	display: inline-block;
-	text-align: center;
-	/* background-color: yellow; */
-}
-.overlap {
-	margin-left: auto;
-	margin-right: auto;
-	position: relative;
-	width: fit-content;
-}
-.overlap #map {
+
+@import url(mapphoto.css);
+
+#map {
 	width: 344px;
-	/* background-color: green; */
-}
-.scroll img {
-	border-radius: 5px;
-	margin-left: 0;
-	margin-right: 0;
-	width: 75px;
-	height: 75px;
-	object-fit: cover;
-}
-.scroll {
-	overflow: auto;
-	margin-top: 10px;
-}
-#photoarea {
-	text-align: center;
 }
 #photo {
-	margin-top: 1em;
+	margin: 0.5em auto;
 	max-width: 400px;
+	max-height: 400px;
 }
-#note {
-	text-align: left;
-	position: absolute;
-	top: 15px;
-	left: 20px;
-	z-index:1;
-}
-#markers {
-	font-size:20px;
-	font-weight: bold;
-    color: deepskyblue;
-	visibility: hidden;
-}
-
 #asaka1 {
     position:absolute; top: 162px; right:0; bottom:0; left: 164px; margin:auto; z-index:1; }
 #chichibu1 {
@@ -61,39 +24,15 @@
     position:absolute; top: 129px; right:0; bottom:0; left: 183px; margin:auto; z-index:1; }
 #joshi1k, #motoara1k {
     position:absolute; top: 105px; right:0; bottom:0; left: 228px; margin:auto; z-index:1; }
-#clear{
-    color: steelblue;
-	text-decoration: none;
-}
+
 @media (max-width: 700px) {
-    main {
-		font-size: 12px;
-    }
-	.overlap #map {
+	.overlap img#map {
 		width: 204px;
 	}
-	.scroll img {
-		border-radius: 3px;
-		margin-left: 3px;
-		margin-right: 0;
-		width: 50px;
-		height: 50px;
-	}
-	#note {
-		top: 0;
-	}
-	#note ul {
-		margin-left: 20px;
-		font-size:11px;
-	}
 	#photo {
-		width: 95%;
-		margin-left: 10px;
+		max-width: 95%;
+		max-height: 280px;
 	}	
-	#markers {
-		font-size:16px;
-	}	
-
 	#asaka1 {
 		position:absolute; top: 92px; right:0; bottom:0; left: 95px; margin:auto; z-index:1; }
 	#chichibu1 {
