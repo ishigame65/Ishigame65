@@ -34,6 +34,10 @@ span.computer {
 span.bike {
     color: ForestGreen;
 }
+/* その他 */
+span.others {
+    color: black;
+}
 input[type=checkbox] {
     margin-left: 0.8em;
     margin-right: 0.4em;
@@ -50,6 +54,9 @@ input[type=checkbox] {
 }
 #bike {
     accent-color: ForestGreen;
+}
+#others {
+    accent-color: black;
 }
 .flex_menu {
     display: flex;
