@@ -11,9 +11,14 @@
 	<title>走行経路</title>
 </head>
 <style>
-.arrow {
-    bottom: 0;
-}
+    #map {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .arrow {
+        bottom: 0;
+    }
 </style>
 <body>
  
@@ -69,8 +74,9 @@
     </div> <!-- breadcrumb -->
     <h2 class="mono">走行経路</h2>
     <section id="scrollhere">
-        <div class="overlap">                
-            <img id="map" src="img/bkmap1.png">
+        <div class="overlap">
+            <canvas id="myCanvas" width="400" height="300"></canvas>
+            <!-- <img id="map" src="img/bkmap1.png"> -->
             <div class="arrow">
                 <a id="prevphoto" href="">←</a>
                 <a id="autoplay" href="javascript:play(3000);">▶</a>
@@ -130,6 +136,26 @@
 </script>
 <!-- <script src="js/mapphoto.js"></script> -->
 <script src="js/mapphoto.min.js"></script>
+
+<script>
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+    const img = new Image();
+    img.src = 'img/bkmap0.png'; // 画像のパスを指定
+    img.onload = () => {
+        ctx.drawImage(img, 56, 424, 677, 507, 0, 0, canvas.width, canvas.height);
+        // image modify （ローカル環境では動作しない）
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);  // Security error in local file
+        const data = imageData.data;
+        for (let i = 0; i < data.length; i += 4) {
+            const r = data[i];
+            const g = data[i + 1];
+            const b = data[i + 2];
+            if (r == 255 && g == 255 && b == 255) data[i + 3] = 0; // アルファ0透明化
+        }
+        ctx.putImageData(imageData, 0, 0); 
+    }
+</script>
 
 <script src="js/bgcollage.js"></script>
 <script>
