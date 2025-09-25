@@ -43,6 +43,9 @@
             max-width: 100px;
             max-height: 100px;
         }
+        #mainimg{
+            max-width: 50%;
+        }
     }
 </style>
 <body>
@@ -278,7 +281,7 @@
 <script>
     function init() {
         const center = [35.6811,139.767];
-        const zoomlevel = (window.matchMedia && window.matchMedia('(max-device-width: 700px)').matches) ? 7.5: 8;
+        const zoomlevel = (window.matchMedia && window.matchMedia('(max-device-width: 700px)').matches) ? 7: 8;
         const map = L.map('mapcontainer');
         map.setView(center, zoomlevel);  //地図の中心とズームレベルを指定
 
