@@ -51,7 +51,8 @@ dd {
     font-size: larger;
     vertical-align: top;
     margin-right: 1em;
-    color: #CE5D8B;
+    /* color: #CE5D8B; */
+    color: rgb(239,129,52);
 }
 #footlinks {
     width: fit-content;
@@ -119,7 +120,8 @@ article {
     padding-right: 1em;
 }
 article h3, section h3, article h4, section h4 {
-    background: linear-gradient(90deg, royalblue, rgba(255,255,255,0.0));
+    /* background: linear-gradient(90deg, royalblue, rgba(255,255,255,0.0)); */
+    background: linear-gradient(90deg, rgb(11,155,152), rgba(255,255,255,0.0));
     color: linen;
     padding: 0.2em 0.3em;
     border-radius: 0.1em;

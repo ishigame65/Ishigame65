@@ -16,7 +16,8 @@
     justify-content: center;
     align-items: center;
     z-index: 100;
-    background-color: honeydew;
+    /* background-color: honeydew; */
+    background-color: rgba(240,255,240, 0.5);
     cursor: pointer;
 }
 /* 三本線*/
@@ -29,7 +30,8 @@
     height: 3px;
     width: 25px;
     border-radius: 3px;
-    background-color: #CE5D8B;
+    /* background-color: #CE5D8B; */
+    background-color: rgb(239,129,52);
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1); /* アニメーションのイージング */
 }
 #menu_btn span::before {
@@ -42,7 +44,8 @@
     position: relative;
     top: 22px;
     font-size: 12px;
-    color: #CE5D8B;
+    /* color: #CE5D8B; */
+    color: rgb(239,129,52);
 }
 
 /* クリックされたら三本線が×に変化する */
