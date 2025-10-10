@@ -262,9 +262,8 @@
                                                 const rect = canvas.getBoundingClientRect();<br>
                                                 const mx = event.clientX - rect.left;<br>
                                                 const my = event.clientY - rect.top;<br>
-                                                // canvasタグ指定canvasサイズ：520 x 280<br>
-                                                const rx = 520 / rect.width;<br>
-                                                const ry = 280 / rect.height;<br>
+                                                const rx = canvas.width / rect.width;<br>
+                                                const ry = canvas.height / rect.height;<br>
                                                 plan.action_clicked(mx * rx, my * ry);<br>
                                             });   
                                         </code>

@@ -71,7 +71,7 @@
     </ul>
     <ul id="menu2nd">
         <li>&nbsp;</li>
-        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="../img/insta60.png" alt="" id="instaicon"></a></li>
         <li><a href="../keeper.html">飼育係</a></li>
         <li><a href="../entertainment.html">遊び</a></li>
         <li><a href="../links.html">リンク</a></li>
@@ -233,7 +233,7 @@
         for (i = 0; i < dataset.length; i++) if (i % 2 != 0) dataset[i].color = colors[1];  // 奇数番目の色を変える
         plan.set_dataset(dataset);    // 栽培期間データ設定
 
-        // 栽培計画:栽培方法説明準備
+        // 栽培計画:栽培方法説明準備★10月10日★動作しない★
         const methodset = new Map();
         methodset.set('ジャガイモ:植え付け', '畝幅65㎝、間隔25㎝、深さ8㎝。種芋は50g程度に切り分け');
         methodset.set('オクラ:種蒔き', '条間40㎝、株間25㎝、深さ4㎝に4粒。本葉2枚で2本、最終的に1本残す');
@@ -484,18 +484,17 @@
         const rect = canvas.getBoundingClientRect();
         const mx = event.clientX - rect.left;
         const my = event.clientY - rect.top;
-        // canvasタグ指定canvasサイズ：450 x 730
-        const rx = 450 / rect.width;
-        const ry = 730 / rect.height;
+        const rx = canvas.width / rect.width;
+        const ry = canvas.height / rect.height;
         plan.action_clicked(mx * rx, my * ry);
     });   
 
 </script>
 
-<script src="../js/bgcollage.js"></script>
+<!-- <script src="../js/bgcollage.js"></script>
 <script>
     collage(6, 18, 0.9);    // base_num, pic_num, white_ratio
-</script>
+</script> -->
 
 </body>
 </html>
