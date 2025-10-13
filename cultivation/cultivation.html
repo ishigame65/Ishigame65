@@ -224,10 +224,10 @@
             { 'name':'九条ネギ', '種蒔き':'4-9', 'color':colors[0], 'status':'valid' },
             { 'name':'九条ネギ干苗', '堀り上げ':'5-6a', '植え付け':'8-9a', '収穫':'10-4', 'color':colors[0], 'status':'valid' },
             { 'name':'菜花', '種蒔き':'8b-10b', '収穫':'11-3', 'color':colors[0], 'status':'valid' },
-            { 'name':'にんにく', '植え付け':'10b-10c', '収穫':'5-6', 'color':colors[0], 'status':'valid' },
+            { 'name':'にんにく', '植え付け':'9c-10b', '収穫':'5-6', 'color':colors[0], 'status':'valid' },
             { 'name':'イチゴ苗', '植え付け':'10-11', '収穫':'5-6', 'color':colors[0], 'status':'valid' },
             { 'name':'スナップえんどう', '種蒔き':'10c-11', '収穫':'4c-7a', 'color':colors[0], 'status':'incomplete' },
-            { 'name':'玉ねぎ苗', '植え付け':'11b-12b', '収穫':'6-7a', 'color':colors[0], 'status':'valid' },
+            { 'name':'玉ねぎ苗(晩生)', '植え付け':'11c-12a', '収穫':'6-7a', 'color':colors[0], 'status':'valid' },
         ];
         const dataset = dataset_0.filter(data => data.status != 'incomplete');    // 不完全データを取り除く
         for (i = 0; i < dataset.length; i++) if (i % 2 != 0) dataset[i].color = colors[1];  // 奇数番目の色を変える
@@ -244,9 +244,9 @@
         methodset.set('チンゲン菜(春):種蒔き', '条間20㎝、株間15㎝、深さ3㎝に4粒。本葉2枚で2本、最終的に1本残す');
         methodset.set('チンゲン菜(秋):種蒔き', '条間20㎝、株間15㎝、深さ3㎝に4粒。本葉2枚で2本、最終的に1本残す');
         methodset.set('菜花:種蒔き', '条間30㎝、株間15㎝、深さ3㎝に4粒。本葉2枚で2本、本葉4枚で1本残す');
-        methodset.set('にんにく:植え付け', '株間10cm、深さ5㎝、薄皮そのまま、とがった方を上。脇芽は抜き取る');
+        methodset.set('にんにく:植え付け', '株間10cm、深さ5㎝、とがった方を上。脇芽は抜き取る');
         methodset.set('にんにく:収穫', 'トウ（花茎）が葉と同じ高さになったら摘み取る（ニンニクの芽）。葉が2/3枯れたら収穫');
-        methodset.set('玉ねぎ苗:植え付け', '間隔15cm、白い部分を少し出す。苗は鉛筆と同じかやや細いぐらいが良い');
+        methodset.set('玉ねぎ苗(晩生):植え付け', '間隔15cm、根長さ2.5cm、白い部分を少し出す。苗は鉛筆と同じかやや細いぐらいが良い');
         // methodset.set('九条ネギ干苗:収穫', '動作テスト');
         plan.set_methodset(methodset);  // 栽培方法説明設定
 
