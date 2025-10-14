@@ -191,6 +191,7 @@
         plan.add_action('種蒔き', 'sienna');
         plan.add_action('植え付け', 'limegreen');
         plan.add_action('収穫', 'gold');
+        plan.add_action('追肥等', 'lightsteelblue');
         plan.add_action('株分け', 'orchid');
         plan.add_action('堀り上げ', 'turquoise');
 
@@ -203,7 +204,7 @@
         const dataset_0 = [
             // 'name':対象名、作業名:期間、作業名:期間
             // 　（期間）開始月-終了月、（オプション）a:上旬, b:中旬, c:下旬
-            { 'name':'ニラ', '種蒔き':'3b-4a', '植え付け':'6b-7a', 'color':colors[0], 'status':'valid' },
+            { 'name':'ニラ', '種蒔き':'3b-4a', '植え付け':'6b-7a', '追肥等':'9-10a', 'color':colors[0], 'status':'valid' },
             { 'name':'ニラ/2年目～', '収穫':'4-10', 'color':colors[0], 'status':'valid' },
             { 'name':'ニラ/3年目～', '株分け':'2c-3a', 'color':colors[0], 'status':'valid' },
             { 'name':'ジャガイモ', '植え付け':'3-3', '収穫':'6-7a', 'color':colors[0], 'status':'valid' },  // ジャガイモは3月に植え付け、6月～7月上旬に収穫
@@ -235,6 +236,11 @@
 
         // 栽培計画:栽培方法説明準備
         const methodset = new Map();
+        methodset.set('ニラ:種蒔き', '深さ間隔1㎝筋捲き、株間2㎝間引き、草丈25㎝で定植');
+        methodset.set('ニラ:植え付け', '株間15㎝条間30㎝、深さ5㎝穴に4本、定植後3週間ごとに土寄せ');
+        methodset.set('ニラ:追肥等', '9月から隔週で3回追肥、葉が枯れたら地上2㎝で刈る');
+        methodset.set('ニラ/2年目～:収穫', '株元3㎝残して収穫、収穫したら追肥、花芽は摘み取る');
+        methodset.set('ニラ/3年目～:株分け', '3本ずつ植え直す、草丈半分に切る');
         methodset.set('ジャガイモ:植え付け', '畝幅65㎝、間隔25㎝、深さ8㎝。種芋は50g程度に切り分け');
         methodset.set('オクラ:種蒔き', '条間40㎝、株間25㎝、深さ4㎝に4粒。本葉2枚で2本、最終的に1本残す');
         methodset.set('トウモロコシ:種蒔き', '条間45㎝、株間30㎝、深さ3㎝に3粒。本葉4枚で1本残す');
