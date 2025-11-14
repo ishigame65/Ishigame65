@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+img.bike {
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+    margin-bottom: 0.75em;
+    max-width: 288px;
+    max-height: 288px;
+    border-radius: 3px;
+}
+@media (min-width: 700px) {
+    img.bike {
+        max-width: 320px;
+        max-height: 320px;
+        border-radius: 4px;
+    }
+}
+@media (min-width: 1920px) {
+    img.bike {
+        max-width: 576px;
+        max-height: 576px;
+        border-radius: 6px;
+    }
+}

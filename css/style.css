@@ -103,14 +103,6 @@ h4 {
 .maxw100 {
     max-width: 100%;
 }
-img.bike {
-    max-width: 320px;
-    max-height: 320px;
-    border-radius: 4px;
-    margin-left: 0.4em;
-    margin-right: 0.4em;
-    margin-bottom: 0.75em;
-}
 article {
     display: inline-block;
     vertical-align: top;
@@ -190,12 +182,18 @@ span.notes {
         /* margin-left: 0.2em; */
         margin-left: 0.3em;
     }
-    img.bike {
-        max-width: 288px;
-        max-height: 288px;
-        border-radius: 3px;
-    }
+
     canvas {
         margin-left: 0;
     }
+}
+@media (min-width: 1400px) {
+    body {
+        font-size: larger;
+    }
+    img#logo {
+        width: 130px;
+        margin-bottom: 10px;
+    }
+
 }
