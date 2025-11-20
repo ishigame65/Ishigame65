@@ -266,7 +266,7 @@
             { 'name':'にんにく', '植え付け':'9c-10b', '収穫':'5-6', 'color':colors[0], 'status':'valid' },
             { 'name':'イチゴ苗', '植え付け':'10-11', '収穫':'5-6', 'color':colors[0], 'status':'valid' },
             { 'name':'スナップえんどう', '種蒔き':'10c-11', '収穫':'4c-7a', 'color':colors[0], 'status':'incomplete' },
-            { 'name':'玉ねぎ苗(晩生)', '植え付け':'11c-12a', '収穫':'6-7a', 'color':colors[0], 'status':'valid' },
+            { 'name':'玉ねぎ苗(晩生)', '植え付け':'11c-12a', '追肥等':'1c-3c', '収穫':'6-7a', 'color':colors[0], 'status':'valid' },
         ];
         const dataset = dataset_0.filter(data => data.status != 'incomplete');    // 不完全データを取り除く
         for (i = 0; i < dataset.length; i++) if (i % 2 != 0) dataset[i].color = colors[1];  // 奇数番目の色を変える
@@ -291,6 +291,7 @@
         methodset.set('にんにく:植え付け', '株間10cm、深さ5㎝、とがった方を上。脇芽は抜き取る');
         methodset.set('にんにく:収穫', 'トウ（花茎）が葉と同じ高さになったら摘み取る（ニンニクの芽）。葉が2/3枯れたら収穫');
         methodset.set('玉ねぎ苗(晩生):植え付け', '間隔12cm、葉17㎝根3㎝で切る、白い部分を少し出す。苗は鉛筆と同じかやや細いぐらいが良い');
+        methodset.set('玉ねぎ苗(晩生):追肥等', '1月下旬追肥、2月下旬追肥、3月下旬葉が倒れてきたら止め肥');
         // methodset.set('九条ネギ干苗:収穫', '動作テスト');
         plan.set_methodset(methodset);  // 栽培方法説明設定
 
