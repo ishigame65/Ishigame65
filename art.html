@@ -5,12 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style2.css">
-	<meta name="description" content="習作">
+	<meta name="description" content="絵画方面">
 	<link rel="shortcut icon" href="img/kame.ico">
-	<title>習作</title>
+	<title>絵画方面</title>
 </head>
 <style>
-    main img {
+    #frmscroll {
+        width: 400px;
+        max-width: 95%;
+        height: auto;
+        overflow-x: scroll;
+    }
+    img.frm2 {
+        max-width: none;
+        width: 600px;
+        height: auto;
+    }
+    img.frm {
+        width: 400px;
+        max-width: 95%;
+        height: auto;
+    }
+    img.pic {
         border-radius: 4px;
         max-width: 140px;
         max-height: 140px;
@@ -21,7 +37,7 @@
         margin-left: 1em;
     }
     @media (max-width: 700px) {
-        main img {
+        img.pic {
             border-radius: 3px;
             max-width: 80px;
             max-height: 80px;
@@ -81,23 +97,37 @@
                 <li><a href="index.html">Top</a></li>
                 <li><a href="keeper.html">飼育係</a></li>
                 <li><a href="profile.html">プロフィール</a></li>
-                    <li>習作</li>
+                    <li>絵画方面</li>
             </ul>
         </div> <!-- breadcrumb -->
-        <h2 class="mono">習作</h2>
+        <h2 class="mono">絵画方面</h2>
+        <h3 class="mono">額縁製作（Aタイプ）工事中</h3>
+        <article>
+            <h4 class="mono">設計</h4>
+            <img class="frm" src="img/frmd1.png">
+            <img class="frm" src="img/frmd2.png">
+            <img class="frm" src="img/frmd3.png">
+        </article>
+        <article>
+            <h4 class="mono">木取り図</h4>
+            <div id="frmscroll">
+                <img class="frm2" src="img/frmd4.png">
+            </div>
+        </article>
+        <h3 class="mono">習作</h3>
         <article class="maxw100">
-            <img src="img/art7drawing1.jpg">
-            <img src="img/art6zeppeliniv.jpg">
-            <img src="img/art5redon.jpg">
-            <img src="img/art1s.jpg">
-            <img src="img/art2s.jpg">
-            <img src="img/art3s.jpg">
-            <img src="img/art4s.jpg">
+            <img class="pic" src="img/art7drawing1.jpg">
+            <img class="pic" src="img/art6zeppeliniv.jpg">
+            <img class="pic" src="img/art5redon.jpg">
+            <img class="pic" src="img/art1s.jpg">
+            <img class="pic" src="img/art2s.jpg">
+            <img class="pic" src="img/art3s.jpg">
+            <img class="pic" src="img/art4s.jpg">
         </article>
         <!-- 遊び -->
         <!-- <h2 class="mono">क्रीडतु</h2> -->
         <br><br>
-        <h2 class="mono">සෙල්ලම් කරනවා</h2>
+        <h3 class="mono">සෙල්ලම් කරනවා</h3>
         <article>
             <!-- <h3 class="mono"></h3> -->
             <p>背景
