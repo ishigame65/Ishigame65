@@ -10,11 +10,33 @@
 	<title>絵画方面</title>
 </head>
 <style>
-    img.frm {
+    #topfrm {
+        position: relative;
+        float: left;
         width: 400px;
         max-width: 95%;
         height: auto;
-        margin-top: 0.3em;
+        margin-right: 0.6em;
+        margin-bottom: 0.6em;
+    }
+    figure {
+        position: relative;
+        float: left;
+        width: 300px;
+        max-width: 95%;
+        height: auto;
+        margin-right: 0.4em;
+        margin-bottom: 0.4em;
+    }
+    figure figcaption {
+        position: absolute;
+        bottom:0.2em;
+        width: 100%;
+        text-align: center;
+    }
+    figcaption span {
+        background-color: rgba(255,255,255,50%);
+        padding: 0.2em 0.5em;
     }
     img.pic {
         border-radius: 4px;
@@ -91,29 +113,44 @@
             </ul>
         </div> <!-- breadcrumb -->
         <h2 class="mono">絵画方面</h2>
-        <h3 class="mono">額縁製作</h3>
-        <article>
-            <h4 class="mono">額縁1</h4>
-            <a href="artfrm1.html">
-                <img class="frm" src="img/frmv1.jpg">
-            </a>
-        </article>
-        <article>
-            <h4 class="mono">額縁2</h4>
-            <a href="artfrm2.html">
-                <img class="frm" src="img/frm2v1.jpg">
-            </a>
-        </article>
-        <article>
-            <h4 class="mono">額縁3</h4>
-            <a href="artfrm3.html">
-                <img class="frm" src="img/frm3p1.jpg">
-            </a>
+        <h3 class="mono">額縁</h3>
+        <article class="maxw100">
+            <div class="article_content">
+                <figure>
+                    <img id="topfrm2" src="img/frmallv1.jpg">
+                </figure>
+                <a href="artfrm1.html">
+                    <figure>
+                        <img class="frm" src="img/frmv1.jpg">
+                        <figcaption><span>額縁製作1</span></figcaption>
+                    </figure>
+                </a>
+
+
+                <a href="artfrm2.html">
+                    <figure>
+                        <img class="frm" src="img/frm2v1.jpg">
+                        <figcaption><span>額縁製作2</span></figcaption>
+                    </figure>
+                </a>
+                <a href="artfrm3.html">
+                    <figure>
+                        <img class="frm" src="img/frm3v1.jpg">
+                        <figcaption><span>額縁製作3</span></figcaption>
+                    </figure>
+                </a>
+                <a href="artfrm4.html">
+                    <figure>
+                        <img class="frm" src="img/frm4v1.jpg">
+                        <figcaption><span>額縁製作4</span></figcaption>
+                    </figure>
+                </a>
+            </div>
         </article>
         <h3 class="mono">習作</h3>
         <article class="maxw100">
-            <img class="pic" src="img/art7drawing1.jpg">
             <div class="article_content">
+                <img class="pic" src="img/art7drawing1.jpg">
                 <img class="pic" src="img/art6zeppeliniv.jpg">
                 <img class="pic" src="img/art5redon.jpg">
                 <img class="pic" src="img/art1s.jpg">
