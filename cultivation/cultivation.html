@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style2.css">
     <link rel="stylesheet" href="cultivation.css">
-    <meta name="description" content="野菜作り">
+    <meta name="description" content="イシガメ飼育係 - 野菜作り">
     <link rel="shortcut icon" href="../img/kame.ico">
-    <title>野菜作り</title>
+    <title>イシガメ飼育係 - 野菜作り</title>
     <style>
         #topimg {
             border-radius: 6px;
@@ -85,6 +85,7 @@
 </div>
 
 <header>
+    <h1 class="title">イシガメ飼育係</h1>
     <h1><a href="../index.html"><img id="logo" src="../img/logo.png" alt="Ishigame65"></a></h1>
     <nav>
         <ul>
@@ -97,123 +98,121 @@
     </nav>
 </header>
 
-<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
-    <main> <!-- メインコンテンツ -->
-        <div class="breadcrumb">
-            <ul>
-                <li><a href="../index.html">Top</a></li>
-                <li><a href="../keeper.html">飼育係</a></li>
-                <li><a href="../profile.html">プロフィール</a></li>
-                <li>野菜作り</li>
-            </ul>
-        </div> <!-- breadcrumb -->
+<main> <!-- メインコンテンツ -->
+    <div class="breadcrumb">
+        <ul>
+            <li><a href="../index.html">Top</a></li>
+            <li><a href="../keeper.html">飼育係</a></li>
+            <li><a href="../profile.html">プロフィール</a></li>
+            <li>野菜作り</li>
+        </ul>
+    </div> <!-- breadcrumb -->
 
-        <h2 class="mono">野菜作り</h2>
-        <article>
-            <img id="topimg" src="garden2.jpg">
-        </article>
-        <article>
-            <h3 class="mono">菜園カレンダー</h3>
-            <p class="article_content">
-                いつ何を植えれば良いかも分かっていない素人が手探りで野菜を育てているが、野菜は時期を逃すと栽培できないため、
-                野菜作りに必要な作業を行う時期が一目でわかる菜園カレンダーを作ることにした
-            </p>
-            <p class="article_content">
-                一般的なツールでは上手く作れず、良い作図ライブラリも見つからなかったため、
-                専用の<a href='cultilib.html'>栽培ライブラリ</a>を開発してから菜園カレンダーを作ることになった
-            </p>
-            <p class="article_content">
-                <canvas id="CultiPlan" width="450" height="820"></canvas>
-                <div class="notes">中央が薄くなっている作業を選択すると説明が表示されます</div>
-            </p>
-        </article>
-        <article>
-            <h3 class="mono">菜園マップ</h3>
-            <p class="article_content">
-                開発した<a href='cultilib.html'>栽培ライブラリ</a>に菜園マップを作成する機能を追加した
-                <div class="notes">
-                    現状、栽培区画の座標値を㎝単位の数値で指定する必要がある。
-                    一般的な作図ツール（ドロー系ソフト）で作成する方が楽かもしれない
-                </div>
-            </p>
-            <p class="article_content">
-                5月の菜園マップ
-                <canvas id="CultiMap" width="432" height="310"></canvas>
-            </p>
-            <p class="article_content">
-                7月の菜園マップ
-                <canvas id="CultiMap257" width="432" height="310"></canvas>
-            </p>
-        </article>
-        <article>
-            <h3 class="mono">栽培記録</h3>
-            <p class="article_content">
-                開発した<a href='cultilib.html'>栽培ライブラリ</a>に栽培記録を作成する機能を追加し、作物ごとの栽培記録をポップアップ表示する仕組みとした
-            </p>
-            <p class="article_content">
-                <div id="CultiLog"></div>
-            </p>
-        </article>
-        <article>
-            <h3 class="mono">その他（覚書き）</h3>
-            <p class="article_content">
-                <h4 class="mono">分類</h4>
-                <!-- <table>
-                    <tr><td>科</td><td>作物</td><td>連作障害</td></tr>
-                    <tr><td>ナス科</td><td>トマト、ジャガイモ、ピーマン、ナス</td><td>有</td></tr>
-                    <tr><td>ウリ科</td><td>キュウリ、ゴーヤ（ツルレイシ）、ヘチマ、カボチャ、スイカ</td><td>有</td></tr>
-                    <tr><td>アブラナ科</td><td>コマツナ、チンゲン菜、菜花、白菜、キャベツ、ブロッコリー、ダイコン</td><td>有</td></tr>
-                    <tr><td>マメ科</td><td>エンドウ、インゲン</td><td>有</td></tr>
-                </table> -->
-                <dl class="indent">
-                    <dt>アブラナ科（連作障害有）</dt><dd>コマツナ、チンゲン菜、菜花、白菜、キャベツ、ブロッコリー、ダイコン</dd>
-                    <dt>ウリ科（連作障害有）</dt><dd>キュウリ、ゴーヤ（ツルレイシ）、ヘチマ、カボチャ、スイカ</dd>
-                    <dt>ナス科（連作障害有）</dt><dd>トマト、ジャガイモ、ナス、ピーマン、唐辛子</dd>
-                    <dt>マメ科（連作障害有）</dt><dd>エンドウ、インゲン</dd>
-                    <dt>ユリ科</dt><dd>ネギ、ニラ、ニンニク、玉ねぎ</dd>
-                    <dt>キク科</dt><dd>レタス、サンチュ</dd>
-                    <dt>シソ科</dt><dd>シソ、バジル、ミント</dd>
-                    <dt>その他</dt><dd>ニンジン（セリ科）、オクラ（アオイ科）、ほうれん草（アガサ科）、サツマイモ（ヒルガオ科）、イチゴ（バラ科）、トウモロコシ（イネ科）</dd>
-                </dl>
-            </p>
-            <p class="article_content">
-                <h4 class="mono">根の深さ</h4>
-                <dl class="indent">
-                    <dt>深根</dt><dd>ナス、オクラ</dd>
-                    <dt>浅根</dt><dd>トマト、キュウリ、イチゴ</dd>
-                </dl>
-            </p>
-            <p class="article_content">
-                <h4 class="mono">肥料の多少</h4>
-                <dl class="indent">
-                    <dt>多肥</dt><dd>ネギ、ほうれん草、キャベツ</dd>
-                    <dt>少肥</dt><dd>豆類、ジャガイモ、サツマイモ</dd>
-                </dl>
-            </p>
-            <!-- <p class="article_content">
-                <h4 class="mono"></h4>
-                <dl class="indent">
-                    <dt></dt><dd></dd>
-                    <dt></dt><dd></dd>
-                </dl>
-            </p> -->
-        </article>
+    <h2 class="mono">野菜作り</h2>
+    <article>
+        <img id="topimg" src="garden2.jpg">
+    </article>
+    <article>
+        <h3 class="mono">菜園カレンダー</h3>
+        <p class="article_content">
+            いつ何を植えれば良いかも分かっていない素人が手探りで野菜を育てているが、野菜は時期を逃すと栽培できないため、
+            野菜作りに必要な作業を行う時期が一目でわかる菜園カレンダーを作ることにした
+        </p>
+        <p class="article_content">
+            一般的なツールでは上手く作れず、良い作図ライブラリも見つからなかったため、
+            専用の<a href='cultilib.html'>栽培ライブラリ</a>を開発してから菜園カレンダーを作ることになった
+        </p>
+        <p class="article_content">
+            <canvas id="CultiPlan" width="450" height="820"></canvas>
+            <div class="notes">中央が薄くなっている作業を選択すると説明が表示されます</div>
+        </p>
+    </article>
+    <article>
+        <h3 class="mono">菜園マップ</h3>
+        <p class="article_content">
+            開発した<a href='cultilib.html'>栽培ライブラリ</a>に菜園マップを作成する機能を追加した
+            <div class="notes">
+                現状、栽培区画の座標値を㎝単位の数値で指定する必要がある。
+                一般的な作図ツール（ドロー系ソフト）で作成する方が楽かもしれない
+            </div>
+        </p>
+        <p class="article_content">
+            5月の菜園マップ
+            <canvas id="CultiMap" width="432" height="310"></canvas>
+        </p>
+        <p class="article_content">
+            7月の菜園マップ
+            <canvas id="CultiMap257" width="432" height="310"></canvas>
+        </p>
+    </article>
+    <article>
+        <h3 class="mono">栽培記録</h3>
+        <p class="article_content">
+            開発した<a href='cultilib.html'>栽培ライブラリ</a>に栽培記録を作成する機能を追加し、作物ごとの栽培記録をポップアップ表示する仕組みとした
+        </p>
+        <p class="article_content">
+            <div id="CultiLog"></div>
+        </p>
+    </article>
+    <article>
+        <h3 class="mono">その他（覚書き）</h3>
+        <p class="article_content">
+            <h4 class="mono">分類</h4>
+            <!-- <table>
+                <tr><td>科</td><td>作物</td><td>連作障害</td></tr>
+                <tr><td>ナス科</td><td>トマト、ジャガイモ、ピーマン、ナス</td><td>有</td></tr>
+                <tr><td>ウリ科</td><td>キュウリ、ゴーヤ（ツルレイシ）、ヘチマ、カボチャ、スイカ</td><td>有</td></tr>
+                <tr><td>アブラナ科</td><td>コマツナ、チンゲン菜、菜花、白菜、キャベツ、ブロッコリー、ダイコン</td><td>有</td></tr>
+                <tr><td>マメ科</td><td>エンドウ、インゲン</td><td>有</td></tr>
+            </table> -->
+            <dl class="indent">
+                <dt>アブラナ科（連作障害有）</dt><dd>コマツナ、チンゲン菜、菜花、白菜、キャベツ、ブロッコリー、ダイコン</dd>
+                <dt>ウリ科（連作障害有）</dt><dd>キュウリ、ゴーヤ（ツルレイシ）、ヘチマ、カボチャ、スイカ</dd>
+                <dt>ナス科（連作障害有）</dt><dd>トマト、ジャガイモ、ナス、ピーマン、唐辛子</dd>
+                <dt>マメ科（連作障害有）</dt><dd>エンドウ、インゲン</dd>
+                <dt>ユリ科</dt><dd>ネギ、ニラ、ニンニク、玉ねぎ</dd>
+                <dt>キク科</dt><dd>レタス、サンチュ</dd>
+                <dt>シソ科</dt><dd>シソ、バジル、ミント</dd>
+                <dt>その他</dt><dd>ニンジン（セリ科）、オクラ（アオイ科）、ほうれん草（アガサ科）、サツマイモ（ヒルガオ科）、イチゴ（バラ科）、トウモロコシ（イネ科）</dd>
+            </dl>
+        </p>
+        <p class="article_content">
+            <h4 class="mono">根の深さ</h4>
+            <dl class="indent">
+                <dt>深根</dt><dd>ナス、オクラ</dd>
+                <dt>浅根</dt><dd>トマト、キュウリ、イチゴ</dd>
+            </dl>
+        </p>
+        <p class="article_content">
+            <h4 class="mono">肥料の多少</h4>
+            <dl class="indent">
+                <dt>多肥</dt><dd>ネギ、ほうれん草、キャベツ</dd>
+                <dt>少肥</dt><dd>豆類、ジャガイモ、サツマイモ</dd>
+            </dl>
+        </p>
+        <!-- <p class="article_content">
+            <h4 class="mono"></h4>
+            <dl class="indent">
+                <dt></dt><dd></dd>
+                <dt></dt><dd></dd>
+            </dl>
+        </p> -->
+    </article>
 
-    </main> <!-- メインコンテンツ -->
-    <footer> <!-- フッターコンテンツ -->
-        <a href="https://www.instagram.com/ishigame65/"><img src="../img/insta60.png" alt="" id="instaicon2"></a>
-        <div id="footlinks">
-            <ul>
-                <li><a href="../keeper.html">飼育係</a></li>
-                <li><a href="../entertainment.html">遊び</a></li>
-                <li><a href="../links.html">リンク</a></li>
-                <li><a href="../copyright.html">サイトポリシー</a></li>
-                <li><a href="../sitemap.html">サイトマップ</a></li>
-            </ul>
-        </div>
-        <a href="#logo"><span class="arrow-up"></span></a>    
-    </footer>
-</div>
+</main> <!-- メインコンテンツ -->
+<footer> <!-- フッターコンテンツ -->
+    <a href="https://www.instagram.com/ishigame65/"><img src="../img/insta60.png" alt="" id="instaicon2"></a>
+    <div id="footlinks">
+        <ul>
+            <li><a href="../keeper.html">飼育係</a></li>
+            <li><a href="../entertainment.html">遊び</a></li>
+            <li><a href="../links.html">リンク</a></li>
+            <li><a href="../copyright.html">サイトポリシー</a></li>
+            <li><a href="../sitemap.html">サイトマップ</a></li>
+        </ul>
+    </div>
+    <a href="#logo"><span class="arrow-up"></span></a>    
+</footer>
 
 <!-- 栽培ライブラリを読み込み -->
 <!-- <script src="cultivation.js"></script> -->
