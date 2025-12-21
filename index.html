@@ -205,6 +205,7 @@
 </div>
 
 <header>
+    <h1 class="title">二ホンイシガメの屋外飼育環境</h1>
     <h1><a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a></h1>
     <nav>
         <ul>
@@ -217,52 +218,49 @@
     </nav>
 </header>
 
-<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
-    <div id="obi" onclick="changeBackImage()"></div>
-    <main>
-        <h1 class="mienai">二ホンイシガメの屋外飼育環境</h1>
-        <section id="movies">
-            <div id="main_movie">
-                <video id="movie" src="img/igwm01s.mp4" controls muted playsinline loop poster="img/igwm01s_0.jpg" onclick="this.play();"></video>
-                <h2 id="catchphrase">イシガメが快適に暮らす環境を作る</h2>
-                <div id="buttons">
-                    <button id="autoButton" onclick="autoSwitch()">▶</button>
-                    <button id="mbut0" onclick="mChange(0)">1</button>
-                    <button id="mbut1" onclick="mChange(1)">2</button>
-                    <button id="mbut2" onclick="mChange(2)">3</button>
-                    <button id="mbut3" onclick="mChange(3)">4</button>
-                    <button id="mbut4" onclick="mChange(4)">5</button>
-                    <button id="mbut5" onclick="mChange(5)">6</button>
-                </div>
+<div id="obi" onclick="changeBackImage()"></div>
+<main>
+    <section id="movies">
+        <div id="main_movie">
+            <video id="movie" src="img/igwm01s.mp4" controls muted playsinline loop poster="img/igwm01s_0.jpg" onclick="this.play();"></video>
+            <h2 id="catchphrase">イシガメが快適に暮らす環境を作る</h2>
+            <div id="buttons">
+                <button id="autoButton" onclick="autoSwitch()">▶</button>
+                <button id="mbut0" onclick="mChange(0)">1</button>
+                <button id="mbut1" onclick="mChange(1)">2</button>
+                <button id="mbut2" onclick="mChange(2)">3</button>
+                <button id="mbut3" onclick="mChange(3)">4</button>
+                <button id="mbut4" onclick="mChange(4)">5</button>
+                <button id="mbut5" onclick="mChange(5)">6</button>
             </div>
-        </section>
-        <section id="search">
-            <div id="TextSearch">
-                <div>
-                    <label><input type="text" id="wordText"></label>
-                    <input type="button" value="検索" id="checkButton">
-                </div>
-                <small id="usage" class="indent">1つの語句を入力してサイト内を 検索</small>
-                <div id="msg" class="indent"></div>
-                <p id="hitlist"></p>
-                <img id="turtle0" src="img/turtle0.png" onclick="turtleClick()">
-            </div>
-        </section>
-    </main>
-    <footer> <!-- フッターコンテンツ -->
-        <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
-        <div id="footlinks">
-            <ul>
-                <li><a href="keeper.html">飼育係</a></li>
-                <li><a href="entertainment.html">遊び</a></li>
-                <li><a href="links.html">リンク</a></li>
-                <li><a href="copyright.html">サイトポリシー</a></li>
-                <li><a href="sitemap.html">サイトマップ</a></li>
-            </ul>
         </div>
-        <a href="#logo"><span class="arrow-up"></span></a>    
-    </footer>
-</div>
+    </section>
+    <section id="search">
+        <div id="TextSearch">
+            <div>
+                <label><input type="text" id="wordText"></label>
+                <input type="button" value="検索" id="checkButton">
+            </div>
+            <small id="usage" class="indent">1つの語句を入力してサイト内を 検索</small>
+            <div id="msg" class="indent"></div>
+            <p id="hitlist"></p>
+            <img id="turtle0" src="img/turtle0.png" onclick="turtleClick()">
+        </div>
+    </section>
+</main>
+<footer> <!-- フッターコンテンツ -->
+    <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+    <div id="footlinks">
+        <ul>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li><a href="entertainment.html">遊び</a></li>
+            <li><a href="links.html">リンク</a></li>
+            <li><a href="copyright.html">サイトポリシー</a></li>
+            <li><a href="sitemap.html">サイトマップ</a></li>
+        </ul>
+    </div>
+    <a href="#logo"><span class="arrow-up"></span></a>    
+</footer>
 
 <script>
     // メイン映像と背景画像 ----------------------------------------

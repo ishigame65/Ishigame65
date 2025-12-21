@@ -58,6 +58,7 @@
 </div>
 
 <header>
+    <h1 class="title">二ホンイシガメの屋外飼育環境</h1>
     <h1><a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a></h1>
     <nav>
         <ul>
@@ -70,110 +71,107 @@
     </nav>
 </header>
 
-<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
-    <main> <!-- メインコンテンツ -->
-        <div class="breadcrumb">
+<main> <!-- メインコンテンツ -->
+    <div class="breadcrumb">
+        <ul>
+            <li><a href="index.html">Top</a></li>
+            <li>サイトマップ</li>
+        </ul>
+    </div> <!-- breadcrumb -->
+    <h2>サイトマップ</h2>
+    <div class="sitemap">
+        <ul>
+            <li><a href="index.html">TOP</a>
             <ul>
-                <li><a href="index.html">Top</a></li>
-                <li>サイトマップ</li>
-            </ul>
-        </div> <!-- breadcrumb -->
-        <h1 class="mienai">二ホンイシガメの屋外飼育環境</h1>
-        <h2>サイトマップ</h2>
-        <div class="sitemap">
-            <ul>
-                <li><a href="index.html">TOP</a>
-                <ul>
-                    <li><a href="intro.html">経緯と方針</a></li>
-                    <li><a href="menu.html">飼育環境</a>
-                        <ul>
-                            <li><a href="igpond.html">人工池</a></li>
-                            <li><a href="igfilter.html">外部濾過器</a></li>
-                            <li><a href="igcage.html">ケージ</a></li>
-                            <li><a href="igplant.html">水草</a></li>
-                            <li><a href="igfeeder.html">自動給餌器</a>
-                                <ul>
-                                    <li><a href="igfeeder1st.html">水力自動給餌器</a></li>
-                                </ul></li>
-                            <li><a href="igrain.html">雨水補給器</a></li>
-                            <li><a href="igdish.html">餌皿</a></li>
-                            <li><a href="igcamera.html">カメラ</a></li>
-                            <li><a href="animal.html">周りの生きもの</a></li>
-                        </ul></li>
-                    <li><a href="maintenance.html">日々の管理</a></li>
-                    <li><a href="trouble.html">トラブル</a></li>
-                    <li><a href="baby.html">成長記録</a></li>
-                    <li><a href="keeper.html">飼育係</a>
-                        <ul>
-                            <li><a href="saitamap.html">埼玉</a></li>
-                            <li id="profInit" class="extra"><a href="profile.html">プロフィール</a><span class="profBut" onclick="profOn()">表示</span><br>
-                                <div class="sidenote">※ イシガメ飼育と関係ない個人的な趣味の内容</div>
-                            </li>
-                            <li id="profContents" class="extra"><a href="profile.html">プロフィール</a><span class="profBut" onclick="profOff()">非表示</span>
-                                <ul>
-                                    <li><a href="kure.html">出身地</a></li>
-                                    <li><a href="bikeindex.html">銀輪はたまに唄う</a>
-                                        <ul>
-                                            <li><a href="bike1.html">クロモリ1号</a></li>
-                                            <li><a href="bike2.html">クロモリ2号</a></li>
-                                            <li><a href="bikemap.html">走行経路</a></li>
-                                            <li><a href="bike0.html">過去のクロモリ</a></li>
-                                            <li><a href='bikerinko.html'>輪行のすすめ</a></li>
-                                        </ul></li>
-                                    <li><a href="photos.html">あの日あの時あの場所の写真</a></li>
-                                    <li><a href='cultivation/cultivation.html'>野菜作り</a></li>
-                                    <!-- <li><a href='cultivation.html'>野菜作り</a></li> -->
-                                    <li><a href="software.html">自作ソフトウェア</a>
-                                        <ul>
-                                            <li><a href='cultivation/cultilib.html'>栽培ライブラリ</a></li>
-                                            <li><a href='landview/landview.html'>所有地を可視化する</a>
-                                            <li><a href='landview/landshape.html'>地番区画データ取得ライブラリ</a></li>
-                                        </ul></li>
-                                    <li><a href="kongo.html">観艦式</a></li>
-                                    <li><a href="bloomington.html">Bloomington</a></li>
-                                    <li><a href='miniature.html'>小さなもの</a></li>
-                                    <li><a href='art.html'>絵画方面</a>
-                                        <ul>
-                                            <li><a href="artfrm1.html">額縁製作1</a></li>
-                                            <li><a href="artfrm2.html">額縁製作2</a></li>
-                                        </ul></li>
-                                    <li><a href='circuit.html'>回路</a></li>
-                                    <li><a href="brickmold.html">モルタルレンガ用型枠</a></li>
-                                    <li><a href="before.html">大正以前</a></li>
-                                    <li><a href="showa.html">昭和</a></li>
-                                    <li><a href="after.html">平成以降</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="entertainment.html">遊び</a>
-                        <ul>
-                            <li><a href="blockcrushing.html">亀のブロックつぶし</a></li>
-                            <li><a href="igai.html">AIでカメを検出する</a></li>
-                            <li><a href="igaiy8910.html">AIモデルYOLOv8・v9・v10の検出性能比較</a></li>
-                            <li><a href="igaioptim.html">AI学習データ自動最適化による検出性能向上</a></li>
-                        </ul></li>
-                    <li><a href="links.html">リンク</a></li>
-                    <li><a href="copyright.html">サイトポリシー</a></li>               
-                    <li><a href="sitemap.html">サイトマップ</a></li>
-                </ul>
-            </ul>
-        </div>
-    </main>
-    <footer> <!-- フッターコンテンツ -->
-        <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
-        <div id="footlinks">
-            <ul>
-                <li><a href="keeper.html">飼育係</a></li>
-                <li><a href="entertainment.html">遊び</a></li>
+                <li><a href="intro.html">経緯と方針</a></li>
+                <li><a href="menu.html">飼育環境</a>
+                    <ul>
+                        <li><a href="igpond.html">人工池</a></li>
+                        <li><a href="igfilter.html">外部濾過器</a></li>
+                        <li><a href="igcage.html">ケージ</a></li>
+                        <li><a href="igplant.html">水草</a></li>
+                        <li><a href="igfeeder.html">自動給餌器</a>
+                            <ul>
+                                <li><a href="igfeeder1st.html">水力自動給餌器</a></li>
+                            </ul></li>
+                        <li><a href="igrain.html">雨水補給器</a></li>
+                        <li><a href="igdish.html">餌皿</a></li>
+                        <li><a href="igcamera.html">カメラ</a></li>
+                        <li><a href="animal.html">周りの生きもの</a></li>
+                    </ul></li>
+                <li><a href="maintenance.html">日々の管理</a></li>
+                <li><a href="trouble.html">トラブル</a></li>
+                <li><a href="baby.html">成長記録</a></li>
+                <li><a href="keeper.html">飼育係</a>
+                    <ul>
+                        <li><a href="saitamap.html">埼玉</a></li>
+                        <li id="profInit" class="extra"><a href="profile.html">プロフィール</a><span class="profBut" onclick="profOn()">表示</span><br>
+                            <div class="sidenote">※ イシガメ飼育と関係ない個人的な趣味の内容</div>
+                        </li>
+                        <li id="profContents" class="extra"><a href="profile.html">プロフィール</a><span class="profBut" onclick="profOff()">非表示</span>
+                            <ul>
+                                <li><a href="kure.html">出身地</a></li>
+                                <li><a href="bikeindex.html">銀輪はたまに唄う</a>
+                                    <ul>
+                                        <li><a href="bike1.html">クロモリ1号</a></li>
+                                        <li><a href="bike2.html">クロモリ2号</a></li>
+                                        <li><a href="bikemap.html">走行経路</a></li>
+                                        <li><a href="bike0.html">過去のクロモリ</a></li>
+                                        <li><a href='bikerinko.html'>輪行のすすめ</a></li>
+                                    </ul></li>
+                                <li><a href="photos.html">あの日あの時あの場所の写真</a></li>
+                                <li><a href='cultivation/cultivation.html'>野菜作り</a></li>
+                                <!-- <li><a href='cultivation.html'>野菜作り</a></li> -->
+                                <li><a href="software.html">自作ソフトウェア</a>
+                                    <ul>
+                                        <li><a href='cultivation/cultilib.html'>栽培ライブラリ</a></li>
+                                        <li><a href='landview/landview.html'>所有地を可視化する</a>
+                                        <li><a href='landview/landshape.html'>地番区画データ取得ライブラリ</a></li>
+                                    </ul></li>
+                                <li><a href="kongo.html">観艦式</a></li>
+                                <li><a href="bloomington.html">Bloomington</a></li>
+                                <li><a href='miniature.html'>小さなもの</a></li>
+                                <li><a href='art.html'>絵画方面</a>
+                                    <ul>
+                                        <li><a href="artfrm1.html">額縁製作1</a></li>
+                                        <li><a href="artfrm2.html">額縁製作2</a></li>
+                                    </ul></li>
+                                <li><a href='circuit.html'>回路</a></li>
+                                <li><a href="brickmold.html">モルタルレンガ用型枠</a></li>
+                                <li><a href="before.html">大正以前</a></li>
+                                <li><a href="showa.html">昭和</a></li>
+                                <li><a href="after.html">平成以降</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="entertainment.html">遊び</a>
+                    <ul>
+                        <li><a href="blockcrushing.html">亀のブロックつぶし</a></li>
+                        <li><a href="igai.html">AIでカメを検出する</a></li>
+                        <li><a href="igaiy8910.html">AIモデルYOLOv8・v9・v10の検出性能比較</a></li>
+                        <li><a href="igaioptim.html">AI学習データ自動最適化による検出性能向上</a></li>
+                    </ul></li>
                 <li><a href="links.html">リンク</a></li>
-                <li><a href="copyright.html">サイトポリシー</a></li>
+                <li><a href="copyright.html">サイトポリシー</a></li>               
                 <li><a href="sitemap.html">サイトマップ</a></li>
             </ul>
-        </div>
-        <a href="#logo"><span class="arrow-up"></span></a>    
-    </footer>
-</div>
+        </ul>
+    </div>
+</main>
+<footer> <!-- フッターコンテンツ -->
+    <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+    <div id="footlinks">
+        <ul>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li><a href="entertainment.html">遊び</a></li>
+            <li><a href="links.html">リンク</a></li>
+            <li><a href="copyright.html">サイトポリシー</a></li>
+            <li><a href="sitemap.html">サイトマップ</a></li>
+        </ul>
+    </div>
+    <a href="#logo"><span class="arrow-up"></span></a>    
+</footer>
 
 <script>
     const profInit = document.getElementById('profInit');
