@@ -118,13 +118,21 @@ h4 {
 .maxw100 {
     max-width: 100%;
 }
-article {
+article, section {
     display: inline-block;
     vertical-align: top;
-    min-width: 24em;
-    max-width: 28em;
+    min-width: none;
+    max-width: 97%;
     margin-right: 1em;
-    padding-right: 1em;
+    padding: 0;
+}
+.article_content, .section_content {
+    margin-left: 0.3em;
+    margin-top: 0.4em;
+    margin-bottom: 0.8em;
+}
+canvas {
+    margin-left: 0;
 }
 h3, h4 {
     /* background: linear-gradient(90deg, royalblue, rgba(255,255,255,0.0)); */
@@ -135,11 +143,6 @@ h3, h4 {
 }
 h3.mono, h3.mono, h4.mono, h5.mono{
     background: linear-gradient(90deg, gray, rgba(255,255,255,0.0));
-}
-.article_content, .section_content {
-    margin-left: 0.4em;
-    margin-top: 0.4em;
-    margin-bottom: 0.8em;
 }
 .notes {
     font-size: smaller;
@@ -184,19 +187,16 @@ span.notes {
         display: block;
     }
     article, section {
-        min-width: none;
-        /* max-width: 95%; */
-        max-width: 97%;
-        padding: 0;
+        padding-right: 1em;
+        min-width: 24em;
+        max-width: 28em;
     }
     .article_content, .section_content {
-        /* margin-left: 0.2em; */
-        margin-left: 0.3em;
+        margin-left: 0.4em;
     }
-
-    canvas {
-        margin-left: 0;
-    }
+    /* canvas {
+        margin-left: none;
+    } */
 }
 @media (min-width: 1000px) {
     nav {
