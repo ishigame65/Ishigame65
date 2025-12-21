@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">    
-	<meta name="description" content="亀のブロックつぶし">
+	<meta name="description" content="二ホンイシガメの屋外飼育環境 - 亀のブロックつぶし">
 	<link rel="shortcut icon" href="img/kame.ico">
-	<title>亀のブロックつぶし</title>
+	<title>二ホンイシガメの屋外飼育環境 - 亀のブロックつぶし</title>
 </head>
 <style>
     input[type="button"] {
@@ -86,6 +86,7 @@
 </div>
 
 <header>
+    <h1 class="title">二ホンイシガメの屋外飼育環境</h1>
     <h1><a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a></h1>
     <nav>
         <ul>
@@ -98,69 +99,67 @@
     </nav>
 </header>
 
-<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
-    <main> <!-- メインコンテンツ -->
-        <div class="breadcrumb">
-            <ul>
-                <li><a href="index.html">Top</a></li>
-                <li><a href="entertainment.html">遊び</a></li>
-                <li>亀のブロックつぶし</li>
+<main> <!-- メインコンテンツ -->
+    <div class="breadcrumb">
+        <ul>
+            <li><a href="index.html">Top</a></li>
+            <li><a href="entertainment.html">遊び</a></li>
+            <li>亀のブロックつぶし</li>
+        </ul>
+    </div> <!-- breadcrumb -->
+    <h2>亀のブロックつぶし</h2>
+    <section class="indent">
+        <div class="box2">
+            亀を上下左右の矢印キーで動かしてブロックをつぶすPCゲームです。
+            <ul class="indent">
+                <li>ブロックの上に乗って下矢印キーでブロックを押しつぶします。
+                <li>複数段のブロックを連続的に押しつぶすことはできません。
+                <li>孤立ブロックは横から左右キーで勢いよく押せば動かせます。
+                <li>2段以上の段差は登れません。
+                <li>レベルは大きい数値の方が難易度が高くなります。
+                <li>ブロック生成間隔は新しいブロックを生成する時間の間隔を表します。		
             </ul>
-        </div> <!-- breadcrumb -->
-        <h2>亀のブロックつぶし</h2>
-        <section class="indent">
-            <div class="box2">
-                亀を上下左右の矢印キーで動かしてブロックをつぶすPCゲームです。
-                <ul class="indent">
-                    <li>ブロックの上に乗って下矢印キーでブロックを押しつぶします。
-                    <li>複数段のブロックを連続的に押しつぶすことはできません。
-                    <li>孤立ブロックは横から左右キーで勢いよく押せば動かせます。
-                    <li>2段以上の段差は登れません。
-                    <li>レベルは大きい数値の方が難易度が高くなります。
-                    <li>ブロック生成間隔は新しいブロックを生成する時間の間隔を表します。		
-                </ul>
-                ※ 1980年代の雑誌パロディ版アスキーに掲載されていたゲーム「ブロックつぶし」を思い出しながら作成しましたが、
-                記憶が曖昧なのでオリジナル版とはいろいろ違っていると思います。
-                <!-- 年刊AhSKI! -->
-            </div>        
-            <div id="GAME">
-                亀の歩く速度:  
-                <label><input type="radio" name="SPEED" value="2" checked="">普通</label>
-                <label><input type="radio" name="SPEED" value="3">速い</label><br>
-                レベル 
-                <label><input type="radio" name="LEVEL" value="0.2" checked="">1</label>
-                <label><input type="radio" name="LEVEL" value="0.4">2</label>
-                <label><input type="radio" name="LEVEL" value="0.6">3</label>
-                <label><input type="radio" name="LEVEL" value="0.8">4</label>
-                <label><input type="radio" name="LEVEL" value="1.0">5</label>
-                <div id="INTERVAL">ブロック生成間隔: 80</div><br>
-                <canvas id="CANVAS1"></canvas><br>            
-                <input type="button" value="開始" onclick="app.start();"/>
-                <input type="button" value="停止" onclick="app.stop();"/>            
-                <div id="SCORE">Score: 0</div>            
-                <h4>履歴</h4>
-                <textarea id="HISTORY" style="overflow:auto;"></textarea>
-            </div>
-        </section>
-        <div id="narrow_contents">
-            PC専用です
+            ※ 1980年代の雑誌パロディ版アスキーに掲載されていたゲーム「ブロックつぶし」を思い出しながら作成しましたが、
+            記憶が曖昧なのでオリジナル版とはいろいろ違っていると思います。
+            <!-- 年刊AhSKI! -->
+        </div>        
+        <div id="GAME">
+            亀の歩く速度:  
+            <label><input type="radio" name="SPEED" value="2" checked="">普通</label>
+            <label><input type="radio" name="SPEED" value="3">速い</label><br>
+            レベル 
+            <label><input type="radio" name="LEVEL" value="0.2" checked="">1</label>
+            <label><input type="radio" name="LEVEL" value="0.4">2</label>
+            <label><input type="radio" name="LEVEL" value="0.6">3</label>
+            <label><input type="radio" name="LEVEL" value="0.8">4</label>
+            <label><input type="radio" name="LEVEL" value="1.0">5</label>
+            <div id="INTERVAL">ブロック生成間隔: 80</div><br>
+            <canvas id="CANVAS1"></canvas><br>            
+            <input type="button" value="開始" onclick="app.start();"/>
+            <input type="button" value="停止" onclick="app.stop();"/>            
+            <div id="SCORE">Score: 0</div>            
+            <h4>履歴</h4>
+            <textarea id="HISTORY" style="overflow:auto;"></textarea>
         </div>
-    </main>
-    <footer> <!-- フッターコンテンツ -->
-        <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
-        <div id="footlinks">
-            <ul>
-                <li><a href="keeper.html">飼育係</a></li>
-                <li><a href="entertainment.html">遊び</a></li>
-                <li><a href="links.html">リンク</a></li>
-                <li><a href="copyright.html">サイトポリシー</a></li>
-                <li><a href="sitemap.html">サイトマップ</a></li>
-            </ul>
-        </div>
-        <a href="#logo"><span class="arrow-up"></span></a>    
-        <a href="#logo"><span class="arrow-up"></span></a>
+    </section>
+    <div id="narrow_contents">
+        PC専用です
+    </div>
+</main>
+<footer> <!-- フッターコンテンツ -->
+    <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+    <div id="footlinks">
+        <ul>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li><a href="entertainment.html">遊び</a></li>
+            <li><a href="links.html">リンク</a></li>
+            <li><a href="copyright.html">サイトポリシー</a></li>
+            <li><a href="sitemap.html">サイトマップ</a></li>
+        </ul>
+    </div>
+    <a href="#logo"><span class="arrow-up"></span></a>    
+    <a href="#logo"><span class="arrow-up"></span></a>
 </footer>
-</div>
     
 <script src="js/blockcrushing.min.js"></script>
 

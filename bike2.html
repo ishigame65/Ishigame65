@@ -7,9 +7,9 @@
 	<link rel="stylesheet" href="css/popup.css">
     <link rel="stylesheet" href="css/style2.css">
     <link rel="stylesheet" href="css/bike.css">
-   <meta name="description" content="クロモリ2号">
+   <meta name="description" content="銀輪はたまに唄う - クロモリ2号">
 	<link rel="shortcut icon" href="img/kame.ico">
-	<title>クロモリ2号</title>
+	<title>銀輪はたまに唄う - クロモリ2号</title>
 </head>
 <style>
     #topimg {
@@ -117,6 +117,7 @@
 </div>
 
 <header>
+    <h1 class="title">銀輪はたまに唄う</h1>
     <h1><a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a></h1>
     <nav>
         <ul>
@@ -129,84 +130,82 @@
     </nav>
 </header>
 
-<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
-    <main> <!-- メインコンテンツ -->
-        <div class="breadcrumb">
-            <ul>
-                <li><a href="index.html">Top</a></li>
-                <li><a href="keeper.html">飼育係</a></li>
-                <li><a href="profile.html">プロフィール</a></li>
-                <li><a href="bikeindex.html">銀輪はたまに唄う</a>
-                <li>クロモリ2号</li>
-            </ul>
-        </div> <!-- breadcrumb -->
-        <h2 class="mono">クロモリ2号</h2>
-        <section class="indent">
-            <img id="topimg" class="bike" src="img/bkp1.jpg">
-            <p>	
-            予算の関係でクロモリ1号より価格帯を落としたパーツで組み上げた。
-            懐古趣味的な美しさと、忙しく変速せずゆったり走る言い訳のため、
-            変速機シフターは<a href="javascript:bike_on('bkwlever')">Wレバー</a>とした。
-            </p>
-            <div class="clear"></div>
-            <p id="note"></p>
-            <div class="bkcanvas">
-                <!-- z-index未指定のため順序が重要 -->
-                <img id="bkspoke" src="img/bkspoke.png">
-                <img id="bkhub" src="img/bkhub.png">
-                <img id="bksprocket" src="img/bksprocket.png">
-                <img id="bkrim" src="img/bkrim.png">
-                <img id="bktire" src="img/bktire.png">
-                <img id="bkpillar" src="img/bkpillar.png">
-                <img id="bkframe" src="img/bkframe.png">
-                <img id="bksaddle" src="img/bksaddle.png">
-                <img id="bkcompo" src="img/bkcompo.png">
-                <img id="bkpedal" src="img/bkpedal.png">
-                <img id="bkstem" src="img/bkstem.png">
-                <img id="bkhandle" src="img/bkhandle.png">
-                <img id="bkwlever" src="img/bkwlever.png">
-            </div>
-            <div class="bkselect">
-                <a href="javascript:bike_on('bkframe')">フレーム<img src="img/flagjp.png"></a>
-                <a href="javascript:bike_on('bkcompo')">コンポーネント<img src="img/flagjp.png"></a>
-                <a href="javascript:bike_on('bkhub')">ハブ<img src="img/flagjp.png"></a>
-                <a href="javascript:bike_on('bkspoke')">スポーク<img src="img/flagch.png"></a>
-                <a href="javascript:bike_on('bkrim')">リム<img src="img/flagch.png"></a>
-                <a href="javascript:bike_on('bktire')">タイヤ<img src="img/flagit.png"></a>
-                <a href="javascript:bike_on('bkpillar')">シートポスト<img src="img/flagjp.png"></a>
-                <a href="javascript:bike_on('bkstem')">ステム<img src="img/flagjp.png"></a>
-                <a href="javascript:bike_on('bkhandle')">ハンドルバー<img src="img/flagjp.png"></a>
-                <a href="javascript:bike_on('bkpedal')">ペダル<img src="img/flagjp.png"></a>
-                <a href="javascript:bike_on('bksaddle')">サドル<img src="img/flagit.png"><img src="img/flagjp.png"></a>
-            </div>
-            <div id="bkreset"><a href="javascript:bike_reset()">Reset</a></div>
-            <p>
-            <ul>
-                <li>フレームはPOS（Panasonic Order System）でサイズとカラーリングを指定。</li>
-                <li>リムとスポークがスイス製でタイヤがイタリア製だが、それ以外のパーツは日本製。
-                日本が誇るモノづくりの力を信じ、安価でも加工精度は落とさないことを期待した。</li>
-                <li>Wレバーは絶滅危惧種で選択肢が少なく、結果的に泣く子も黙る（憧れの）Dura-Aceグレードとなった。</li>
-            </ul>
-            <img class="bike" src="img/bkp3.jpg">
-            <img class="bike" src="img/bkp4.jpg">
-            <img class="bike" src="img/bkp2.jpg">
-            </p>
-        </section>
-    </main>
-    <footer> <!-- フッターコンテンツ -->
-        <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
-        <div id="footlinks">
-            <ul>
-                <li><a href="keeper.html">飼育係</a></li>
-                <li><a href="entertainment.html">遊び</a></li>
-                <li><a href="links.html">リンク</a></li>
-                <li><a href="copyright.html">サイトポリシー</a></li>
-                <li><a href="sitemap.html">サイトマップ</a></li>
-            </ul>
+<main> <!-- メインコンテンツ -->
+    <div class="breadcrumb">
+        <ul>
+            <li><a href="index.html">Top</a></li>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li><a href="profile.html">プロフィール</a></li>
+            <li><a href="bikeindex.html">銀輪はたまに唄う</a>
+            <li>クロモリ2号</li>
+        </ul>
+    </div> <!-- breadcrumb -->
+    <h2 class="mono">クロモリ2号</h2>
+    <section class="indent">
+        <img id="topimg" class="bike" src="img/bkp1.jpg">
+        <p>	
+        予算の関係でクロモリ1号より価格帯を落としたパーツで組み上げた。
+        懐古趣味的な美しさと、忙しく変速せずゆったり走る言い訳のため、
+        変速機シフターは<a href="javascript:bike_on('bkwlever')">Wレバー</a>とした。
+        </p>
+        <div class="clear"></div>
+        <p id="note"></p>
+        <div class="bkcanvas">
+            <!-- z-index未指定のため順序が重要 -->
+            <img id="bkspoke" src="img/bkspoke.png">
+            <img id="bkhub" src="img/bkhub.png">
+            <img id="bksprocket" src="img/bksprocket.png">
+            <img id="bkrim" src="img/bkrim.png">
+            <img id="bktire" src="img/bktire.png">
+            <img id="bkpillar" src="img/bkpillar.png">
+            <img id="bkframe" src="img/bkframe.png">
+            <img id="bksaddle" src="img/bksaddle.png">
+            <img id="bkcompo" src="img/bkcompo.png">
+            <img id="bkpedal" src="img/bkpedal.png">
+            <img id="bkstem" src="img/bkstem.png">
+            <img id="bkhandle" src="img/bkhandle.png">
+            <img id="bkwlever" src="img/bkwlever.png">
         </div>
-        <a href="#logo"><span class="arrow-up"></span></a>    
-    </footer>
-</div>
+        <div class="bkselect">
+            <a href="javascript:bike_on('bkframe')">フレーム<img src="img/flagjp.png"></a>
+            <a href="javascript:bike_on('bkcompo')">コンポーネント<img src="img/flagjp.png"></a>
+            <a href="javascript:bike_on('bkhub')">ハブ<img src="img/flagjp.png"></a>
+            <a href="javascript:bike_on('bkspoke')">スポーク<img src="img/flagch.png"></a>
+            <a href="javascript:bike_on('bkrim')">リム<img src="img/flagch.png"></a>
+            <a href="javascript:bike_on('bktire')">タイヤ<img src="img/flagit.png"></a>
+            <a href="javascript:bike_on('bkpillar')">シートポスト<img src="img/flagjp.png"></a>
+            <a href="javascript:bike_on('bkstem')">ステム<img src="img/flagjp.png"></a>
+            <a href="javascript:bike_on('bkhandle')">ハンドルバー<img src="img/flagjp.png"></a>
+            <a href="javascript:bike_on('bkpedal')">ペダル<img src="img/flagjp.png"></a>
+            <a href="javascript:bike_on('bksaddle')">サドル<img src="img/flagit.png"><img src="img/flagjp.png"></a>
+        </div>
+        <div id="bkreset"><a href="javascript:bike_reset()">Reset</a></div>
+        <p>
+        <ul>
+            <li>フレームはPOS（Panasonic Order System）でサイズとカラーリングを指定。</li>
+            <li>リムとスポークがスイス製でタイヤがイタリア製だが、それ以外のパーツは日本製。
+            日本が誇るモノづくりの力を信じ、安価でも加工精度は落とさないことを期待した。</li>
+            <li>Wレバーは絶滅危惧種で選択肢が少なく、結果的に泣く子も黙る（憧れの）Dura-Aceグレードとなった。</li>
+        </ul>
+        <img class="bike" src="img/bkp3.jpg">
+        <img class="bike" src="img/bkp4.jpg">
+        <img class="bike" src="img/bkp2.jpg">
+        </p>
+    </section>
+</main>
+<footer> <!-- フッターコンテンツ -->
+    <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+    <div id="footlinks">
+        <ul>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li><a href="entertainment.html">遊び</a></li>
+            <li><a href="links.html">リンク</a></li>
+            <li><a href="copyright.html">サイトポリシー</a></li>
+            <li><a href="sitemap.html">サイトマップ</a></li>
+        </ul>
+    </div>
+    <a href="#logo"><span class="arrow-up"></span></a>    
+</footer>
 
 <script>
     var notes = {

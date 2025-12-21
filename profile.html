@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style2.css">
-    <meta name="description" content="プロフィール">
+    <meta name="description" content="イシガメ飼育係 - プロフィール">
     <link rel="shortcut icon" href="img/kame.ico">
-    <title>プロフィール</title>
+    <title>イシガメ飼育係 - プロフィール</title>
 </head>
 <style>
     .me {
@@ -119,6 +119,7 @@
     </div>
     
     <header>
+        <h1 class="title">イシガメ飼育係</h1>
         <h1><a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a></h1>
         <nav>
             <ul>
@@ -131,120 +132,118 @@
         </nav>
         </header>
 
-    <div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
-        <main> <!-- メインコンテンツ -->
-            <div class="breadcrumb">
-                <ul>
-                    <li><a href="index.html">Top</a></li>
-                    <li><a href="keeper.html">飼育係</a></li>
-                    <li>プロフィール</li>
-                </ul>
-            </div> <!-- breadcrumb -->
-            <div class="me"><img src="img/me.png" width=85 height=100></div>
-            <h2 class="mono">プロフィール</h2>
-            <section>
-                <dl>
-                    <div class="block">
-                        <dt>生年月日</dt>
-                        <dd>
-                            <img src="img/mebirth.png" usemap="#birthmap">
-                            <map name="birthmap">
-                                <area shape="rect" coords="0,0,60,59" href="before.html">
-                                <area shape="rect" coords="66,0,210,59" href="showa.html">
-                                <area shape="rect" coords="216,0,312,59" href="after.html">
-                            </map>
-                        </dd>
-                    </div>
-                    <div class="block">
-                        <dt>出身地</dt>
-                        <dd><a href="kure.html"><img src="img/ondo.jpg"></a></dd>
-                    </div>
-                    <dt>楽しみ</dt>
+    <main> <!-- メインコンテンツ -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html">Top</a></li>
+                <li><a href="keeper.html">飼育係</a></li>
+                <li>プロフィール</li>
+            </ul>
+        </div> <!-- breadcrumb -->
+        <div class="me"><img src="img/me.png" width=85 height=100></div>
+        <h2 class="mono">プロフィール</h2>
+        <section>
+            <dl>
+                <div class="block">
+                    <dt>生年月日</dt>
                     <dd>
-                        <ul>
-                            <li>行ったことのない場所に行って景色を見る、最近は近場が多い<br>
-                                <div class="mini-photo">
-                                    <img id="tpic" src="img/pchina1.jpg" onclick="tselect()">
-                                    <div class="desc" id="ttext">dummy</div>
-                                    <div class="clear"></div>
-                                </div>
-                            </li>
-                            <li>自転車で温泉に行って汗だくで帰り、シャワーを浴びてビールを飲む<br>
-                                <div class="mini-photo">
-                                    <img id="bpic" src="img/bike1.jpg" onclick="bselect()">
-                                    <div class="desc" id="btext">dummy</div>
-                                    <div class="clear"></div>
-                                </div>
-                                <ul class="sublist">
-                                    <li><span class="marker">→</span>
-                                        <a href="bikeindex.html">銀輪はたまに唄う</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>何かを作ったり描いたり撮ったり<br>
-                                <div class="mini-photo">
-                                    <img id="mpic" src="img/brick1.jpg" onclick="mselect()">
-                                    <div class="desc" id="mtext">dummy</div>
-                                    <div class="clear"></div>
-                                </div>
-                                <ul class="sublist">
-                                    <li><span id="markerp" class="marker">・</span>
-                                        <a href='photos.html'>あの日あの時あの場所の写真</a>
-                                    </li>
-                                    <li><span id="markert" class="marker">・</span>
-                                        <a href="software.html">自作ソフトウェア</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <img src="img/mebirth.png" usemap="#birthmap">
+                        <map name="birthmap">
+                            <area shape="rect" coords="0,0,60,59" href="before.html">
+                            <area shape="rect" coords="66,0,210,59" href="showa.html">
+                            <area shape="rect" coords="216,0,312,59" href="after.html">
+                        </map>
                     </dd>
-                    <dt>自慢</dt>
-                    <dd>
-                        <ul>
-                            <li>計算機の1ビット（磁気コアメモリ）を見たことがある、しかもFORTRANプログラムを作ってその計算機を動かした
-                                <div id="UPDATE_PANEL" class="accordion-box">
-                                    <input id="AC_BUTTON" type="checkbox" />
-                                    <label id="AC_LABEL" for="AC_BUTTON">（補足）</label>
-                                    <div id="AC_CONTENTS">
-                                        <ul class="indent">
-                                            <li>パンチカードの束を計算機センターのカード読み取り機で読み取らせて計算機（HITAC8450）を動かしていた</li>
-                                            <li>パンチカード1枚が1行分（80文字）であり、プログラムはパンチカードの束として厚みと重みを体感できた</li>
-                                            <li>プログラム行を手渡しで貸し借りでき、プログラムを落とす（床にばらまく）と復元が大変</li>                                    
-                                        </ul>
-                                    </div>
+                </div>
+                <div class="block">
+                    <dt>出身地</dt>
+                    <dd><a href="kure.html"><img src="img/ondo.jpg"></a></dd>
+                </div>
+                <dt>楽しみ</dt>
+                <dd>
+                    <ul>
+                        <li>行ったことのない場所に行って景色を見る、最近は近場が多い<br>
+                            <div class="mini-photo">
+                                <img id="tpic" src="img/pchina1.jpg" onclick="tselect()">
+                                <div class="desc" id="ttext">dummy</div>
+                                <div class="clear"></div>
+                            </div>
+                        </li>
+                        <li>自転車で温泉に行って汗だくで帰り、シャワーを浴びてビールを飲む<br>
+                            <div class="mini-photo">
+                                <img id="bpic" src="img/bike1.jpg" onclick="bselect()">
+                                <div class="desc" id="btext">dummy</div>
+                                <div class="clear"></div>
+                            </div>
+                            <ul class="sublist">
+                                <li><span class="marker">→</span>
+                                    <a href="bikeindex.html">銀輪はたまに唄う</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>何かを作ったり描いたり撮ったり<br>
+                            <div class="mini-photo">
+                                <img id="mpic" src="img/brick1.jpg" onclick="mselect()">
+                                <div class="desc" id="mtext">dummy</div>
+                                <div class="clear"></div>
+                            </div>
+                            <ul class="sublist">
+                                <li><span id="markerp" class="marker">・</span>
+                                    <a href='photos.html'>あの日あの時あの場所の写真</a>
+                                </li>
+                                <li><span id="markert" class="marker">・</span>
+                                    <a href="software.html">自作ソフトウェア</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </dd>
+                <dt>自慢</dt>
+                <dd>
+                    <ul>
+                        <li>計算機の1ビット（磁気コアメモリ）を見たことがある、しかもFORTRANプログラムを作ってその計算機を動かした
+                            <div id="UPDATE_PANEL" class="accordion-box">
+                                <input id="AC_BUTTON" type="checkbox" />
+                                <label id="AC_LABEL" for="AC_BUTTON">（補足）</label>
+                                <div id="AC_CONTENTS">
+                                    <ul class="indent">
+                                        <li>パンチカードの束を計算機センターのカード読み取り機で読み取らせて計算機（HITAC8450）を動かしていた</li>
+                                        <li>パンチカード1枚が1行分（80文字）であり、プログラムはパンチカードの束として厚みと重みを体感できた</li>
+                                        <li>プログラム行を手渡しで貸し借りでき、プログラムを落とす（床にばらまく）と復元が大変</li>                                    
+                                    </ul>
                                 </div>
-                            </li>
-                            <li>J1ビザで渡米し大学でアルバイトしたことがある、しかも確定申告時に連邦政府と州政府の税務窓口で言葉が通じずたらい回しにされた</li>
-                        </ul>
-                    </dd>
-                    <dt>資格</dt>
-                    <dd>
-                        <ul>
-                            <li>第1種情報処理技術者</li>
-                            <li>色彩コーディネーター資格3級</li>
-                            <li>中国語検定3級</li>
-                            <li>フォークリフト運転技能講習</li>
-                            <li>Webクリエイター能力認定試験（エキスパート）</li>
-                        </ul>
-                    </dd>
-                    </dl>
-            </section>
+                            </div>
+                        </li>
+                        <li>J1ビザで渡米し大学でアルバイトしたことがある、しかも確定申告時に連邦政府と州政府の税務窓口で言葉が通じずたらい回しにされた</li>
+                    </ul>
+                </dd>
+                <dt>資格</dt>
+                <dd>
+                    <ul>
+                        <li>第1種情報処理技術者</li>
+                        <li>色彩コーディネーター資格3級</li>
+                        <li>中国語検定3級</li>
+                        <li>フォークリフト運転技能講習</li>
+                        <li>Webクリエイター能力認定試験（エキスパート）</li>
+                    </ul>
+                </dd>
+                </dl>
+        </section>
 
-        </main>
-        <footer> <!-- フッターコンテンツ -->
-            <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
-            <div id="footlinks">
-                <ul>
-                    <li><a href="keeper.html">飼育係</a></li>
-                    <li><a href="entertainment.html">遊び</a></li>
-                    <li><a href="links.html">リンク</a></li>
-                    <li><a href="copyright.html">サイトポリシー</a></li>
-                    <li><a href="sitemap.html">サイトマップ</a></li>
-                </ul>
-            </div>
-            <a href="#logo"><span class="arrow-up"></span></a>    
-        </footer>
-    </div>
+    </main>
+    <footer> <!-- フッターコンテンツ -->
+        <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+        <div id="footlinks">
+            <ul>
+                <li><a href="keeper.html">飼育係</a></li>
+                <li><a href="entertainment.html">遊び</a></li>
+                <li><a href="links.html">リンク</a></li>
+                <li><a href="copyright.html">サイトポリシー</a></li>
+                <li><a href="sitemap.html">サイトマップ</a></li>
+            </ul>
+        </div>
+        <a href="#logo"><span class="arrow-up"></span></a>    
+    </footer>
 
     <script>
         const tsrc = new Array("pchina1.jpg", "psaitama1.jpg", "pturkey.jpg", "pitaly1.jpg",
