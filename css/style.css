@@ -189,6 +189,8 @@ span.notes {
     article, section {
         padding-right: 1em;
         min-width: 24em;
+    }
+    article {
         max-width: 28em;
     }
     .article_content, .section_content {
