@@ -1,11 +1,16 @@
 @charset "utf-8";
 
 body {
-    /* background: none; */
     background: rgb(245,245,255);
 }
-#menu_btn, #menu_cont {
-    background-color: transparent;
+/* ハンバーガーボタン */
+#menu_btn {
+    /* background: rgb(245,245,255, 0.5); */
+    background: transparent;
+}
+/* ドロワーメニュー */
+#menu_cont {
+    background: rgb(230,230,235);
 }
 #menu_btn span,
 #menu_btn span::before,
