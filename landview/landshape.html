@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style2.css">
-    <meta name="description" content="地番区画データ取得ライブラリ">
+    <meta name="description" content="イシガメ飼育係 - 地番区画データ取得ライブラリ">
     <link rel="shortcut icon" href="../img/kame.ico">
-    <title>地番区画データ取得ライブラリ</title>
+    <title>イシガメ飼育係 - 地番区画データ取得ライブラリ</title>
 </head>
 <style>
     /* 画面サイズに合わせた縮小表示はせず、スクロール表示で操作する前提 */
@@ -136,6 +136,7 @@
 </div>
 
 <header>
+    <h1 class="title">イシガメ飼育係</h1>
     <h1><a href="../index.html"><img id="logo" src="../img/logo.png" alt="Ishigame65"></a></h1>
     <nav>
         <ul>
@@ -148,233 +149,231 @@
     </nav>
 </header>
 
-<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
-    <main> <!-- メインコンテンツ -->
-        <div class="breadcrumb">
-            <ul>
-                <li><a href="../index.html">Top</a></li>
-                <li><a href="../keeper.html">飼育係</a></li>
-                <li><a href="../profile.html">プロフィール</a></li>
-                <li><a href='../software.html'>自作ソフトウェア</a></li>
-                <li>地番区画データ取得ライブラリ</li>
+<main> <!-- メインコンテンツ -->
+    <div class="breadcrumb">
+        <ul>
+            <li><a href="../index.html">Top</a></li>
+            <li><a href="../keeper.html">飼育係</a></li>
+            <li><a href="../profile.html">プロフィール</a></li>
+            <li><a href='../software.html'>自作ソフトウェア</a></li>
+            <li>地番区画データ取得ライブラリ</li>
+        </ul>
+    </div> <!-- breadcrumb -->
+
+    <h2 class="mono">地番区画データ取得ライブラリ</h2>
+    <div class="indent">
+        登記所備付地図データ（地図XMLファイル）から地番ごとの区画形状データ（ポリゴンデータ）を抽出するとともに、
+        利用しやすい座標系に変換して可視化するために開発したPythonライブラリです。
+    </div>
+
+    <section>
+        <h3 class="mono">経緯</h3>
+        <div class="section_content">
+            所有地が複数の地番で構成され共用部分や私道持分などがある場合に、
+            ご近所を含む地番区画を分かりやすく可視化できると良い（気分的にスッキリするし代替わり時に円滑に引き継げる）。
+            <ul class="indent">
+                <li>法務省が<a href="https://front.geospatial.jp/">G空間情報センター</a>で登記所備付地図データ（地図XMLファイル）を公開しており誰でも取得できる。</li>
+                <li>登記所備付地図データには公共座標系と任意座標系の二種がある。
+                    <ul class="indent">
+                        <li>国は公共座標系のデータ整備を推進しており、郊外地域の整備はある程度進んでいるが、都市部での整備はあまり進んでいないのが実情である。</li>
+                    </ul>
+                <li>公共座標系のデータは一般的な地図アプリケーションで表示できる。
+                    <ul class="indent">
+                        <li>公共座標系の地図XMLファイルを一般的な地図アプリケーションで扱えるGeoJSON形式に変換するツールをデジタル庁が公開しているとともに、
+                            G空間情報センターに変換済のGeoJSON形式データも公開されている。</li>
+                        <li>公共座標系の地図XMLファイルをそのまま表示できる地図アプリケーションもある。</li>
+                    </ul>
+                </li>
+                <li>任意座標系のデータは原点位置と方角が適当な座標系で表現されているため、一般的な地図アプリケーションで表示できない。
+                    <ul class="indent">
+                        <li>一部の地図アプリケーションでは任意座標系のデータをマッピングして地図上に表示する機能を有しているが、
+                            この機能を他に組み込んで利用したり、表示された地図を自由に二次利用できない
+                            （よく分からないが、AIを利用した画期的な技術で実現したらしい）。</li>
+                    </ul>
+                </li>
+                <li>当方居住地の地図XMLファイルをダウンロードして確認したところ、残念なことに任意座標系のデータで一般的な地図アプリケーションで表示できなかった。</li>
+                <li>地図XMLファイルの中身を確認したところ、さほど複雑ではなく解析ソフトウェアを簡単に実装できそうであった。
+                    そこで、任意座標系の地図XMLファイルから地番ごとの区画形状データ（ポリゴンデータ）を抽出するとともに座標系を合わせ込む機能を有するライブラリを開発し、
+                    所有地を分かりやすく可視化することにした。</li>
             </ul>
-        </div> <!-- breadcrumb -->
-
-        <h2 class="mono">地番区画データ取得ライブラリ</h2>
-        <div class="indent">
-            登記所備付地図データ（地図XMLファイル）から地番ごとの区画形状データ（ポリゴンデータ）を抽出するとともに、
-            利用しやすい座標系に変換して可視化するために開発したPythonライブラリです。
         </div>
+    </section>
 
-        <section>
-            <h3 class="mono">経緯</h3>
-            <div class="section_content">
-                所有地が複数の地番で構成され共用部分や私道持分などがある場合に、
-                ご近所を含む地番区画を分かりやすく可視化できると良い（気分的にスッキリするし代替わり時に円滑に引き継げる）。
-                <ul class="indent">
-                    <li>法務省が<a href="https://front.geospatial.jp/">G空間情報センター</a>で登記所備付地図データ（地図XMLファイル）を公開しており誰でも取得できる。</li>
-                    <li>登記所備付地図データには公共座標系と任意座標系の二種がある。
-                        <ul class="indent">
-                            <li>国は公共座標系のデータ整備を推進しており、郊外地域の整備はある程度進んでいるが、都市部での整備はあまり進んでいないのが実情である。</li>
-                        </ul>
-                    <li>公共座標系のデータは一般的な地図アプリケーションで表示できる。
-                        <ul class="indent">
-                            <li>公共座標系の地図XMLファイルを一般的な地図アプリケーションで扱えるGeoJSON形式に変換するツールをデジタル庁が公開しているとともに、
-                                G空間情報センターに変換済のGeoJSON形式データも公開されている。</li>
-                            <li>公共座標系の地図XMLファイルをそのまま表示できる地図アプリケーションもある。</li>
-                        </ul>
-                    </li>
-                    <li>任意座標系のデータは原点位置と方角が適当な座標系で表現されているため、一般的な地図アプリケーションで表示できない。
-                        <ul class="indent">
-                            <li>一部の地図アプリケーションでは任意座標系のデータをマッピングして地図上に表示する機能を有しているが、
-                                この機能を他に組み込んで利用したり、表示された地図を自由に二次利用できない
-                                （よく分からないが、AIを利用した画期的な技術で実現したらしい）。</li>
-                        </ul>
-                    </li>
-                    <li>当方居住地の地図XMLファイルをダウンロードして確認したところ、残念なことに任意座標系のデータで一般的な地図アプリケーションで表示できなかった。</li>
-                    <li>地図XMLファイルの中身を確認したところ、さほど複雑ではなく解析ソフトウェアを簡単に実装できそうであった。
-                        そこで、任意座標系の地図XMLファイルから地番ごとの区画形状データ（ポリゴンデータ）を抽出するとともに座標系を合わせ込む機能を有するライブラリを開発し、
-                        所有地を分かりやすく可視化することにした。</li>
-                </ul>
-            </div>
-        </section>
+    <section>
+        <h3 class="mono">LandShapeクラス</h3>
+        <div class="section_content">
+            <ul class="indent">
+                <li>地番区画データ取得ライブラリで利用可能なただ一つのクラス</li>
+            </ul>
+            <dl class="classdescript">
+                <dt>LandShape(xmlpath, chiban_set)</dt>
+                    <dd>
+                        コンストラクタ: 地図XMLファイルを解析して指定された地番の区画形状データを抽出する
+                    </dd>
+                    <dd>
+                        <dl><dt>引数</dt>
+                        <dd>xmlpath: 地図XMLファイルパス</dd>
+                        <dd>chiban_set: 対象の地番リスト</dd></dl>
+                    </dd>
+                <dt>raw_shape()</dt>
+                    <dd>
+                        区画形状データ（ポリゴンデータ）を地図XMLファイル座標値（元データ形式）で取得する
+                    </dd>
+                <dt>norm_shape(min, max)</dt>
+                    <dd>
+                        区画形状データ（ポリゴンデータ）を指定値域に正規化した座標値で取得する
+                    </dd>
+                    <dd>
+                        <dl><dt>引数</dt>
+                        <dd>min: 正規化座標の最小値</dd>
+                        <dd>max: 正規化座標の最大値</dd></dl>
+                    </dd>
+                <dt>fit_shape(src_pts, dst_pts)</dt>
+                    <dd>                            
+                        区画形状データ（ポリゴンデータ）を指定した四辺形に合わせるよう射影変換した座標値で取得する
+                    </dd>
+                    <dd>
+                        <dl><dt>引数</dt>
+                        <dd>src_pts: 地図XMLファイルにおける四辺形四隅の頂点座標リスト</dd>
+                        <dd>dst_pts: src_ptsの座標変換後の頂点座標リスト</dd></dl>
+                    </dd>
+            </dl>
+        </div>
+    </section>
 
-        <section>
-            <h3 class="mono">LandShapeクラス</h3>
-            <div class="section_content">
-                <ul class="indent">
-                    <li>地番区画データ取得ライブラリで利用可能なただ一つのクラス</li>
-                </ul>
-                <dl class="classdescript">
-                    <dt>LandShape(xmlpath, chiban_set)</dt>
-                        <dd>
-                            コンストラクタ: 地図XMLファイルを解析して指定された地番の区画形状データを抽出する
-                        </dd>
-                        <dd>
-                            <dl><dt>引数</dt>
-                            <dd>xmlpath: 地図XMLファイルパス</dd>
-                            <dd>chiban_set: 対象の地番リスト</dd></dl>
-                        </dd>
-                    <dt>raw_shape()</dt>
-                        <dd>
-                            区画形状データ（ポリゴンデータ）を地図XMLファイル座標値（元データ形式）で取得する
-                        </dd>
-                    <dt>norm_shape(min, max)</dt>
-                        <dd>
-                            区画形状データ（ポリゴンデータ）を指定値域に正規化した座標値で取得する
-                        </dd>
-                        <dd>
-                            <dl><dt>引数</dt>
-                            <dd>min: 正規化座標の最小値</dd>
-                            <dd>max: 正規化座標の最大値</dd></dl>
-                        </dd>
-                    <dt>fit_shape(src_pts, dst_pts)</dt>
-                        <dd>                            
-                            区画形状データ（ポリゴンデータ）を指定した四辺形に合わせるよう射影変換した座標値で取得する
-                        </dd>
-                        <dd>
-                            <dl><dt>引数</dt>
-                            <dd>src_pts: 地図XMLファイルにおける四辺形四隅の頂点座標リスト</dd>
-                            <dd>dst_pts: src_ptsの座標変換後の頂点座標リスト</dd></dl>
-                        </dd>
-                </dl>
-            </div>
-        </section>
+    <section>
+        <h3 class="mono">地図XMLファイル座標値を取得</h3>
+        <div class="section_content">
+            <ul class="indent">
+                <li>指定した地番の区画形状データ（ポリゴンデータ）を地図XMLファイル座標値（元データ形式）で取得する<br>
+                    <code>
+                        from landshape import LandShape<br>
+                        xmlpath = （地図XMLファイルパス）<br>
+                        chiban_set = （対象の地番リスト）<br>
+                        land = LandShape(xmlpath, chiban_set)<br>
+                        rawshape = land.raw_shape()<br>
+                        print_shape(rawshape)
+                    </code>
+                </li>
+            </ul>
+        </div>            
+    </section>
 
-        <section>
-            <h3 class="mono">地図XMLファイル座標値を取得</h3>
-            <div class="section_content">
-                <ul class="indent">
-                    <li>指定した地番の区画形状データ（ポリゴンデータ）を地図XMLファイル座標値（元データ形式）で取得する<br>
-                        <code>
-                            from landshape import LandShape<br>
-                            xmlpath = （地図XMLファイルパス）<br>
-                            chiban_set = （対象の地番リスト）<br>
-                            land = LandShape(xmlpath, chiban_set)<br>
-                            rawshape = land.raw_shape()<br>
-                            print_shape(rawshape)
-                        </code>
-                    </li>
-                </ul>
-            </div>            
-        </section>
+    <section>
+        <h3 class="mono">正規化した座標値を取得して可視化</h3>
+        <div class="section_content">
+            <ul class="indent">
+                <li>指定した地番の区画形状データ（ポリゴンデータ）を値域[10, 490]に正規化した座標値で取得する<br>
+                    <code>
+                        from landshape import LandShape<br>
+                        xmlpath = （地図XMLファイルパス）<br>
+                        chiban_set = （対象の地番リスト）<br>
+                        land = LandShape(xmlpath, chiban_set)<br>
+                        normshape = land.norm_shape(10, 490)<br>
+                        print_shape(normshape)
+                    </code>
+                </li>
+                <li>取得した区画形状データ（ポリゴンデータ）座標を500x500サイズのキャンバスに描画する
+                    <div id="note2" class="notes">
+                        小さい画面で利用される場合はスクロールまたは画面全体を縮小してご確認ください
+                    </div>
+                    <div id="normWrap">
+                        <canvas id="normCanvas"></canvas>
+                    </div>
+                </li>
+                <li>地番区画データ描画ライブラリを利用して描画する方法は <a href="landview.html">所有地を可視化する</a> を参照</li>
+            </ul>
+        </div>
+    </section>
 
-        <section>
-            <h3 class="mono">正規化した座標値を取得して可視化</h3>
-            <div class="section_content">
-                <ul class="indent">
-                    <li>指定した地番の区画形状データ（ポリゴンデータ）を値域[10, 490]に正規化した座標値で取得する<br>
-                        <code>
-                            from landshape import LandShape<br>
-                            xmlpath = （地図XMLファイルパス）<br>
-                            chiban_set = （対象の地番リスト）<br>
-                            land = LandShape(xmlpath, chiban_set)<br>
-                            normshape = land.norm_shape(10, 490)<br>
-                            print_shape(normshape)
-                        </code>
-                    </li>
-                    <li>取得した区画形状データ（ポリゴンデータ）座標を500x500サイズのキャンバスに描画する
-                        <div id="note2" class="notes">
-                            小さい画面で利用される場合はスクロールまたは画面全体を縮小してご確認ください
-                        </div>
-                        <div id="normWrap">
-                            <canvas id="normCanvas"></canvas>
-                        </div>
-                    </li>
-                    <li>地番区画データ描画ライブラリを利用して描画する方法は <a href="landview.html">所有地を可視化する</a> を参照</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h3 class="mono">Googleマップに合わせるように射影変換した座標値を取得して可視化</h3>
-            <div class="section_content">
-                <ul class="indent">
-                    <li>指定した地番の区画形状データ（ポリゴンデータ）をGoogleマップに合わせるよう射影変換した座標値で取得する<br>
-                        <code>
-                            from landshape import LandShape<br>
-                            xmlpath = （地図XMLファイルパス）<br>
-                            chiban_set = （対象の地番リスト）<br>
-                            land = LandShape(xmlpath, chiban_set)<br>
-                            src_pts = （地図XMLファイルにおける四辺形四隅の頂点座標リスト）<br>
-                            dst_pts = （Googleマップにおける四辺形四隅の頂点座標リスト）<br>
-                            fitshape = land.fit_shape(src_pts, dst_pts)<br>
-                            print_shape(fitshape)
-                        </code>
-                    </li>
-                    <li>取得した区画形状データ（ポリゴンデータ）座標をdst_ptsに合わせたサイズのキャンバスに描画する
-                        <div id="note1" class="notes">
-                            小さい画面で利用される場合はスクロールまたは画面全体を縮小してご確認ください
-                        </div>
-                        <div id="mapWrap">
-                            <div id="mapBack"></div>
-                            <canvas id="mapCanvas"></canvas>
-                            <div id="controlPanel">
-                                <div id="leftControl">
-                                </div>
-                                <div id="rightControl">
-                                    <input type="checkbox" id="checkChiban" value="1" checked><label for="checkChiban">地番表示</label>
-                                    <input type="checkbox" id="checkPhoto" value="1"><label for="checkPhoto">航空写真表示</label>
-                                    <input type="button" id="buttonRedraw" value="再描画">
-                                </div>
+    <section>
+        <h3 class="mono">Googleマップに合わせるように射影変換した座標値を取得して可視化</h3>
+        <div class="section_content">
+            <ul class="indent">
+                <li>指定した地番の区画形状データ（ポリゴンデータ）をGoogleマップに合わせるよう射影変換した座標値で取得する<br>
+                    <code>
+                        from landshape import LandShape<br>
+                        xmlpath = （地図XMLファイルパス）<br>
+                        chiban_set = （対象の地番リスト）<br>
+                        land = LandShape(xmlpath, chiban_set)<br>
+                        src_pts = （地図XMLファイルにおける四辺形四隅の頂点座標リスト）<br>
+                        dst_pts = （Googleマップにおける四辺形四隅の頂点座標リスト）<br>
+                        fitshape = land.fit_shape(src_pts, dst_pts)<br>
+                        print_shape(fitshape)
+                    </code>
+                </li>
+                <li>取得した区画形状データ（ポリゴンデータ）座標をdst_ptsに合わせたサイズのキャンバスに描画する
+                    <div id="note1" class="notes">
+                        小さい画面で利用される場合はスクロールまたは画面全体を縮小してご確認ください
+                    </div>
+                    <div id="mapWrap">
+                        <div id="mapBack"></div>
+                        <canvas id="mapCanvas"></canvas>
+                        <div id="controlPanel">
+                            <div id="leftControl">
                             </div>
-                            <div id="copyGoogle">&copy; Google</div>
+                            <div id="rightControl">
+                                <input type="checkbox" id="checkChiban" value="1" checked><label for="checkChiban">地番表示</label>
+                                <input type="checkbox" id="checkPhoto" value="1"><label for="checkPhoto">航空写真表示</label>
+                                <input type="button" id="buttonRedraw" value="再描画">
+                            </div>
                         </div>
-                    </li>
-                    <li>指定住所居住者が所有する土地を赤系の色で塗りつぶす機能を追加した例は <a href="landview.html">所有地を可視化する</a> を参照</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h3 class="mono">（参考）登記所備付地図データ（地図XMLファイル）を取得する方法</h3>
-            <div class="section_content">                
-                <ul class="indent">
-                    <li><a href="https://front.geospatial.jp/">G空間情報センター</a>にログインする（事前にユーザー登録が必要）</li>
-                    <li>[データセット]を選択、市区町村レベルの目的住所を入力して検索する</li>
-                    <li>[登記所備付地図データ]を選択</li>
-                    <li>ファイル名末尾の年号が新しいzipファイルを選択し[ダウンロード]</li>
-                    <li>[利用規約を承諾する]とダウンロードが始まる</li>
-                    <li>ダウンロードしたzipファイルから、対象ファイルを特定するためのcsvファイルを取り出す</li>
-                    <li>csvファイルを開き、目的住所で検索して対象のzipファイル名を確認する</li>
-                    <li>ダウンロードしたzipファイルから、対象のzipファイルを取り出し解凍すると目的の地図XMLファイルが得られる</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h3 class="mono">今後について</h3>
-            <div class="section_content">
-                ご要望があれば、必要なファイルを提供させて頂くとともに、機能の改善や強化を検討したいと考えていますので、お気軽にご連絡ください。
-                <ul class="indent">
-                    <li>
-                        現状のライブラリは地図XMLファイル仕様のすべてをサポートできていない可能性があり、場所によっては区画形状データの抽出に失敗するかもしれません。
-                        失敗する地図XMLファイルが見つかればライブラリを改修したいと考えていますが、これまで失敗する地図XMLファイルに遭遇していないため現状のままになっています。
-                        どなたかが本ライブラリを試してみて失敗する地図XMLファイルを教えて頂けると助かります。
-                    </li>
-                    <li>ご指定場所の地番区画を可視化したHTMLファイルを作成させて頂くことも可能です。作成したHTMLファイルはWEBブラウザで表示できます。</li>
-                </ul>
-                <p class="indent">
-                    → <a href="../keeper.html">飼育係</a>の連絡先
-                </p>
-            </div>
-        </section>
-
-    </main> <!-- メインコンテンツ -->
-    <footer> <!-- フッターコンテンツ -->
-        <a href="https://www.instagram.com/ishigame65/"><img src="../img/insta60.png" alt="" id="instaicon2"></a>
-        <div id="footlinks">
-            <ul>
-                <li><a href="../keeper.html">飼育係</a></li>
-                <li><a href="../entertainment.html">遊び</a></li>
-                <li><a href="../links.html">リンク</a></li>
-                <li><a href="../copyright.html">サイトポリシー</a></li>
-                <li><a href="../sitemap.html">サイトマップ</a></li>
+                        <div id="copyGoogle">&copy; Google</div>
+                    </div>
+                </li>
+                <li>指定住所居住者が所有する土地を赤系の色で塗りつぶす機能を追加した例は <a href="landview.html">所有地を可視化する</a> を参照</li>
             </ul>
         </div>
-        <a href="#logo"><span class="arrow-up"></span></a>    
-    </footer>
-</div>
+    </section>
+
+    <section>
+        <h3 class="mono">（参考）登記所備付地図データ（地図XMLファイル）を取得する方法</h3>
+        <div class="section_content">                
+            <ul class="indent">
+                <li><a href="https://front.geospatial.jp/">G空間情報センター</a>にログインする（事前にユーザー登録が必要）</li>
+                <li>[データセット]を選択、市区町村レベルの目的住所を入力して検索する</li>
+                <li>[登記所備付地図データ]を選択</li>
+                <li>ファイル名末尾の年号が新しいzipファイルを選択し[ダウンロード]</li>
+                <li>[利用規約を承諾する]とダウンロードが始まる</li>
+                <li>ダウンロードしたzipファイルから、対象ファイルを特定するためのcsvファイルを取り出す</li>
+                <li>csvファイルを開き、目的住所で検索して対象のzipファイル名を確認する</li>
+                <li>ダウンロードしたzipファイルから、対象のzipファイルを取り出し解凍すると目的の地図XMLファイルが得られる</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h3 class="mono">今後について</h3>
+        <div class="section_content">
+            ご要望があれば、必要なファイルを提供させて頂くとともに、機能の改善や強化を検討したいと考えていますので、お気軽にご連絡ください。
+            <ul class="indent">
+                <li>
+                    現状のライブラリは地図XMLファイル仕様のすべてをサポートできていない可能性があり、場所によっては区画形状データの抽出に失敗するかもしれません。
+                    失敗する地図XMLファイルが見つかればライブラリを改修したいと考えていますが、これまで失敗する地図XMLファイルに遭遇していないため現状のままになっています。
+                    どなたかが本ライブラリを試してみて失敗する地図XMLファイルを教えて頂けると助かります。
+                </li>
+                <li>ご指定場所の地番区画を可視化したHTMLファイルを作成させて頂くことも可能です。作成したHTMLファイルはWEBブラウザで表示できます。</li>
+            </ul>
+            <p class="indent">
+                → <a href="../keeper.html">飼育係</a>の連絡先
+            </p>
+        </div>
+    </section>
+
+</main> <!-- メインコンテンツ -->
+<footer> <!-- フッターコンテンツ -->
+    <a href="https://www.instagram.com/ishigame65/"><img src="../img/insta60.png" alt="" id="instaicon2"></a>
+    <div id="footlinks">
+        <ul>
+            <li><a href="../keeper.html">飼育係</a></li>
+            <li><a href="../entertainment.html">遊び</a></li>
+            <li><a href="../links.html">リンク</a></li>
+            <li><a href="../copyright.html">サイトポリシー</a></li>
+            <li><a href="../sitemap.html">サイトマップ</a></li>
+        </ul>
+    </div>
+    <a href="#logo"><span class="arrow-up"></span></a>    
+</footer>
 
 <script src="landview.min.js"></script>
 <script>

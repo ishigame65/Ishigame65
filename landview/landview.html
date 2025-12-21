@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style2.css">
-    <meta name="description" content="所有地を可視化する">
+    <meta name="description" content="イシガメ飼育係 - 所有地を可視化する">
     <link rel="shortcut icon" href="../img/kame.ico">
-    <title>所有地を可視化する</title>
+    <title>イシガメ飼育係 - 所有地を可視化する</title>
 </head>
 <style>
     /* 画面サイズに合わせた縮小表示はせず、スクロール表示で操作する前提 */
@@ -105,6 +105,7 @@
 </div>
 
 <header>
+    <h1 class="title">イシガメ飼育係</h1>
     <h1><a href="../index.html"><img id="logo" src="../img/logo.png" alt="Ishigame65"></a></h1>
     <nav>
         <ul>
@@ -117,139 +118,137 @@
     </nav>
 </header>
 
-<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
-    <main> <!-- メインコンテンツ -->
-        <div class="breadcrumb">
-            <ul>
-                <li><a href="../index.html">Top</a></li>
-                <li><a href="../keeper.html">飼育係</a></li>
-                <li><a href="../profile.html">プロフィール</a></li>
-                <li><a href='../software.html'>自作ソフトウェア</a></li>
-                <li>所有地を可視化する</li>
+<main> <!-- メインコンテンツ -->
+    <div class="breadcrumb">
+        <ul>
+            <li><a href="../index.html">Top</a></li>
+            <li><a href="../keeper.html">飼育係</a></li>
+            <li><a href="../profile.html">プロフィール</a></li>
+            <li><a href='../software.html'>自作ソフトウェア</a></li>
+            <li>所有地を可視化する</li>
+        </ul>
+    </div> <!-- breadcrumb -->
+
+    <h2 class="mono">所有地を可視化する</h2>
+    <div class="indent">
+        所有地が複数の地番で構成され共用部分や私道持分などがある場合に、
+        ご近所を含む地番区画を分かりやすく可視化できると良い（気分的にスッキリするし代替わり時に円滑に引き継げる）。<br>
+        地番ごとの区画形状データは地図XMLファイルとして法務省から公開されているものの、
+        都市部の多くでは統一された座標系のデータとなっておらず、一般的な地図アプリケーションでは表示できない。
+        そこで、公開された地図XMLファイルから地番ごとの区画形状データ（ポリゴンデータ）を抽出するとともに座標系を合わせ込む機能を有するライブラリを開発し、
+        所有地を分かりやすく可視化することにした。
+    </div>
+
+    <section>
+        <h3 class="mono">可視化の例</h3>
+        <div class="section_content">
+            <ul class="indent">
+                <li>住所を指定すると、指定住所居住者が所有する土地が赤系の色で塗りつぶされ、持分割合が色の濃さで表現される。
+                    <div class="notes">一部推測によるデータが含まれているため、実際とは異なる可能性があります</div>
+                </li>
+                <li>座標系（位置と向きと大きさ）はGoogleマップに合わせてあり、Googleマップの航空写真に重ねて表示できる。
+                    <div class="notes">本例ではGoogleマップに合わせたが他の座標系に合わせることもできる</div>
+                </li>
+                <li>地番は区画面積に応じたサイズで表示され、最小サイズで表示される地番は表示の度に若干異なる位置に表示される。</li>
             </ul>
-        </div> <!-- breadcrumb -->
-
-        <h2 class="mono">所有地を可視化する</h2>
-        <div class="indent">
-            所有地が複数の地番で構成され共用部分や私道持分などがある場合に、
-            ご近所を含む地番区画を分かりやすく可視化できると良い（気分的にスッキリするし代替わり時に円滑に引き継げる）。<br>
-            地番ごとの区画形状データは地図XMLファイルとして法務省から公開されているものの、
-            都市部の多くでは統一された座標系のデータとなっておらず、一般的な地図アプリケーションでは表示できない。
-            そこで、公開された地図XMLファイルから地番ごとの区画形状データ（ポリゴンデータ）を抽出するとともに座標系を合わせ込む機能を有するライブラリを開発し、
-            所有地を分かりやすく可視化することにした。
-        </div>
-
-        <section>
-            <h3 class="mono">可視化の例</h3>
-            <div class="section_content">
-                <ul class="indent">
-                    <li>住所を指定すると、指定住所居住者が所有する土地が赤系の色で塗りつぶされ、持分割合が色の濃さで表現される。
-                        <div class="notes">一部推測によるデータが含まれているため、実際とは異なる可能性があります</div>
-                    </li>
-                    <li>座標系（位置と向きと大きさ）はGoogleマップに合わせてあり、Googleマップの航空写真に重ねて表示できる。
-                        <div class="notes">本例ではGoogleマップに合わせたが他の座標系に合わせることもできる</div>
-                    </li>
-                    <li>地番は区画面積に応じたサイズで表示され、最小サイズで表示される地番は表示の度に若干異なる位置に表示される。</li>
-                </ul>
-                <div id="note1" class="notes">
-                    小さい画面で利用される場合はスクロールまたは画面全体を縮小してご確認ください
-                </div>
-                <div id="mapWrap">
-                    <div id="mapBack"></div>
-                    <canvas id="mapCanvas"></canvas>
-                    <div id="controlPanel">
-                        <div id="leftControl">
-                            <label for="selectAddress">住所</label>
-                            <select id="selectAddress">
-                                <option>未指定</option>
-                                <option>3-15</option>
-                                <option>3-14-1</option>
-                                <option>3-14-2</option>
-                                <option>3-14-3</option>
-                                <option>3-14-4</option>
-                                <option>3-14-5</option>
-                                <option>3-14-6</option>
-                                <option>3-15-4</option>
-                                <option>3-15-5</option>
-                                <option>3-15-6</option>
-                            </select>
-                        </div>
-                        <div id="rightControl">
-                            <input type="checkbox" id="checkChiban" value="1" checked><label for="checkChiban">地番表示</label>
-                            <input type="checkbox" id="checkPhoto" value="1"><label for="checkPhoto">航空写真表示</label>
-                            <input type="button" id="buttonRedraw" value="再描画">
-                        </div>
+            <div id="note1" class="notes">
+                小さい画面で利用される場合はスクロールまたは画面全体を縮小してご確認ください
+            </div>
+            <div id="mapWrap">
+                <div id="mapBack"></div>
+                <canvas id="mapCanvas"></canvas>
+                <div id="controlPanel">
+                    <div id="leftControl">
+                        <label for="selectAddress">住所</label>
+                        <select id="selectAddress">
+                            <option>未指定</option>
+                            <option>3-15</option>
+                            <option>3-14-1</option>
+                            <option>3-14-2</option>
+                            <option>3-14-3</option>
+                            <option>3-14-4</option>
+                            <option>3-14-5</option>
+                            <option>3-14-6</option>
+                            <option>3-15-4</option>
+                            <option>3-15-5</option>
+                            <option>3-15-6</option>
+                        </select>
                     </div>
-                    <div id="copyGoogle">&copy; Google</div>
+                    <div id="rightControl">
+                        <input type="checkbox" id="checkChiban" value="1" checked><label for="checkChiban">地番表示</label>
+                        <input type="checkbox" id="checkPhoto" value="1"><label for="checkPhoto">航空写真表示</label>
+                        <input type="button" id="buttonRedraw" value="再描画">
+                    </div>
                 </div>
+                <div id="copyGoogle">&copy; Google</div>
             </div>
-        </section>
-        <section>
-            <h3 class="mono">可視化する方法</h3>
-            <div class="section_content">
-                <ul class="indent">
-                    <li>所有地の登記所備付地図データ（地図XMLファイル）を取得する
-                        <div class="notes">取得する方法は<a href="landshape.html">地番区画データ取得ライブラリ</a>を参照</div>
-                    </li>
-                    <li>開発した<a href="landshape.html">地番区画データ取得ライブラリ</a>を利用した簡単なPythonスクリプトで、地図XMLファイルから区画形状データを抽出し、
-                        Googleマップに合わせるよう座標変換したポリゴンデータをテキストファイルに出力<br>
-                        <code>
-                            from landshape import LandShape<br>
-                            xmlpath = （地図XMLファイルパス）<br>
-                            chiban_set = （対象の地番リスト）<br>
-                            land = LandShape(xmlpath, chiban_set)<br>
-                            src_pts = （地図XMLファイルにおける四辺形四隅の頂点座標リスト）<br>
-                            dst_pts = （Googleマップにおける四辺形四隅の頂点座標リスト）<br>
-                            fitshape = land.fit_shape(src_pts, dst_pts)<br>
-                            print_shape(fitshape)
-                        </code>
-                        <div class="notes">詳細は<a href="landshape.html">地番区画データ取得ライブラリ</a>を参照</div>
-                    </li>
-                    <li>地番区画データ描画ライブラリ（JavsScriptファイル）を読み込む<br>
-                        <code>
-                            &lt;script src="landview.min.js"&gt;&lt;/script&gt;
-                        </code>
-                    </li>
-                    <li>テキストファイルに出力されたポリゴンデータ（座標点列）をJavsScript配列（連想配列＋配列）にコピペで格納<br>
-                        <code>
-                            const fit_shape = {<br>
-                                '6155-5':[[262.372, 343.333], [354.864, 422.832], [209.02, 588.94], [116.978, 508.382]],<br>
-                            ...<br>
-                        </code>
-                    </li>
-                    <li>住所ごとの所有地データ（地番＋持分割合）をJavsScript配列に記述<br>
-                        <code>
-                        const owners = {<br>
-                            '3-14-2': [{lot:'6155-5'}, {lot:'6150-3',ratio:1/12},{lot:'6155-3',ratio:1/12},],<br>                            
-                            ...<br>
-                        </code>
-                    </li>
-                    <li>地番区画データ描画ライブラリの描画関数にポリゴンデータと所有地データを渡して描画<br>
-                        <code>
-                            mapview = new LandView('mapCanvas');<br>
-                            mapview.draw(fit_shape, 1, ...[owners, '3-14-2']);<br>
-                            <br>
-                        </code>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-    </main> <!-- メインコンテンツ -->
-    <footer> <!-- フッターコンテンツ -->
-        <a href="https://www.instagram.com/ishigame65/"><img src="../img/insta60.png" alt="" id="instaicon2"></a>
-        <div id="footlinks">
-            <ul>
-                <li><a href="../keeper.html">飼育係</a></li>
-                <li><a href="../entertainment.html">遊び</a></li>
-                <li><a href="../links.html">リンク</a></li>
-                <li><a href="../copyright.html">サイトポリシー</a></li>
-                <li><a href="../sitemap.html">サイトマップ</a></li>
+        </div>
+    </section>
+    <section>
+        <h3 class="mono">可視化する方法</h3>
+        <div class="section_content">
+            <ul class="indent">
+                <li>所有地の登記所備付地図データ（地図XMLファイル）を取得する
+                    <div class="notes">取得する方法は<a href="landshape.html">地番区画データ取得ライブラリ</a>を参照</div>
+                </li>
+                <li>開発した<a href="landshape.html">地番区画データ取得ライブラリ</a>を利用した簡単なPythonスクリプトで、地図XMLファイルから区画形状データを抽出し、
+                    Googleマップに合わせるよう座標変換したポリゴンデータをテキストファイルに出力<br>
+                    <code>
+                        from landshape import LandShape<br>
+                        xmlpath = （地図XMLファイルパス）<br>
+                        chiban_set = （対象の地番リスト）<br>
+                        land = LandShape(xmlpath, chiban_set)<br>
+                        src_pts = （地図XMLファイルにおける四辺形四隅の頂点座標リスト）<br>
+                        dst_pts = （Googleマップにおける四辺形四隅の頂点座標リスト）<br>
+                        fitshape = land.fit_shape(src_pts, dst_pts)<br>
+                        print_shape(fitshape)
+                    </code>
+                    <div class="notes">詳細は<a href="landshape.html">地番区画データ取得ライブラリ</a>を参照</div>
+                </li>
+                <li>地番区画データ描画ライブラリ（JavsScriptファイル）を読み込む<br>
+                    <code>
+                        &lt;script src="landview.min.js"&gt;&lt;/script&gt;
+                    </code>
+                </li>
+                <li>テキストファイルに出力されたポリゴンデータ（座標点列）をJavsScript配列（連想配列＋配列）にコピペで格納<br>
+                    <code>
+                        const fit_shape = {<br>
+                            '6155-5':[[262.372, 343.333], [354.864, 422.832], [209.02, 588.94], [116.978, 508.382]],<br>
+                        ...<br>
+                    </code>
+                </li>
+                <li>住所ごとの所有地データ（地番＋持分割合）をJavsScript配列に記述<br>
+                    <code>
+                    const owners = {<br>
+                        '3-14-2': [{lot:'6155-5'}, {lot:'6150-3',ratio:1/12},{lot:'6155-3',ratio:1/12},],<br>                            
+                        ...<br>
+                    </code>
+                </li>
+                <li>地番区画データ描画ライブラリの描画関数にポリゴンデータと所有地データを渡して描画<br>
+                    <code>
+                        mapview = new LandView('mapCanvas');<br>
+                        mapview.draw(fit_shape, 1, ...[owners, '3-14-2']);<br>
+                        <br>
+                    </code>
+                </li>
             </ul>
         </div>
-        <a href="#logo"><span class="arrow-up"></span></a>    
-    </footer>
-</div>
+    </section>
+
+</main> <!-- メインコンテンツ -->
+<footer> <!-- フッターコンテンツ -->
+    <a href="https://www.instagram.com/ishigame65/"><img src="../img/insta60.png" alt="" id="instaicon2"></a>
+    <div id="footlinks">
+        <ul>
+            <li><a href="../keeper.html">飼育係</a></li>
+            <li><a href="../entertainment.html">遊び</a></li>
+            <li><a href="../links.html">リンク</a></li>
+            <li><a href="../copyright.html">サイトポリシー</a></li>
+            <li><a href="../sitemap.html">サイトマップ</a></li>
+        </ul>
+    </div>
+    <a href="#logo"><span class="arrow-up"></span></a>    
+</footer>
 
 <script src="landview.min.js"></script>
 <script>
