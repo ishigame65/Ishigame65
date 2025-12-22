@@ -131,6 +131,12 @@ article, section {
     margin-top: 0.4em;
     margin-bottom: 0.8em;
 }
+.w100center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    /* background-color: yellow; */
+}
 canvas {
     margin-left: 0;
 }
