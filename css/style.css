@@ -18,7 +18,8 @@ header {
     display: flex;
 }
 footer {
-    margin-top: 1em;
+    /* margin-top: 1em; */
+    margin-top: 5em;
     padding-top: 1em;
     margin-bottom: 1em;
     border-top: 1px dashed darkgrey;
@@ -166,6 +167,42 @@ span.notes {
     color: dimgray;
     margin-left: 0.4em;
 }
+/* ショートカット・ナビゲーション */
+.arrow {
+    /* position: absolute; */
+    position: fixed;
+    z-index: 999;
+    bottom: 60px;
+    /* background-color: yellow; */
+}
+#arrowr {
+    right: 1rem;
+    text-align: right;
+}
+#arrowl {
+    left: 1rem;
+    text-align: left;
+}
+.arrow img {
+    width: 42px;
+    height: auto;
+}
+.arrow img.white {
+    opacity: 0.8;
+}
+.arrow img.black {
+    opacity: 0.6;
+}
+.arrow div {
+    font-size: small;
+}
+.arrow .white {
+    color: rgba(255,255,255,0.9);
+}
+.arrow .black {
+    color: rgba(0,0,0,0.7);
+}
+
 /* 今後検討 */
 /* .scroller {
     scrollbar-color: #FAF8D8 #DE94BF;
