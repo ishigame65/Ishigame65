@@ -184,7 +184,8 @@ span.notes {
     text-align: left;
 }
 .arrow img {
-    width: 42px;
+    /* width: 42px; */
+    width: 2rem;
     height: auto;
 }
 .arrow img.white {
