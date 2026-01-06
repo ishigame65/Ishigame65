@@ -169,7 +169,6 @@ span.notes {
 }
 /* ショートカット・ナビゲーション */
 .arrow {
-    /* position: absolute; */
     position: fixed;
     z-index: 999;
     bottom: 0.25rem;
@@ -185,8 +184,11 @@ span.notes {
 }
 .arrow img {
     /* width: 42px; */
-    width: 2rem;
+    width: 2.4rem;
     height: auto;
+}
+.arrow img.pink {
+    opacity: 0.8;
 }
 .arrow img.white {
     opacity: 0.8;
@@ -196,6 +198,9 @@ span.notes {
 }
 .arrow div {
     font-size: small;
+}
+.arrow .pink {
+    color: rgba(255,143,171,0.9);
 }
 .arrow .white {
     color: rgba(255,255,255,0.9);

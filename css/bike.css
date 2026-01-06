@@ -8,6 +8,14 @@ img.bike {
     max-height: 288px;
     border-radius: 3px;
 }
+table {
+    border-collapse: collapse;
+}
+th {
+    border: 1px solid black;
+    font-weight: normal;
+    padding: 0.2em;
+}
 @media (min-width: 700px) {
     img.bike {
         max-width: 320px;
