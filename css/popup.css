@@ -149,9 +149,10 @@ ul.marker01 li:before {
     width: 192px;
   }
 
-  /* .popup-contents iframe {
-    width: 192px;
-  } */
+  .popup-contents iframe {
+    /* width: 192px; */
+    max-width: 95%;
+  }
 
   .popup-contents {
     max-height: 280px;
