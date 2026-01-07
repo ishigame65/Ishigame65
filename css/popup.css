@@ -152,6 +152,7 @@ ul.marker01 li:before {
   .popup-contents iframe {
     /* width: 192px; */
     max-width: 95%;
+    height: auto;
   }
 
   .popup-contents {
