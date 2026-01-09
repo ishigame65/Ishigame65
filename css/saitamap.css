@@ -7,32 +7,37 @@
 }
 #photo {
 	margin: 0.5em auto;
-	/* max-width: 400px; */
 	max-width: 95%;
 	max-height: 340px;
 }
-#asaka1 {
-    position:absolute; top: 162px; right:0; bottom:0; left: 164px; margin:auto; z-index:1; }
-#chichibu1 {
-    position:absolute; top: 88px; right:0; bottom:0; left: -128px; margin:auto; z-index:1; }
 #chichibu2 {
     position:absolute; top: 55px; right:0; bottom:0; left: -137px; margin:auto; z-index:1; }
 #chichibu3 {
     position:absolute; top: 57px; right:0; bottom:0; left: -143px; margin:auto; z-index:1; }
-#kawagoe1 {
-    position:absolute; top: 118px; right:0; bottom:0; left: 102px; margin:auto; z-index:1; }
-#omiya1, #shinto1, #arena1, #arena2 {
-    position:absolute; top: 113px; right:0; bottom:0; left: 184px; margin:auto; z-index:1; }
 #satte1 {
     position:absolute; top: 60px; right:0; bottom:0; left: 260px; margin:auto; z-index:1; }
-#yono1 {
-    position:absolute; top: 129px; right:0; bottom:0; left: 183px; margin:auto; z-index:1; }
-#joshi1k, #joshi2, #motoara1k  {
-    position:absolute; top: 102px; right:0; bottom:0; left: 228px; margin:auto; z-index:1; }
-#jionji1, #jionji2 {
-    position:absolute; top: 100px; right:0; bottom:0; left: 229px; margin:auto; z-index:1; }
+#s100ana1 {
+    position:absolute; top: 71px; right:0; bottom:0; left: 70px; margin:auto; z-index:1; }
 #kasu1 {
     position:absolute; top: 86px; right:0; bottom:0; left: 287px; margin:auto; z-index:1; }
+#chichibu1 {
+    position:absolute; top: 88px; right:0; bottom:0; left: -128px; margin:auto; z-index:1; }
+#kasu2 {
+    position:absolute; top: 90px; right:0; bottom:0; left: 287px; margin:auto; z-index:1; }
+#jionji1, #jionji2 {
+    position:absolute; top: 100px; right:0; bottom:0; left: 229px; margin:auto; z-index:1; }
+#joshi1k, #joshi2, #motoara1k  {
+    position:absolute; top: 102px; right:0; bottom:0; left: 228px; margin:auto; z-index:1; }
+#omiya1, #omiya2 {
+    position:absolute; top: 113px; right:0; bottom:0; left: 184px; margin:auto; z-index:1; }
+#kawagoe1 {
+    position:absolute; top: 118px; right:0; bottom:0; left: 102px; margin:auto; z-index:1; }
+#shinto1, #arena1, #arena2 {
+    position:absolute; top: 119px; right:0; bottom:0; left: 184px; margin:auto; z-index:1; }
+#yono1, #fuji1, #fuji2 {
+    position:absolute; top: 129px; right:0; bottom:0; left: 183px; margin:auto; z-index:1; }
+#asaka1 {
+    position:absolute; top: 162px; right:0; bottom:0; left: 164px; margin:auto; z-index:1; }
 
 @media (max-width: 700px) {
 	.overlap img#map {
@@ -42,26 +47,32 @@
 		max-width: 95%;
 		max-height: 280px;
 	}	
-	#asaka1 {
-		position:absolute; top: 92px; right:0; bottom:0; left: 95px; margin:auto; z-index:1; }
-	#chichibu1 {
-		position:absolute; top: 48px; right:0; bottom:0; left: -71px; margin:auto; z-index:1; }
 	#chichibu2 {
 		position:absolute; top: 29px; right:0; bottom:0; left: -78px; margin:auto; z-index:1; }
 	#chichibu3 {
 		position:absolute; top: 30px; right:0; bottom:0; left: -84px; margin:auto; z-index:1; }
-	#kawagoe1 {
-		position:absolute; top: 64px; right:0; bottom:0; left: 59px; margin:auto; z-index:1; }
-	#omiya1, #shinto1, #arena1, #arena2 {
-		position:absolute; top: 62px; right:0; bottom:0; left: 104px; margin:auto; z-index:1; }
 	#satte1 {
 		position:absolute; top: 32px; right:0; bottom:0; left: 150px; margin:auto; z-index:1; }
-	#yono1 {
-		position:absolute; top: 71px; right:0; bottom:0; left: 108px; margin:auto; z-index:1; }
-	#joshi1k, #joshi2, #motoara1k {
-		position:absolute; top: 57px; right:0; bottom:0; left: 132px; margin:auto; z-index:1; }
-	#jionji1, #jionji2 {
-		position:absolute; top: 56px; right:0; bottom:0; left: 133px; margin:auto; z-index:1; }
+	#s100ana1 {
+		position:absolute; top: 38px; right:0; bottom:0; left: 39px; margin:auto; z-index:1; }
 	#kasu1 {
 		position:absolute; top: 47px; right:0; bottom:0; left: 166px; margin:auto; z-index:1; }		
+	#chichibu1 {
+		position:absolute; top: 48px; right:0; bottom:0; left: -71px; margin:auto; z-index:1; }
+	#kasu2 {
+		position:absolute; top: 49px; right:0; bottom:0; left: 166px; margin:auto; z-index:1; }
+	#jionji1, #jionji2 {
+		position:absolute; top: 56px; right:0; bottom:0; left: 133px; margin:auto; z-index:1; }
+	#joshi1k, #joshi2, #motoara1k {
+		position:absolute; top: 57px; right:0; bottom:0; left: 132px; margin:auto; z-index:1; }
+	#omiya1, #omiya2 {
+		position:absolute; top: 62px; right:0; bottom:0; left: 106px; margin:auto; z-index:1; }
+	#kawagoe1 {
+		position:absolute; top: 64px; right:0; bottom:0; left: 59px; margin:auto; z-index:1; }
+	#shinto1, #arena1, #arena2 {
+		position:absolute; top: 65px; right:0; bottom:0; left: 106px; margin:auto; z-index:1; }
+	#yono1, #fuji1, #fuji2 {
+		position:absolute; top: 71px; right:0; bottom:0; left: 105px; margin:auto; z-index:1; }
+	#asaka1 {
+		position:absolute; top: 92px; right:0; bottom:0; left: 95px; margin:auto; z-index:1; }
 }
