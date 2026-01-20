@@ -18,10 +18,9 @@ header {
     display: flex;
 }
 footer {
-    /* margin-top: 1em; */
     margin-top: 5em;
-    padding-top: 1em;
     margin-bottom: 1em;
+    padding-top: 1em;
     border-top: 1px dashed darkgrey;
     display: flex;
     justify-content: space-between;
@@ -29,21 +28,17 @@ footer {
 img, video {
     max-width: 100%;
 }
-h1 {
-    margin-top: 15px;
-}
 h1.title {
-    position: absolute;
-    margin-top: 5px;
-    width: 150px;
-    text-align: center;
     font-size: x-small;
-    /* background-color: yellow; */
     color: olive;
+    margin-top: 4px;
 }
 img#logo {
-    width: 150px;
-    margin-bottom: 10px;
+    max-width: 3.5em;
+    height: auto;
+    margin-right: 0.2em;
+    padding: 0;
+    /* vertical-align: text-top; */
 }
 h2 {
     margin: 0.6em 0 0.2em;
@@ -76,7 +71,6 @@ nav, #footlinks {
 }
 nav {
     padding-right: 4em;
-    height: 70px;
 }
 #footlinks {
     width: fit-content;
@@ -136,13 +130,11 @@ article, section {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    /* background-color: yellow; */
 }
 canvas {
     margin-left: 0;
 }
 h3, h4 {
-    /* background: linear-gradient(90deg, royalblue, rgba(255,255,255,0.0)); */
     background: linear-gradient(90deg, rgb(11,155,152), rgba(255,255,255,0.0));
     color: linen;
     padding: 0.2em 0.3em;
@@ -172,7 +164,6 @@ span.notes {
     position: fixed;
     z-index: 999;
     bottom: 0.25rem;
-    /* background-color: yellow; */
 }
 #arrowr {
     right: 1rem;
@@ -183,7 +174,6 @@ span.notes {
     text-align: left;
 }
 .arrow img {
-    /* width: 42px; */
     width: 2.4rem;
     height: auto;
 }
@@ -221,16 +211,11 @@ span.notes {
         margin-left: 1rem;
         margin-right: 1rem;
     }
-    h1 {
-        margin-top: 17px;
-    }
     h1.title {
-        width: 180px;
         font-size: 0.75em;
     }
     img#logo {
-        width: 180px;
-        margin-bottom: 10px;
+        max-width: 4em;
     }
     nav, #footlinks {
         display: block;
@@ -245,9 +230,6 @@ span.notes {
     .article_content, .section_content {
         margin-left: 0.4em;
     }
-    /* canvas {
-        margin-left: none;
-    } */
 }
 @media (min-width: 1000px) {
     nav {
@@ -262,6 +244,6 @@ span.notes {
         font-size: 0.65em;
     }
     img#logo {
-        margin-bottom: 10px;
+        max-width: 5em;
     }
 }
