@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
+	<meta name="description" content="next world">
+	<link rel="shortcut icon" href="img/kame.ico">
+	<title>next world</title>
+</head>
+<style>
+    #nextworld {
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+    }
+    #mapcontainer {
+        width: 1050px;
+        height: 550px;
+        /* height: 150px; */
+        max-width: 98%;
+    }
+    .maptext {
+        font-size: 15px;
+        color: black;
+        background: white;
+        border: solid 1px gray;
+        border-radius: 3px;
+        padding: 0px 3px;
+        white-space: nowrap;
+    }
+    @media (max-width: 700px) {
+        /* #mapcontainer {
+            width: 360px;
+        } */
+        .maptext{
+            font-size: 12px;
+        }
+}
+</style>
+<body>
+ 
+<!-- input・label・ドロワーメニューはbody直下 -->
+<input id="check_input" type="checkbox">
+<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+    <span></span><div id="title">MENU</div>
+</label>
+<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+
+<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+    <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="intro.html">経緯と方針</a></li>
+        <li><a href="menu.html">飼育環境</a></li>
+        <li><a href="maintenance.html">日々の管理</a></li>
+        <li><a href="trouble.html">トラブル</a></li>
+        <li><a href="baby.html">成長記録</a></li>
+    </ul>
+    <ul id="menu2nd">
+        <li>&nbsp;</li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li><a href="keeper.html">飼育係</a></li>
+        <li><a href="entertainment.html">遊び</a></li>
+        <li><a href="links.html">リンク</a></li>
+        <li><a href="copyright.html">サイトポリシー</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+    </ul>
+</div>
+
+<header>
+    <h1 class="title"><a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a>石亀飼育係</h1>
+    <nav>
+        <ul>
+            <li><a href="intro.html">経緯と方針</a></li>
+            <li><a href="menu.html">飼育環境</a></li>
+            <li><a href="maintenance.html">日々の管理</a></li>
+            <li><a href="trouble.html">トラブル</a></li>
+            <li><a href="baby.html">成長記録</a></li>
+        </ul>    
+    </nav>
+</header>
+
+<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
+    <main> <!-- メインコンテンツ -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="index.html">Top</a></li>
+                <li><a href="keeper.html">飼育係</a></li>
+                <li><a href="profile.html">プロフィール</a></li>
+                <li><a href="after.html">平成以降</a>
+                    <li>next world</li>
+            </ul>
+        </div> <!-- breadcrumb -->
+        <h2 class="mono">next world</h2>
+        <p>
+        </p>
+        <article class="maxw100">
+            <h3 class="mono">map</h3>
+            <div class="article_content">
+                <div id="nextworld"><div id="mapcontainer"></div></div></li>
+            </div>
+
+        </article>
+
+    </main>
+    <footer> <!-- フッターコンテンツ -->
+        <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+        <div id="footlinks">
+            <ul>
+                <li><a href="keeper.html">飼育係</a></li>
+                <li><a href="entertainment.html">遊び</a></li>
+                <li><a href="links.html">リンク</a></li>
+                <li><a href="copyright.html">サイトポリシー</a></li>
+                <li><a href="sitemap.html">サイトマップ</a></li>
+            </ul>
+        </div>
+        <a href="#logo"><span class="arrow-up"></span></a>    
+    </footer>
+</div>
+
+<script src="js/bgcollage.js"></script>
+<script>
+    collage(6, 18, 0.9);    // base_num, pic_num, white_ratio
+</script>
+
+<!-- 地図 -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+    function init() {
+        const center = [35.6811,139.767];
+        const map = L.map('mapcontainer', { zoomControl: false, scrollWheelZoom: false });
+        map.setView(center, 2);  //地図の中心とズームレベルを指定
+
+        L.tileLayer(
+            'https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png',
+            {attribution: "<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"}
+        ).addTo(map);
+
+        L.marker(center, {
+            icon: L.divIcon({ html: '東京', iconAnchor: [0, 0], iconSize: [-1, -1], className: 'maptext' })
+        }).addTo(map);
+    }
+    window.addEventListener('DOMContentLoaded', init());    //ダウンロード時に初期化する
+</script>
+
+</body>
+</html>

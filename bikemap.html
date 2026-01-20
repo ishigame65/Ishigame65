@@ -11,11 +11,22 @@
 	<title>銀輪はたまに唄う - 走行経路</title>
 </head>
 <style>
-    #map {
+    /* #map {
         position: absolute;
         left: 0;
         top: 0;
+        background-color: green;
+    } */
+    /* #scrollhere {
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+        background-color: green;
     }
+    #scrollhere div {
+        min-width: 95%;
+        background-color: yellow;
+    } */
     .arrow {
         bottom: 0;
     }
@@ -50,8 +61,7 @@
 </div>
 
 <header>
-    <h1 class="title">銀輪はたまに唄う</h1>
-    <h1><a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a></h1>
+    <h1 class="title"><a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a>銀輪はたまに唄う</h1>
     <nav>
         <ul>
             <li><a href="intro.html">経緯と方針</a></li>
@@ -74,7 +84,8 @@
         </ul>
     </div> <!-- breadcrumb -->
     <h2 class="mono">走行経路</h2>
-    <section id="scrollhere">
+    <!-- <div class="contents"> -->
+    <section id="scrollhere">        
         <div class="overlap">
             <canvas id="myCanvas" width="400" height="300"></canvas>
             <!-- <canvas id="myCanvas"></canvas> -->
@@ -91,6 +102,7 @@
             <img id="photo" src="">
         </div>
     </section>
+    <!-- </div> -->
 </main>
 <footer> <!-- フッターコンテンツ -->
     <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
