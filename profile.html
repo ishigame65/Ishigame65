@@ -17,8 +17,21 @@
         margin-top: 15px;
         text-align: center;
     }
-    .me img {
+    .myphoto {
+        width:12em;
+        height:12em;
+        border-radius: 6em;
+        margin: 0;
+        padding: 0;
         display: flex;
+    }
+    .maru {
+        font-size: 10pt;
+        color: skyblue;
+        margin: 0 0.2em;
+    }
+    #mypic {
+        display: none;
     }
     main {
         max-width: 920px;
@@ -63,11 +76,6 @@
     }
     .marker {
         font-weight: bold;
-    }
-    #myphoto {
-        width:12em;
-        height:12em;
-        border-radius: 6em;
     }
     @media (max-width: 700px) {
         .desc ul li:before {
@@ -149,7 +157,14 @@
                 <li>プロフィール</li>
             </ul>
         </div> <!-- breadcrumb -->
-        <div class="me"><img id="myphoto" src="img/me2.jpg" onclick="me_select()"></div>
+
+        <div class="me">
+            <video id="mymov" class="myphoto" src="img/me2.mp4" muted poster="img/me2.jpg" onclick="me_play();"></video>
+            <img id="mypic" class="myphoto" src="img/me3.jpg" onclick="me_select(0)">
+            <span id="me0" class="maru" onclick="me_select(0);">●</span>            
+            <span id="me1" class="maru" onclick="me_select(1);">○</span>
+        </div>
+
         <h2 class="mono">プロフィール</h2>
         <dl>
             <div class="block">
@@ -341,22 +356,32 @@
             }
             mindex = index;
         }
-        // my photo
-        var mesrc = new Array("me2.jpg","me3.jpg");
-        var meindex = -1;
-        function me_select() {
-            do {
-                index = Math.floor(Math.random()*mesrc.length);
-            } while (index == meindex);
-            document.getElementById("myphoto").src="img/" + mesrc[index];
-            meindex = index;
+        // my phtono
+        const mymov = document.getElementById("mymov");
+        const mypic = document.getElementById("mypic");
+        const me0 = document.getElementById("me0");
+        const me1 = document.getElementById("me1");
+        function me_play() {
+            mymov.play();
+        }
+        function me_select(no) {
+            if (no == 1) {
+                me0.innerText = "○";
+                me1.innerText = "●";
+                mymov.style.display = "none";
+                mypic.style.display = "block";
+            } else {
+                me0.innerText = "●";
+                me1.innerText = "○";
+                mymov.style.display = "block";
+                mypic.style.display = "none";
+            }
         }
         // onload
         window.onload = function () {
             tselect();
             bselect();
             mselect();
-            me_select();
         }
     </script>
 
