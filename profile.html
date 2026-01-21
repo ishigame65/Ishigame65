@@ -64,6 +64,11 @@
     .marker {
         font-weight: bold;
     }
+    #myphoto {
+        width:12em;
+        height:12em;
+        border-radius: 6em;
+    }
     @media (max-width: 700px) {
         .desc ul li:before {
             margin-left: 0px;
@@ -85,6 +90,11 @@
         }
         ul.sublist {
             font-size: 12px;
+        }
+    }
+    @media (min-width: 700px) {
+        main {
+            max-width: 980px;
         }
     }
 </style>
@@ -139,25 +149,27 @@
                 <li>プロフィール</li>
             </ul>
         </div> <!-- breadcrumb -->
-        <div class="me"><img src="img/me.png" width=85 height=100></div>
+        <div class="me"><img id="myphoto" src="img/me2.jpg" onclick="me_select()"></div>
         <h2 class="mono">プロフィール</h2>
+        <dl>
+            <div class="block">
+                <dt>生年月日</dt>
+                <dd>
+                    <img src="img/mebirth.png" usemap="#birthmap">
+                    <map name="birthmap">
+                        <area shape="rect" coords="0,0,60,59" href="before.html">
+                        <area shape="rect" coords="66,0,210,59" href="showa.html">
+                        <area shape="rect" coords="216,0,312,59" href="after.html">
+                    </map>
+                </dd>
+            </div>
+            <div class="block">
+                <dt>出身地</dt>
+                <dd><a href="kure.html"><img src="img/ondo.jpg"></a></dd>
+            </div>
+        </dl>
         <section>
             <dl>
-                <div class="block">
-                    <dt>生年月日</dt>
-                    <dd>
-                        <img src="img/mebirth.png" usemap="#birthmap">
-                        <map name="birthmap">
-                            <area shape="rect" coords="0,0,60,59" href="before.html">
-                            <area shape="rect" coords="66,0,210,59" href="showa.html">
-                            <area shape="rect" coords="216,0,312,59" href="after.html">
-                        </map>
-                    </dd>
-                </div>
-                <div class="block">
-                    <dt>出身地</dt>
-                    <dd><a href="kure.html"><img src="img/ondo.jpg"></a></dd>
-                </div>
                 <dt>楽しみ</dt>
                 <dd>
                     <ul>
@@ -231,7 +243,7 @@
 
     </main>
     <footer> <!-- フッターコンテンツ -->
-        <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+        <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" id="instaicon2"></a>
         <div id="footlinks">
             <ul>
                 <li><a href="keeper.html">飼育係</a></li>
@@ -273,15 +285,15 @@
             + "<ul><li><a href='kongo.html'>観艦式</a>でイージス艦こんごうから見た景色</li></ul>",
             "<a href='bloomington.html'>ブルーミントン（Indiana）</a>"
             + "<ul><li>インディアナポリスから車で約1時間</li>"
-            + "<li>人口の7割が大学関係者で構成される田舎町</li></ul>")
-        let tindex = -1
+            + "<li>人口の7割が大学関係者で構成される田舎町</li></ul>");
+        let tindex = -1;
         function tselect() {
             do {
-                index = Math.floor(Math.random() * tsrc.length)
+                index = Math.floor(Math.random() * tsrc.length);
             } while (index == tindex);
             document.getElementById("tpic").src = "img/" + tsrc[index];
             document.getElementById("ttext").innerHTML = tdsc[index];
-            tindex = index
+            tindex = index;
         }
         const bsrc = new Array("bike1.jpg", "bike2.jpg", "bike3.jpg");
         const bdsc = new Array(
@@ -290,15 +302,15 @@
             "道端のコスモスとクロモリ2号"
             + "<ul><li>クロモリ2号はパナソニックWレバー仕様</li></ul>",
             "日帰りで行った温泉で最も遠いのは群馬県の伊香保温泉"
-            + "<ul><li>伊香保直前の上り坂で力尽き、帰りは輪行</li></ul>")
-        let bindex = -1
+            + "<ul><li>伊香保直前の上り坂で力尽き、帰りは輪行</li></ul>");
+        let bindex = -1;
         function bselect() {
             do {
-                index = Math.floor(Math.random() * bsrc.length)
+                index = Math.floor(Math.random() * bsrc.length);
             } while (index == bindex);
             document.getElementById("bpic").src = "img/" + bsrc[index];
             document.getElementById("btext").innerHTML = bdsc[index];
-            bindex = index
+            bindex = index;
         }
         const msrc = new Array(
             "garden1.jpg", "miniature1.jpg", "melon.jpg", "phasagao.jpg", "noimage.png", "phcircuit.jpg");
@@ -313,10 +325,10 @@
         );
         const markp = document.getElementById("markerp");
         const markt = document.getElementById("markert");
-        let mindex = -1
+        let mindex = -1;
         function mselect() {
             do {
-                index = Math.floor(Math.random() * msrc.length)
+                index = Math.floor(Math.random() * msrc.length);
             } while (index == mindex);
             document.getElementById("mpic").src = "img/" + msrc[index];
             document.getElementById("mtext").innerHTML = mdsc[index];
@@ -327,13 +339,28 @@
             } else if (index == 4) {
                 markt.innerHTML = "→";  // 自作ソフトウェア
             }
-            mindex = index
+            mindex = index;
         }
+        // my photo
+        var mesrc = new Array("me2.jpg","me3.jpg");
+        var meindex = -1;
+        function me_select() {
+            do {
+                index = Math.floor(Math.random()*mesrc.length);
+            } while (index == meindex);
+            document.getElementById("myphoto").src="img/" + mesrc[index];
+            meindex = index;
+        }
+        // onload
         window.onload = function () {
-            tselect()
-            bselect()
-            mselect()
+            tselect();
+            bselect();
+            mselect();
+            me_select();
         }
+    </script>
+
+    <script>
     </script>
 
     <script src="js/bgcollage.js"></script>

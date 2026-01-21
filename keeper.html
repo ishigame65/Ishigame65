@@ -21,7 +21,7 @@
         /* text-decoration-color: black; */
         text-decoration: none;
     }
-    img#mpic {         
+    img#mpic {
         width:120px;
         height:120px;
         border-radius: 60px;
@@ -188,16 +188,16 @@
 <script>
     // プロファイル画像ランダム切替
     var msrc = new Array("me01.jpg","me02.jpg","me03.jpg","me04.jpg","me05.jpg","me06.jpg","me07.jpg","me08.jpg");
-    var mindex = -1
+    var mindex = -1;
     function mselect(){
         do {
-            index = Math.floor(Math.random()*msrc.length)
+            index = Math.floor(Math.random()*msrc.length);
         } while (index == mindex);
         document.getElementById("mpic").src="img/" + msrc[index];
-        mindex = index
+        mindex = index;
     }
     window.onload = function() {
-        mselect()
+        mselect();
     }
 </script>
     
