@@ -28,17 +28,19 @@ footer {
 img, video {
     max-width: 100%;
 }
-h1.title {
-    font-size: x-small;
-    color: olive;
-    margin-top: 4px;
-}
 img#logo {
-    max-width: 3.5em;
+    max-width: 13em;
     height: auto;
     margin-right: 0.2em;
     padding: 0;
     /* vertical-align: text-top; */
+}
+h1.title {
+    position: absolute;
+    font-size: x-small;
+    color: olive;
+    margin-top: 4px;
+    margin-left: 7em;
 }
 h2 {
     margin: 0.6em 0 0.2em;
@@ -211,11 +213,12 @@ span.notes {
         margin-left: 1rem;
         margin-right: 1rem;
     }
+    img#logo {
+        max-width: 14em;
+    }
     h1.title {
         font-size: 0.75em;
-    }
-    img#logo {
-        max-width: 4em;
+        margin-left: 7.5em;
     }
     nav, #footlinks {
         display: block;
@@ -240,10 +243,11 @@ span.notes {
     body {
         font-size: larger;
     }
+    img#logo {
+        max-width: 15em;
+    }
     h1.title {
         font-size: 0.65em;
-    }
-    img#logo {
-        max-width: 5em;
-    }
+         margin-left: 9.5em;
+   }
 }
