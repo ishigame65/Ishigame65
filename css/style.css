@@ -51,6 +51,12 @@ h3 {
 dd {
     margin-left: 1em;
 }
+ul li:before {
+    color: gray;
+    color: red;
+    margin-right: 0.2em;
+}
+
 .noborder td, th {
 	border: 0px none;
 }

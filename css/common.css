@@ -34,10 +34,7 @@ blockquote {
 img {
     vertical-align: top;
 }
-ul li, ol li {
-    /* margin-left: 0.6em; */
-    margin-left: 1em;
-}
+
 p {
     margin-top: 0.5em;
     margin-bottom: 1em;
@@ -52,6 +49,11 @@ td.num_text {
     border: 1px solid gray;
     padding: 2px 8px;
 }
+
+ul li, ol li {
+    margin-left: 1.25em;
+}
+
 .breadcrumb {
     margin-top: 8px;
     margin-bottom: 12px;
@@ -62,19 +64,24 @@ td.num_text {
     white-space: nowrap;
     overflow-x: auto;
 }
+.breadcrumb ul li {
+    margin-left: 0.3em;
+}
 .breadcrumb li:not(:last-of-type)::after {
 	content: "›";
-    margin-left: 0.3em;
+    margin-left: 0.2em;
 	color: #777;
 	font-weight: bold;
 }
 @media (max-width: 700px) {
     .indent {
-        /* margin-left: 0.3em; */
         margin-left: 0.4em;
     }
     .breadcrumb {
         font-size: smaller;
+    }
+    .breadcrumb ul li {
+        margin-left: 0.25em;
     }
     .breadcrumb li:not(:last-of-type)::after {
         margin-left: 0.2em;
