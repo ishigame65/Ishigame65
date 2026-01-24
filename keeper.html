@@ -10,7 +10,9 @@
 </head>
 <style>
     section {
-        max-width: 500px;
+        width: 23em;
+        max-width: 95%;
+        /* background-color: greenyellow; */
     }    
     #me {
         margin-right: 0.5em;
@@ -18,18 +20,17 @@
     }
     #me a {
         color: gray;
-        /* text-decoration-color: black; */
         text-decoration: none;
     }
     img#mpic {
-        width:120px;
-        height:120px;
-        border-radius: 60px;
+        width:90px;
+        height:90px;
+        border-radius: 45px;
         margin-bottom: 8px;
     }
     .flowtext {
-        width: 120px;
-        font-size: 13px;
+        width: 90px;
+        font-size: 12px;
         padding-top:10px;
         overflow: hidden;
     }
@@ -67,18 +68,18 @@
     .color1 {
         color: olivedrab;
     }
-    @media (max-width: 700px) {
+    @media (min-width: 700px) {
+        section {
+            max-width: 500px;
+        }
         img#mpic {
-            width:90px;
-            height:90px;
-            border-radius: 45px;
+            width:120px;
+            height:120px;
+            border-radius: 60px;
         }
         .flowtext {
-            width: 90px;
-            font-size: 12px;
-        }
-        section {
-            max-width: 360px;
+            width: 120px;
+            font-size: 13px;
         }
     }
 </style>
