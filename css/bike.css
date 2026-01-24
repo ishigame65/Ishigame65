@@ -14,9 +14,11 @@ img.bike {
 }
 table {
     border-collapse: collapse;
+    max-width: 98%;
+    font-size: smaller;
 }
 th {
-    border: 1px solid black;
+    border: 1px solid gray;
     font-weight: normal;
     padding: 0.2em;
 }
