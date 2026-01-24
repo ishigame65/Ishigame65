@@ -35,7 +35,8 @@ img {
     vertical-align: top;
 }
 ul li, ol li {
-    margin-left: 0.6em;
+    /* margin-left: 0.6em; */
+    margin-left: 1em;
 }
 p {
     margin-top: 0.5em;
