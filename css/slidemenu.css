@@ -102,6 +102,7 @@
 }
 #menu_cont ul li {
     list-style: none;
+    margin-left: 0.3em;
 }
 #menu_cont ul li a {
     display: block;
