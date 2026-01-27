@@ -29,6 +29,22 @@
         filter: sepia(100%);
         opacity: 1;
     }
+    #info {
+        position: absolute;
+        margin-top: 0.5em;
+        right: 0.5em;
+        width: 2em;
+        height: auto;
+        opacity: 0.7;
+        z-index: 9;
+    }
+    #infotext {
+        margin-top: 1em;
+        padding: 0.2em 1em;
+        float: right;
+        width: 30vw;
+        color: darkolivegreen;
+    }
     section#movies {
         display: flex;
     }
@@ -150,6 +166,9 @@
         #obi {
             display: none;
         }
+        #info, #infotext {
+            display: none;
+        }
         #catchphrase {
             font-size: 1rem;
         }
@@ -227,10 +246,12 @@
 
 <div id="obi" onclick="changeBackImage()"></div>
 <main>
+    <img id="info" src="img/iicon.png"">
     <section id="movies">
         <div id="main_movie">
             <video id="movie" src="img/igwm01s.mp4" controls muted playsinline loop poster="img/igwm01s_0.jpg" onclick="this.play();"></video>
             <h2 id="catchphrase">イシガメが快適に暮らす環境を作る</h2>
+            <!-- <div id="clear"></div> -->
             <div id="buttons">
                 <button id="autoButton" onclick="autoSwitch()">▶</button>
                 <button id="mbut0" onclick="mChange(0)">1</button>
@@ -242,6 +263,7 @@
             </div>
         </div>
     </section>
+    <div id="infotext"></div>
     <section id="search">
         <div id="TextSearch">
             <div>
@@ -322,13 +344,42 @@
             }, 1000);
         }
     }
+    let backno = 0;
+    let pre_backno = 0;
+    let isinfo = 0;
+    const infos = [
+        'イスタンブール（92年撮影）',
+        'イスタンブール（92年撮影）',
+        'インディアナ州立大学（88年撮影）',
+        'アユタヤ（89年撮影）',
+        '広東省鼎湖山（09年撮影）',
+        '宮城県松島渡月橋（08年撮影）',
+        'ボスポラス海峡西岸黒海近く（92年撮影）',
+     ];
     function changeBackImage() {
         const obimages = [
             'sh92istanbul4', 'sh92istanbul6', 'ph88iu3', 'ph89ayutthaya1', 'phgd1',
             'bkmmiyagi2', 'sh92istanbul1' ];
-        const rndno = Math.floor(Math.random() * obimages.length);
-        obi.style.backgroundImage = `url(img/${obimages[rndno]}.jpg)`;
+        while (backno == pre_backno) {
+            backno = Math.floor(Math.random() * obimages.length);
+        }
+        obi.style.backgroundImage = `url(img/${obimages[backno]}.jpg)`;
+        if (isinfo == 1) infotext.innerText = infos[backno];
+        pre_backno = backno;
     }
+    const infotext = document.getElementById('infotext');
+    function showinfo() {
+        infotext.innerText = infos[backno];
+        mov.style.opacity = '0';
+        mov.style.transition = 'none';
+        isinfo = 1;
+    }
+    const info = document.getElementById('info');
+    info.addEventListener('mousedown', showinfo);
+    info.addEventListener('touchstart', (e) => {
+        e.preventDefault(); // 長押しメニュー防止
+        showinfo();
+    });
     if (!(window.matchMedia && window.matchMedia('(max-device-width: 840px)').matches)) {
         changeBackImage();
         setInterval( function(){
