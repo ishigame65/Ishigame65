@@ -22,6 +22,13 @@
         max-height: 312px;
         margin: 0.2em;
     }
+    #onoff {
+        position: -webkit-sticky; /* Safari対応 */
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgb(245,245,255);
+    }
     @media (max-width: 700px) {
         article img {
             border-radius: 3px;
@@ -88,7 +95,7 @@
     <article>
         <img src="img/showap2.jpg">
     </article>
-    <p>
+    <p id="onoff">
         <label><input type="checkbox" id="world" checked>いざこざ（国内を除く）</label>
         <label><input type="checkbox" id="japan" checked>日本</label>
         <label><input type="checkbox" id="computer" checked>計算機方面</label>
