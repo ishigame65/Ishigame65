@@ -36,6 +36,8 @@
     position:absolute; top: 119px; right:0; bottom:0; left: 184px; margin:auto; z-index:1; }
 #yono1, #fuji1, #fuji2 {
     position:absolute; top: 129px; right:0; bottom:0; left: 183px; margin:auto; z-index:1; }
+#hanno1 {
+    position:absolute; top: 143px; right:0; bottom:0; left: 20px; margin:auto; z-index:1; }
 #asaka1 {
     position:absolute; top: 162px; right:0; bottom:0; left: 164px; margin:auto; z-index:1; }
 
@@ -73,6 +75,8 @@
 		position:absolute; top: 65px; right:0; bottom:0; left: 106px; margin:auto; z-index:1; }
 	#yono1, #fuji1, #fuji2 {
 		position:absolute; top: 71px; right:0; bottom:0; left: 105px; margin:auto; z-index:1; }
+	#hanno1 {
+		position:absolute; top: 80px; right:0; bottom:0; left: 9px; margin:auto; z-index:1; }
 	#asaka1 {
 		position:absolute; top: 92px; right:0; bottom:0; left: 95px; margin:auto; z-index:1; }
 }
