@@ -1,296 +1,662 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style2.css">
-    <link rel="stylesheet" href="css/sitemap.css">
-    <meta name="description" content="栽培計画ライブラリ">
-    <link rel="shortcut icon" href="img/kame.ico">
-    <title>栽培計画ライブラリ</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<meta name="robots" content="noindex,nofollow,noarchive" />
+	<link rel="shortcut icon" href="img/65.ico">
+	<link rel="stylesheet" href="moriuchi.css">
+	<title>進路・受験</title>
 </head>
+
 <style>
-    .sitemap {
-        background-color: lavender;
-        width: fit-content;
-        padding: 0.5em 0.75em 0.1em 0.2em;
+    h2, h3, h4 {
+        background: linear-gradient(90deg, lightpink, rgba(255,255,255,0.0));
     }
-    .download {
-        margin: 0.3em 0.7em;
+    video {
+    max-width: 100%; /* 動画の最大幅を親要素の幅の100%に設定 */
+    height: auto;    /* 幅に合わせて高さを自動調整 */
+    }
+    table {
+        border-collapse: collapse;
+    }
+    table th {
+        border: 1px solid silver;
+        padding: 0 0.15em;
+        font-weight: normal;
+        text-align: left;
+        line-height: 1.2em;
+    }
+    table td {
+        border: 1px solid silver;
+        padding: 0 0.15em;
+        text-align: center;
+        line-height: 1.2em;
+    }
+    .sub {
+        font-size: smaller;
+        color: darkmagenta;
+        height: 1em;
+        margin: 0 0.15em;
+    }
+    .blue {
+        color: blue;
+    }
+    .red {
+        color: red;
+    }
+    .gray {
+        color: gray;
+    }
+    .bggray {
+        background-color: rgba(200,200,200,0.5);
+    }
+    .bghot {
+        background-color: rgba(255,216,181,0.5);
+    }
+    .notes {
+        margin-left: 0;
+    }
+    .square {
+        width: 1.5em;
+        height: 1.5em;
+    }
+    figure {
+        position: relative;
+    }
+    figure figcaption {
+        position: absolute;
+        top: 15%;
+        left: 10%;
+        color: red;
+        font-size: larger;
+        background-color: rgba(255,255,255,0.7);
+        padding: 0.1em 0.25em;
+    }
+    #scroll, #scroll2 {
+        height: 600px;
+        overflow-y: scroll;
+        width: fit-content;
+    }
+    /* #scroll2 {
+        height: 600px;
+    } */
+    #scroll tr.fix th {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        background-color: LightCyan;
+        /* tbody内のセルより手前に表示する */
+        z-index: 1;  
+    }
+    #scroll2 tr.fix td {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        background-color: LightCyan;
+        /* tbody内のセルより手前に表示する */
+        z-index: 1;  
+    }
+    #scroll2 tr#row2 td {
+        top: calc(1em + 5px);
+    }
+    #scroll2 tr#row3 td {
+        top: calc(2em + 9px);
+    }
+    tr.head th, tr.head td {
+        background-color: LightCyan;
+    }
+    .article_content {
+        width: fit-content;
     }
     article {
-        max-width: none;
+        width: fit-content;
+        /* background-color: yellow; */
+        padding-right: 0;
+        min-width: initial;
     }
-
-    .iframe1-wrap, .iframe2-wrap {
-        position: relative;
-        width: 100%;
-        padding-top: 56.25%;
-        overflow:auto; 
-        -webkit-overflow-scrolling:touch;
-        /* border:2px solid #ccc; */
-        border:1px solid #ccc;
+    .beige {
+        background-color: beige;
     }
-    .iframe1-wrap {
-        width: 600px;
+    .special {
+        padding: 1em;
+        font-size: x-large;
+        background-color: paleturquoise;
+        text-align: center;
     }
-    /* .iframe2-wrap {
-        height: 10px;
-    } */
-    .iframe1-wrap iframe, .iframe2-wrap iframe {
-        position:absolute;
-        top:0;
-        left:0;
-        width:100%;
-        height:100%;
-        border:none;
-        display:block;
-        background-color: yellow;
+    .icon {
+        margin-left: 0.5em;
+        margin-top: 0.5em;
+        height: 0.7em;
+        width: auto;
+        opacity: 0.5;
     }
-    
-    /* #plan_frame {
-        border: none;
-    }
-    .html_frame, .view_frame {
-        background-color: white;
-    } */
-    .mailto a {
-        color: #5a5c5f;
-        text-decoration: none;
-    }
-    #lineicon {
-        height: 40px;
-        margin-right: 0.5em;
-    }
-    .lineto {
-        margin-top: 0.75em;
-        margin-bottom: 0.75em;
-    }
-    .lineto a {
-        color: #5a5c5f;
-        text-decoration: none;
-        line-height: 40px;
+    #new {
+        width: 2em;
+        height: auto;
+        margin-left: 0.5em;
     }
     @media (max-width: 700px) {
-        .iframe2-wrap, .iframe1-wrap {
-            width: 96%;
+        span.sub {
+            font-size: x-small;
         }
-        /* .iframe2-wrap iframe {
-            width:90%;
-        } */
-        /* #plan_frame {
-            width: 96%;
+        #scroll {
+            height: 630px;
         }
-        .html_frame, .view_frame {
-            width: 96%;
-        } */
     }
 </style>
-<!-- 
 
-https://junichi-manga.com/iframe-responsive/
-https://ecmemo.net/iphone_iframe_bug
-https://www.netshop7.com/blog/2010/11/iphonesafariiframe.html
-
--->
 <body>
 
-<!-- input・label・ドロワーメニューはbody直下 -->
-<input id="check_input" type="checkbox">
-<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
-    <span></span><div id="title">MENU</div>
-</label>
-<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+<main>
+	<h1><a href="index.html"><img src="img/m65logo.png" id="m65logo"></a></h1>
 
-<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
-    <ul>
-        <li><a href="index.html">TOP</a></li>
-        <li><a href="intro.html">経緯と方針</a></li>
-        <li><a href="menu.html">飼育環境</a></li>
-        <li><a href="maintenance.html">日々の管理</a></li>
-        <li><a href="trouble.html">トラブル</a></li>
-        <li><a href="baby.html">成長記録</a></li>
+    <ul class="breadcrumb">
+        <li><a href="index.html">Top</a></li>
+        <li>進路・受験</li>
     </ul>
-    <ul id="menu2nd">
-        <li>&nbsp;</li>
-        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
-        <li><a href="keeper.html">飼育係</a></li>
-        <li><a href="entertainment.html">遊び</a></li>
-        <li><a href="links.html">リンク</a></li>
-        <li><a href="copyright.html">サイトポリシー</a></li>
-        <li><a href="sitemap.html">サイトマップ</a></li>
-    </ul>
-</div>
 
-<header>
-    <h1><a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a></h1>
-    <nav>
-        <ul>
-            <li><a href="intro.html">経緯と方針</a></li>
-            <li><a href="menu.html">飼育環境</a></li>
-            <li><a href="maintenance.html">日々の管理</a></li>
-            <li><a href="trouble.html">トラブル</a></li>
-            <li><a href="baby.html">成長記録</a></li>
-        </ul>    
-    </nav>
-</header>
-
-<div id="wrapper"> <!-- コンテンツ部分をdivで囲む　input要素と同じ階層に配置する -->
-    <main>
-        <div class="breadcrumb">
+    <h2>進路・受験</h2>
+	<section>
+		<div class="section_content">
             <ul>
-                <li><a href="index.html">Top</a></li>
-                <li><a href="keeper.html">飼育係</a></li>
-                <li><a href="profile.html">プロフィール</a></li>
-                <li><a href='cultivation.html'>野菜作り</a></li>
-                <li>栽培計画ライブラリ</li>
-            </ul>
-        </div> <!-- breadcrumb -->
-
-        <h2 class="mono">栽培計画ライブラリ</h2>
-        <p class="indent">
-            野菜作りに必要な作業を行う時期が一目でわかる菜園カレンダーを作成するために開発した作図ライブラリです。
-            <iframe id="plan_frame" src="./cp_sample2.html" frameborder="1" width="600" height="310" style="zoom:0.9"></iframe>
-            <!-- <iframe id="plan_frame" src="./cp_sample2.html" frameborder="1" width="600" height="310"></iframe> -->
-        </p>
-        <dl class="indent">
-            <dt>開発の経緯</dt>
-            <dd>
-                <ul>
-                    <li>いつ何を植えれば良いかも分かっていない素人が手探りで野菜を育てているが、野菜は時期を逃すと栽培できないため、最低限の情報を整理しておこうと菜園カレンダーを作ることにした。</li>
-                    <li>最初は一般的な作表ツール（Excelなどの123的なやつ）や作図ツール（ドロー系ソフト）で作ってみたが、どうにも使いにくい（修正に余計な手間と時間が掛かる）し、不細工になってしまう。</li>
-                    <li>それなら優秀な先人が開発した作図ライブラリを利用して開発しようと考えたが、一般的なカレンダーやガントチャートを作成するライブラリは多くあるものの、菜園カレンダーに利用できる作図ライブラリが何故か見つからない。</li>
-                    <li>以上のことから、先ず専用の作図ライブラリを開発してから、菜園カレンダーを作ることにした。</li>
-                </ul>
-
-            </dd>
-        </dl>
-
-        <section>
-            <h3 class="mono">ダウンロード</h3>
-            <div class="section_content">
-                開発した栽培計画ライブラリ`CultivationPlan.min.js`（JavaScriptファイル）は下のリンクからダウンロードしてご利用いただけます
-                （右クリックして[名前を付けてリンク先を保存]など）。
-                <div class="download">
-                    <a href="js/CultivationPlan.min.js">CultivationPlan.min.js</a>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h3 class="mono">菜園カレンダーを作成する方法</h3>
-            <div class="section_content">
-                <ol class="indent">
-                    <li>栽培計画ライブラリ`CultivationPlan.min.js`をダウンロードし、jsフォルダに置く</li>
-                    <li>WEBページ（HTMLファイル）を作成する（例：`index.html`ファイル）
-                        <ul class="indent">
-                            <li>描画領域としてcanvasを作成</li>
-                            <li>`CultivationPlan.min.js`を読み込む</li>
-                            <li>菜園カレンダーを作成して描画する処理を記述
-                                <ol class="indent">
-                                    <li>菜園カレンダー（クラスオブジェクト）を生成</li>
-                                    <li>作業（作業名、色）を定義</li>
-                                    <li>データ準備
-                                        <ul class="indent">
-                                            <li>対象物ごとに、作業期間を「作業名:期間」の形で記載する</li>
-                                            <li>期間は、開始月-終了月の形で記載し、末尾にa（上旬）,b（中旬）,c（下旬）を付加できる</li>
-                                        </ul>
-                                    </li>
-                                    <li>描画</li>
-                                </ol>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>フォルダ構成<br>
-                        <div class="sitemap">
-                            <ul>
-                                <li>任意フォルダ/
-                                    <ul>
-                                        <li>index.html（例）</li>                                        
-                                        <li>js/
-                                            <ul>
-                                                <li>CultivationPlan.min.js</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>作成したWEBページ（例：`index.html`ファイル）をWEBブラウザで表示する</li>
-                </ol>
-            </div>
-        </section>
-        <section>
-            <h3 class="mono">例1</h3>
-            <div id="articles">
-                <article>
-                    <h4 class="mono">HTMLファイル</h4>
-                    <div class="iframe1-wrap">
-                        <iframe src="./cp_sample1.txt" frameboader="0" style="zoom:0.85"></iframe>
-                    </div>
-                </article>
-                <article>
-                    <h4 class="mono">表示</h4>
-                    <div class="iframe2-wrap">
-                        <iframe src="./cp_sample1.html" frameboader="0" style="zoom:0.75"></iframe>
-                    </div>
-                </article>
-            </div>
-        </section>
-        <section>
-            <h3 class="mono">例2</h3>
-            <div id="articles">
-                <article>
-                    <h4 class="mono">HTMLファイル</h4>
-                    <div class="iframe1-wrap">
-                        <iframe src="./cp_sample2.txt" frameboader="0" style="zoom:0.85"></iframe>
-                    </div>
-                    <!-- <iframe class="html_frame" src="./cp_sample2.txt" frameborder="1" width="710" height="370" style="zoom:0.85"></iframe> -->
-                </article>
-                <article>
-                    <h4 class="mono">表示</h4>
-                    <div class="iframe2-wrap">
-                        <iframe src="./cp_sample2.html" frameboader="0" style="zoom:0.75"></iframe>
-                    </div>
-                    <!-- <iframe class="view_frame" src="./cp_sample2.html" frameborder="1" width="600" height="310" style="zoom:0.75"></iframe> -->
-                </article>
-            </div>
-            
-        </section>
-        <section>
-            <h3 class="mono">今後について</h3>
-            <div class="section_content">
-                ご要望があれば機能の改善や強化を検討したいと考えていますので、お気軽にご連絡ください。
-                <dl>
-                    <dt>連絡先</dt>
-                    <dd>
-                        <div class="mailto"><a href="mailto:moriuchi@ymail.ne.jp"><img src="img/mail.png" class="icon">moriuchi@ymail.ne.jp</a></div>
-                    </dd>
-                    <dd>
-                        <div class="lineto"><a href="https://lin.ee/KBpGvoV"><img src="img/line_icon.png" alt="" id="lineicon">森内</a></div>
-                    </dd>
-                </dl>
-            </div>
-        </section>
-    </main> <!-- メインコンテンツ -->
-    <footer> <!-- フッターコンテンツ -->
-        <div id="footicons">
-            <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
-            <a href="#logo"><span class="arrow-up"></span></a>    
-        </div>
-        <div id="footlinks">
-            <ul>
-                <li><a href="keeper.html">飼育係</a></li>
-                <li><a href="entertainment.html">遊び</a></li>
-                <li><a href="links.html">リンク</a></li>
-                <li><a href="copyright.html">サイトポリシー</a></li>
-                <li><a href="sitemap.html">サイトマップ</a></li>
+                <li>「難易度や通学時間」は通学圏内の高校をできるだけ網羅（男子校を除く）</li>
             </ul>
         </div>
-    </footer>
-</div>
+  	</section>
+
+    <article>
+        <h3>高校ホームページ</h3>
+        <div class="article_content">
+            <dl>
+                <dt class="bggray"><a href="https://ohmiya-h.spec.ed.jp/" target="newwin"><span class="blue">大宮高等学校</span></a>（49分）</dt>
+                <dt class="bggray"><a href="https://www.sakaehigashi.ed.jp/" target="newwin">栄東高等学校</a>（57分）</dt>
+                <dt class="bggray"><a href="https://urawaichijo-h.spec.ed.jp/ichijo/" target="newwin"><span class="blue">浦和第一女子高等学校</span></a>（54分）</dt>
+                <dt><a href="https://www.urawashi-h.city-saitama.ed.jp/" target="newwin"><span class="blue">市立浦和高等学校</span></a>（56分）</dt>
+                <dt><a href="https://www.omiyakaisei.jp/" target="newwin">大宮開成高等学校</a>（34分+バス待）</dt>
+                <dt><a href="https://koutoubu.kaichigakuen.ed.jp/" target="newwin">開智高等学校</a>（33分）</dt>
+                <dt><a href="https://warabi-h.spec.ed.jp/" target="newwin"><span class="blue">蕨高等学校</span></a>（63分+バス待）</dt>
+                <dt><a href="https://fudooka-h.spec.ed.jp/" target="newwin"><span class="blue">不動岡高等学校</span></a>（96分）</dt>
+                <dt><a href="https://koshigayakita-h.spec.ed.jp/" target="newwin"><span class="blue">越ヶ谷北高等学校</span></a>（54分）</dt>
+                <dt><a href="https://urawanishi-h.spec.ed.jp/" target="newwin"><span class="blue">浦和西高等学校</span></a>（61分）</dt>
+                <dt class="bggray"><a href="https://www.shukutoku.yono.saitama.jp/" target="newwin">淑徳与野高等学校</a>（46分）</dt>
+                <dt><a href="https://www.shohei.sugito.saitama.jp/contents/hs/" target="newwin">昌平高等学校</a>（66分）</dt>
+                <dt><a href="https://koshigaya-h.spec.ed.jp/" target="newwin"><span class="blue">越ヶ谷高等学校</span></a>（56分）</dt>
+                <dt><a href="https://www.ohmiyakita-h.ed.jp/" target="newwin"><span class="blue">市立大宮北高等学校</span></a>（54分）</dt>
+                <dt><a href="https://www.k-kyoei.ed.jp/hs/" target="newwin">春日部共栄高等学校</a>（35分+バス待）</dt>
+                <dt class="bggray"><a href="https://www.eimei-urawareimei.ac.jp/reimei/" target="newwin">浦和麗明高等学校</a>（54分）</dt>
+                <dt class="bggray"><a href="https://www.dokkyo-saitama.ed.jp/" target="newwin">獨協埼玉中学高等学校</a>（41分+バス待）</dt>
+                <dt class="bggray"><a href="https://www.saitamasakae-h.ed.jp/senior/" target="newwin">埼玉栄高等学校</a>（55分）</dt>
+                <dt class="bggray"><a href="https://kawaguchicity-hs.ed.jp/" target="newwin"><span class="blue">川口市立高等学校</span></a>（63分+バス待, 80分）</dt>
+                <dt class="bggray"><a href="https://kasujo-h.spec.ed.jp/" target="newwin"><span class="blue">春日部女子高等学校</span></a>（42分）</dt>
+                <dt class="bggray"><a href="https://kasukabehigashi-h.spec.ed.jp/" target="newwin"><span class="blue">春日部東高等学校</span></a>（38分+バス待）</dt>
+                <dt class="bggray"><a href="https://ohmiyakoryo-h.spec.ed.jp/home" target="newwin"><span class="blue">大宮光陵高等学校</span></a>（45分+バス待）</dt>
+                <dt class="bggray"><a href="https://yono-h.spec.ed.jp/" target="newwin"><span class="blue">与野高等学校</span></a>（56分）</dt>
+                <dt class="bggray"><a href="https://sugito-h.spec.ed.jp/" target="newwin"><span class="blue">杉戸高等学校</span></a>（45分）</dt>
+            </dl>
+            <p class="notes">
+                ※ 括弧内は通学時間、<span class="blue">青字</span>は公立高校<br>
+                <!-- ※ 最上位の大宮・栄東・浦和第一女子・市立浦和は省略<br> -->
+            </p>
+            <div class="special">
+                <a href="test_university.html">大学進学実績</a>            
+            </div>
+            <!-- <br>
+            <ul class="indent">
+                <li><a href="img/市立大宮北国公立大学合格推移グラフ.pdf">市立大宮北：国公立大学合格推移グラフ</a><img src="img/pdf_icon.png" class="icon"></li>
+                <li><a href="img/市立大宮北早慶上理GMARCH合格数推移グラフ.pdf">市立大宮北：早慶上理GMARCH合格数推移グラフ</a><img src="img/pdf_icon.png" class="icon"></li>
+            </ul> -->
+        </div>
+    </article>
+    
+    <article>
+        <div class="article_content">
+            <h3>学校案内</h3>
+            <ul class="indent">
+                <li><a href="img/annai市立浦和2027学校案内.pdf" target="newwin">市立浦和R9年度学校案内</a><img src="img/pdf_icon.png" class="icon"></li>
+                <li><a href="img/annai不動岡2027学校案内.pdf" target="newwin">不動岡R9年度学校案内</a><img src="img/pdf_icon.png" class="icon"></li>
+                <li><a href="img/annai越谷北R9.pdf" target="newwin">越ケ谷北R9年度学校案内</a><img src="img/pdf_icon.png" class="icon"></li>                
+                <li><a href="img/annai浦和西2027学校案内.pdf" target="newwin">浦和西R9年度学校案内</a><img src="img/pdf_icon.png" class="icon"></li>
+                <li><a href="img/annai越ヶ谷R9学校案内.pdf" target="newwin">越ケ谷R9年度学校案内</a><img src="img/pdf_icon.png" class="icon"></li>
+                <li><a href="img/annai市立大宮北R9学校案内.pdf" target="newwin">市立大宮北R9年度学校案内</a><img src="img/pdf_icon.png" class="icon"></li>
+                <li><a href="https://www.omiyakaisei.jp/dp/09/hs/" target="newwin">大宮開成R9年度学校案内</a></li>
+                <!-- <li><a href="https://www.omiyakaisei.jp/dp/08/hs/" target="newwin">大宮開成R8年度学校案内</a></li> -->
+                <li><a href="img/annai開智R9年度学校案内.pdf" target="newwin">開智R9年度学校案内</a><img src="img/pdf_icon.png" class="icon"></li>
+            </ul>
+            <h4>R8学校案内</h4>
+            <ul class="indent">
+                <li><a href="img/annai蕨2026学校案内.pdf" target="newwin">蕨R8年度学校案内</a><img src="img/pdf_icon.png" class="icon"></li>
+                <li class="bggray"><a href="img/annai川口市立2025.pdf" target="newwin">川口市立R8学校案内</a><img src="img/pdf_icon.png" class="icon"></li>
+            </ul>
+        </div>
+    </article>
+
+    <article>
+        <h3>募集要項など</h3>
+        <div class="article_content">
+            <dl>
+                <dt>2027年（令和9年）度</dt>
+                <dd>（今後）</dd>
+                <dt>2026年（令和8年）度</dt>
+                <dd class="bggray"><a href="img/boshu栄東2026R8.pdf" target="newwin">栄東</a><img src="img/pdf_icon.png" class="icon"><span class="sub">単願,併願,特待生併願</span></dd>
+                <dd><a href="img/boshu市立浦和2026R8.pdf" target="newwin"><span class="blue">市立浦和</span></a><img src="img/pdf_icon.png" class="icon"></dd>
+                <dd><a href="img/boshu大宮開成2026R8.pdf" target="newwin">大宮開成</a><img src="img/pdf_icon.png" class="icon"><span class="sub">単願,併願</span></dd>
+                <dd><a href="img/boshu開智2026R8 .pdf" target="newwin">開智</a><img src="img/pdf_icon.png" class="icon"><span class="sub">単願,併願</span></dd>
+                <dd><a href="img/boshu蕨2026R8.pdf" target="newwin"><span class="blue">蕨</span></a><img src="img/pdf_icon.png" class="icon"></dd>
+                <dd><a href="img/boshu不動岡2026R8.pdf" target="newwin"><span class="blue">不動岡</span></a><img src="img/pdf_icon.png" class="icon"></dd>
+                <dd><a href="img/boshu越谷北2026R8.pdf" target="newwin"><span class="blue">越谷北</span></a><img src="img/pdf_icon.png" class="icon"></dd>
+                <dd><a href="img/boshu浦和西2026R8.pdf" target="newwin"><span class="blue">浦和西</span></a><img src="img/pdf_icon.png" class="icon"></dd>
+                <dd class="bggray"><a href="img/boshu淑徳与野2026R8.pdf" target="newwin">淑徳与野</a><img src="img/pdf_icon.png" class="icon"><span class="sub">単願,併願</span></dd>
+                <dd><a href="img/boshu昌平2026R8.pdf" target="newwin">昌平</a><img src="img/pdf_icon.png" class="icon"><span class="sub">単願,併願/自己推薦,学校推薦</span></dd>
+                <dd><a href="img/boshu市立大宮北2026R8.pdf" target="newwin"><span class="blue">市立大宮北</span></a><img src="img/pdf_icon.png" class="icon"></dd>
+                <dd><a href="img/boshu春日部共栄2026R8.pdf" target="newwin">春日部共栄</a><img src="img/pdf_icon.png" class="icon"><span class="sub">単願,併願</span></dd>
+                <dd class="bggray"><a href="img/boshu浦和麗明2026R8.pdf" target="newwin">浦和麗明</a><img src="img/pdf_icon.png" class="icon"><span class="sub">単願,併願/自己推薦,学校推薦</span></dd>
+                <dd class="bggray"><a href="img/boshu獨協埼玉2026R8.pdf" target="newwin">獨協埼玉</a><img src="img/pdf_icon.png" class="icon"><span class="sub">単願,併願</span></dd>
+                <dd class="bggray"><a href="img/boshu埼玉栄2026R8.pdf" target="newwin">埼玉栄</a><img src="img/pdf_icon.png" class="icon"><span class="sub">単願,併願</span></dd>
+                <dd class="bggray"><a href="img/boshu川口市立2026R8.pdf" target="newwin"><span class="blue">川口市立</span></a><img src="img/pdf_icon.png" class="icon"></dd>
+                <dd class="bggray"><a href="img/boshu春日部女子2026R8.pdf" target="newwin"><span class="blue">春日部女子</span></a><img src="img/pdf_icon.png" class="icon"></dd>
+                <dd class="bggray"><a href="img/boshu春日部東2026R8.pdf" target="newwin"><span class="blue">春日部東</span></a><img src="img/pdf_icon.png" class="icon"></dd>
+                <dd class="bggray"><a href="img/boshu大宮光陵2026R8.pdf" target="newwin"><span class="blue">大宮光陵</span></a><img src="img/pdf_icon.png" class="icon"></dd>
+                <dd class="bggray"><a href="img/boshu杉戸2026R8.pdf" target="newwin"><span class="blue">杉戸</span></a><img src="img/pdf_icon.png" class="icon"></dd>
+                <dt>2025年（令和7年）度</dt>
+                <dd><a href="img/boshu越ヶ谷R7.pdf" target="newwin"><span class="blue">越ヶ谷</span></a><img src="img/pdf_icon.png" class="icon"></dd>
+                <dd class="bggray"><a href="img/boshu与野R7.pdf" target="newwin"><span class="blue">与野</span></a><img src="img/pdf_icon.png" class="icon"></dd>
+            </dl>
+        </div>
+    </article>
+
+    <article>
+        <h3>難易度や通学時間（偏差値順）</h3>
+        <div class="article_content">
+            <div id="scroll">
+                <table>
+                    <tr class="fix"><th>学校<br><span class="sub">コース</span></th><th>偏差値</th><th>最寄駅<br><span class="sub">乗車時間</span></th><th>通学</th><th>種類</th></tr>
+                    <tr class="bggray"><th class="blue">大宮<br><span class="sub">理数科</span></th><td class="bggray">74</td><td>さ新都心<br><span class="sub">24分</span></td><td>49分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th>栄東<br><span class="sub">普通科東医</span></th><td class="bggray">74</td><td>東大宮<br><span class="sub">31分</span></td><td>57分</td><td>私立<br>共学</td></tr>
+                    <tr><th>開智<br><span class="sub">普通科T</span></th><td class="bggray">73</td><td>東岩槻<br><span class="sub">3分</span></td><td>33分</td><td>私立<br>共学</td></tr>
+                    <tr><th class="blue">浦和第一女子<br><span class="sub">普通科</span></th><td class="bggray">72</td><td>浦和<br><span class="sub">31分</span></td><td>54分</td><td><span class="blue">公立</span><br><div class="red">女子</div></td></tr>
+                    <tr class="bggray"><th>栄東<br><span class="sub">普通科α</span></th><td class="bggray">72</td><td>東大宮<br><span class="sub">31分</span></td><td>57分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">大宮<br><span class="sub">普通科</span></th><td class="bggray">71</td><td>さ新都心<br><span class="sub">24分</span></td><td>49分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th>淑徳与野<br><span class="sub">T類難関国公立</span></th><td class="bggray">71</td><td>さ新都心<br><span class="sub">24分</span></td><td>46分</td><td>私立<br><span class="red">女子</span></td></tr>
+                    <tr class="bggray"><th>淑徳与野<br><span class="sub">SS類難関理系</span></th><td class="bggray">70</td><td>さ新都心<br><span class="sub">24分</span></td><td>46分</td><td>私立<br><span class="red">女子</span></td></tr>
+                    <tr><th class="blue">市立浦和<br><span class="sub">普通科</span></th><td class="bggray">70</td><td>北浦和<br><span class="sub">29分</span></td><td>56分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr><th>春日部共栄<br><span class="sub">普通科選抜</span></th><td class="bggray">69</td><td>春日部<br><span class="sub">10分</span></td><td>35分</td><td>私立<br>共学</td></tr>
+                    <tr><th>開智<br><span class="sub">S1</span></th><td class="bggray">69</td><td>東岩槻<br><span class="sub">3分</span></td><td>33分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th>淑徳与野<br><span class="sub">SA類難関文系</span></th><td class="bggray">68</td><td>さ新都心<br><span class="sub">24分</span></td><td>46分</td><td>私立<br><span class="red">女子</span></td></tr>
+                    <tr><th>開智<br><span class="sub">S2</span></th><td class="bggray">68</td><td>東岩槻<br><span class="sub">3分</span></td><td>33分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">川越女子<br><span class="sub">普通科</span></th><td class="bggray">68</td><td>川越市<br><span class="sub">63分</span></td><td>83分</td><td><span class="blue">公立</span><br><span class="red">女子</span></td></tr>
+                    <tr><th class="blue">越谷北<br><span class="sub">理数科</span></th><td class="bggray">68</td><td>せんげん台<br><span class="sub">21分</span></td><td>54分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr><th>大宮開成<br><span class="sub">特進選抜先進</span></th><td>67</td><td>大宮<br><span class="sub">12分</span></td><td>34分</td><td>私立<br>共学</td></tr>
+                    <tr><th class="blue">蕨<br><span class="sub">普通科</span></th><td class="bggray">67</td><td>蕨<br><span class="sub">38分</span></td><td>73分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th>獨協埼玉<br><span class="sub">普通科</span></th><td class="bggray">67</td><td>せんげん台<br><span class="sub">21分</span></td><td>41分</td><td>私立<br>共学</td></tr>
+                    <tr><th class="blue">不動岡<br><span class="sub">普通科</span></th><td class="bggray">66</td><td>加須<br><span class="sub">61分</span></td><td>96分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr><th class="blue">越谷北<br><span class="sub">普通科</span></th><td>66</td><td>せんげん台<br><span class="sub">21分</span></td><td>54分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr><th class="blue">浦和西<br><span class="sub">普通科</span></th><td>66</td><td>与野<br><span class="sub">26分</span></td><td>61分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr><th>春日部共栄<br><span class="sub">特進E</span></th><td>66</td><td>春日部<br><span class="sub">10分</span></td><td>35分</td><td>私立<br>共学</td></tr>
+                    <tr><th>昌平<br><span class="sub">特進T特選</span></th><td>66</td><td>杉戸高野台<br><span class="sub">36分</span></td><td>66分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th>武南<br><span class="sub">特進</span></th><td>66</td><td>西川口<br><span class="sub">40分</span></td><td>65分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th>淑徳与野<br><span class="sub">R類総合文理系</span></th><td>65</td><td>さ新都心<br><span class="sub">24分</span></td><td>46分</td><td>私立<br><span class="red">女子</span></td></tr>
+                    <tr><th>大宮開成<br><span class="sub">特進選抜Ⅰ</span></th><td>65</td><td>大宮<br><span class="sub">12分</span></td><td>34分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">川口北<br><span class="sub">普通科</span></th><td>65</td><td>東浦和<br><span class="sub">45分</span></td><td>76分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th>埼玉栄<br><span class="sub">普通科α</span></th><td>65</td><td>西大宮<br><span class="sub">36分</span></td><td>55分</td><td>私立<br>共学</td></tr>
+                    <tr><th>昌平<br><span class="sub">普通科IB</span></th><td>65</td><td>杉戸高野台<br><span class="sub">36分</span></td><td>66分</td><td>私立<br>共学</td></tr>
+                    <tr><th>大宮開成<br><span class="sub">特進選抜Ⅱ</span></th><td>64</td><td>大宮<br><span class="sub">12分</span></td><td>34分</td><td>私立<br>共学</td></tr>
+                    <tr><th class="blue">越ヶ谷<br><span class="sub">普通科</span></th><td>64</td><td>北越谷<br><span class="sub">26分</span></td><td>56分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr><th class="blue">蕨<br><span class="sub">外国語科</span></th><td>64</td><td>蕨<br><span class="sub">38分</span></td><td>73分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th>栄北<br><span class="sub">特類選抜</span></th><td>64</td><td>丸山<br><span class="sub">43分</span></td><td>62分</td><td>私立<br>共学</td></tr>
+                    <tr><th class="blue">市立大宮北<br><span class="sub">理数科</span></th><td>64</td><td>宮原<br><span class="sub">24分</span></td><td>54分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th>浦和麗明<br><span class="sub">特進選抜Ⅰ</span></th><td>63</td><td>浦和<br><span class="sub">31分</span></td><td>54分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th>淑徳与野<br><span class="sub">MS類MS</span></th><td>63</td><td>さ新都心<br><span class="sub">24分</span></td><td>46分</td><td>私立<br><span class="red">女子</span></td></tr>
+                    <tr><th>春日部共栄<br><span class="sub">特進S</span></th><td>63</td><td>春日部<br><span class="sub">10分</span></td><td>35分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th>武南<br><span class="sub">普通科選抜</span></th><td>63</td><td>西川口<br><span class="sub">40分</span></td><td>65分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th>花咲徳栄<br><span class="sub">普通科アルファ</span></th><td>62</td><td>花崎<br><span class="sub">46分</span></td><td>71分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th>浦和学院<br><span class="sub">特進T,S特進</span></th><td>62</td><td>大宮<br><span class="sub">12分</span></td><td>57分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th>昌平<br><span class="sub">特進特選</span></th><td>62</td><td>杉戸高野台<br><span class="sub">36分</span></td><td>66分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">川口市立<br><span class="sub">理数科</span></th><td>61</td><td>西川口<br><span class="sub">40分</span></td><td>63分<br>80分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">市立浦和南<br><span class="sub">普通科</span></th><td>60</td><td>北戸田<br><span class="sub">48分</span></td><td>73分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">春日部女子<br><span class="sub">外国語科</span></th><td>60</td><td>春日部<br><span class="sub">10分</span></td><td>42分</td><td><span class="blue">公立</span><br><div class="red">女子</div></td></tr>
+                    <tr class="bggray"><th>浦和麗明<br><span class="sub">特進選抜Ⅱ</span></th><td>60</td><td>浦和<br><span class="sub">31分</span></td><td>54分</td><td>私立<br>共学</td></tr>
+                    <tr><th class="blue">市立大宮北<br><span class="sub">普通科</span></th><td>60</td><td>宮原<br><span class="sub">24分</span></td><td>54分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th>浦和実業学園<br><span class="sub">特進選抜</span></th><td>60</td><td>南浦和<br><span class="sub">34分</span></td><td>61分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">越谷南<br><span class="sub">普通科</span></th><td>60</td><td>レイクタウン<br><span class="sub">47分</span></td><td>65分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th>埼玉栄<br><span class="sub">普通科S</span></th><td>60</td><td>西大宮<br><span class="sub">36分</span></td><td>55分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th>伊奈学園総合<br><span class="sub">普通科</span></th><td>59</td><td>羽貫<br><span class="sub">50分</span></td><td>75分</td><td>公立<br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">春日部東<br><span class="sub">普通科</span></th><td>59</td><td>春日部<br><span class="sub">10分</span></td><td>38分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th>栄北<br><span class="sub">特類S</span></th><td>59</td><td>丸山<br><span class="sub">43分</span></td><td>62分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th>浦和実業学園<br><span class="sub">特進</span></th><td>59</td><td>南浦和<br><span class="sub">34分</span></td><td>61分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th>昌平<br><span class="sub">特進特進</span></th><td>58</td><td>杉戸高野台<br><span class="sub">36分</span></td><td>66分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">大宮光陵<br><span class="sub">普通科外国語</span></th><td>58</td><td>大宮<br><span class="sub">12分</span></td><td>45分</td><td><span class="blue">公立</span><br>共学</td></tr>                    
+                    <tr class="bggray"><th class="blue">大宮光陵<br><span class="sub">普通科</span></th><td>58</td><td>大宮<br><span class="sub">12分</span></td><td>45分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">上尾<br><span class="sub">普通科</span></th><td>57</td><td>北上尾<br><span class="sub">39分</span></td><td>55分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">春日部女子<br><span class="sub">普通科</span></th><td>57</td><td>春日部<br><span class="sub">10分</span></td><td>42分</td><td><span class="blue">公立</span><br><div class="red">女子</div></td></tr>
+                    <tr class="bggray"><th class="blue">春日部東<br><span class="sub">人文科</span></th><td>57</td><td>春日部<br><span class="sub">10分</span></td><td>38分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th>浦和ルーテル学院<br><span class="sub">普通科</span></th><td>57</td><td>北浦和<br><span class="sub">29分</span></td><td>64分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th>武南<br><span class="sub">進学</span></th><td>57</td><td>西川口<br><span class="sub">40分</span></td><td>65分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th>浦和実業学園<br><span class="sub">選抜α</span></th><td>57</td><td>南浦和<br><span class="sub">34分</span></td><td>61分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th>浦和麗明<br><span class="sub">特進選抜Ⅲ</span></th><td>56</td><td>浦和<br><span class="sub">31分</span></td><td>54分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">与野<br><span class="sub">普通科</span></th><td>56</td><td>与野本町<br><span class="sub">31分</span></td><td>56分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">常盤<br><span class="sub">看護科5年</span></th><td>56</td><td>与野本町<br><span class="sub">31分</span></td><td>71分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">浦和北<br><span class="sub">普通科</span></th><td>56</td><td>北浦和<br><span class="sub">29分</span></td><td>64分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">川口市立<br><span class="sub">普通科</span></th><td>55</td><td>西川口<br><span class="sub">40分</span></td><td>63分<br>80分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">杉戸<br><span class="sub">普通科</span></th><td>55</td><td>東武動物公園<br><span class="sub">22分</span></td><td>45分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th>昌平<br><span class="sub">普通科標準進学</span></th><td>55</td><td>杉戸高野台<br><span class="sub">36分</span></td><td>66分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th>埼玉栄<br><span class="sub">特進</span></th><td>54</td><td>西大宮<br><span class="sub">36分</span></td><td>55分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th>栄北<br><span class="sub">特類A</span></th><td>54</td><td>丸山<br><span class="sub">43分</span></td><td>61分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">南稜<br><span class="sub">普通科</span></th><td>54</td><td>北戸田<br><span class="sub">48分</span></td><td>78分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">久喜<br><span class="sub">普通科</span></th><td>54</td><td>久喜<br><span class="sub">38分</span></td><td>65分</td><td><span class="blue">公立</span><br><div class="red">女子</div></td></tr>
+                    <tr class="bggray"><th class="blue">越谷総合技術<br><span class="sub">情報技術科</span></th><td>54</td><td>越谷<br><span class="sub">29分</span></td><td>71分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">南稜<br><span class="sub">外国語科</span></th><td>53</td><td>北戸田<br><span class="sub">48分</span></td><td>78分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">越谷総合技術<br><span class="sub">食物調理科</span></th><td>53</td><td>越谷<br><span class="sub">29分</span></td><td>71分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">久喜北陽<br><span class="sub">普通科</span></th><td>53</td><td>久喜<br><span class="sub">38分</span></td><td>78分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th>浦和実業学園<br><span class="sub">普通科選抜</span></th><td>53</td><td>南浦和<br><span class="sub">34分</span></td><td>61分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th>花咲徳栄<br><span class="sub">普通科アドバンス</span></th><td>53</td><td>花崎<br><span class="sub">46分</span></td><td>71分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">越谷西<br><span class="sub">普通科</span></th><td>52</td><td>岩槻<br><span class="sub">0分</span></td><td>40分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">大宮南<br><span class="sub">普通科</span></th><td>52</td><td>大宮<br><span class="sub">12分</span></td><td>55分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">越谷総合技術<br><span class="sub">情報処理科</span></th><td>52</td><td>越谷<br><span class="sub">29分</span></td><td>71分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">岩槻<br><span class="sub">普通科</span></th><td>50</td><td>岩槻<br><span class="sub">0分</span></td><td>35分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">越谷総合技術<br><span class="sub">電子機械科</span></th><td>48</td><td>越谷<br><span class="sub">29分</span></td><td>71分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">岩槻<br><span class="sub">国際文化</span></th><td>48</td><td>岩槻<br><span class="sub">0分</span></td><td>35分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">浦和東<br><span class="sub">普通科</span></th><td>47</td><td>大宮<br><span class="sub">12分</span></td><td>75分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">越谷総合技術<br><span class="sub">流通経済科</span></th><td>47</td><td>越谷<br><span class="sub">29分</span></td><td>71分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">越谷総合技術<br><span class="sub">服飾デザイン科</span></th><td>46</td><td>越谷<br><span class="sub">29分</span></td><td>71分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">庄和<br><span class="sub">普通科</span></th><td>47</td><td>南桜井<br><span class="sub">18分</span></td><td>55分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th>花咲徳栄<br><span class="sub">食育実践科</span></th><td>46</td><td>花崎<br><span class="sub">46分</span></td><td>71分</td><td>私立<br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">大宮商業<br><span class="sub">商業科</span></th><td>46</td><td>大和田<br><span class="sub">5分</span></td><td>28分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">大宮武蔵野<br><span class="sub">普通科</span></th><td>46</td><td>指扇<br><span class="sub">33分</span></td><td>63分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">大宮東<br><span class="sub">普通科</span></th><td>45</td><td>七里<br><span class="sub">3分</span></td><td>48分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">松伏<br><span class="sub">普通科</span></th><td>45</td><td>北越谷<br><span class="sub">26分</span></td><td>76分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">春日部工業<br><span class="sub">建築科</span></th><td>45</td><td>北春日部<br><span class="sub">18分</span></td><td>38分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">春日部工業<br><span class="sub">機械科</span></th><td>44</td><td>北春日部<br><span class="sub">18分</span></td><td>38分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">上尾南<br><span class="sub">普通科</span></th><td>44</td><td>上尾<br><span class="sub">36分</span></td><td>75分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">上尾鷹の台<br><span class="sub">普通科</span></th><td>43</td><td>上尾<br><span class="sub">36分</span></td><td>63分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">いずみ<br><span class="sub">環境系</span></th><td>43</td><td>大宮<br><span class="sub">12分</span></td><td>50分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">いずみ<br><span class="sub">生物系</span></th><td>43</td><td>大宮<br><span class="sub">12分</span></td><td>50分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">春日部工業<br><span class="sub">電気科</span></th><td>42</td><td>北春日部<br><span class="sub">18分</span></td><td>38分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">宮代<br><span class="sub">普通科</span></th><td>42</td><td>姫宮<br><span class="sub">20分</span></td><td>43分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">岩槻商業<br><span class="sub">商業科</span></th><td>41</td><td>岩槻<br><span class="sub">0分</span></td><td>30分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">岩槻商業<br><span class="sub">情報処理科</span></th><td>41</td><td>岩槻<br><span class="sub">0分</span></td><td>30分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">杉戸農業<br><span class="sub"></span></th><td>41</td><td>東武動物公園<br><span class="sub">20分</span></td><td>65分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                    <tr class="bggray"><th class="blue">蓮田松韻<br><span class="sub">普通科</span></th><td>39</td><td>岩槻<br><span class="sub">0分</span></td><td>34分</td><td><span class="blue">公立</span><br>共学</td></tr>
+                </table>
+            </div>
+            <div class="notes">
+                ※ 自宅から岩槻駅までは15分としている<br>
+                ※ 通学（時間）は目安、乗換時間などが正確ではない<br>
+                ※ 偏差値は「みんなの高校情報」等に基づいている<br>
+            </div>
+        </div>
+    </article>
+
+    <article>
+        <h3>募集定員と希望者数</h3>
+        <div class="article_content">
+            <div id="scroll2">
+                <table>
+                    <tr class="head fix"><td rowspan="3">学校</td><td rowspan="3">募集<br>定員</td><td colspan="5">希望者数<span class="sub">（倍率）</span></td></tr>
+                    <tr class="head fix" id="row2"><td colspan="2">2024年</td><td colspan="2">2025年</td><td>2026年</td></tr>
+                    <tr class="head fix" id="row3"><td>10月</td><td>12月</td><td>10月</td><td>12月</td><td>10月</td></tr>
+                    <tr><th class="blue">大宮<br><span class="sub">普通科</span></th><td>318</td>
+                        <td><br><span class="sub">1.93</span></td><td><br><span class="sub">1.76</span></td>
+                        <td>729<br><span class="sub">2.29</span></td><td>626<br><span class="sub">1.97</span></td>
+                        <td rowspan="35" class="beige"></td>
+
+                    <tr><th class="blue">市立浦和<br><span class="sub">普通科</span></th><td>240</td>
+                        <td><br><span class="sub">2.78</span></td><td><br><span class="sub">2.36</span></td>
+                        <td>660<br><span class="sub">2.75</span></td><td>563<br><span class="sub">2.35</span></td>
+                    </tr>
+                    <tr><th>大宮開成<br><span class="sub">（合計）</span></th><td>350</td>
+                        <td>256<br><span class="sub"></span></td><td>219<br><span class="sub"></span></td>
+                        <td>383<br><span class="sub"></span></td><td>378<br><span class="sub"></span></td>
+                    </tr>
+                    <tr><th>開智<br><span class="sub">T</span></th><td>60</td>
+                        <td rowspan="3">397<br><span class="sub"></span></td><td rowspan="3">397<br><span class="sub"></span></td>
+                        <td rowspan="3">348<br><span class="sub"></span></td><td rowspan="3">366<br><span class="sub"></span></td>
+                    </tr>
+                    <tr><th>開智<br><span class="sub">S1</span></th><td>120</td></tr>
+                    <tr><th>開智<br><span class="sub">S2</span></th><td>60</td></tr>
+
+                    <tr><th class="blue">蕨<br><span class="sub">普通科</span></th><td>318</td>
+                        <td><br><span class="sub">1.77</span></td><td><br><span class="sub">1.55</span></td>
+                        <td>469<br><span class="sub">1.47</span></td><td>409<br><span class="sub">1.29</span></td>
+                    </tr>
+                    <tr><th class="blue">蕨<br><span class="sub">外国語科</span></th><td>40</td>
+                        <td><br><span class="sub">1.08</span></td><td><br><span class="sub">1.15</span></td>
+                        <td>40<br><span class="sub">1.00</span></td><td>36<br><span class="sub">0.90</span></td>
+                    </tr>
+
+                    <tr><th class="blue">不動岡<br><span class="sub">普通科</span></th><td>358</td>
+                        <td><br><span class="sub">1.51</span></td><td><br><span class="sub">1.39</span></td>
+                        <td>508<br><span class="sub">1.42</span></td><td>466<br><span class="sub">1.30</span></td>
+                    </tr>
+
+                    <tr><th class="blue">越谷北<br><span class="sub">理数科</span></th><td>40</td>
+                        <td><br><span class="sub">1.25</span></td><td><br><span class="sub">1.55</span></td>
+                        <td>48<br><span class="sub">1.2</span></td><td>47<br><span class="sub">1.18</span></td>
+                    </tr>
+                    <tr><th class="blue">越谷北<br><span class="sub">普通科</span></th><td>318</td>
+                        <td><br><span class="sub">1.43</span></td><td><br><span class="sub">1.32</span></td>
+                        <td>451<br><span class="sub">1.42</span></td><td>384<br><span class="sub">1.21</span></td>
+                    </tr>
+                    <tr><th class="blue">浦和西<br><span class="sub">普通科</span></th><td>358</td>
+                        <td><br><span class="sub">2.13</span></td><td><br><span class="sub">1.79</span></td>
+                        <td>744<br><span class="sub">2.08</span></td><td>611<br><span class="sub">1.71</span></td></tr>
+
+                    <tr class="bggray"><th>淑徳与野<br><span class="sub">T難関国立</span></th><td>40</td>
+                        <td rowspan="4">231<br><span class="sub"></span></td><td rowspan="4">230<br><span class="sub"></span></td>
+                        <td rowspan="4">248<br><span class="sub"></span></td><td rowspan="4">230<br><span class="sub"></span></td>
+                    </tr>
+                    <tr class="bggray"><th>淑徳与野<br><span class="sub">SA類難関理系</span></th><td>40</td></tr>
+                    <tr class="bggray"><th>淑徳与野<br><span class="sub">SA類難関文系</span></th><td>40</td></tr>
+                    <tr class="bggray"><th>淑徳与野<br><span class="sub">R類総合文理系</span></th><td>40</td></tr>
+
+                    <tr><th>昌平<br><span class="sub">全体</span></th><td>490</td><td></td><td></td><td></td><td></td></tr>
+                    <tr><th>昌平<br><span class="sub">IB</span></th><td>15</td><td></td><td></td><td></td><td></td></tr>
+                    <tr><th>昌平<br><span class="sub">T特選</span></th><td>70</td><td></td><td></td><td></td><td></td></tr>
+                    <tr><th>昌平<br><span class="sub">特選</span></th><td>80</td><td></td><td></td><td></td><td></td></tr>
+
+                    <tr><th class="blue">越ヶ谷<br><span class="sub">普通科</span></th><td>318</td>
+                        <td><br><span class="sub">1.74</span></td><td><br><span class="sub">1.54</span></td>
+                        <td>540<br><span class="sub">1.7</span></td><td>477<br><span class="sub">1.5</span></td>
+                    </tr>
+                    <tr><th class="blue">市立大宮北<br><span class="sub">理数科</span></th><td>40</td>
+                        <td><br><span class="sub">1.78</span></td><td><br><span class="sub">2.05</span></td>
+                        <td>57<br><span class="sub">1.43</span></td><td>51<br><span class="sub">1.28</span></td>
+                    </tr>
+                    <tr><th class="blue">市立大宮北<br><span class="sub">普通科</span></th><td>280</td>
+                        <td><br><span class="sub">1.8</span></td><td><br><span class="sub">1.73</span></td>
+                        <td>522<br><span class="sub">1.86</span></td><td>435<br><span class="sub">1.55</span></td>
+                    </tr>
+                    <tr><th>春日部共栄<br><span class="sub">選抜</span></th><td>70</td>
+                        <td rowspan="3">254<br><span class="sub"></span></td><td rowspan="3">294<br><span class="sub"></span></td>
+                        <td rowspan="3">259<br><span class="sub"></span></td><td rowspan="3">296<br><span class="sub"></span></td>
+                    </tr>
+                    <tr><th>春日部共栄<br><span class="sub">特進E</span></th><td>160</td></tr>
+                    <tr><th>春日部共栄<br><span class="sub">特進S</span></th><td>120</td></tr>
+                    <tr class="bggray"><th>浦和麗明<br><span class="sub">（合計）</span></th><td>320</td>
+                        <td>175<br><span class="sub"></span></td><td>197<br><span class="sub"></span></td>
+                        <td>208<br><span class="sub"></span></td><td>235<br><span class="sub"></span></td>
+                    </tr>
+                    <tr class="bggray"><th>獨協埼玉<br><span class="sub">普通科</span></th><td>160</td><td>267<br></td><td>265<br></td><td>240<br></td><td>255<br></td></tr>
+                    <tr class="bggray"><th>埼玉栄<br><span class="sub">S</span></th><td>200</td>
+                        <td rowspan="2">558<br><span class="sub"></span></td><td rowspan="2">550<br><span class="sub"></span></td>
+                        <td rowspan="2">564<br><span class="sub"></span></td><td rowspan="2">576<br><span class="sub"></span></td>
+                    </tr>
+                    <tr class="bggray"><th>埼玉栄<br><span class="sub">特進</span></th><td>200</td></tr>
+                    <tr class="bggray"><th class="blue">川口市立<br><span class="sub">理数科</span></th><td>40</td>
+                        <td><br><span class="sub">1.35</span></td><td><br><span class="sub">1.1</span></td>
+                        <td>54<br><span class="sub">1.35</span></td><td>47<br><span class="sub">1.18</span></td>
+                    </tr>
+                    <tr class="bggray"><th class="blue">川口市立<br><span class="sub">普通科</span></th><td>240</td>
+                        <td><br><span class="sub">3.21</span></td><td><br><span class="sub">2.43</span></td>
+                        <td>722<br><span class="sub">3.01</span></td><td>521<br><span class="sub">2.17</span></td>
+                    </tr>
+                    <tr class="bggray"><th class="blue">春日部女子<br><span class="sub">外国語科</span></th><td>40</td>
+                        <td><br><span class="sub blue">0.65</span></td><td><br><span class="sub blue">0.83</span></td>
+                        <td>28<br><span class="sub blue">0.7</span></td><td>31<br><span class="sub blue">0.78</span></td>
+                    </tr>
+                    <tr class="bggray"><th class="blue">春日部女子<br><span class="sub">普通科</span></th><td>238</td>
+                        <td><br><span class="sub blue">0.98</span></td><td><br><span class="sub blue">0.89</span></td>
+                        <td>228<br><span class="sub blue">0.96</span></td><td>219<br><span class="sub blue">0.92</span></td>
+                    </tr>
+                    <tr class="bggray"><th class="blue">春日部東<br><span class="sub">普通科</span></th><td>318</td>
+                        <td><br><span class="sub blue">0.81</span></td><td><br><span class="sub blue">0.91</span></td>
+                        <td>298<br><span class="sub blue">0.94</span></td><td>287<br><span class="sub blue">0.9</span></td>
+                    </tr>
+                    <tr class="bggray"><th class="blue">春日部東<br><span class="sub">人文科</span></th><td>40</td>
+                        <td><br><span class="sub blue">0.43</span></td><td><br><span class="sub blue">0.5</span></td>
+                        <td>24<br><span class="sub blue">0.6</span></td><td>27<br><span class="sub blue">0.68</span></td>
+                    </tr>
+                    <tr class="bggray"><th class="blue">与野<br><span class="sub">普通科</span></th><td>358</td>
+                        <td><br><span class="sub">1.31</span></td><td><br><span class="sub">1.16</span></td>
+                        <td>377<br><span class="sub">1.05</span></td><td>334<br><span class="sub blue">0.93</span></td>
+                    </tr>
+                    <tr class="bggray"><th class="blue">杉戸<br><span class="sub">普通科</span></th><td>278</td>
+                        <td><br><span class="sub">1.71</span></td><td><br><span class="sub">1.5</span></td>
+                        <td>471<br><span class="sub">1.69</span></td><td>396<br><span class="sub">1.42</span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="notes">
+                ※ 中高一貫校の希望者数は内部進学者を含む<br>（募集定員は高校の募集人数）
+            </div>
+        </div>
+    </article>
+
+    <article>
+        <h3>説明会日程</h3>
+        <div class="article_content">
+            <table>
+                <tr class="head"><th>学校</th><td>日程</td></tr>
+                <tr class="bggray"><th>栄東</th><td>7/5（要予約6/15-）, 9/13</td></tr>
+                <tr><th class="blue">市立浦和</th><td><span class="blue">7/24</span>, 8/5, 8/21, 10/3, 11/21, 12/5</td></tr>
+                <tr><th>大宮開成</th><td><span class="blue">2/14</span>、(要予約6/5-)7/4, 7/26, <br>8/22, 8/23, 10/17, 11/15</td></tr>
+                <tr><th>開智</th><td><span class="blue">7/26</span>, <br>8/16, 9/20, 10/25,・・・</td></tr>
+                <tr><th class="blue">蕨</th><td>8/19浦和, (要予約)9/26, 11/7, 1/9</td></tr>
+                <tr><th class="blue">不動岡</th><td>5/23, 7/25, 8/8新都心, (要予約)8/22, 9/19, 11/7</td></tr>
+                <tr><th class="blue">越ヶ谷北</th><td>9/19（1か月前申込）, 10/3理数科, <br>11/7, 2/6</td></tr>
+                <tr><th class="blue">浦和西</th><td><span class="blue">6/20</span>, 10/10（予9/26-）, 11/7, 11/21</td></tr>
+                <tr class="bggray"><th>淑徳与野</th><td>学校説明：6/13, 7/4、<br>入試説明：8/22,29、<br>個別9/19-（一か月前予約）</td></tr>
+                <tr><th>昌平</th><td><span class="blue">6/11岩槻</span>, 6/27, <span class="red">7/25（要予約）</span>, <br>8/22, 9/20, 10/25, 11/22, 12/13</td></tr>
+                <tr><th>昌平 IB</th><td class="red">（要予約）7/18, 9/19</td></tr>
+                <tr><th>昌平 T特選</th><td>（要予約）7/4, 8/29, 9/19, 10/24</td></tr>
+                <tr><th class="blue">越ヶ谷</th><td>8/25（3週間前予約）, <br>10/10, 11/14, 部活見学会7/21,22</td></tr>
+                <tr><th class="blue">市立大宮北</th><td><span class="blue">1/24</span>, 7/24（要予約7/6-）</td></tr>
+                <tr><th>春日部共栄</th><td>見:7/18,<span class="red">8/22(要予約8/3-)</span>、試説:9/13(要予約8/24-)</td></tr>
+                <tr class="bggray"><th>浦和麗明</th><td class="gray">今後</td></tr>
+                <tr class="bggray"><th>獨協埼玉</th><td class="gray">今後</td></tr>
+                <tr class="bggray"><th>埼玉栄</th><td class="gray">今後</td></tr>
+                <tr class="bggray"><th class="blue">川口市立</th><td class="gray">今後（7月末～）</td></tr>
+                <tr class="bggray"><th class="blue">春日部女子</th><td><span class="gray">3/27</span></td></tr>
+                <tr class="bggray"><th class="blue">春日部東</th><td class="gray">5/9</td></tr>
+                <tr class="bggray"><th class="blue">与野</th><td class="gray">今後</td></tr>
+                <tr class="bggray"><th class="blue">杉戸</th><td class="gray">7/30,31、9/26、11/7、1/9</td></tr>
+            </table>
+        </div>
+    </article>
+
+    <!-- <article>
+        <h3>部活動</h3>
+        <div class="article_content">
+            <table>
+                <tr class="head"><th>学校</th><td>部活動</td></tr>
+                <tr><th class="blue">市立浦和</th><td>美術部、他</td></tr>
+                <tr><th>大宮開成</th><td>美術部、文23,運16</td></tr>
+                <tr><th>開智</th><td>文4,運15</td></tr>
+                <tr><th class="blue">越ヶ谷北</th><td>美術部、文18,運21</td></tr>
+                <tr><th class="blue">浦和西</th><td>美術部、他</td></tr>
+                <tr class="bggray"><th>淑徳与野</th><td>美術部、文23,運11</td></tr>
+                <tr><th class="blue">昌平</th><td>美術部、他</td></tr>
+                <tr><th class="blue">越ヶ谷</th><td>美術部、文12,運21</td></tr>
+                <tr><th class="blue">市立大宮北</th><td>美術部、文10,運19</td></tr>
+                <tr><th>春日部共栄</th><td>美術コミックアート部<br>文16,運23</td></tr>
+                <tr class="bggray"><th>浦和麗明</th><td>美術部、文15,運14</td></tr>
+                <tr class="bggray"><th>獨協埼玉</th><td>美術部、他</td></tr>
+                <tr class="bggray"><th>埼玉栄</th><td>美術部、文14,運43</td></tr>
+                <tr class="bggray"><th class="blue">川口市立</th><td>美術部、他</td></tr>
+                <tr class="bggray"><th class="blue">春日部女子</th><td>美術部、文18,運14</td></tr>
+                <tr class="bggray"><th class="blue">春日部東</th><td>美術部、文20,運20</td></tr>
+                <tr class="bggray"><th class="blue">与野</th><td>美術部、文17,運18</td></tr>
+                <tr class="bggray"><th class="blue">杉戸</th><td>美術部、文14,運19</td></tr>
+            </table>
+        </div>
+    </article>
+ -->
+    <article>
+        <h3>試験日</h3>
+        <div class="article_content">
+            <h4>2027年（令和9年）</h4>
+            （今後）
+            <table>
+                <tr class="head"><td rowspan="2">学校</td><td colspan="4">1月</td><td colspan="5">2月</td></tr>
+                <tr class="head"><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>25</td><td>26</td></tr>
+                <tr><th><span class="blue">公立</span></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="bghot">学</td><td class="bghot">面</td></tr>
+            </table>
+        </div>
+        <div class="article_content">
+            <h4>2026年（令和8年）</h4>
+            <table>
+                <tr class="head"><td rowspan="2">学校</td><td colspan="5">1月</td><td colspan="4">2月</td></tr>
+                <tr class="head"><td>22</td><td>23</td><td>24</td><td>25</td><td>31</td><td>1</td><td>4</td><td>6</td><td>26</td></tr>
+                <tr><th><span class="blue">公立</span></th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="bghot">○</td></tr>
+                <tr class="bggray"><th>栄東</th><td>○</td><td>○</td><td></td><td></td><td></td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><th>大宮開成</th><td>△</td><td class="bghot">○</td><td><td></td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><th>開智</th><td class="bghot">○</td><td>○</td><td>○</td><td></td><td></td></td><td></td><td></td><td></td><td></td></tr>
+                <tr class="bggray"><th>淑徳与野</th><td></td><td>○</td><td></td><td></td><td></td><td></td><td>△</td><td></td><td></td></tr>
+                <tr><th>昌平</th><td>推</td><td>推</td><td></td><td></td><td class="bghot">○</td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><th>春日部共栄</th><td>○</td><td></td><td class="bghot">○</td><td></td><td></td><td>△</td><td></td><td></td><td></td></tr>
+                <tr class="bggray"><th>浦和麗明</th><td>推</td><td>推</td><td></td><td></td><td></td><td></td><td></td><td>○</td><td></td></tr>
+                <tr class="bggray"><th>獨協埼玉</th><td>○</td><td>○</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr class="bggray"><th>埼玉栄</th><td>○</td><td>○</td><td></td><td>○</td><td></td><td></td><td></td><td></td><td></td></tr>
+            </table>
+            <p>
+            ※ <span class="bghot">　　</span>は複数受験の例
+            </p>
+        </div>
+    </article>
+
+    <article>
+        <h3>試験内容</h3>
+        <div class="article_content">
+            <table>
+                <tr class="head"><td>学校</td><td>試験科目</td></tr>
+                <tr><th><span class="blue">公立</span></th><td>国数英理社</td></tr>
+                <tr class="bggray"><th>栄東</th><td>国数英 or 国数英理社</td></tr>
+                <tr><th>大宮開成</th><td>国数英</td></tr>
+                <tr><th>開智</th><td>国数英 or 国数英理社</td></tr>
+                <tr><th>昌平</th><td>国数英<br>推薦(T特進,特進)は国数英理社</td></tr>
+                <tr><th>春日部共栄</th><td>国数英</td></tr>
+                <tr class="bggray"><th>淑徳与野</th><td>国数英</td></tr>
+                <tr class="bggray"><th>浦和麗明</th><td>国数英</td></tr>
+                <tr class="bggray"><th>獨協埼玉</th><td>国数英</td></tr>
+                <tr class="bggray"><th>埼玉栄</th><td>国数英</td></tr>
+            </table>
+        </div>
+    </article>
+    <article>
+        <h3>地図</h3>
+        <div class="article_content">
+            <a href="test_map.html">
+                <figure>
+                    <img id='testmap' src="img/testmap0.png">
+                    <figcaption>　 拡大表示<br>（ここを選択）</figcaption>
+                </figure>
+            </a>
+        </div>
+    </article>
+
+</main>
+
+<footer>
+	<div class="footer-left">
+		<a href="https://www.instagram.com/moriuchi65/"><img src="img/insta60.png" alt="Instagram" width=32 height=32></a>
+	</div>
+	<div class="footer-center"></div>
+	<div class="footer-right"></div>
+</footer>
+
+<script>
+window.onload = function(){let elm = document.getElementById("scroll");elm.scrollTop = 320;}
+</script>
 
 </body>
 </html>
