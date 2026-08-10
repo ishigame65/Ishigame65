@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style2.css">
-    <!-- <link rel="stylesheet" href="css/popup2.css"> --><!-- 検討中 -->
+    <!-- 検討中 -->
+    <!-- <link rel="stylesheet" href="css/popup2.css"> -->
 	<meta name="description" content="石亀飼育係 - あの日あの時あの場所の写真">
 	<link rel="shortcut icon" href="img/kame.ico">
 	<title>石亀飼育係 - あの日あの時あの場所の写真</title>
@@ -130,7 +131,7 @@
     <a href="#logo"><span class="arrow-up"></span></a>    
 </footer>
 
-<!-- <script type="module" src="js/popup2.js"></script> -->
+<!-- <script src="js/popup2.js"></script> -->
 
 <!-- module指定するとjsファイル内で完結させる必要がある -->
 <script src="js/bgcollage.js"></script>
@@ -140,15 +141,19 @@
 
 <!-- 地球地図 -->
 <!-- バージョン明記 in 260810 -->
-<link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css' />
-<script src='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js'></script>
+<!-- <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' />
+<script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script> -->
+<!-- <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css' />
+<script src='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js'></script> -->
+<link rel='stylesheet' href='https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.css' />
+<script src='https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.js'></script>
 
 <!-- module指定するとjsファイル内で完結させる必要がある -->
-<!-- <script type="module" src="js/mapearth.js"></script> -->
-<script src="js/mapearth.min.js"></script>
+<script src="js/mapearth.js"></script>
+<!-- <script src="js/mapearth.min.js"></script> -->
 <script>
 // onload関数化 in 260810
-window.onload = function() {
+// window.onload = function() {
     const targets = {
         '2023 埼玉': { center: [139.7, 35.95], zoom: 3, contents: '<img src="img/phhasuda1.jpg">' },
         '2021 埼玉': { center: [139.7, 35.95], zoom: 3, contents: '<img src="img/ph21sai1.jpg">' },
@@ -193,8 +198,11 @@ window.onload = function() {
     const start = Math.floor(Math.random() * Object.keys(targets).length);
     const yview = (window.matchMedia && window.matchMedia('(max-device-width: 700px)').matches) ? 10: 15;
     build_earth(targets, start, yview);
-}
+// }
 </script>
+
+<!-- おそらく未使用 -->
+<!-- <script src="js/popup2.js"></script> -->
 
 </body>
 </html>
