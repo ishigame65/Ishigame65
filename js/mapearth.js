@@ -80,6 +80,7 @@ function play(interval_ms) {
     }
 }
 
+// photos.htmlからここに移動 in 260810
 window.onload = function() {
     const targets = {
         '2023 埼玉': { center: [139.7, 35.95], zoom: 3, contents: '<img src="img/phhasuda1.jpg">' },
@@ -124,6 +125,5 @@ window.onload = function() {
     }
     const start = Math.floor(Math.random() * Object.keys(targets).length);
     const yview = (window.matchMedia && window.matchMedia('(max-device-width: 700px)').matches) ? 10: 15;
-    //build_earth(targets, start, yview);
     build_earth(targets, start, yview);
 }
