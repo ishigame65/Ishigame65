@@ -190,11 +190,12 @@ const targets = {
 }
 const start = Math.floor(Math.random() * Object.keys(targets).length);
 const yview = (window.matchMedia && window.matchMedia('(max-device-width: 700px)').matches) ? 10: 15;
-build_earth(targets, start, yview);
+// build_earth(targets, start, yview);
 
-// window.onload = function() {
-
-// }
+// onload関数化 in 260810
+window.onload = function() {
+    build_earth(targets, start, yview);
+}
 
 </script>
 
