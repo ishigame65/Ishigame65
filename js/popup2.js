@@ -13,9 +13,11 @@ const pics = document.getElementById('popup-pics');
 const marker = document.getElementById('popup-marker');
 
 // ボタンをクリックしたときにポップアップを表示させる
-clickBase.addEventListener('click', () => {
-    popupWrapper.style.display = "block";
-});
+if (clickBase != null) {
+    clickBase.addEventListener('click', () => {
+        popupWrapper.style.display = "block";
+    });
+}
 
 // ポップアップの外側又は「x」のマークをクリックしたときポップアップを閉じる
 popupWrapper.addEventListener('click', e => {
@@ -27,9 +29,7 @@ popupWrapper.addEventListener('click', e => {
 // 2025 moriuchi
 // aタグのonclickでポップアップを表示させる
 function popup() {
-    if (popupWrapper != null) {
-        popupWrapper.style.display = "block";
-    }
+    popupWrapper.style.display = "block";
 }
 function mapup(lng, x, y, txt) {
     popupWrapper.style.display = "block";
