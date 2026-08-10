@@ -27,7 +27,9 @@ popupWrapper.addEventListener('click', e => {
 // 2025 moriuchi
 // aタグのonclickでポップアップを表示させる
 function popup() {
-    popupWrapper.style.display = "block";
+    if (popupWrapper != null) {
+        popupWrapper.style.display = "block";
+    }
 }
 function mapup(lng, x, y, txt) {
     popupWrapper.style.display = "block";
