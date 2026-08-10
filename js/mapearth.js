@@ -1,5 +1,8 @@
 // 表示しなくなったのでデバッグ中
-// 参考？   https://qiita.com/sanskruthiya/items/dcd26d86ba8d664e4d57
+// 参考、おそらく元ネタ
+// https://qiita.com/sanskruthiya/items/dcd26d86ba8d664e4d57
+// https://kashiwa.co-place.com/cmap/mygj/
+// 参考
 
 // 絶賛開発途上
 function bcnt(val) { return val.toString(2).length; }
@@ -42,6 +45,7 @@ function build_earth(targets, start, off) {
     popup.setLngLat(t0["center"]).setHTML(t0["contents"]).setOffset([0,10]).addTo(map);
     select.selectedIndex = start;
     let sel_idx = (mac('First') + start - scnt(0xFFFF,0x1)) % keys.length;
+    // let sel_idx = start % keys.length;   // tmp in debug
     const changeTarget = function changeTarget() {
         popup.remove();
         const ts = targets[keys[sel_idx]];
