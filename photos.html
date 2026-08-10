@@ -139,61 +139,11 @@
 </script>
 
 <!-- 地球地図 -->
-<!-- 260810 バージョン明記 -->
+<!-- バージョン明記 in 260810 -->
 <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css' />
 <script src='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js'></script>
-<!-- <script type="module" src="js/mapearth.js"></script> -->
-<script type="module" src="js/mapearth.min.js"></script>
-
-<script>
-window.onload = function() {
-    const targets = {
-        '2023 埼玉': { center: [139.7, 35.95], zoom: 3, contents: '<img src="img/phhasuda1.jpg">' },
-        '2021 埼玉': { center: [139.7, 35.95], zoom: 3, contents: '<img src="img/ph21sai1.jpg">' },
-        '2011 熊本 1': { center: [131, 33.05], zoom: 3, contents: '<img src="img/phkumamoto1.jpg">' },
-        '2011 熊本 2': { center: [131, 33.05], zoom: 3, contents: '<img src="img/phkumamoto2.jpg">' },
-        '2011 新竹': { center: [121, 25], zoom: 3, contents: '<img src="img/phtaiwan1.jpg">' },
-        '2010 東京': { center: [139.17, 35.82], zoom: 3, contents: '<img src="img/phome1.jpg">' },
-        '2010 Bangkok': { center: [100.5, 13.85], zoom: 3, contents: '<img src="img/ph10bangkok1.jpg">' },
-        '2009 広東 1': { center: [113.2, 23.2], zoom: 3, contents: '<img src="img/phgz1.jpg">' },
-        '2009 広東 2': { center: [112.2, 23.2], zoom: 3, contents: '<img src="img/phgd1.jpg">' },
-        '2009 広東 3': { center: [112.2, 23.2], zoom: 3, contents: '<img src="img/ph09gd2.jpg">' },
-        '2008 山梨': { center: [138.74, 35.37], zoom: 3, contents: '<img src="img/ph08fuji.jpg">' },
-        '2005 Venezia': { center: [12.33, 45.43], zoom: 3, contents: '<img src="img/ph2005venezia1.jpg">' },
-        '2005 Burano': { center: [12.42, 45.48], zoom: 3, contents: '<img src="img/ph2005burano1.jpg">' },
-        '2005 Bologna': { center: [11.32, 44.51], zoom: 3, contents: '<img src="img/ph2005bologna1.jpg">' },
-        '2005 Napoli': { center: [14.2, 41.1], zoom: 3, contents: '<img src="img/ph2005napoli1.jpg">' },
-        '2005 Bari': { center: [16.82, 41.17], zoom: 3, contents: '<img src="img/ph2005bari1.jpg">' },
-        '2005 Alberobello': { center: [17.24, 40.78], zoom: 3, contents: '<img src="img/ph2005alberobello1.jpg">' },
-        '1999 群馬': { center: [138.535, 36.644], zoom: 3, contents: '<img src="img/ph99sirane1.jpg">' },
-        '1993 Bali 1': { center: [115.4, -8.2], zoom: 3, contents: '<img src="img/ph93bali1.jpg">' },
-        '1993 Bali 2': { center: [115.4, -8.2], zoom: 3, contents: '<img src="img/ph93bali2.jpg">' },
-        '1992 Saipan': { center: [145.75, 15.24], zoom: 3, contents: '<img src="img/ph92saipan1.jpg">' },
-        '1992 Istanbul 1': { center: [29.04, 41.2], zoom: 3, contents: '<img src="img/sh92istanbul1.jpg">' },
-        '1992 Istanbul 2': { center: [29.0, 41.05], zoom: 3, contents: '<img src="img/sh92istanbul2.jpg">' },
-        '1992 Istanbul 3': { center: [29.0, 41.05], zoom: 3, contents: '<img src="img/sh92istanbul3.jpg">' },
-        '1992 Istanbul 4': { center: [29.0, 41.05], zoom: 3, contents: '<img src="img/sh92istanbul4.jpg">' },
-        '1992 Istanbul 5': { center: [29.0, 41.05], zoom: 3, contents: '<img src="img/sh92istanbul5.jpg">' },
-        '1992 Istanbul 6': { center: [29.0, 41.05], zoom: 3, contents: '<img src="img/sh92istanbul6.jpg">' },
-        '1992 Istanbul 7': { center: [29.0, 41.05], zoom: 3, contents: '<img src="img/sh92istanbul7.jpg">' },
-        '1992 Izmir': { center: [26.5, 38.7], zoom: 3, contents: '<img src="img/sh92izmir1.jpg">' },
-        '1989 Ayutthaya': { center: [100.6, 14.5], zoom: 3, contents: '<img src="img/ph89ayutthaya1.jpg">' },
-        '1989 Singapore': { center: [103.8, 1.28], zoom: 3, contents: '<img src="img/ph89singapore1.jpg">' },
-        '1989 Melaka': { center: [102.2, 2.19], zoom: 3, contents: '<img src="img/ph89melaka1.jpg">' },
-        '1988 D.C.': { center: [283, 39], zoom: 3, contents: '<img src="img/ph88dc1.jpg">' },
-        '1988 Ontario': { center: [280.2, 43.2], zoom: 3, contents: '<img src="img/ph88ontario1.jpg">' },
-        '1988 Arizona': { center: [247.8, 36.33], zoom: 3, contents: '<img src="img/ph88arizona1.jpg">' },
-        '1987 Indiana': { center: [273.84, 39.83], zoom: 3, contents: '<img src="img/ph87indiana1.jpg">' },
-        '1986 上海 1': { center: [121.5, 31.3], zoom: 3, contents: '<img src="img/ph86shanghai1.jpg">' },
-        '1986 上海 2': { center: [121.5, 31.3], zoom: 3, contents: '<img src="img/ph86shanghai2.jpg">' },
-        '1986 陝西': { center: [108.93, 34.22], zoom: 3, contents: '<img src="img/ph86xian1.jpg">' },
-    }
-    const start = Math.floor(Math.random() * Object.keys(targets).length);
-    const yview = (window.matchMedia && window.matchMedia('(max-device-width: 700px)').matches) ? 10: 15;
-    //build_earth(targets, start, yview);
-    build_earth(targets, start, yview);
-}
-</script>
+<script type="module" src="js/mapearth.js"></script>
+<!-- <script type="module" src="js/mapearth.min.js"></script> -->
 
 
 </body>
