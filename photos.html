@@ -1,66 +1,148 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style2.css">
-    <!-- 検討中 -->
-    <!-- <link rel="stylesheet" href="css/popup2.css"> -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style2.css">
 	<meta name="description" content="石亀飼育係 - あの日あの時あの場所の写真">
 	<link rel="shortcut icon" href="img/kame.ico">
 	<title>石亀飼育係 - あの日あの時あの場所の写真</title>
+  <style>
+    /* ==========================================
+       1. 基本スタイル & CSS変数
+       ========================================== */
+    :root {
+      --gap: 16px;              /* 写真間の余白 */
+    }
+
+    * {
+      box-sizing: border-box;
+      /* margin: 0;
+      padding: 0; */
+    }
+
+    /* ==========================================
+       2. レスポンシブ・ギャラリー（CSS Grid / Column）
+       ========================================== */
+    .gallery-container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: var(--gap);
+      /* Masonry風の段組み表示 */
+      column-count: 1;
+      column-gap: var(--gap);
+    }
+
+    /* 画面サイズに応じたカラム数の調整 */
+    @media (min-width: 600px)  { .gallery-container { column-count: 2; } }
+    @media (min-width: 900px)  { .gallery-container { column-count: 3; } }
+    @media (min-width: 1200px) { .gallery-container { column-count: 4; } }
+
+    /* 写真カード */
+    .photo-card {
+      break-inside: avoid;
+      margin-bottom: var(--gap);
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: yellow; /*未使用ぽい*/
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      color: white;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      /* 遅延読み込み時のちらつき防止 */
+      transition: opacity 0.3s;
+    }
+
+    /* ホバー時のオーバーレイ（フォトグラファー情報など） */
+    .photo-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .photo-card:hover .photo-info {
+      opacity: 1;
+    }
+
+    .photo-author {
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    /* ローディングインジケータ */
+    .loading {
+      text-align: center;
+      padding-top: 10px;
+      color: gray;
+      font-size: small;
+    }
+
+    /* ==========================================
+       3. モーダル表示 (Lightbox)
+       ========================================== */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+  </style>
 </head>
-<style>
-    #earthmap {
-        position: relative;
-        height: 490px;
-    }
-    main img {
-        border-radius: 4px;
-        margin: 6px 4px;
-    }
-    section.photos a {
-        text-decoration: none;
-    }
-    #control {
-        display: grid;
-        grid-template-columns: 1fr 2.5em 1fr;
-    }
-    #autoplay {
-        color: navy;
-        font-size: large;
-        font-weight: bold;
-        text-decoration: none;
-        margin: 0 0.5em;
-        text-align: center;
-    }
-    #autoplaytext {
-        color: navy;
-        font-size: smaller;
-        margin-top: 0.35em;
-        margin-left: 0;
-    }
-    @media (max-width: 700px) {
-        #earthmap {
-            height: 380px;
-        }
-        main img {
-            border-radius: 3px;
-            margin: 3px 2px;
-        }
-    }
-</style>
 <body>
  
-<!-- input・label・ドロワーメニューはbody直下 -->
-<input id="check_input" type="checkbox">
-<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+  <!-- input・label・ドロワーメニューはbody直下 -->
+  <input id="check_input" type="checkbox">
+  <label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
     <span></span><div id="title">MENU</div>
-</label>
-<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+  </label>
+  <label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
 
-<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+  <div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
     <ul>
         <li><a href="index.html">TOP</a></li>
         <li><a href="intro.html">経緯と方針</a></li>
@@ -78,9 +160,9 @@
         <li><a href="copyright.html">サイトポリシー</a></li>
         <li><a href="sitemap.html">サイトマップ</a></li>
     </ul>
-</div>
+  </div>
 
-<header>
+  <header>
     <a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a>
         <h1 class="title">石亀飼育係</h1>
     <nav>
@@ -92,9 +174,9 @@
             <li><a href="baby.html">成長記録</a></li>
         </ul>    
     </nav>
-</header>
+  </header>
 
-<main> <!-- メインコンテンツ -->
+  <main>
     <div class="breadcrumb">
         <ul>
             <li><a href="index.html">Top</a></li>
@@ -104,20 +186,20 @@
         </ul>
     </div> <!-- breadcrumb -->
     <h2 class="mono">あの日あの時あの場所の写真</h2>
-    <section class="w100center">
-        <div id="earthmap">
-            <div id="map"></div>
-            <div class="map-overlay">
-                <select name="selectTarget" id="selectTarget"></select>
-            </div>
-        </div>
-        <div id="control">
-            <span class="notes">写真を選択すると次の写真が表示されます</span>
-            <a id="autoplay" href="javascript:play(3000);">▶</a><span id="autoplaytext" onclick="play(3000);">自動再生</span>
-        </div>
-    </section>
-</main>
-<footer> <!-- フッターコンテンツ -->
+
+    <div class="gallery-container" id="gallery">
+      <!-- JavaScriptでここに写真を追加します -->
+    </div>
+    <div class="loading" id="loading">写真を読み込み中...</div>
+  </main>
+
+  <!-- 写真拡大用モーダル -->
+  <div class="modal" id="modal">
+    <span class="modal-close" id="modalClose">&times;</span>
+    <img class="modal-content" id="modalImg" src="" alt="拡大画像">
+  </div>
+
+  <footer> <!-- フッターコンテンツ -->
     <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
     <div id="footlinks">
         <ul>
@@ -129,80 +211,158 @@
         </ul>
     </div>
     <a href="#logo"><span class="arrow-up"></span></a>    
-</footer>
+  </footer>
 
-<!-- <script src="js/popup2.js"></script> -->
+  <!-- module指定するとjsファイル内で完結させる必要がある -->
+  <script src="js/bgcollage.js"></script>
+  <script>
+      collage(6, 18, 0.9);    // base_num, pic_num, white_ratio
+  </script>
 
-<!-- module指定するとjsファイル内で完結させる必要がある -->
-<script src="js/bgcollage.js"></script>
-<script>
-    collage(6, 18, 0.9);    // base_num, pic_num, white_ratio
-</script>
+  <script>
+    // by nm
+    const targets = [
+        { key: '2023 埼玉', value: 'img/phhasuda1.jpg' },
+        { key: '2021 埼玉', value: 'img/ph21sai1.jpg' },
+        { key: '2011 熊本 1', value: 'img/phkumamoto1.jpg' },
+        { key: '2011 熊本 2', value: 'img/phkumamoto2.jpg' },
+        { key: '2011 新竹', value: 'img/phtaiwan1.jpg' },
+        { key: '2010 東京', value: 'img/phome1.jpg' },
+        { key: '2010 Bangkok', value: 'img/ph10bangkok1.jpg' },
+        { key: '2009 広東 1', value: 'img/phgz1.jpg' },
+        { key: '2009 広東 2', value: 'img/phgd1.jpg' },
+        { key: '2009 広東 3', value: 'img/ph09gd2.jpg' },
+        { key: '2008 山梨', value: 'img/ph08fuji.jpg' },
+        { key: '2005 Venezia', value: 'img/ph2005venezia1.jpg' },
+        { key: '2005 Burano', value: 'img/ph2005burano1.jpg' },
+        { key: '2005 Bologna', value: 'img/ph2005bologna1.jpg' },
+        { key: '2005 Napoli', value: 'img/ph2005napoli1.jpg' },
+        { key: '2005 Bari', value: 'img/ph2005bari1.jpg' },
+        { key: '2005 Alberobello', value: 'img/ph2005alberobello1.jpg' },
+        { key: '1999 群馬', value: 'img/ph99sirane1.jpg' },
+        { key: '1993 Bali 1', value: 'img/ph93bali1.jpg' },
+        { key: '1993 Bali 2', value: 'img/ph93bali2.jpg' },
+        { key: '1992 Saipan', value: 'img/ph92saipan1.jpg' },
+        { key: '1992 Istanbul 1', value: 'img/sh92istanbul1.jpg' },
+        { key: '1992 Istanbul 2', value: 'img/sh92istanbul2.jpg' },
+        { key: '1992 Istanbul 3', value: 'img/sh92istanbul3.jpg' },
+        { key: '1992 Istanbul 4', value: 'img/sh92istanbul4.jpg' },
+        { key: '1992 Istanbul 5', value: 'img/sh92istanbul5.jpg' },
+        { key: '1992 Istanbul 6', value: 'img/sh92istanbul6.jpg' },
+        { key: '1992 Istanbul 7', value: 'img/sh92istanbul7.jpg' },
+        { key: '1992 Izmir', value: 'img/sh92izmir1.jpg' },
+        { key: '1989 Ayutthaya', value: 'img/ph89ayutthaya1.jpg' },
+        { key: '1989 Singapore', value: 'img/ph89singapore1.jpg' },
+        { key: '1989 Melaka', value: 'img/ph89melaka1.jpg' },
+        { key: '1988 D.C.', value: 'img/ph88dc1.jpg' },
+        { key: '1988 Ontario', value: 'img/ph88ontario1.jpg' },
+        { key: '1988 Arizona', value: 'img/ph88arizona1.jpg' },
+        { key: '1987 Indiana', value: 'img/ph87indiana1.jpg' },
+        { key: '1986 上海 1', value: 'img/ph86shanghai1.jpg' },
+        { key: '1986 上海 2', value: 'img/ph86shanghai2.jpg' },
+        { key: '1986 陝西', value: 'img/ph86xian1.jpg' },
+    ];
 
-<!-- 地球地図 -->
-<!-- バージョン明記 in 260810 -->
-<!-- <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' />
-<script src='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js'></script> -->
-<!-- <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css' />
-<script src='https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js'></script> -->
-<link rel='stylesheet' href='https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.css' />
-<script src='https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.js'></script>
+    // ==========================================
+    // 4. JavaScript (データ生成・無限スクロール・モーダル)
+    // ==========================================
 
-<!-- module指定するとjsファイル内で完結させる必要がある -->
-<script src="js/mapearth.js"></script>
-<!-- <script src="js/mapearth.min.js"></script> -->
-<script>
-// onload関数化 in 260810
-// window.onload = function() {
-    const targets = {
-        '2023 埼玉': { center: [139.7, 35.95], zoom: 3, contents: '<img src="img/phhasuda1.jpg">' },
-        '2021 埼玉': { center: [139.7, 35.95], zoom: 3, contents: '<img src="img/ph21sai1.jpg">' },
-        '2011 熊本 1': { center: [131, 33.05], zoom: 3, contents: '<img src="img/phkumamoto1.jpg">' },
-        '2011 熊本 2': { center: [131, 33.05], zoom: 3, contents: '<img src="img/phkumamoto2.jpg">' },
-        '2011 新竹': { center: [121, 25], zoom: 3, contents: '<img src="img/phtaiwan1.jpg">' },
-        '2010 東京': { center: [139.17, 35.82], zoom: 3, contents: '<img src="img/phome1.jpg">' },
-        '2010 Bangkok': { center: [100.5, 13.85], zoom: 3, contents: '<img src="img/ph10bangkok1.jpg">' },
-        '2009 広東 1': { center: [113.2, 23.2], zoom: 3, contents: '<img src="img/phgz1.jpg">' },
-        '2009 広東 2': { center: [112.2, 23.2], zoom: 3, contents: '<img src="img/phgd1.jpg">' },
-        '2009 広東 3': { center: [112.2, 23.2], zoom: 3, contents: '<img src="img/ph09gd2.jpg">' },
-        '2008 山梨': { center: [138.74, 35.37], zoom: 3, contents: '<img src="img/ph08fuji.jpg">' },
-        '2005 Venezia': { center: [12.33, 45.43], zoom: 3, contents: '<img src="img/ph2005venezia1.jpg">' },
-        '2005 Burano': { center: [12.42, 45.48], zoom: 3, contents: '<img src="img/ph2005burano1.jpg">' },
-        '2005 Bologna': { center: [11.32, 44.51], zoom: 3, contents: '<img src="img/ph2005bologna1.jpg">' },
-        '2005 Napoli': { center: [14.2, 41.1], zoom: 3, contents: '<img src="img/ph2005napoli1.jpg">' },
-        '2005 Bari': { center: [16.82, 41.17], zoom: 3, contents: '<img src="img/ph2005bari1.jpg">' },
-        '2005 Alberobello': { center: [17.24, 40.78], zoom: 3, contents: '<img src="img/ph2005alberobello1.jpg">' },
-        '1999 群馬': { center: [138.535, 36.644], zoom: 3, contents: '<img src="img/ph99sirane1.jpg">' },
-        '1993 Bali 1': { center: [115.4, -8.2], zoom: 3, contents: '<img src="img/ph93bali1.jpg">' },
-        '1993 Bali 2': { center: [115.4, -8.2], zoom: 3, contents: '<img src="img/ph93bali2.jpg">' },
-        '1992 Saipan': { center: [145.75, 15.24], zoom: 3, contents: '<img src="img/ph92saipan1.jpg">' },
-        '1992 Istanbul 1': { center: [29.04, 41.2], zoom: 3, contents: '<img src="img/sh92istanbul1.jpg">' },
-        '1992 Istanbul 2': { center: [29.0, 41.05], zoom: 3, contents: '<img src="img/sh92istanbul2.jpg">' },
-        '1992 Istanbul 3': { center: [29.0, 41.05], zoom: 3, contents: '<img src="img/sh92istanbul3.jpg">' },
-        '1992 Istanbul 4': { center: [29.0, 41.05], zoom: 3, contents: '<img src="img/sh92istanbul4.jpg">' },
-        '1992 Istanbul 5': { center: [29.0, 41.05], zoom: 3, contents: '<img src="img/sh92istanbul5.jpg">' },
-        '1992 Istanbul 6': { center: [29.0, 41.05], zoom: 3, contents: '<img src="img/sh92istanbul6.jpg">' },
-        '1992 Istanbul 7': { center: [29.0, 41.05], zoom: 3, contents: '<img src="img/sh92istanbul7.jpg">' },
-        '1992 Izmir': { center: [26.5, 38.7], zoom: 3, contents: '<img src="img/sh92izmir1.jpg">' },
-        '1989 Ayutthaya': { center: [100.6, 14.5], zoom: 3, contents: '<img src="img/ph89ayutthaya1.jpg">' },
-        '1989 Singapore': { center: [103.8, 1.28], zoom: 3, contents: '<img src="img/ph89singapore1.jpg">' },
-        '1989 Melaka': { center: [102.2, 2.19], zoom: 3, contents: '<img src="img/ph89melaka1.jpg">' },
-        '1988 D.C.': { center: [283, 39], zoom: 3, contents: '<img src="img/ph88dc1.jpg">' },
-        '1988 Ontario': { center: [280.2, 43.2], zoom: 3, contents: '<img src="img/ph88ontario1.jpg">' },
-        '1988 Arizona': { center: [247.8, 36.33], zoom: 3, contents: '<img src="img/ph88arizona1.jpg">' },
-        '1987 Indiana': { center: [273.84, 39.83], zoom: 3, contents: '<img src="img/ph87indiana1.jpg">' },
-        '1986 上海 1': { center: [121.5, 31.3], zoom: 3, contents: '<img src="img/ph86shanghai1.jpg">' },
-        '1986 上海 2': { center: [121.5, 31.3], zoom: 3, contents: '<img src="img/ph86shanghai2.jpg">' },
-        '1986 陝西': { center: [108.93, 34.22], zoom: 3, contents: '<img src="img/ph86xian1.jpg">' },
+    // const TOTAL_PHOTOS = 100;    /* 目標枚数 */
+    const TOTAL_PHOTOS = targets.length;    /* by nm */
+    const PER_PAGE = 20;         /* 1回あたりの読み込み枚数 */
+    let loadedCount = 0;
+
+    const gallery = document.getElementById('gallery');
+    const loading = document.getElementById('loading');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    const modalClose = document.getElementById('modalClose');
+
+    // 元: 写真データを生成（Picsum Photosからダミー画像とランダムなアスペクト比を取得）
+    function createPhotoData_0(index) {
+      // 縦横比にバリエーションを持たせてUnsplash/500px風の敷き詰め感を作る
+      const widths = [600, 600, 600, 600];
+      const heights = [400, 600, 750, 900];
+      const w = widths[index % widths.length];
+      const h = heights[(index * 3) % heights.length];
+
+      return {
+        id: index + 1,
+        // loading="lazy"用に最適な画像サイズを指定
+        src: `https://picsum.photos/id/${(index % 50) + 10}/${w}/${h}`,
+        author: `Photographer ${(index % 12) + 1}`
+      };
     }
-    const start = Math.floor(Math.random() * Object.keys(targets).length);
-    const yview = (window.matchMedia && window.matchMedia('(max-device-width: 700px)').matches) ? 10: 15;
-    build_earth(targets, start, yview);
-// }
-</script>
+    // 写真データを生成 -- by nm
+    function createPhotoData(index) {
+      return {
+        id: index + 1,
+        src: targets[index].value,
+        author: targets[index].key
+      };
+    }
 
-<!-- おそらく未使用 -->
-<!-- <script src="js/popup2.js"></script> -->
+    // カード要素を作成
+    function renderPhotoCard(data) {
+      const card = document.createElement('div');
+      card.className = 'photo-card';
 
+      card.innerHTML = `
+        <img src="${data.src}" alt="Photo by ${data.author}" loading="lazy">
+        <div class="photo-info">
+          <span class="photo-author">${data.author}</span>
+        </div>
+      `;
+
+      // クリックでモーダル表示
+      card.addEventListener('click', () => {
+        modalImg.src = data.src;
+        modal.classList.add('active');
+      });
+
+      return card;
+    }
+
+    // 写真の追加読み込み
+    function loadMorePhotos() {
+      if (loadedCount >= TOTAL_PHOTOS) {
+        loading.textContent = 'すべての写真を読み込みました';
+        return;
+      }
+
+      const nextCount = Math.min(loadedCount + PER_PAGE, TOTAL_PHOTOS);
+      const fragment = document.createDocumentFragment();
+
+      for (let i = loadedCount; i < nextCount; i++) {
+        const data = createPhotoData(i);
+        const card = renderPhotoCard(data);
+        fragment.appendChild(card);
+      }
+
+      gallery.appendChild(fragment);
+      loadedCount = nextCount;
+
+      if (loadedCount >= TOTAL_PHOTOS) {
+        loading.textContent = 'すべての写真を読み込みました';
+      }
+    }
+
+    // 無限スクロールの検知（Intersection Observer API）
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && loadedCount < TOTAL_PHOTOS) {
+        loadMorePhotos();
+      }
+    }, {
+      rootMargin: '200px' // スクロール底面に到達する手前で読み込みを開始
+    });
+
+    observer.observe(loading);
+
+    // モーダルを閉じるイベント
+    modalClose.addEventListener('click', () => modal.classList.remove('active'));
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.remove('active');
+    });
+  </script>
 </body>
 </html>
