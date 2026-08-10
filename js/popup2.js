@@ -13,18 +13,18 @@ const pics = document.getElementById('popup-pics');
 const marker = document.getElementById('popup-marker');
 
 // ボタンをクリックしたときにポップアップを表示させる
-if (clickBase != null) {
+if (clickBase != null)
     clickBase.addEventListener('click', () => {
         popupWrapper.style.display = "block";
     });
-}
 
 // ポップアップの外側又は「x」のマークをクリックしたときポップアップを閉じる
-popupWrapper.addEventListener('click', e => {
-    if (e.target.id === popupWrapper.id || e.target.id === close.id) {
-        popupWrapper.style.display = 'none';
-    }
-});
+if (popupWrapper != null)
+    popupWrapper.addEventListener('click', e => {
+        if (e.target.id === popupWrapper.id || e.target.id === close.id) {
+            popupWrapper.style.display = 'none';
+        }
+    });
 
 // 2025 moriuchi
 // aタグのonclickでポップアップを表示させる
