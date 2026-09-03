@@ -5,44 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/popup.css">
-    <link rel="stylesheet" href="css/saitamap.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 	<meta name="description" content="石亀飼育係 - 埼玉">
 	<link rel="shortcut icon" href="img/kame.ico">
 	<title>石亀飼育係 - 埼玉</title>
 </head>
 <style>
-.arrow {    
-    bottom: -1em;
-}
-#photo_block {
-    margin-top: 1em;
-}
-#mapmark {
-    position: absolute;
-    top: 46px;
-    left: 220px;
-    right:0;
-    bottom:0; 
-    margin:auto; 
-    opacity: 0.3;
-}
-.popup-inner {
-    padding: 1em;
-}
-.popup-contents img {
-    margin-bottom: 0.5em;
-}
-.red {
-    color: red;
-}
-@media (max-width: 700px) {
-    #mapmark {
-        top: 24px;
-        left: 132px;
-        width: 30px;
-        height: 30px;
-    }
-}
+  img {
+    max-width: initial;
+    margin-top: 0.5em;
+  }
+  #map {
+    height: 500px;
+  }
+  .popup-photo {
+    width: 200px;
+    border-radius: 6px;
+  }
+  .arrow {    
+      bottom: -1em;
+  }
+  #photo_block {
+      margin-top: 1em;
+  }
+  .popup-inner {
+      padding: 1em;
+  }
+  .popup-contents img {
+      margin-bottom: 0.5em;
+  }
+  .red {
+      color: red;
+  }
 </style>
 <body>
  
@@ -96,24 +90,13 @@
         </ul>
     </div> <!-- breadcrumb -->
     <h2>埼玉</h2>
-    <section id="scrollhere" class="w100center">
-        <div class="overlap">
-            <img id="map" src="img/smap1.png"><br>
-            <div>
-                <img id="mapmark" src="img/en50.png">
-            </div>
-            <div class="arrow">
-                <a id="prevphoto" href="">←</a>
-                <a id="autoplay" href="javascript:play(3000);">▶</a>
-                <a id="nextphoto" href="">→</a>
-            </div>
-            <div id="markers"></div>
-            <div id="note">　</div>
+    <section class="w100center">
+        <div class="section_content">
+            <div id="map"></div>
         </div>
-        <div id="photo_block">
-            <img id="photo" src="">
-        </div>
+
     </section>
+
     <section>
         <h3>歴史</h3>
         <div class="section_content">
@@ -318,7 +301,6 @@
                 <dt><a href="https://nihonmangekyouhakubutsukan.jimdofree.com/">日本万華鏡博物館（川口）</a><img class="extlink" src="img/extlink.png"></dt>
                 <!-- 
                 <dt><img class="extlink" src="img/extlink.png"></dt>
-
                 -->
             </dl>
         </div>
@@ -425,36 +407,104 @@
 
 <script src="js/popup.js"></script>
 
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 <script>
-    var notes = {
-        chichibu2:['saichichibu2','長瀞'], 
-        chichibu3:['saichichibu3','秩父華厳の滝'], 
-        chichibu1:['saichichibu1','秩父羊山芝桜の丘'], 
-        sakitama1:['saisakitama1','さきたま古墳群'],
-        s100ana1:['sai100ana1','吉見百穴'],
-        satte1:['saisatte1','権現堂堤'], 
-        kasu1:['saikasu1','地下神殿（首都圏外郭放水路）'],
-        kasu2:['saikasu2','春日部みどりスーパー'],
-        jionji1:['saijionji1','慈恩寺親水公園'],
-        jionji2:['saijionji2','慈恩寺玄奘塔'],
-        joshi1k:['saijoshi1k','岩槻城址公園'],
-        joshi2:['saijoshi2','岩槻城址公園'],
-        motoara1k:['saimotoara1k','元荒川調整池'],
-        kawagoe1:['saikawagoe1','川越'], 
-        omiya1:['saiomiya1','大宮鉄道博物館'], 
-        omiya2:['saiomiya2','大宮盆栽美術館'],
-        shinto1:['saishinto1','さいたま新都心'],
-        arena1:['saiarena1','さいたまクリテリウム'],
-        arena2:['saiarena2','さいたまスーパーアリーナ'],
-        yono1:['saiyono1','与野公園'],
-        fuji1:['saifuji1','埼京線から見た富士山'],
-        fuji2:['saifuji2','埼京線から見た富士山'],
-        hanno1:['saihanno1','飯能 トーベ・ヤンソンあけぼの子どもの森公園'],
-        asaka1:['saiasaka1','朝霞 りっくんランド'],
-    };
+// --- 地図の初期化 ---
+const map = L.map('map').setView([36.02, 139.4], 10); // 埼玉県
+
+// --- タイルレイヤー（OpenStreetMap） ---
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap contributors'
+}).addTo(map);
+
+// -- 県境
+// -- org for ローカル開発中
+// fetch('https://raw.githubusercontent.com/ohwada/World_Countries/master/leaflet/japan_prefectures/data/prefectures.geojson', {method: 'GET'}).then(response => response.text()).then(text => {
+// -- add for リリース
+fetch('js/prefectures.geojson', {method: 'GET'}).then(response => response.text()).then(text => {
+  var data = JSON.parse(text);
+  var frontera = L.geoJson(data, {
+    // -- add
+    style: {color: 'gray', weight: 1, opacity: 0.6, fillOpacity: 0.1, fillColor: '#000'},
+    // -- org
+    // style: {color: '#00f', weight: 2, opacity: 0.6, fillOpacity: 0.1, fillColor: '#00f'},
+    onEachFeature: function (feat, layer) {
+      // -- add
+      if (feat.properties.pref == 11) {      // pref:11 (埼玉県)
+        layer.setStyle({color: 'red', opacity: 1, fillOpacity: 0});
+      }
+
+      // -- org
+      // layer.bindPopup (feat.properties.pref+' '+feat.properties.name);
+
+      // -- org
+      // layer.on({
+      //   mouseover: highlightFeature,
+      //   mouseout: resetHighlight
+      // });
+      // function highlightFeature(e) {
+      //   var layer = e.target;
+      //   layer.setStyle({color: '#ff0000', fillColor: '#ff0000'});
+      // }
+      // function resetHighlight(e) {
+      //   frontera.resetStyle(e.target);
+      // }
+
+    }
+  }).addTo(map);
+});
+
+// --- マーカーと写真データ ---
+const photoMarkers = [
+  { name: "長瀞", latlng: [36.09565347549247, 139.11470998653792], photo: "img/saichichibu2.jpg", type:1 },
+  { name: "秩父華厳の滝", latlng: [36.084499054189216, 139.04147387144047], photo: "img/saichichibu3.jpg", type:1 },
+  { name: "秩父羊山芝桜の丘", latlng: [35.981209026746555, 139.08848920951442], photo: "img/saichichibu1.jpg", type:1 },
+  { name: "さきたま古墳群", latlng: [36.12890589559821, 139.47826758815972], photo: ["img/saisakitama1.jpg", "img/saisakitama2.jpg"], type:2 },
+  { name: "吉見百穴", latlng: [36.03959244311611, 139.42130633807457], photo: "img/sai100ana1.jpg", type:1 },
+  { name: "権現堂堤", latlng: [36.09203398135573, 139.72339563835783], photo: "img/saisatte1.jpg", type:1 },
+  { name: "地下神殿（首都圏外郭放水路）", latlng: [35.99572210652867, 139.81049566839968], photo: "img/saikasu1.jpg", type: 1 },
+  { name: "春日部みどりスーパー", latlng: [35.977686783719115, 139.8100375095142], photo: "img/saikasu2.jpg", type:1 },
+  { name: "慈恩寺親水公園", latlng: [35.97965874182504, 139.71540487513548], photo: "img/saijionji1.jpg", type:1 },
+  { name: "慈恩寺玄奘塔", latlng: [35.97593455222061, 139.71172708650172], photo: "img/saijionji2.jpg", type:1 },
+  { name: "岩槻城址公園", latlng: [35.95236823458762, 139.710957859525], photo: ["img/saijoshi2.jpg", "img/saijoshi1k.jpg"], type:2 },
+  { name: "元荒川調整池", latlng: [35.96139885977564, 139.70532481619762], photo: "img/saimotoara1k.jpg", type:1 },
+  { name: "川越", latlng: [35.92347734424325, 139.48331238224998], photo: "img/saikawagoe1.jpg", type:1 },
+  { name: "大宮鉄道博物館", latlng: [35.92116391809265, 139.61809294752914], photo: "img/saiomiya1.jpg", type: 1 },
+  { name: "大宮盆栽美術館", latlng: [35.928820430534635, 139.63275501718923], photo: "img/saiomiya2.jpg", type: 1 },
+  { name: "さいたま新都心", latlng: [35.89155052094779, 139.63412913553822], photo: "img/saishinto1.jpg", type:1 },
+  { name: "さいたまクリテリウム", latlng: [35.894741272736, 139.63083906786315], photo: ["img/saiarena1.jpg", "img/saiarena2.jpg"], type:2 },
+  { name: "与野公園", latlng: [35.88166031445379, 139.61786794629305], photo: "img/saiyono1.jpg", type:1 },
+  { name: "埼京線から見た富士山", latlng: [35.867356751972345, 139.6312138053902], photo: ["img/saifuji1.jpg", "img/saifuji2.jpg"], type: 2 },
+  { name: "飯能 トーベ・ヤンソンあけぼの子どもの森公園", latlng: [35.830468973993426, 139.34475596163094], photo: "img/saihanno1.jpg", type:1 },
+  { name: "朝霞 りっくんランド", latlng: [35.78495157585856, 139.59959962114627], photo: "img/saiasaka1.jpg", type:1 },
+//   { name: "", latlng: [], photo: "img/.jpg", type:1 },
+//   { name: "", latlng: [], photo: ["img/.jpg", "img/.jpg"], type:2 },
+];
+
+// --- マーカーを配置して写真ポップアップを設定 ---
+photoMarkers.forEach(point => {
+  const marker = L.marker(point.latlng).addTo(map);
+  let images = '';
+  switch (point.type) {
+    case 1:
+        images = `<img src="${point.photo}" class="popup-photo" />`;
+        break;
+    case 2:
+        images = `<img src="${point.photo[0]}" class="popup-photo" /><img src="${point.photo[1]}" class="popup-photo" />`;
+        break;
+  }
+  const popupContent = `<div>${point.name}</div>${images}`;
+
+  marker.bindPopup(popupContent);
+
+  // add 岩槻
+  const home = [35.95053257269347, 139.69297141096413];
+  L.circle(home, { radius: 15000, color: 'blue', weight: 1, fill: false }).addTo(map);
+
+});
 </script>
-<!-- <script src="js/mapphoto.js"></script> -->
-<script src="js/mapphoto.min.js"></script>
 
 </body>
 </html>
