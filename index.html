@@ -1,187 +1,497 @@
+<!--
+ https://www.frog-pod.com/FrogTechLog/2023/01/cssmix-blend-mode.html
+ 
+  -->
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <meta name="robots" content="noindex,nofollow,noarchive" />
-    <link rel="shortcut icon" href="img/65.ico">
-  	<link rel="stylesheet" href="moriuchi.css">
-    <title>moriuchi65</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">    
+	<meta name="description" content="日本石亀の屋外飼育環境">
+	<meta property="og:url" content="https://ishigame65.netlify.app/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Ishigame65">
+	<meta property="og:description" content="石亀が快適に暮らす環境を作る">
+	<meta property="og:image" content="https://ishigame65.netlify.app/img/ig1080x1080b.jpg">
+	<link rel="shortcut icon" href="img/kame.ico">
+	<title>日本石亀の屋外飼育環境</title>
 </head>
-
 <style>
-  .RIGHTDIV {
-    float:right;
-    text-align: center;
-    font-size: smaller;
-  }
-  .me {
-    margin-right: 20px;
-    margin-top: 15px;
-  }
-  /* .myphoto { */
-  #myphoto {
-    width:12em;
-    height:12em;
-    border-radius: 6em;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  #mymov, #mypic {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  #mypic {
-    display: none;
-  }
-  /* .maru, .myphoto:hover { */
-  .maru, #myphoto:hover {
-      cursor: pointer;
-  }
-  .maru {
-    font-size: 10pt;
-    color: skyblue;
-    margin: 0 0.2em;
-  }
-  #car {
-    width:12em;
-    margin-top: 1em;
-    display:none;
-  }
+    #obi {
+        position: absolute;
+        width: 100%;
+        background-image: url(img/ph86xian1.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        filter: sepia(100%);
+        opacity: 1;
+    }
+    #info {
+        position: absolute;
+        margin-top: 0.5em;
+        right: 0.5em;
+        width: 2em;
+        height: auto;
+        opacity: 0.7;
+        z-index: 9;
+    }
+    #infotext {
+        margin-top: 1em;
+        padding: 0.2em 1em;
+        float: right;
+        width: 30vw;
+        color: darkolivegreen;
+    }
+    section#movies {
+        display: flex;
+    }
+    #main_movie {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #catchphrase {
+		background: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        z-index: 10;
+        text-align: center;
+        width: fit-content;
+        padding: 0.4em 1em;
+        background-color: rgba(128,128,0,0.4);
+        color: whitesmoke;
+        font-weight: normal;
+        font-size: x-large;
+        font-family:'Times New Roman', Times, serif;
+        filter: sepia(100%);
+        text-shadow: 2px 3px 4px black;
+    }
+    #movie {
+        max-width: 640px;
+        filter: sepia(100%);
+        border-radius: 0.2em;
+        opacity: 0;
+        transition: opacity 4s ease-in;
+        mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    }
+    #news {
+        font-size: smaller;
+        color: darkcyan;
+        width: 100%;
+        text-align: center;
+        margin-top: 0.75em;
+    }
+    @keyframes fadeOut {
+        0% { mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); }
+        10% { mask-image: linear-gradient(to right, transparent 0%, black 4.5%, black 95.5%, transparent 100%); }
+        20% { mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%); }
+        30% { mask-image: linear-gradient(to right, transparent 0%, black 3.5%, black 96.5%, transparent 100%); }
+        40% { mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%); }
+        50% { mask-image: linear-gradient(to right, transparent 0%, black 2.5%, black 97.5%, transparent 100%); }
+        60% { mask-image: linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%); }
+        70% { mask-image: linear-gradient(to right, transparent 0%, black 1.5%, black 98.5%, transparent 100%); }
+        80% { mask-image: linear-gradient(to right, transparent 0%, black 1%, black 99%, transparent 100%); }
+        90% { mask-image: linear-gradient(to right, transparent 0%, black 0.5%, black 99.5%, transparent 100%); }
+        100% { mask-image: linear-gradient(to right, transparent 0%, black 0%, black 100%, transparent 100%); }
+    }
+    #buttons {
+        text-align: center;
+    }
+    #buttons button {
+        margin-left: 0.5em;
+        padding: 0.2em 0.5em;
+        border: 1px solid gray;
+    }
+    #mbut0 {
+        /* background-color: rgb(239,129,52); */
+        background-color: LightSalmon;
+    }
+    #mbut1, #mbut2, #mbut3, #mbut4, #mbut5 {
+        background-color: LightSkyBlue;
+    }
+    /* iPhoneでは一時停止マークのスタイル変更は無効（OS管理） */
+    button#autoButton {
+        border: none;
+        background-color: rgba(255,255,255,0.0);
+        color: DeepSkyBlue;
+        scale: 1.7 1.4;
+        margin-right: 0.3em;
+    }
+    /* 検索 */
+    section#search {
+        margin-top: 0.75em;
+        background: linear-gradient(90deg, rgba(255,255,255,0.0), rgb(194, 239, 251) 1%, rgba(255,255,255,0.0));
+        border-radius: 0.15em;
+    }
+    #TextSearch {
+        padding-top: 0.5em;
+        position: relative;
+        margin-left: 1.5em;
+    }
+    #hitlist {
+        padding-bottom: 1em;
+        margin-bottom: 0;
+    }
+	#TextSearch input {
+        -webkit-appearance: none;
+        appearance: none;
+        border: 1px solid gray;
+        max-width: 11em;
+		font-size: larger;
+		padding: 0 0.5em;
+        margin: 0.2em 0.5em 0.4em 0;
+	}
+    #checkButton {
+        color: black;
+        background-color: LightSkyBlue;
+        border-radius: 0.2em;
+    }
+    #turtle0 {
+        height: 40px;
+        position: absolute;
+        bottom: -2px;
+        right: 1em;
+        animation: turtlemove 90s linear 1 forwards;
+        opacity: 0;
+    }
+    footer {
+        margin-top: 0;
+    }
+    @keyframes turtlemove {
+        0%{ transform:translateX(-0px);}
+        10%{ transform:translateX(-0px);}
+        100%{ transform:translateX(-380px);}
+    }
+    @media (max-width: 840px) {
+        #obi {
+            display: none;
+        }
+        #info, #infotext {
+            display: none;
+        }
+        #catchphrase {
+            font-size: 1rem;
+        }
+        #movie {
+            width: 100%;
+            margin-bottom: 10px;
+            opacity: 1;
+            transition: none;
+            mask-image: none;
+            -webkit-mask-image: none; 
+        }
+        /* 検索 */
+        #TextSearch {
+            margin-left: 15px;
+        }
+        #wordText, #checkButton {
+            font-size: 16px;
+        }
+        #turtle0 {
+            display: none;
+        }
+    }
 </style>
-
 <body>
 
+<div id="arrowl" class="arrow">
+    <a href="software.html"><img class="pink" src="img/arrowlp.png"></a>
+    <div class="pink">自作ソフトウェア</div>
+</div>
+<div id="arrowr" class="arrow">
+    <a href="bikeindex.html"><img class="pink" src="img/arrowrp.png"></a>
+    <div class="pink">銀輪はたまに唄う</div>
+</div>
+ 
+<!-- input・label・ドロワーメニューはbody直下 -->
+<input id="check_input" type="checkbox">
+<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+    <span></span><div id="title">MENU</div>
+</label>
+<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+
+<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+    <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="intro.html">経緯と方針</a></li>
+        <li><a href="menu.html">飼育環境</a></li>
+        <li><a href="maintenance.html">日々の管理</a></li>
+        <li><a href="trouble.html">トラブル</a></li>
+        <li><a href="baby.html">成長記録</a></li>
+    </ul>
+    <ul id="menu2nd">
+        <li>&nbsp;</li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li><a href="keeper.html">飼育係</a></li>
+        <li><a href="entertainment.html">遊び</a></li>
+        <li><a href="links.html">リンク</a></li>
+        <li><a href="copyright.html">サイトポリシー</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+    </ul>
+</div>
+
+<header>
+    <a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a>
+        <h1 class="title">日本石亀の屋外飼育環境</h1>
+    <nav>
+        <ul>
+            <li><a href="intro.html">経緯と方針</a></li>
+            <li><a href="menu.html">飼育環境</a></li>
+            <li><a href="maintenance.html">日々の管理</a></li>
+            <li><a href="trouble.html">トラブル</a></li>
+            <li><a href="baby.html">成長記録</a></li>
+        </ul>    
+    </nav>
+</header>
+
+<div id="obi" onclick="changeBackImage()"></div>
 <main>
-
-<div class="RIGHTDIV">
-  <canvas id="EYECANVAS" width="90px" height="60px"></canvas>
-
-  <div class="me">
-      <!-- <video id="mymov" class="myphoto" src="img/me2.mp4" muted poster="img/me2.jpg" onclick="me_play();"></video>
-      <img id="mypic" class="myphoto" src="img/me3.jpg" onclick="me_select(0)"> -->
-      <div id="myphoto">
-        <video id="mymov" src="img/me2.mp4" muted poster="img/me2.jpg" onclick="me_play();"></video>
-        <img id="mypic" src="img/me3.jpg" onclick="me_select(0)">
-      </div>
-      <span id="me0" class="maru" onclick="me_select(0);">●</span>            
-      <span id="me1" class="maru" onclick="me_select(1);">○</span>
-  </div>
-
-  <div id="car">
-    <video id="carmov" src="img/rccar1.mp4" controls playsinline></video>
-  </div>
-</div>
-
-<h1><img src="img/m65logo.png" id="m65logo">いろいろ</h1>
-
-<h2>高校受験</h2>
-<ul class="wide">
-  <li><a href='highschool.html'>岩槻から通える高校</a>
-  <li><a href="hschool_schedule.html">中3スケジュール</a></li>
-  <li><a href="johoku_brief.html">（城北中）説明会</a><span class="notes">← 城北中限定</span></li>
-  <li><a href="test_recommend.html">（埼玉県）推薦入試と偏差値確約制度について</a></li>
-</ul>
-
-<h2>学習</h2>
-<ul class="wide">
-  <li><a href='cultivation/cultivation.html'>野菜作り</a>
-  <li><a href="history.html">歴史</a></li>
-  <li><a href="saihistory.html">埼玉の歴史</a></li>
-  <li><a href="rekishi.html">日本と中国の時代年表</a></li>
-  <li><a href="economy.html">経済動向</a></li>
-  <li><a href="invest.html">投資の基礎知識</a>
-    <ul class="notes">
-      <li><a href="investcase.html">投資方法と投資事例</a></li>
-    </ul>
-  </li>
-</ul>
-
-<h2>ソフトウェア</h2>
-<ul class="wide">
-  <li><a href='cultivation/cultilib.html'>栽培ライブラリ</a></li>
-  </li>
-  <li><a href='landview/landview.html'>所有地を可視化する</a>
-    <ul class="notes">
-      <li><a href='landview/landshape.html'>地番区画データ取得ライブラリ</a></li>
-    </ul>
-  </li>
-  <li><a href="blockcrushing.html">亀のブロックつぶしゲーム（PC版）</a></li>
-</ul>
-
-<h2>その他</h2>
-<ul class="wide">
-  <li><a href="study.html">勉強</a>（子供の学習）</li>
-  <li><a href="readdress.html">不動産の住所変更登記を自分でやる</a></li>
-  <li><a href="pdeathproc.html">親が亡くなった時の手続き（工事中）</a></li>
-  <!-- <li><a href="memoweb.html">WEBページ制作の覚書き</a></li> -->
-  <li><a href="brickmold.html">モルタルレンガ用型枠</a></li>
-  <li><a href="3d/index.html">3Dプリント</a></li>
-  <!-- <li><a href="imgpv/trip25.pdf">trip25.pdf （一時仮置き）</a>
-  <li><a href="imgpv/trip25.png">trip25.png （一時仮置き）</a> -->
-</ul>
-
-<div>
-<a href="links.html">リンク</a>
-</div>
-
-<!--
-個人的メモ
-<ul>
-<li><a href="garden/index.html">庭</a>
-<li><a href="image/index.html">映像・写真</a>
-</ul>
-<div class="indent">
-  <div class="private"><a href="pv1.html">非公開実験エリア（閲覧注意）</a></div>
-  <div class="secret">
-    <a href="https://ishigame65.netlify.app">i65</a>
-    <a href="https://phototools65.pages.dev/">p65</a>
-  </div>
-</div>
--->
-<!--
-<li><a href="tana.html">棚の設計案</a>
--->
-
+    <img id="info" src="img/iicon.png"">
+    <section id="movies">
+        <div id="main_movie">
+            <video id="movie" src="img/igwm01s.mp4" controls muted playsinline loop poster="img/igwm01s_0.jpg" onclick="this.play();"></video>
+            <h2 id="catchphrase">イシガメが快適に暮らす環境を作る</h2>
+            <!-- <div id="clear"></div> -->
+            <div id="buttons">
+                <button id="autoButton" onclick="autoSwitch()">▶</button>
+                <button id="mbut0" onclick="mChange(0)">1</button>
+                <button id="mbut1" onclick="mChange(1)">2</button>
+                <button id="mbut2" onclick="mChange(2)">3</button>
+                <button id="mbut3" onclick="mChange(3)">4</button>
+                <button id="mbut4" onclick="mChange(4)">5</button>
+                <button id="mbut5" onclick="mChange(5)">6</button>
+            </div>
+        </div>
+    </section>
+    <div id="news">2026年3月17日 日本石亀が絶滅危惧II類(VU)に指定されました</div>
+    <div id="infotext"></div>
+    <section id="search">
+        <div id="TextSearch">
+            <div>
+                <label><input type="text" id="wordText"></label>
+                <input type="button" value="検索" id="checkButton">
+            </div>
+            <small id="usage" class="indent">1つの語句を入力してサイト内を 検索</small>
+            <div id="msg" class="indent"></div>
+            <p id="hitlist"></p>
+            <img id="turtle0" src="img/turtle0.png" onclick="turtleClick()">
+        </div>
+    </section>
 </main>
-
-<footer>
-	<div class="footer-left">
-    <a href="https://www.instagram.com/moriuchi65/"><img src="img/insta60.png" alt="Instagram" width=32 height=32></a>
-    <a href="https://line.me/ti/p/bbGumkplDH"><img src="img/line_icon.png" alt="Line" width=32 height=32></a>
-	</div>
-	<div class="footer-center"></div>
-	<div class="footer-right">moriuchi65</div>
-	<!-- <div class="clear"></div> -->
+<footer> <!-- フッターコンテンツ -->
+    <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+    <div id="footlinks">
+        <ul>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li><a href="entertainment.html">遊び</a></li>
+            <li><a href="links.html">リンク</a></li>
+            <li><a href="copyright.html">サイトポリシー</a></li>
+            <li><a href="sitemap.html">サイトマップ</a></li>
+        </ul>
+    </div>
+    <a href="#logo"><span class="arrow-up"></span></a>
 </footer>
 
 <script>
-  // my phtono
-  const mymov = document.getElementById("mymov");
-  const mypic = document.getElementById("mypic");
-  const me0 = document.getElementById("me0");
-  const me1 = document.getElementById("me1");
-  function me_play() {
-      mymov.play();
-  }
-  function me_select(no) {
-      if (no == 1) {
-          me0.innerText = "○";
-          me1.innerText = "●";
-          mymov.style.display = "none";
-          mypic.style.display = "block";
-      } else {
-          me0.innerText = "●";
-          me1.innerText = "○";
-          mymov.style.display = "block";
-          mypic.style.display = "none";
-      }
-  }
+    // メイン映像と背景画像 ----------------------------------------
+    const mov = document.getElementById('movie');
+    const phrase = document.getElementById('catchphrase');
+    const auto_but = document.getElementById('autoButton');
+    const obi = document.getElementById('obi');
+    // igwm07s, igwm06s, igwm03s
+    const movies = [ 'igwm01s', 'igwm05s', 'igwm02s', 'igwm04s', 'igwm09s', 'igwm08s' ];
+    const buttons = [];
+    for (let i = 0; i < movies.length; i++) {
+        buttons.push(document.getElementById(`mbut${i}`));
+    }
+    function mChange(no) {
+        mno = no;
+        for (let i = 0; i < movies.length; i++) {
+            buttons[i].style.background = 'LightSkyBlue';
+        }
+        buttons[mno].style.background = 'LightSalmon';
+        mov.src = 'img/' + movies[mno] + '.mp4';
+        mov.poster = 'img/' + movies[mno] + '_0.jpg';
+    }
+    let mno = 0;
+    let timer = null;
+    function autoSwitch() {
+        if (timer == null) {
+            timer = setInterval( function(){
+                mChange((mno + 1) % movies.length);
+            }, 8000);
+            auto_but.innerText = '⏸';
+        } else {
+            clearInterval(timer);
+            timer = null;
+            auto_but.innerText = '▶';
+        }
+    }
+    // 映像初期状態だけモノクロにする
+    mov.addEventListener('play', atplay);
+    function atplay() {
+        clearInterval(timer);
+        timer = null;
+        auto_but.innerText = '▶';
+        phrase.style.display = 'none';
+        mov.style.filter = 'none';  // セピア解除
+        mov.style.transition = '10s';
+        obi.style.opacity = '0';
+        obi.style.transition = '10s';
+        if (!(window.matchMedia && window.matchMedia('(max-device-width: 840px)').matches)) {
+            setTimeout(function() {
+                mov.style.animation = 'fadeOut 200ms linear forwards';
+            }, 1000);
+        }
+    }
+    let backno = 0;
+    let pre_backno = 0;
+    let isinfo = 0;
+    const infos = [
+        'イスタンブール（92年撮影）',
+        'イスタンブール（92年撮影）',
+        'インディアナ州立大学（88年撮影）',
+        'アユタヤ（89年撮影）',
+        '広東省鼎湖山（09年撮影）',
+        '宮城県松島渡月橋（08年撮影）',
+        'ボスポラス海峡西岸黒海近く（92年撮影）',
+     ];
+    function changeBackImage() {
+        const obimages = [
+            'sh92istanbul4', 'sh92istanbul6', 'ph88iu3', 'ph89ayutthaya1', 'phgd1',
+            'bkmmiyagi2', 'sh92istanbul1' ];
+        while (backno == pre_backno) {
+            backno = Math.floor(Math.random() * obimages.length);
+        }
+        obi.style.backgroundImage = `url(img/${obimages[backno]}.jpg)`;
+        if (isinfo == 1) infotext.innerText = infos[backno];
+        pre_backno = backno;
+    }
+    const infotext = document.getElementById('infotext');
+    function showinfo() {
+        infotext.innerText = infos[backno];
+        mov.style.opacity = '0';
+        mov.style.transition = 'none';
+        isinfo = 1;
+    }
+    const info = document.getElementById('info');
+    info.addEventListener('mousedown', showinfo);
+    info.addEventListener('touchstart', (e) => {
+        e.preventDefault(); // 長押しメニュー防止
+        showinfo();
+    });
+    if (!(window.matchMedia && window.matchMedia('(max-device-width: 840px)').matches)) {
+        changeBackImage();
+        setInterval( function(){
+            mov.style.opacity = '1';
+        }, 2000);
+        const videostyle = window.getComputedStyle(mov);
+        obi.style.height = `${videostyle.height}`;
+    }
+
+    // その他 ----------------------------------------
+    const turtle0 = document.getElementById('turtle0');
+    function turtleClick() {
+        turtle0.style.opacity = '0';
+        turtle0.style.transition = 'opacity 20s linear';
+    }
+    if (!(window.matchMedia && window.matchMedia('(max-device-width: 840px)').matches)) {
+        const rnd0 = Math.floor(Math.random() * 10);
+        if (rnd0 == 0) turtle0.style.opacity = '1';
+    }
 </script>
-<script src="moriuchi.min.js"></script>
+
+<!-- 検索 -->
+<script src='js/search.js'></script>
+<script>
+	function butClick(){
+        const usage = document.getElementById('usage');
+        usage.style.display = 'none';
+        const turtle0 = document.getElementById('turtle0');
+        turtle0.style.animation = 'none';
+        turtle0.style.right = '1em';
+        const msg_el = document.getElementById('msg');
+	    const hitlist_el = document.getElementById('hitlist');
+	    const result = searchData(wordText.value);
+	    msg_el.innerHTML = '<b>' + result.length + '</b> 件見つかりました（' + i_body.length + '件中）';
+	    const html = createHtml(result);
+	    hitlist_el.innerHTML = html;
+	}
+
+	function searchData(query) {
+        const result = [];
+	    query = query.trim();
+	    if (query.length < 1) {
+		    return result;
+	    }
+	    const re = new RegExp(query, 'i');
+	    for (let i = 0; i < i_body.length; ++i) {
+		    const pos = i_body[i].search(re);
+		    if (pos != -1) {
+			    result.push([i, pos, pos + query.length]);
+		    }
+	    }
+	    return result;
+	}
+
+	function createHtml(result) {
+        const htmls = [];
+        for (let i = 0; i < result.length; ++i) {
+            const index = result[i][0];
+            const start = result[i][1];
+            const end = result[i][2];
+            const url = i_url[index];
+            const title = i_title[index];
+            const body = i_body[index]
+            htmls.push(createEntry(url, title, body, start, end));
+        }
+        return htmls.join('');
+	}
+
+	function createEntry(url, title, body, start, end) {
+        return '<div class=\"item\">' +
+            '<a class=\"item_title\" href=\"' + url + '\" target=\"_parent\">' + title + '</a>' +
+            '<blockquote>' + excerpt(body, start, end) + '</blockquote>' +
+            '</div>';
+	}
+
+	function excerpt(body, start, end) {
+        let head = body.substring(start - 80, start);
+        pos = head.lastIndexOf('<br>');
+        if (pos != -1) {
+            next_pos = head.lastIndexOf('<br>', pos - 1);
+            if (next_pos != -1) {
+                pos = next_pos
+            }
+            head = head.substring(pos + 4)
+        }
+        let tail = body.substring(end, end + 180);
+        pos = tail.indexOf('<br>');
+        if (pos != -1) {
+            next_pos = tail.indexOf('<br>', pos + 1);
+            if (next_pos != -1) {
+                pos = next_pos
+                next_pos = tail.indexOf('<br>', pos + 1);
+                if (next_pos != -1) {
+                    pos = next_pos
+                }
+            }
+            tail = tail.substring(0, pos - 4)
+        }
+        return [head, '<b>', body.substring(start, end), '</b>', tail].join('');
+	}
+	window.onload = function() {
+	    const checkButton = document.getElementById('checkButton');
+	    checkButton.addEventListener('click', butClick);
+	}
+</script>
 
 </body>
 </html>
