@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/routemap.css">
+	<meta name="description" content="銀輪はたまに唄う - 岩槻春日部ルート">
+	<link rel="shortcut icon" href="img/kame.ico">
+	<title>銀輪はたまに唄う - 岩槻春日部ルート</title>
+</head>
+<style>
+</style>
+
+<body>
+
+<!-- input・label・ドロワーメニューはbody直下 -->
+<input id="check_input" type="checkbox">
+<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+    <span></span><div id="title">MENU</div>
+</label>
+<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+
+<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+    <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="intro.html">経緯と方針</a></li>
+        <li><a href="menu.html">飼育環境</a></li>
+        <li><a href="maintenance.html">日々の管理</a></li>
+        <li><a href="trouble.html">トラブル</a></li>
+        <li><a href="baby.html">成長記録</a></li>
+    </ul>
+    <ul id="menu2nd">
+        <li>&nbsp;</li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li><a href="keeper.html">飼育係</a></li>
+        <li><a href="entertainment.html">遊び</a></li>
+        <li><a href="links.html">リンク</a></li>
+        <li><a href="copyright.html">サイトポリシー</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+    </ul>
+</div>
+
+<header>
+    <a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a>
+        <h1 class="title">銀輪はたまに唄う</h1>
+    <nav>
+        <ul>
+            <li><a href="intro.html">経緯と方針</a></li>
+            <li><a href="menu.html">飼育環境</a></li>
+            <li><a href="maintenance.html">日々の管理</a></li>
+            <li><a href="trouble.html">トラブル</a></li>
+            <li><a href="baby.html">成長記録</a></li>
+        </ul>    
+    </nav>
+</header>
+
+<main>
+    <div class="breadcrumb">
+        <ul>
+            <li><a href="index.html">Top</a></li>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li><a href="profile.html">プロフィール</a></li>
+            <li><a href="bikeindex.html">銀輪はたまに唄う</a>
+            <li><a href='broutemapi.html'>岩槻周辺サイクリングマップ</a></li>
+            <li>岩槻春日部ルート</li>
+        </ul>
+    </div> <!-- breadcrumb -->
+    <h2 class="mono">岩槻春日部ルート</h2>
+    <section class="w100center">
+        岩槻から春日部に至る銀輪街道（交通量・信号・起伏が少なく、自転車に最適な経路）
+        <div class="section_content">
+            <div id="map"></div>
+        </div>
+    </section>
+</main>
+<footer> <!-- フッターコンテンツ -->
+    <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+    <div id="footlinks">
+        <ul>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li><a href="entertainment.html">遊び</a></li>
+            <li><a href="links.html">リンク</a></li>
+            <li><a href="copyright.html">サイトポリシー</a></li>
+            <li><a href="sitemap.html">サイトマップ</a></li>
+        </ul>
+    </div>
+    <a href="#logo"><span class="arrow-up"></span></a>    
+</footer>
+
+<!-- 地図 -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+    function init() {
+        const zoomlevel = (window.matchMedia && window.matchMedia('(max-device-width: 700px)').matches) ? 12: 14;
+        const map = L.map('map').setView([35.97, 139.736], zoomlevel);
+
+        // --- タイルレイヤー（OpenStreetMap） ---
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }).addTo(map);
+        // http://127.0.0.1:5500/this.html で開く
+        L.control.scale({ imperial: false, metric: false  }).addTo(map);   //スケールバー
+
+        // 経路
+        const routes = [];
+        const pmhpark = [35.95718536958884, 139.7194167557292];
+        const pmasutomik = [35.967362648257655, 139.7345161767278];
+        const ri2k = [pmhpark, [35.95785454611741, 139.72044230236574], [35.958117808862546, 139.72050734985382], [35.95859826111037, 139.72092202759052], [35.95858509807403, 139.72178390680793], 
+            [35.95876084158104, 139.72235186346035], [35.96043917999543, 139.72502310166124], [35.960665979751994, 139.72525660146988], [35.960907898766635, 139.72565822117457],
+            [35.961066657717275, 139.7261999407762], [35.96334972737315, 139.72943157873698], [35.964465427306095, 139.73072703013898], [35.96491697939375, 139.73140831138792],
+            [35.96666508183292, 139.73288592423822], [35.96640184762382, 139.73327620910237], [35.966678243520334, 139.73353233354445], [35.96674076150561, 139.73373560691118],
+            [35.966888830220654, 139.73373967237853], [35.96681644110576, 139.734170611916], pmasutomik, [35.96752058697095, 139.73602446522528], [35.96853755534721, 139.73587478584392],
+            [35.97007591381918, 139.73680556483453], [35.97077035527574, 139.73709166518208], [35.97098986801324, 139.7392502217344], [35.973066832644264, 139.74274798798314], 
+            [35.977548295281935, 139.74906543965974], [35.979491826480945, 139.75019435439626]];
+        routes.push(ri2k);// 岩槻-春日部];//
+        for (let ri = 0; ri < routes.length; ri++) {
+            L.polyline(routes[ri], { color: 'blue', weight: 2 }).addTo(map);      //経路座標
+        }
+
+        // 写真
+        const p100kn = [36.091225128807096, 139.676984634543];  // 百観音温泉
+        const photoMarkers = [
+            { latlng: [35.97733912963491, 139.75555226856923], type:2, photo: ["img/bkr_iklala1.jpg", "img/bkr_iklala2.jpg"], name: "ララガーデン春日部・クレヨンしんちゃん" },
+            { latlng: [35.979290157303204, 139.75020885689668], type:1, photo: "img/meal_ksbanrai1.jpg", name: "おなかの友達 萬来" },
+            //   { latlng: [], type:1, photo: "img/.jpg", name: "" },
+            //   { latlng: [], type:1, photo: "img/.jpg", name: "" },
+            //   { latlng: [], type:2, photo: ["img/.jpg", "img/.jpg"], name: "" },
+            //   { latlng: [], type:2, photo: ["img/.jpg", "img/.jpg"], name: "" },
+        ];
+        var myicon1 = L.icon({iconUrl: 'img/marker100red.png', iconSize:[30,30], iconAnchor:[15,30], popupAnchor:[0,-30]});
+        photoMarkers.forEach(point => {
+            const marker = L.marker(point.latlng, {icon:myicon1}).addTo(map);
+            let images = '';
+            switch (point.type) {
+                case 1:
+                    images = `<img src="${point.photo}" class="popup-photo" />`;
+                    break;
+                case 2:
+                    images = `<img src="${point.photo[0]}" class="popup-photo" /><img src="${point.photo[1]}" class="popup-photo" />`;
+                    break;
+            }
+            const popupContent = `<div>${point.name}</div>${images}`;
+
+            marker.bindPopup(popupContent);
+        });
+
+    }
+    window.addEventListener('DOMContentLoaded', init());    //ダウンロード時に初期化する
+</script>
+
+<script src="js/bgcollage.js"></script>
+<script>
+    collage(6, 18, 0.9);    // base_num, pic_num, white_ratio
+</script>
+
+</body>
+</html>

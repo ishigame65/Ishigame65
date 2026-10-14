@@ -5,43 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/routemap.css">
 	<meta name="description" content="銀輪はたまに唄う - 岩槻大宮ルート">
 	<link rel="shortcut icon" href="img/kame.ico">
 	<title>銀輪はたまに唄う - 岩槻大宮ルート</title>
 </head>
 <style>
-    img {
-        max-width: initial;
-        /*margin-top: 0.5em;*/
-    }
-    #map {
-        height: 500px;
-    }
-    .popup-photo {
-        width: 200px;
-        border-radius: 6px;
-    }
-    #photo_block {
-        margin-top: 1em;
-    }
-    .popup-inner {
-        padding: 1em;
-    }
-    .popup-contents img {
-        margin-bottom: 0.5em;
-    }
-    .leaflet-popup-content,
-    a.leaflet-popup-close-button {
-        color: rgb(10, 98, 133) !important;
-    }
-    .arrow {
-        bottom: 0;
-    }
-    @media (max-width: 700px) {
-        #map {
-            height: 250px;
-        }
-    }
 </style>
 
 <body>
@@ -100,7 +69,7 @@
     </div> <!-- breadcrumb -->
     <h2 class="mono">岩槻大宮ルート</h2>
     <section class="w100center">
-        岩槻から大宮やさいたま新都心に至る銀輪街道（交通量・信号・起伏が少なく、自転車に最適な経路）
+        岩槻から芝川や大宮公園を経由して大宮やさいたま新都心に至る銀輪街道（交通量・信号・起伏が少なく、自転車に最適な経路）
         <div class="section_content">
             <div id="map"></div>
         </div>
@@ -164,7 +133,8 @@
         const photoMarkers = [
             { latlng: [35.93268844465765, 139.6396154261632], type:1, photo: "img/bkr_iominumagc1.jpg", name: "市民の森 見沼グリーンセンター" },
             { latlng: [35.892250597935984, 139.6332994000851], type:1, photo: "img/bkr_ioshintoshin1.jpg", name: "さいたま新都心" },
-            //   { latlng: [], type:1, photo: "img/.jpg", name: "" },
+            { latlng: [35.892250597935984, 139.6332994000851], type:1, photo: "img/bkr_ioshintoshin1.jpg", name: "さいたま新都心" },
+            { latlng: [35.94331867170093, 139.65619381849984], type:1, photo: "img/meal_mnjindanbo1.jpg", name: "LOGU CABIN じんだんぼ" },
             //   { latlng: [], type:1, photo: "img/.jpg", name: "" },
             //   { latlng: [], type:1, photo: "img/.jpg", name: "" },
             //   { latlng: [], type:2, photo: ["img/.jpg", "img/.jpg"], name: "" },
