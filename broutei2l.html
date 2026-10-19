@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/routemap.css">
+	<meta name="description" content="銀輪はたまに唄う - 岩槻越谷レイクタウンルート">
+	<link rel="shortcut icon" href="img/kame.ico">
+	<title>銀輪はたまに唄う - 岩槻越谷レイクタウンルート</title>
+</head>
+<style>
+</style>
+
+<body>
+
+<!-- input・label・ドロワーメニューはbody直下 -->
+<input id="check_input" type="checkbox">
+<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+    <span></span><div id="title">MENU</div>
+</label>
+<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+
+<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+    <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="intro.html">経緯と方針</a></li>
+        <li><a href="menu.html">飼育環境</a></li>
+        <li><a href="maintenance.html">日々の管理</a></li>
+        <li><a href="trouble.html">トラブル</a></li>
+        <li><a href="baby.html">成長記録</a></li>
+    </ul>
+    <ul id="menu2nd">
+        <li>&nbsp;</li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li><a href="keeper.html">飼育係</a></li>
+        <li><a href="entertainment.html">遊び</a></li>
+        <li><a href="links.html">リンク</a></li>
+        <li><a href="copyright.html">サイトポリシー</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+    </ul>
+</div>
+
+<header>
+    <a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a>
+        <h1 class="title">銀輪はたまに唄う</h1>
+    <nav>
+        <ul>
+            <li><a href="intro.html">経緯と方針</a></li>
+            <li><a href="menu.html">飼育環境</a></li>
+            <li><a href="maintenance.html">日々の管理</a></li>
+            <li><a href="trouble.html">トラブル</a></li>
+            <li><a href="baby.html">成長記録</a></li>
+        </ul>    
+    </nav>
+</header>
+
+<main>
+    <div class="breadcrumb">
+        <ul>
+            <li><a href="index.html">Top</a></li>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li><a href="profile.html">プロフィール</a></li>
+            <li><a href="bikeindex.html">銀輪はたまに唄う</a>
+            <li><a href='broutemapi.html'>岩槻周辺サイクリングマップ</a></li>
+            <li>岩槻越谷レイクタウンルート</li>
+        </ul>
+    </div> <!-- breadcrumb -->
+    <h2 class="mono">岩槻越谷レイクタウンルート</h2>
+    <section class="w100center">
+        岩槻から袋山を経由して越谷レイクタウンに至る銀輪街道（交通量・信号・起伏が少なく、自転車に最適な経路）
+        <div class="section_content">
+            <div id="map"></div>
+        </div>
+    </section>
+</main>
+<footer> <!-- フッターコンテンツ -->
+    <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+    <div id="footlinks">
+        <ul>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li><a href="entertainment.html">遊び</a></li>
+            <li><a href="links.html">リンク</a></li>
+            <li><a href="copyright.html">サイトポリシー</a></li>
+            <li><a href="sitemap.html">サイトマップ</a></li>
+        </ul>
+    </div>
+    <a href="#logo"><span class="arrow-up"></span></a>    
+</footer>
+
+<!-- 地図 -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+    function init() {
+        const zoomlevel = (window.matchMedia && window.matchMedia('(max-device-width: 700px)').matches) ? 10: 12;
+        const map = L.map('map').setView([35.92, 139.78], zoomlevel);
+
+        // --- タイルレイヤー（OpenStreetMap） ---
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }).addTo(map);
+        // http://127.0.0.1:5500/this.html で開く
+        L.control.scale({ imperial: false, metric: false  }).addTo(map);   //スケールバー
+
+        // 経路
+        const routes = [];
+        //const pmasutomik = [35.967362648257655, 139.7345161767278];
+        const pmhpark = [35.95718536958884, 139.7194167557292]; // 南平野公園の角
+        const pkdchu = [35.94861485984484, 139.73109583946575]; // 川通中学校の角
+        const ri2kl = [pmhpark, [35.95458160425992, 139.72177134927438], [35.953943699175426, 139.7212953879733], [35.95366336661433, 139.72165103975078], [35.95310951634443, 139.72103058173803],
+            [35.952789356939235, 139.7217901824531], [35.95166523248933, 139.72451371416128], [35.95056083648841, 139.72617981737747], [35.95010703092577, 139.7276013881536],
+            [35.950137488043964, 139.72788310921914], pkdchu, [35.94762974225883, 139.7304416899184], [35.9475687804121, 139.73035683981186], [35.94575826817692, 139.72987484949286],
+            [35.94487719889614, 139.72901824270141], [35.94424520637876, 139.7287264335493], [35.94379933650148, 139.7290567357394], [35.943425312944406, 139.7291890640862],
+            [35.93950654512604, 139.73192793025063], [35.9383774553405, 139.7327531231632], [35.93582360890328, 139.7383246200912], [35.93255505245822, 139.7413968695407],
+            [35.9324723181496, 139.7413607597311], [35.931646148766525, 139.7398834344687], [35.9311499276306, 139.74017318444595], [35.93061417946093, 139.74104376567604],
+            [35.930411158152445, 139.74175880305972], [35.93038404538058, 139.74224995451522], [35.93027689499878, 139.74273167613018], [35.930308852143554, 139.7443358671478],
+            [35.93005714139171, 139.7451640402314], [35.92999410172135, 139.74614229686094], [35.9293646788731, 139.74916257065743], [35.92934915266907, 139.75087637536743],
+            [35.92893076794001, 139.75385254798175], [35.92842994856196, 139.7566354148103], [35.92708138810346, 139.76325367507147], [35.92679138130557, 139.76753368871212],
+            [35.92648348340735, 139.76857778929195], [35.92420697695477, 139.77470152168777], [35.924121838890144, 139.77472546676398], [35.924170521625065, 139.77597315897177],
+            [35.923769864558544, 139.77602033851105], [35.923207208877905, 139.77760871409424], [35.92347091869634, 139.78146398387736], [35.92218111860739, 139.78168120865254],
+            [35.92217483206567, 139.78395844944976], [35.92131501071423, 139.7875570371026], [35.92079827818457, 139.78948615042552], [35.922075576828185, 139.79605761386173],
+            [35.921075865411964, 139.79634574885634], [35.919361767615875, 139.79706007303693], [35.91431459846369, 139.7985619909999], [35.914595065508465, 139.8000392626745],
+            [35.9142431902566, 139.8002698177508], [35.91252200958042, 139.80076185564707], [35.91230288009363, 139.80092198226234], [35.912123879239005, 139.80125715964667],
+            [35.910595602062095, 139.80121511432057], [35.90965786513059, 139.80137419206108], [35.908969878193666, 139.8017810093764], [35.908694896579235, 139.8019816852747],
+            [35.90751863934926, 139.8033704063915], [35.90581176838927, 139.8057563385995], [35.905044490497204, 139.80482063141187], [35.90415543130794, 139.802694918302],
+            [35.895032202937074, 139.80902643861592], [35.89435230207818, 139.80936325667042], [35.89018645465218, 139.8106631574327], [35.88955813643039, 139.81071075108164],
+            [35.88639344664369, 139.81026044958216], [35.88617350264126, 139.81264452776017], [35.88579270772447, 139.81430279414437], [35.885438179310775, 139.81511999204577],
+            [35.8849801193808, 139.81660936772295], [35.8846502090315, 139.81828104179417], [35.884595407423596, 139.81832521465628], [35.88497453314511, 139.8224597287762],
+            [35.88334246163863, 139.82268994806384], [35.88355087508433, 139.82505258440466], [35.883111676068694, 139.8252917978457]];
+        routes.push(ri2kl);// 岩槻-越谷レイクタウン ];// ];//
+        for (let ri = 0; ri < routes.length; ri++) {
+            L.polyline(routes[ri], { color: 'blue', weight: 2 }).addTo(map);      //経路座標
+        }
+
+        // 写真
+        const p100kn = [36.091225128807096, 139.676984634543];  // 百観音温泉
+        const photoMarkers = [
+            { latlng: [35.87931888125072, 139.82670623135598], type:1, photo: "img/bkr_ilklaketown1.jpg", name: "イオン レイクタウン" },
+            { latlng: [35.88423863038916, 139.81292032108374], type:1, photo: "img/meal_kltanpopo1.jpg", name: "ファミリー中華 たんぽぽ" },
+            //   { latlng: [], type:1, photo: "img/.jpg", name: "" },
+            //   { latlng: [], type:1, photo: "img/.jpg", name: "" },
+            //   { latlng: [], type:2, photo: ["img/.jpg", "img/.jpg"], name: "" },
+            //   { latlng: [], type:2, photo: ["img/.jpg", "img/.jpg"], name: "" },
+        ];
+        var myicon1 = L.icon({iconUrl: 'img/marker100red.png', iconSize:[30,30], iconAnchor:[15,30], popupAnchor:[0,-30]});
+        photoMarkers.forEach(point => {
+            const marker = L.marker(point.latlng, {icon:myicon1}).addTo(map);
+            let images = '';
+            switch (point.type) {
+                case 1:
+                    images = `<img src="${point.photo}" class="popup-photo" />`;
+                    break;
+                case 2:
+                    images = `<img src="${point.photo[0]}" class="popup-photo" /><img src="${point.photo[1]}" class="popup-photo" />`;
+                    break;
+            }
+            const popupContent = `<div>${point.name}</div>${images}`;
+
+            marker.bindPopup(popupContent);
+        });
+
+    }
+    window.addEventListener('DOMContentLoaded', init());    //ダウンロード時に初期化する
+</script>
+
+<script src="js/bgcollage.js"></script>
+<script>
+    collage(6, 18, 0.9);    // base_num, pic_num, white_ratio
+</script>
+
+</body>
+</html>
