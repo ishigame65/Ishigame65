@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/routemap.css">
+	<meta name="description" content="銀輪はたまに唄う - 岩槻菖蒲ルート">
+	<link rel="shortcut icon" href="img/kame.ico">
+	<title>銀輪はたまに唄う - 岩槻菖蒲ルート</title>
+</head>
+<style>
+</style>
+
+<body>
+
+<!-- input・label・ドロワーメニューはbody直下 -->
+<input id="check_input" type="checkbox">
+<label id="menu_btn" for="check_input"> <!-- ハンバーガーボタン部分 -->
+    <span></span><div id="title">MENU</div>
+</label>
+<label id="drawer_back" for="check_input"></label> <!-- ドロワーメニューの背景部分 -->
+
+<div id="menu_cont"> <!-- ドロワーメニュー本体部分 -->
+    <ul>
+        <li><a href="index.html">TOP</a></li>
+        <li><a href="intro.html">経緯と方針</a></li>
+        <li><a href="menu.html">飼育環境</a></li>
+        <li><a href="maintenance.html">日々の管理</a></li>
+        <li><a href="trouble.html">トラブル</a></li>
+        <li><a href="baby.html">成長記録</a></li>
+    </ul>
+    <ul id="menu2nd">
+        <li>&nbsp;</li>
+        <li><a href="https://www.instagram.com/ishigame65/">Instagram<img src="img/insta60.png" alt="" id="instaicon"></a></li>
+        <li><a href="keeper.html">飼育係</a></li>
+        <li><a href="entertainment.html">遊び</a></li>
+        <li><a href="links.html">リンク</a></li>
+        <li><a href="copyright.html">サイトポリシー</a></li>
+        <li><a href="sitemap.html">サイトマップ</a></li>
+    </ul>
+</div>
+
+<header>
+    <a href="index.html"><img id="logo" src="img/logo.png" alt="Ishigame65"></a>
+        <h1 class="title">銀輪はたまに唄う</h1>
+    <nav>
+        <ul>
+            <li><a href="intro.html">経緯と方針</a></li>
+            <li><a href="menu.html">飼育環境</a></li>
+            <li><a href="maintenance.html">日々の管理</a></li>
+            <li><a href="trouble.html">トラブル</a></li>
+            <li><a href="baby.html">成長記録</a></li>
+        </ul>    
+    </nav>
+</header>
+
+<main>
+    <div class="breadcrumb">
+        <ul>
+            <li><a href="index.html">Top</a></li>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li><a href="profile.html">プロフィール</a></li>
+            <li><a href="bikeindex.html">銀輪はたまに唄う</a>
+            <li><a href='broutemapi.html'>岩槻周辺サイクリングマップ</a></li>
+            <li>岩槻菖蒲ルート</li>
+        </ul>
+    </div> <!-- breadcrumb -->
+    <h2 class="mono">岩槻菖蒲ルート</h2>
+    <section class="w100center">
+        岩槻から白岡を経由して菖蒲に至る銀輪街道（交通量・信号・起伏が少なく、自転車に最適な経路）
+        <div class="section_content">
+            <div id="map"></div>
+        </div>
+    </section>
+</main>
+<footer> <!-- フッターコンテンツ -->
+    <a href="https://www.instagram.com/ishigame65/"><img src="img/insta60.png" alt="" id="instaicon2"></a>
+    <div id="footlinks">
+        <ul>
+            <li><a href="keeper.html">飼育係</a></li>
+            <li><a href="entertainment.html">遊び</a></li>
+            <li><a href="links.html">リンク</a></li>
+            <li><a href="copyright.html">サイトポリシー</a></li>
+            <li><a href="sitemap.html">サイトマップ</a></li>
+        </ul>
+    </div>
+    <a href="#logo"><span class="arrow-up"></span></a>    
+</footer>
+
+<!-- 地図 -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+    function init() {
+        const zoomlevel = (window.matchMedia && window.matchMedia('(max-device-width: 700px)').matches) ? 10: 12;
+        const map = L.map('map').setView([36.023, 139.69], zoomlevel);
+
+        // --- タイルレイヤー（OpenStreetMap） ---
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OpenStreetMap contributors' }).addTo(map);
+        // http://127.0.0.1:5500/this.html で開く
+        L.control.scale({ imperial: false, metric: false  }).addTo(map);   //スケールバー
+
+        // 経路
+        const routes = [];
+        const pjhbridge = [35.969642462653624, 139.69805783293296]; // 城北橋
+        const pshiraokaf = [36.01543012720328, 139.6669146209623];  // 白岡踏切
+        const pshobu0 = [36.06563159727379, 139.60647185784376];    // 菖蒲分岐歩道入口
+        const ri2s = [pjhbridge, [35.97112805315993, 139.69674938044264], [35.973211003010405, 139.69608422511402], [35.975542553968054, 139.69336901951226], [35.977270205583366, 139.68721317175132],
+            [35.979003312386936, 139.68695827593385], [35.97905629618232, 139.68670828365947], [35.992082269998114, 139.68842822417858], [35.9935124966747, 139.68529278179835],
+            [35.996305295777844, 139.68111556240086], [35.99678419018145, 139.68157581053464], [35.99935399950209, 139.67930332421562], [36.000433569704775, 139.67705434037583],
+            [36.00834291900124, 139.67012192469713], [36.01488514951096, 139.66684833653576], pshiraokaf,
+            [36.01547642363571, 139.6666257051176], [36.01592035438371, 139.66608499823016], [36.01585458702327, 139.6660118198544], [36.01827294529203, 139.66472191984735],
+            [36.018656466509235, 139.66404374320652], [36.018735787886634, 139.66399237327823], [36.018454022410005, 139.6629920060003], [36.01850407043021, 139.66266043603613],
+            [36.01953545225202, 139.66094452254933], [36.019765627029194, 139.66071075823794], [36.022023871157344, 139.65943402637018], [36.022410013708836, 139.65936965337193],
+            [36.02419752530306, 139.6594179331164], [36.024609688493605, 139.6593267380369], [36.02652730356489, 139.6585542622677], [36.02739932576243, 139.65808219368066],
+            [36.028948117492476, 139.65747601476727], [36.03260015190441, 139.65614232886708], [36.03370598589461, 139.65462795052954], [36.034884916020225, 139.65435671852123],
+            [36.03632885293768, 139.6529892570703], [36.03759912995713, 139.65248069707033], [36.03868661701872, 139.65092111307908], [36.03958691370424, 139.6507902442156],
+            [36.04118702834944, 139.6497918450713], [36.04195684187679, 139.64917871642896], [36.042546994127136, 139.64990073266313], [36.044228414415436, 139.6523505501265],
+            [36.044543805460584, 139.65196106535365], [36.045326042277296, 139.650562269091], [36.04563993131048, 139.6496256301172], [36.04595381907911, 139.648984771944],
+            [36.04651488614037, 139.64839480579158], [36.04707873884761, 139.64724145594792], [36.04721319544434, 139.64643142879908], [36.047417048540645, 139.64613102141627],
+            [36.04771198400093, 139.64588425820892], [36.047794392249926, 139.64571796114166], [36.04800258110732, 139.64463434877396], [36.05039671339222, 139.6409704513013],
+            [36.051051617331574, 139.63950060076974], [36.05128582006881, 139.63701687523496], [36.052244309184026, 139.6369739598687], [36.05282980584445, 139.63615856829747],
+            [36.05317676476189, 139.63503204048092], [36.05318110175155, 139.63412008940534], [36.05388802578959, 139.63262878121122], [36.053914047415155, 139.632194263347],
+            [36.0542995234191, 139.63059152873623], [36.05495189644723, 139.62842554082638], [36.055036790136356, 139.62713594462218], [36.05522609682598, 139.62633487180776],
+            [36.05570434326061, 139.62484980609835], [36.05573921527268, 139.62427056889288], [36.05563459916501, 139.62299501452418], [36.056167641720904, 139.62195978198923],
+            [36.05939461331091, 139.617514972808], [36.06027541904799, 139.61663156122162], [36.06074354598092, 139.61637004062584], [36.061407976069674, 139.6153146216521],
+            [36.06255366263144, 139.6138262676396], [36.062676310215956, 139.61306455726958], [36.063790770869225, 139.6111011803756], [36.064152908268916, 139.61020846409048],
+            [36.06511557700019, 139.60860450305702], [36.06529452904992, 139.6081278506131], [36.065458145460354, 139.6065660242907], pshobu0,
+            [36.0659167174491, 139.60625955552442], [36.06635594518254, 139.60421666610046], [36.06595986999722, 139.60408073045352], [36.06544742937655, 139.60371846361653],
+            [36.064558482695205, 139.60257584260683], [36.06428962855232, 139.60152978103483]];
+        routes.push(ri2s);// 岩槻-菖蒲 ];//
+        const rs2m = [pshobu0, [36.07100359675215, 139.61362946247897], [36.07146182433748, 139.61310260314528], [36.07219938800214, 139.6144011127423], [36.07281728525132, 139.61517973597583]];
+        routes.push(rs2m);// 菖蒲-モラージュ菖蒲
+        for (let ri = 0; ri < routes.length; ri++) {
+            L.polyline(routes[ri], { color: 'blue', weight: 2 }).addTo(map);      //経路座標
+        }
+
+        // 写真
+        const photoMarkers = [
+            { latlng: [36.05549359861496, 139.64622302101105], type:1, photo: "img/bkr_ispark1.jpg", name: "久喜菖蒲公園" },
+            { latlng: [36.07517821086458, 139.61238437451937], type:2, photo: ["img/bkr_ismallage1.jpg", "img/bkr_ismusashi1.jpg"], name: "モラージュ菖蒲, ホームセンタームサシ" },
+            { latlng: [36.06568605790165, 139.59916810694665], type:1, photo: "img/meal_sbyawaragi1.jpg", name: "やわらぎ亭" },
+            //   { latlng: [], type:1, photo: "img/.jpg", name: "" },
+            //   { latlng: [], type:1, photo: "img/.jpg", name: "" },
+            //   { latlng: [], type:1, photo: "img/.jpg", name: "" },
+            //   { latlng: [], type:2, photo: ["img/.jpg", "img/.jpg"], name: "" },
+            //   { latlng: [], type:2, photo: ["img/.jpg", "img/.jpg"], name: "" },
+        ];
+        var myicon1 = L.icon({iconUrl: 'img/marker100red.png', iconSize:[30,30], iconAnchor:[15,30], popupAnchor:[0,-30]});
+        photoMarkers.forEach(point => {
+            const marker = L.marker(point.latlng, {icon:myicon1}).addTo(map);
+            let images = '';
+            switch (point.type) {
+                case 1:
+                    images = `<img src="${point.photo}" class="popup-photo" />`;
+                    break;
+                case 2:
+                    images = `<img src="${point.photo[0]}" class="popup-photo" /><img src="${point.photo[1]}" class="popup-photo" />`;
+                    break;
+            }
+            const popupContent = `<div>${point.name}</div>${images}`;
+
+            marker.bindPopup(popupContent);
+        });
+
+    }
+    window.addEventListener('DOMContentLoaded', init());    //ダウンロード時に初期化する
+</script>
+
+<script src="js/bgcollage.js"></script>
+<script>
+    collage(6, 18, 0.9);    // base_num, pic_num, white_ratio
+</script>
+
+</body>
+</html>
