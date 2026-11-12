@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+/* body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+} */
+
+#map {
+  /* width: 100%;
+  height: 100vh; */
+  height: 500px;
+}
+
+#modal-title {
+  background: unset;
+  padding: unset;
+  margin: unset;
+}
+/* モーダルの背景（画面全体） */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2000; /* LeafletのUIより前面にする */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+/* モーダルの白い枠部分 */
+.modal-content {
+  background: #fff;
+  width: 92%;
+  height: 90%;
+  max-width: 800px; /* PCで広がりすぎないように制限 */
+  border-radius: 10px;
+  padding: 24px;
+  box-sizing: border-box;
+  position: relative;
+  overflow-y: auto; /* 中身が長い場合はスクロール */
+}
+
+.close-btn {
+  position: sticky;
+  top: 0;
+  float: right;
+  background: gray;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.close-btn:hover {
+  background: #555;
+}
+
+/* ▼ 複数画像をまとめるコンテナ */
+.modal-images {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* 画像同士の隙間 */
+  margin: 16px 0;
+}
+
+/* ▼ 各画像のスタイル */
+.modal-img {
+  width: 100%;
+  max-height: 400px;
+  /* object-fit: cover; */
+  object-fit: contain;
+  border-radius: 8px;
+}
+@media (max-width: 700px) {
+  #map {
+      /* height: 250px; */
+      height: 350px;
+  }
+}
