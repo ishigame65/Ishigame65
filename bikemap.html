@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="css/leaffullpop.css">
 	<meta name="description" content="銀輪はたまに唄う - 走行経路">
 	<link rel="shortcut icon" href="img/kame.ico">
 	<title>銀輪はたまに唄う - 走行経路</title>
@@ -118,9 +120,18 @@
     <a href="#logo"><span class="arrow-up"></span></a>    
 </footer>
 
-<!-- 地図 -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<!-- 地図 & ポップアップ画像表示 -->
+<div id="fullscreen-modal" class="modal hidden">
+    <div class="modal-content">
+        <button id="close-modal" class="close-btn">× 閉じる</button>
+        <h2 id="modal-title"></h2>      
+        <div id="modal-images" class="modal-images"></div>
+        <p id="modal-desc"></p>
+    </div>
+</div>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="js/leaffullpop.js"></script>
 <script>
     function init() {
         const zoomlevel = (window.matchMedia && window.matchMedia('(max-device-width: 700px)').matches) ? 4: 6;
@@ -577,53 +588,35 @@
         });
 
         // 写真
-        const photoMarkers = [
-            { latlng: [35.377574881136916, 136.26182721061258], type:1, photo: "img/bkmshiga1.jpg", name: "滋賀県 長浜<ul><li>クロモリ初号機</li><li>ブリジストンAtrantisスポルティーフ</li></ul>" },
-            { latlng: [33.32602085190824, 130.38389628866133], type:1, photo: "img/bkmsaga1.jpg", name: "佐賀県 吉野ヶ里遺跡" },
-            { latlng: [33.22022852155678, 130.07244219001265], type:1, photo: "img/bkmsaga2.jpg", name: "佐賀県 武雄" },
-            { latlng: [33.35704872167449, 129.57229866606815], type:1, photo: "img/bkmnagasaki1.jpg", name: "長崎県 平戸<ul><li>帰路は平戸口から輪行</li><li>嫌いな言葉：リアス海岸</li></ul>" },
-            { latlng: [33.48229988276268, 131.18423768725785], type:1, photo: "img/bkmoita2.jpg", name: "大分県 耶馬渓" },
-            { latlng: [33.48706844671144, 130.93919013988454], type:1, photo: "img/bkmfukuoka1.jpg", name: "福岡県 英彦山" },
-            { latlng: [33.68304454494789, 131.6009071582255], type:1, photo: "img/bkmoita1.jpg", name: "大分県 国東半島" },
-            { latlng: [32.77920279034573, 131.69818618023737], type:1, photo: "img/bkmmiyazaki1.jpg", name: "宮崎県 宗太郎越え" },
-            { latlng: [32.7020792642313, 131.30103601075538], type:1, photo: "img/bkmmiyazaki2.jpg", name: "宮崎県 高千穂峡" },
-            { latlng: [31.764566066714142, 131.4735357124066], type:1, photo: "img/bkmmiyazaki3.jpg", name: "宮崎県 日南海岸" },
-            { latlng: [31.46494831325141, 131.13864958456804], type:1, photo: "img/bkmkagoshima1.jpg", name: "鹿児島県 志布志湾" },
-            { latlng: [32.49951118703969, 130.59974071598938], type:1, photo: "img/bkmkumamoto1.jpg", name: "熊本県 八代" },
-            { latlng: [31.27213168954122, 130.29948154772583], type:1, photo: "img/bkmkagoshima2.jpg", name: "鹿児島県 枕崎" },
-            { latlng: [34.167028000622565, 132.17919205254873], type:1, photo: "img/bkmyamaguchi1.jpg", name: "山口県 錦帯橋" },
-            { latlng: [32.72529729877378, 133.01861239567447], type:1, photo: "img/bkmkochi1.jpg", name: "高知県 足摺岬" },
-            { latlng: [33.69422176687584, 134.43748274288208], type:1, photo: "img/bkmtokushima2.jpg", name: "徳島県 牟岐町辺川" },
-            { latlng: [33.734819441361644, 134.54093747983248], type:1, photo: "img/bkmtokushima1.jpg", name: "徳島県 日和佐<ul><li>うみがめ博物館（うみがめ産卵場所）</li></ul>" },
-            { latlng: [34.18410502411368, 133.809997025392], type:1, photo: "img/bkmkagawa1.jpg", name: "香川県 金刀比羅宮（こんぴらさん）" },
-            { latlng: [35.09460079392054, 132.34470995308618], type:1, photo: "img/bkmshimane1.jpg", name: "島根県 温泉津温泉" },
-            { latlng: [35.393547590332446, 132.68707138459544], type:1, photo: "img/bkmshimane2.jpg", name: "島根県 出雲大社" },
-            { latlng: [35.54493784364702, 133.2235270436199], type:1, photo: "img/bkmtottori2.jpg", name: "鳥取県 境港" },
-            { latlng: [35.543573331685174, 134.23687893554762], type:1, photo: "img/bkmtottori1.jpg", name: "鳥取県 鳥取砂丘<ul><li>帰路は鳥取から輪行</li><li>嫌いな言葉：リアス海岸</li></ul>" },
-            { latlng: [35.610518674530596, 140.5267710359467], type:1, photo: "img/bkmchiba1.jpg", name: "千葉県 九十九里浜" },
-            { latlng: [35.70794693180256, 140.86856766830343], type:1, photo: "img/bkmchiba2.jpg", name: "千葉県 犬吠埼灯台" },
-            { latlng: [38.365404591508465, 141.06184241907383], type:1, photo: "img/bkmmiyagi2.jpg", name: "宮城県 松島" },
-            { latlng: [38.43346651565994, 141.30688535317998], type:1, photo: "img/bkmmiyagi1.jpg", name: "宮城県 石巻<ul><li>帰路は女川から輪行</li><li>嫌いな言葉：リアス海岸</li></ul>" },
-            //   { latlng: [], type:1, photo: "img/.jpg", name: "" },
-            //   { latlng: [], type:2, photo: ["img/.jpg", "img/.jpg"], name: "" },
+        const spots = [
+            { latlng: [35.377574881136916, 136.26182721061258], images: ["img/bkmshiga1.jpg"], name: "滋賀県 長浜", description: "<ul><li>クロモリ初号機</li><li>ブリジストンAtrantisスポルティーフ</li></ul>" },
+            { latlng: [33.32602085190824, 130.38389628866133], images: ["img/bkmsaga1.jpg"], name: "佐賀県 吉野ヶ里遺跡", description: ''},
+            { latlng: [33.22022852155678, 130.07244219001265], images: ["img/bkmsaga2.jpg"], name: "佐賀県 武雄", description: ''},
+            { latlng: [33.35704872167449, 129.57229866606815], images: ["img/bkmnagasaki1.jpg"], name: "長崎県 平戸", description: "<ul><li>帰路は平戸口から輪行</li><li>嫌いな言葉：リアス海岸</li></ul>" },
+            { latlng: [33.48229988276268, 131.18423768725785], images: ["img/bkmoita2.jpg"], name: "大分県 耶馬渓", description: ''},
+            { latlng: [33.48706844671144, 130.93919013988454], images: ["img/bkmfukuoka1.jpg"], name: "福岡県 英彦山", description: ''},
+            { latlng: [33.68304454494789, 131.6009071582255], images: ["img/bkmoita1.jpg"], name: "大分県 国東半島", description: ''},
+            { latlng: [32.77920279034573, 131.69818618023737], images: ["img/bkmmiyazaki1.jpg"], name: "宮崎県 宗太郎越え", description: ''},
+            { latlng: [32.7020792642313, 131.30103601075538], images: ["img/bkmmiyazaki2.jpg"], name: "宮崎県 高千穂峡", description: ''},
+            { latlng: [31.764566066714142, 131.4735357124066], images: ["img/bkmmiyazaki3.jpg"], name: "宮崎県 日南海岸", description: ''},
+            { latlng: [31.46494831325141, 131.13864958456804], images: ["img/bkmkagoshima1.jpg"], name: "鹿児島県 志布志湾", description: ''},
+            { latlng: [32.49951118703969, 130.59974071598938], images: ["img/bkmkumamoto1.jpg"], name: "熊本県 八代", description: ''},
+            { latlng: [31.27213168954122, 130.29948154772583], images: ["img/bkmkagoshima2.jpg"], name: "鹿児島県 枕崎", description: ''},
+            { latlng: [34.167028000622565, 132.17919205254873], images: ["img/bkmyamaguchi1.jpg"], name: "山口県 錦帯橋", description: ''},
+            { latlng: [32.72529729877378, 133.01861239567447], images: ["img/bkmkochi1.jpg"], name: "高知県 足摺岬", description: ''},
+            { latlng: [33.69422176687584, 134.43748274288208], images: ["img/bkmtokushima2.jpg"], name: "徳島県 牟岐町辺川", description: ''},
+            { latlng: [33.734819441361644, 134.54093747983248], images: ["img/bkmtokushima1.jpg"], name: "徳島県 日和佐", description: "<ul><li>うみがめ博物館（うみがめ産卵場所）</li></ul>" },
+            { latlng: [34.18410502411368, 133.809997025392], images: ["img/bkmkagawa1.jpg"], name: "香川県 金刀比羅宮（こんぴらさん）", description: ''},
+            { latlng: [35.09460079392054, 132.34470995308618], images: ["img/bkmshimane1.jpg"], name: "島根県 温泉津温泉", description: ''},
+            { latlng: [35.393547590332446, 132.68707138459544], images: ["img/bkmshimane2.jpg"], name: "島根県 出雲大社", description: ''},
+            { latlng: [35.54493784364702, 133.2235270436199], images: ["img/bkmtottori2.jpg"], name: "鳥取県 境港", description: ''},
+            { latlng: [35.543573331685174, 134.23687893554762], images: ["img/bkmtottori1.jpg"], name: "鳥取県 鳥取砂丘", description: "<ul><li>帰路は鳥取から輪行</li><li>嫌いな言葉：リアス海岸</li></ul>" },
+            { latlng: [35.610518674530596, 140.5267710359467], images: ["img/bkmchiba1.jpg"], name: "千葉県 九十九里浜", description: ''},
+            { latlng: [35.70794693180256, 140.86856766830343], images: ["img/bkmchiba2.jpg"], name: "千葉県 犬吠埼灯台", description: ''},
+            { latlng: [38.365404591508465, 141.06184241907383], images: ["img/bkmmiyagi2.jpg"], name: "宮城県 松島", description: ''},
+            { latlng: [38.43346651565994, 141.30688535317998], images: ["img/bkmmiyagi1.jpg"], name: "宮城県 石巻", description: "<ul><li>帰路は女川から輪行</li><li>嫌いな言葉：リアス海岸</li></ul>" },
         ];
-        var myicon1 = L.icon({iconUrl: 'img/marker100red.png', iconSize:[30,30], iconAnchor:[15,30], popupAnchor:[0,-30]});
-        photoMarkers.forEach(point => {
-            const marker = L.marker(point.latlng, {icon:myicon1}).addTo(map);
-            let images = '';
-            switch (point.type) {
-                case 1:
-                    images = `<img src="${point.photo}" class="popup-photo" />`;
-                    break;
-                case 2:
-                    images = `<img src="${point.photo[0]}" class="popup-photo" /><img src="${point.photo[1]}" class="popup-photo" />`;
-                    break;
-            }
-            const popupContent = `<div>${point.name}</div>${images}`;
-
-            marker.bindPopup(popupContent);
-        });
-
+        leaffullpop(map, spots);
     }
     window.addEventListener('DOMContentLoaded', init());    //ダウンロード時に初期化する
 </script>
